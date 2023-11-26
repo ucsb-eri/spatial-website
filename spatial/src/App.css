@@ -28,11 +28,50 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.avenir-light {
+  font-family:Avenir, "Century Gothic", sans-serif; 
+  font-weight:100; 
+  font-style:normal;
 }
+
+.avenir-black-oblique {
+  font-family:Avenir, "Century Gothic", sans-serif; 
+  font-weight:600; 
+  font-style:italic; 
+}
+
+.produkt-thin {
+  font-family:Produkt, serif; 
+  font-weight:100; 
+  font-style:normal;
+}
+
+h1 { 
+  font-family: Avenir, 
+  "Century Gothic", sans-serif; 
+  font-weight: 600; 
+  font-size: 38px; 
+  letter-spacing: -0.1pt; 
+}
+ 
+
+h2 { 
+  font-family: Avenir, 
+  "Century Gothic", sans-serif; 
+  font-weight: 600; 
+  font-size: 27px; 
+  letter-spacing: -0.1pt; 
+  margin: 26px 0 10px 0; }
+ 
+
+h3 { font-family: Avenir, "Century Gothic", sans-serif; font-weight: 600; font-size: 21px; margin: 20px 0 10px 0; }
+ 
+
+h4 { font-family: Avenir, "Century Gothic", sans-serif; font-weight: 600; font-size: 16px; margin: 16px 0 8px 0; }
+ 
+
+h5 { font-family: Avenir, "Century Gothic", sans-serif; font-weight: 600; font-size: 12px; text-transform: uppercase; }
+ 
+
+h6 { font-family: Avenir, "Century Gothic", sans-serif; font-weight: 400; font-size: 12px; text-transform: uppercase; }
+ 

@@ -1,28 +1,20 @@
 import * as React from 'react';
-import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Header from './Header';
 import MainFeaturedPost from './MainFeaturedPost';
 import FeaturedPost from './FeaturedPost';
-import Main from './Main';
-import Sidebar from './Sidebar';
 import SpatialDescription from './SpatialDescription'
 import Footer from './Footer';
-import post1 from './blog-post.1.md';
-import post2 from './blog-post.2.md';
-import post3 from './blog-post.3.md';
+import NavTabs from './NavTabs';
+
 
 const sections = [
-  { title: 'Research', url: '#' },
-  { title: 'Projects', url: '#' },
-  { title: 'Groups', url: '#' },
-  { title: 'People', url: '#' },
-  { title: 'History', url: '#' },
+  { title: 'About', url: '#', value: 'one' },
+  { title: 'Research', url: '#', value: 'two' },
+  { title: 'Groups', url: '#', value: 'three' },
+  { title: 'People', url: '#', value: 'four' },
+  { title: 'History', url: '#', value: 'five' },
   // { title: 'Politics', url: '#' },
   // { title: 'Opinion', url: '#' },
   // { title: 'Science', url: '#' },
@@ -65,9 +57,11 @@ export default function Blog() {
   return (
       <Container maxWidth="lg">
         <Container maxWidth="lg">
-          <Header title="Center for Spatial Studies" sections={sections} />
+          <Header title="Center for Spatial Studies & Data Science" />
+          <NavTabs sections={sections}/>
           <main>
             <MainFeaturedPost post={mainFeaturedPost} />
+           
             <Grid container spacing={4}>
             {featuredPosts.map((post) => (
                 <FeaturedPost key={post.title} post={post} />

@@ -42,7 +42,11 @@ function EventsTable() {
                   key={event.name}
                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
-                    <TableCell>{event.date}</TableCell>
+                    <TableCell>
+                        <Typography paragraph align="center">
+                        {event.date}
+                        </Typography>
+                    </TableCell>
                     <TableCell>
                         <Typography paragraph align="center" variant="h6">
                             {event.name}

@@ -4,19 +4,16 @@ import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid'
-import IconButton from '@mui/material/IconButton';
-import SearchIcon from '@mui/icons-material/Search';
 import Typography from '@mui/material/Typography';
-import Link from '@mui/material/Link';
 import ucsbLogo from '../ucsb.png'
 
 function Header(props) {
-  const { sections, title } = props;
+  const { title } = props;
   const containerStyle = {
     marginTop: '10px', 
     marginBottom: '10px',// Adjust the spacing as needed
   };
-
+  
   return (
     <React.Fragment>
       <Toolbar sx={{ borderBottom: 1, borderColor: 'divider', marginTop: '5px', marginBottom: '5px' }} align='center'>
@@ -42,7 +39,7 @@ function Header(props) {
                 variant="h3"
                 color="inherit"
                 align="left"
-                sx={{ flex: 1 }}
+                sx={{ flex: 1, marginTop: 1 }}
                 className="produkt-thin"
               >
                 {title}
@@ -51,25 +48,7 @@ function Header(props) {
         </Grid>
    
       </Toolbar>
-      <Toolbar
-        component="nav"
-        variant="dense"
-        sx={{ justifyContent: 'space-between', overflowX: 'auto' }}
-      >
-        
-        {sections.map((section) => (
-          <Link
-            color="inherit"
-            noWrap
-            key={section.title}
-            variant="body2"
-            href={section.url}
-            sx={{ p: 1, flexShrink: 0 }}
-          >
-            {section.title}
-          </Link>
-        ))}
-      </Toolbar>
+
     </React.Fragment>
   );
 }

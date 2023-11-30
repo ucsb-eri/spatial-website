@@ -5,26 +5,27 @@ import Header from './Header';
 import MainFeaturedPost from './MainFeaturedPost';
 import FeaturedPost from './FeaturedPost';
 import SpatialDescription from './SpatialDescription'
-import Footer from './Footer';
+
 import NavTabs from './NavTabs';
+import { Typography } from '@mui/material';
 
 
-const sections = [
-  { title: 'About', url: '#', value: 'one' },
-  { title: 'Research', url: '#', value: 'two' },
-  { title: 'Groups', url: '#', value: 'three' },
-  { title: 'People', url: '#', value: 'four' },
-  { title: 'History', url: '#', value: 'five' },
-  // { title: 'Politics', url: '#' },
-  // { title: 'Opinion', url: '#' },
-  // { title: 'Science', url: '#' },
-  // { title: 'Health', url: '#' },
-  // { title: 'Style', url: '#' },
-  // { title: 'Travel', url: '#' },
-];
+// const sections = [
+//   { title: 'About', url: '#', value: 'one' },
+//   { title: 'Research', url: '#', value: 'two' },
+//   { title: 'Groups', url: '#', value: 'three' },
+//   { title: 'People', url: '#', value: 'four' },
+//   { title: 'History', url: '#', value: 'five' },
+//   // { title: 'Politics', url: '#' },
+//   // { title: 'Opinion', url: '#' },
+//   // { title: 'Science', url: '#' },
+//   // { title: 'Health', url: '#' },
+//   // { title: 'Style', url: '#' },
+//   // { title: 'Travel', url: '#' },
+// ];
 
 const mainFeaturedPost = {
-  title: 'Center for Spatial Studies',
+  title: '@ Spatial Center',
   description:
     "Spatial Center one liner description",
   image: 'https://source.unsplash.com/random?wallpapers',
@@ -53,12 +54,9 @@ const featuredPosts = [
 
 
 
-export default function Blog() {
+export default function About() {
   return (
       <Container maxWidth="lg">
-        <Container maxWidth="lg">
-          <Header title="Center for Spatial Studies & Data Science" />
-          <NavTabs sections={sections}/>
           <main>
             <MainFeaturedPost post={mainFeaturedPost} />
            
@@ -68,15 +66,9 @@ export default function Blog() {
               ))}
             </Grid>
           </main>
-        </Container>
-        <Container maxWidth='lg'>
+        
           {/* center description + goals or whatever + events calender */}
           <SpatialDescription></SpatialDescription>
-        </Container>
-        <Footer
-          title="Footer"
-          description="Something here to give the footer a purpose!"
-        />
       </Container>
         
 

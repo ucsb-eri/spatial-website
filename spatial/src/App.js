@@ -1,5 +1,5 @@
 import './App.css';
-import Home from './templates/Home'
+import Main from './templates/Main'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
   return (
     <ThemeProvider theme={THEME}>
       <div className="App">
-        <Home />
+        <Main />
       </div>
     </ThemeProvider>
     

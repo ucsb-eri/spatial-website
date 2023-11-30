@@ -36,7 +36,7 @@ function Header(props) {
           <Grid item xs={12} md={6}>
               <Typography
                 component="h1"
-                variant="h3"
+                variant="h4"
                 color="inherit"
                 align="left"
                 sx={{ flex: 1, marginTop: 1 }}

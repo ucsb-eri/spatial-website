@@ -16,6 +16,7 @@ function MainFeaturedPost(props) {
         backgroundColor: 'grey.800',
         color: '#fff',
         mb: 4,
+        minHeight: '30vh',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
@@ -43,10 +44,10 @@ function MainFeaturedPost(props) {
               pr: { md: 0 },
             }}
           >
-            <Typography component="h1" variant="h3" color="inherit" gutterBottom>
+            <Typography component="h1" variant="h3" color="inherit" align='left'>
               {post.title}
             </Typography>
-            <Typography variant="h5" color="inherit" paragraph>
+            <Typography variant="h5" color="inherit" paragraph align='left' marginTop='20px'>
               {post.description}
             </Typography>
             {/* <Link variant="subtitle1" href="#">

@@ -41,10 +41,10 @@ function Main(props) {
   const handlePageChange = (page) => setCurrentPage(page);
   const sections = [
       { title: 'About', url: '#', value: 'one' },
-      { title: 'Research', url: '#', value: 'two' },
-      { title: 'Groups', url: '#', value: 'three' },
-      { title: 'People', url: '#', value: 'four' },
-      { title: 'History', url: '#', value: 'five' },
+      { title: 'People', url: '#', value: 'two' },
+      { title: 'Research', url: '#', value: 'three' },
+      { title: 'History', url: '#', value: 'four' },
+      { title: 'Recharge Center', url: '#', value: 'five' },
   ]
   return (
   

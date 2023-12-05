@@ -10,14 +10,16 @@ import Grid from '@mui/material/Grid';
 
 function PersonCard(props) {
 
-    const {details} = props
+    const {details, renderPerson} = props
     console.log(details)
     const titles = details.titles
     console.log(titles)
 
+    
+
     return (
         <Grid item>
-            <CardActionArea component="a" href="#">
+            <CardActionArea onClick={() => {renderPerson(details)}}>
                 <Card sx={{ maxWidth: 250 }}>
                     <CardMedia
                         component="img"

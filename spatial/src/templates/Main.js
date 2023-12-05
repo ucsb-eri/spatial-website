@@ -48,9 +48,12 @@ function Main(props) {
   ]
   return (
   
-    <Container>
-      <Header title={"Center for Spatial Studies and Data Science"} />
-      <NavTabs sections = {sections} handlePageChange={handlePageChange} />
+    <Container sx={{display: 'flex', flexDirection:'column', minHeight: '100vh', justifyContent: 'space-between'}}>
+      <Container maxWidth={100}>
+        <Header title={"Center for Spatial Studies and Data Science"} />
+        <NavTabs sections = {sections} handlePageChange={handlePageChange} />
+      </Container>
+      
       {renderPage()}
       <Footer
           title="Footer"

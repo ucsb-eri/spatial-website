@@ -14,11 +14,6 @@ function NavTabs(props) {
       setValue(newValue);
   };
 
-  // 
-  useEffect(() => {
-    handlePageChange('About')
-    
-  }, [])
   return (
       <React.Fragment>
           <Toolbar

@@ -30,7 +30,7 @@ function Header(props) {
               src={ucsbLogo}
             />
 
-            <Button variant="outlined" size="small">Subscribe</Button>
+            <Button variant="outlined" size="small">Donate</Button>
        
           </Grid>
           <Grid item xs={12} md={6}>

@@ -5,6 +5,7 @@ import About from './About';
 import NavTabs from './NavTabs';
 import Footer from './Footer';
 import People from './People';
+import Research from './Research';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
@@ -21,7 +22,7 @@ function Main(props) {
     }
 
     if (currentPage === 'Research') {
-      return <About />;
+      return <Research />;
     }
 
     if (currentPage === 'Groups') {

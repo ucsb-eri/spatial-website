@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import PersonCard from './PersonCard'
-import PersonBio from './PersonBio';
+import PersonCard from '../components/PersonCard'
+import PersonBio from '../components/PersonBio';
 import { Typography, Toolbar } from '@mui/material';
 import { makeStyles } from '@mui/material';
 

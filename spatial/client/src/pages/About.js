@@ -1,12 +1,12 @@
 import * as React from 'react';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
-import Header from './Header';
-import MainFeaturedPost from './MainFeaturedPost';
-import FeaturedPost from './FeaturedPost';
-import SpatialDescription from './SpatialDescription'
+import Header from '../components/Header';
+import MainFeaturedPost from '../components/MainFeaturedPost';
+import FeaturedPost from '../components/FeaturedPost';
+import SpatialDescription from '../components/SpatialDescription'
 
-import NavTabs from './NavTabs';
+import NavTabs from '../components/navTabs';
 import { Typography } from '@mui/material';
 
 

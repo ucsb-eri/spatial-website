@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Container from '@mui/material/Container';
 import Header from './Header';
-import About from './About';
+import About from '../pages/About';
 import NavTabs from './NavTabs';
 import Footer from './Footer';
 import People from './People';

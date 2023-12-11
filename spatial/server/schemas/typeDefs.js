@@ -20,6 +20,7 @@ const typeDefs = gql`
     phone: String
     gscholar: String
     website: WebsiteInfo
+    advisors: [String]
   }
 
   scalar Date

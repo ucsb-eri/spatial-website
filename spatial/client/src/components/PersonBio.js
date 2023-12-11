@@ -18,9 +18,6 @@ function PersonBio(props) {
 
     const {details, backToCards} = props
     console.log(details)
-    console.log(backToCards)
-    
-
     return (
         <Container maxWidth={100}>
             <Grid item align="left">
@@ -44,19 +41,6 @@ function PersonBio(props) {
 
                     <Grid container direction="row" rowGap="40px" columnGap={6} justifyContent="center" alignItems="top" minHeight="400px" >
                         
-                        <Grid item justifyContent="center" alignItems="center" align="center">
-                            {/* person's pic */}
-                            <Card sx={{ width: 300 }}>
-                                <CardMedia
-                                    component="img"
-                                    alt="green iguana"
-                                    height="400"
-                                    src= {details.image}
-                                    align="center"
-                                />
-                            </Card>
-                        </Grid>
-                        
                         {/* Bio */}
                         <Grid 
                             item 
@@ -71,8 +55,8 @@ function PersonBio(props) {
                                     }
                                 }} 
                         >
-                            <Typography component= "h2" variant="h4" align="left" mb={2}>{details.name}</Typography>
-                            <Typography component= "h2" variant="h6" align="left" mb={1}>{details.titles}</Typography>
+                            <Typography component= "h2" variant="h4" align="left" mb={2}>{details.firstName} {details.lastName}</Typography>
+                            <Typography component= "h2" variant="h6" align="left" mb={1}>{details.title}</Typography>
                             
                             <Typography align="left" paragraph>
                                 The Center for Spatial Studies focuses on promoting spatial thinking and spatial analytics across academia, industry, and government agencies, and across disciplines ranging from the humanities to the physical sciences with a particular focus on novel Spatial Data Science methods and Knowledge Graphs.
@@ -82,6 +66,19 @@ function PersonBio(props) {
                             </Typography>
                             
 
+                        </Grid>
+
+                        <Grid item justifyContent="center" alignItems="center" align="center">
+                            {/* person's pic */}
+                            <Card sx={{ width: 300 }}>
+                                <CardMedia
+                                    component="img"
+                                    alt="green iguana"
+                                    height="400"
+                                    src= {details.image}
+                                    align="center"
+                                />
+                            </Card>
                         </Grid>
                     </Grid>
                     
@@ -102,33 +99,34 @@ function PersonBio(props) {
                                     <MailIcon />
                                 </Avatar>
                                 <Typography  sx={{ paddingLeft: "15px", paddingRight: "15px",  whiteSpace: 'nowrap'}}>
-                                    tnelson@gmail.com
+                                    {details.email}
                                 </Typography>
                             </Box>
-                            <Box sx={{display:"flex", flexDirection: "row", flexWrap: "nowrap", alignItems: "center", marginBottom:'20px'}}>
+                            {details.location !== null && (<Box sx={{display:"flex", flexDirection: "row", flexWrap: "nowrap", alignItems: "center", marginBottom:'20px'}}>
                                 <Avatar>
                                     <WorkIcon />
                                 </Avatar>
                                 <Typography  sx={{ paddingLeft: "15px", paddingRight: "15px",  whiteSpace: 'nowrap'}}>
-                                1111 Elison Hall
+                                {details.location}
                                 </Typography>
-                            </Box>
-                            <Box sx={{display:"flex", flexDirection: "row", flexWrap: "nowrap", alignItems: "center", marginBottom:'20px'}}>
+                            </Box>)}
+                            {details.phone !== null && (<Box sx={{display:"flex", flexDirection: "row", flexWrap: "nowrap", alignItems: "center", marginBottom:'20px'}}>
                                 <Avatar>
                                     <PhoneIcon />
                                 </Avatar>
                                 <Typography sx={{ paddingLeft: "15px", paddingRight: "15px",  whiteSpace: 'nowrap'}}>
-                                    805-444-4444
+                                    {details.phone}
                                 </Typography>
-                            </Box>
-                            <Box sx={{display:"flex", flexDirection: "row", flexWrap: "nowrap", alignItems: "center", marginBottom:'20px'}}>
+                            </Box>)}
+                            
+                            {details.website !== null && (<Box sx={{display:"flex", flexDirection: "row", flexWrap: "nowrap", alignItems: "center", marginBottom:'20px'}}>
                                 <Avatar>
                                     <WebsiteIcon />
                                 </Avatar>
                                 <Typography sx={{ paddingLeft: "15px", paddingRight: "15px",  whiteSpace: 'nowrap'}}>
                                     805-444-4444
                                 </Typography>
-                            </Box>
+                            </Box>)}
                             
                         </Grid>
                             

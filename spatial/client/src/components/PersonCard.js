@@ -12,8 +12,8 @@ function PersonCard(props) {
 
     const {details, renderPerson} = props
     console.log(details)
-    const titles = details.titles
-    console.log(titles)
+    const title = details.title
+    console.log(title)
 
     
 
@@ -29,14 +29,17 @@ function PersonCard(props) {
                     />
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div">
-                        {details.name}
+                        {details.firstName} {details.lastName}
                         </Typography>
-                        {titles.map((title) => (
+                        <Typography variant="body2" color="text.secondary">
+                                {title}
+                        </Typography>
+                        {/* {title.map((title) => (
                             <Typography variant="body2" color="text.secondary">
                                 {title}
-                            </Typography>
+                            </Typography> */}
 
-                        ))}
+                        {/* ))} */}
                         
                     </CardContent>
                     {/* <CardActions>

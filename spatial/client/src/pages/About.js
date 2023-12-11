@@ -6,10 +6,6 @@ import MainFeaturedPost from '../components/MainFeaturedPost';
 import FeaturedPost from '../components/FeaturedPost';
 import SpatialDescription from '../components/SpatialDescription'
 
-import NavTabs from '../components/navTabs';
-import { Typography } from '@mui/material';
-
-
 // const sections = [
 //   { title: 'About', url: '#', value: 'one' },
 //   { title: 'Research', url: '#', value: 'two' },

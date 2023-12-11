@@ -83,6 +83,12 @@ const peopleSchema = new Schema({
         'Must be a valid URL format (e.g., http://example.com)',
       ],
     },
+  },
+  advisors: {
+    type: [String],
+    required: false,
+    unique: false,
+    trim: true
   }
 });
 

@@ -6,6 +6,7 @@ import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
+import CreateProject from '../components/CreateProject';
 
 function Research() {
 
@@ -13,6 +14,7 @@ function Research() {
         <Container>
             <Typography>Groups..?</Typography>
             <Typography>Initiatives..?</Typography>
+            <CreateProject></CreateProject>
         </Container>
     )
 }

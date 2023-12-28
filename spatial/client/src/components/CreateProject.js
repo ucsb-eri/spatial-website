@@ -6,15 +6,33 @@ import Container from '@mui/material/Container';
 import '../../node_modules/draft-js/dist/Draft.css'
 import '../css/RichText.css'
 
-import { FormControl, Input, InputLabel, Button } from '@mui/material';
+import { FormGroup, FormControl, TextField, InputLabel, Button, Input } from '@mui/material';
+import { useMutation } from '@apollo/client';
+import { ADD_PROJECT } from '../utils/mutations';
 
 
 export default function CreateProject() {
 
     const [editorState, setEditorState] = useState(() => EditorState.createEmpty());
-    const addProject = () => {
+    const [name, setName] = useState(null)
+
+    const [addProject, {data, error}] = useMutation(ADD_PROJECT)
+
+    const handleAddProject = async () => {
         console.log(editorState)
+        const content = editorState.getCurrentContent()
+        const description = JSON.stringify(content)
+        console.log(description)
+        try {
+            const result = await addProject({
+                variables: {name, description}
+            })
+            console.log(result)
+        } catch (error) {
+            console.error(error)
+        }
     }
+
 
     // Styling
     
@@ -33,13 +51,21 @@ export default function CreateProject() {
 
     return (
         <Container >
-            <FormControl style={{width:"100%", height: "80%"}}>
-                <InputLabel htmlFor="my-input" style={formControlStyle}>Project Description</InputLabel>
-                <div style={richTextEditorStyle}>
-                    <RichTextEditor editorState = {editorState} setEditorState = {setEditorState}/>
-                </div>
-                <Button variant="contained" onClick={addProject}>Add Project</Button>
-            </FormControl>
+            <FormGroup>
+                <FormControl style={{width:"100%", height: "80%"}}>
+
+                    <TextField id="new-project-name" label="Project Name" variant="outlined" onChange={(e) => setName(e.target.value)}/>
+
+                </FormControl>
+                <FormControl style={{width:"100%", height: "80%"}}>
+                    <InputLabel htmlFor="my-input" style={formControlStyle}>Project Description</InputLabel>
+                    <div style={richTextEditorStyle}>
+                        <RichTextEditor editorState = {editorState} setEditorState = {setEditorState}/>
+                    </div>
+                    <Button variant="contained" onClick={handleAddProject}>Add Project</Button>
+                </FormControl>
+            </FormGroup>
+            
             
         </Container>
         

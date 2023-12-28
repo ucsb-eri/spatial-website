@@ -9,25 +9,24 @@ const projectSchema = new Schema({
   },
   startDate: {
     type: Date,
-    required: true,
-    unique: true,
+    required: false,
+    unique: false,
     trim: true,
   },
   endDate: {
     type: Date,
     required: false,
-    unique: true,
+    unique: false,
     trim: true,
   },
   description: {
     type: String,
     required: true,
     minlength: [50, 'Description must be at least 50 characters'],
-    maxlength: [500, 'Description cannot exceed 500 characters'],
   },
   image: {
     type: String, // will store this on locally in an uploads folder
-    required: true,
+    required: false,
     unique: false,
   },
   

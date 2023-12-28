@@ -21,7 +21,18 @@ export const QUERY_PEOPLE = gql`
                 }
         }
     }
+    
 `;
+
+export const QUERY_PROJECTS = gql`
+    query getProjects {
+        projects {
+        name
+        description
+        id
+        }
+    }
+`
 
 // export const QUERY_SINGLE_PROFILE = gql`
 //   query singleProfile($profileId: ID!) {

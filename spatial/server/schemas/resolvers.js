@@ -22,6 +22,17 @@ const resolvers = {
     // },
   },
 
+  Mutation: {
+    addProject: async (parent, {name, description}) => {
+      const project = await Projects.create({name, description})
+      return project
+    },
+    deleteProject: async (parent, {id}) => {
+      const deletedProject = await Projects.deleteOne({_id: id})
+      const projects = await Projects.find()
+      return projects
+    }
+  }
   // Mutation: {
   //   addProfile: async (parent, { name, email, password }) => {
   //     const profile = await Profile.create({ name, email, password });

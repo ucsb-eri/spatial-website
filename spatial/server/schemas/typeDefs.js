@@ -26,6 +26,7 @@ const typeDefs = gql`
   scalar Date
 
   type Projects {
+    id: ID
     name: String
     startDate: Date
     endDate: Date
@@ -37,6 +38,11 @@ const typeDefs = gql`
   type Query {
     people: [People]!
     projects: [Projects]!
+  }
+
+  type Mutation {
+    addProject(name: String!, description: String!): Projects!
+    deleteProject(id: ID!): [Projects]!
   }
 `;
 

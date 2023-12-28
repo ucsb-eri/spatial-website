@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import RichTextEditor from './RichTextEditor';
 import {EditorState} from 'draft-js'
+import {stateToHTML} from 'draft-js-export-html'
 import Container from '@mui/material/Container';
 import '../../node_modules/draft-js/dist/Draft.css'
 import '../css/RichText.css'
@@ -20,8 +21,7 @@ export default function CreateProject() {
 
     const handleAddProject = async () => {
         console.log(editorState)
-        const content = editorState.getCurrentContent()
-        const description = JSON.stringify(content)
+        const description = stateToHTML(editorState.getCurrentContent())
         console.log(description)
         try {
             const result = await addProject({

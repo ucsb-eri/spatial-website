@@ -24,7 +24,7 @@ export const QUERY_PEOPLE = gql`
     
 `;
 
-export const QUERY_PROJECTS = gql`
+export const GET_PROJECTS = gql`
     query getProjects {
         projects {
         name

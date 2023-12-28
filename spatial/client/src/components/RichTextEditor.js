@@ -89,26 +89,7 @@ const RichTextEditor = (props) => {
             {label: 'H5', style: 'header-five'},
             {label: 'H6', style: 'header-six'},
             {label: 'Blockquote', style: 'blockquote'},
-            {label: 'UL', style: 'unordered-list-item'},
-            {label: 'OL', style: 'ordered-list-item'},
-            {label: 'Code Block', style: 'code-block'},
             ];
-
-    // const InlineStyleControls = (props) => {
-    // const currentStyle = props.editorState.getCurrentInlineStyle();
-    // return (
-                // <div className="RichEditor-controls">
-                // {INLINE_STYLES.map((type) =>
-                //     <StyleButton
-                //     key={type.label}
-                //     active={currentStyle.has(type.style)}
-                //     label={type.label}
-                //     onToggle={props.onToggle}
-                //     style={type.style}
-                //     />
-                // )}
-                // </div>
-        //     );
 
 
   return (

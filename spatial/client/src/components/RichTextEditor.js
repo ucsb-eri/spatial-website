@@ -28,10 +28,11 @@ class StyleButton extends React.Component {
 const RichTextEditor = (props) => {
   const {editorState, setEditorState} = props;
   const editorRef = useRef(null);
+  console.log(editorState)
 
-//   useEffect(() => {
-//     setEditorState(EditorState.createWithContent(editorState.getCurrentContent()));
-//   }, [editorState]);
+  // useEffect(() => {
+  //   setEditorState(EditorState.createWithContent(editorState.getCurrentContent()));
+  // }, [editorState]);
 
   const handleKeyCommand = (command) => {
     const newState = RichUtils.handleKeyCommand(editorState, command);

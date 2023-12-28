@@ -27,6 +27,14 @@ const resolvers = {
       const project = await Projects.create({name, description})
       return project
     },
+    editProject: async (parent, {id, name, description}) => {
+      const updateProject = await Projects.findByIdAndUpdate(
+        {_id: id},
+        {name, description},
+        {new: true}
+        )
+      return updateProject
+    },
     deleteProject: async (parent, {id}) => {
       const deletedProject = await Projects.deleteOne({_id: id})
       const projects = await Projects.find()

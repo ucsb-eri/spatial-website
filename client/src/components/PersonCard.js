@@ -18,7 +18,7 @@ function PersonCard(props) {
     
 
     return (
-        <Grid item>
+        <Grid item style={{margin: "30px"}}>
             <CardActionArea onClick={() => {renderPerson(details)}}>
                 <Card sx={{ maxWidth: 250 }}>
                     <CardMedia

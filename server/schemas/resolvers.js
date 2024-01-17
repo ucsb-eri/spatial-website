@@ -23,14 +23,14 @@ const resolvers = {
   },
 
   Mutation: {
-    addProject: async (parent, {name, description}) => {
-      const project = await Projects.create({name, description})
+    addProject: async (parent, {name, description, image}) => {
+      const project = await Projects.create({name, description, image})
       return project
     },
-    editProject: async (parent, {id, name, description}) => {
+    editProject: async (parent, {id, name, description, image}) => {
       const updateProject = await Projects.findByIdAndUpdate(
         {_id: id},
-        {name, description},
+        {name, description, image},
         {new: true}
         )
       return updateProject

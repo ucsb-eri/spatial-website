@@ -29,6 +29,7 @@ export const GET_PROJECTS = gql`
         projects {
         name
         description
+        image
         id
         }
     }

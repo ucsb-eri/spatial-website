@@ -7,14 +7,26 @@ import { convertFromHTML } from 'draft-js';
 import Container from '@mui/material/Container';
 import 'draft-js/dist/Draft.css'
 import '../css/RichText.css'
+import axios from 'axios'
+
+
 
 import { FormGroup, FormControl, TextField, InputLabel, Button, Input } from '@mui/material';
 import { useMutation } from '@apollo/client';
 import { ADD_PROJECT, EDIT_PROJECT } from '../utils/mutations';
 import { useProjectContext } from './contexts/ProjectContext';
 
+
 export default function CreateProject(props) {
-    console.log(props.name)
+
+    let onSubmit
+    if (props.onSubmit) {
+        onSubmit = props.onSubmit
+    } else {
+        onSubmit = () => {
+            console.log("editted project")
+        }
+    }
     const {editProjectId, setEditProjectId} = useProjectContext()
 
     const createEditorState = () => {
@@ -40,20 +52,37 @@ export default function CreateProject(props) {
         }
     }
     const [name, setName] = useState(createNameState)
-    console.log(name)
+    const [image, setImage] = useState(null)
+
+    const handleImageUpload = async (image) => {
+       const formData = new FormData()
+        formData.append("image", image)
+        console.log(formData)
+      
+        try {
+        const result = await axios.post('http://localhost:3001/api/images', formData, { headers: {'Content-Type': 'multipart/form-data'}})
+      
+          
+          console.log(result);
+          return result
+        } catch (error) {
+          console.error('Error uploading image:', error);
+          return false
+        }
+      };
 
     const [addProject] = useMutation(ADD_PROJECT)
     const [editProject] = useMutation(EDIT_PROJECT)
+
+    
 
     let handleProject
     if (props.id) {
 
         handleProject = async () => {
             const id = props.id
-            console.log(id)
             const description = stateToHTML(editorState.getCurrentContent())
             try {
-                console.log(id, name, description)
                 const update = await editProject({
                     variables: {id, name, description}
                 })
@@ -62,18 +91,27 @@ export default function CreateProject(props) {
                 console.log(error)
             }
             setEditProjectId(null)
+            onSubmit()
         }
     } else {
         handleProject = async () => {
             const description = stateToHTML(editorState.getCurrentContent())
             try {
-                const result = await addProject({
-                    variables: {name, description}
-                })
-                console.log(result)
+                const imageSuccess = await handleImageUpload(image)
+                
+                if (imageSuccess) {
+                    const image = imageSuccess.data.imagePath
+                    const result = await addProject({
+                        variables: {name, description, image}
+                    })
+                    
+                }
+                
+                
             } catch (error) {
                 console.error(error)
             }
+            onSubmit()
         }
     }
 
@@ -96,16 +134,25 @@ export default function CreateProject(props) {
         <Container >
             <FormGroup>
                 <FormControl style={{width:"100%", height: "80%"}}>
-
                     <TextField id="new-project-name" label="Project Name" defaultValue={props.name} variant="outlined" onChange={(e) => setName(e.target.value)}/>
-
                 </FormControl>
                 <FormControl style={{width:"100%", height: "80%"}}>
                     <InputLabel htmlFor="my-input" style={formControlStyle}>Project Description</InputLabel>
                     <div style={richTextEditorStyle}>
                         <RichTextEditor editorState = {editorState} setEditorState = {setEditorState}/>
                     </div>
-                    
+                </FormControl>
+                <FormControl style={{width:"100%", height: "80%"}}>
+                    <Input
+                        accept="image/*"
+                        id="contained-button-file"
+                        type="file"
+                        filename={image}
+                        onChange={(e) => {
+                            console.log(e.target.files)
+                            setImage(e.target.files[0])}}
+                         
+                        />
                 </FormControl>
                 
             </FormGroup>

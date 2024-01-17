@@ -2,11 +2,10 @@ import * as React from 'react';
 import {useState} from 'react'
 import DOMPurify from 'dompurify'
 
-import {Container, Grid, Typography} from '@mui/material';
+import {Container, Grid, Typography, Button} from '@mui/material';
 import CreateProject from './CreateProject';
 import { useProjectContext } from './contexts/ProjectContext';
 
-import {Button} from '@mui/material';
 import { useQuery } from '@apollo/client';
 import { GET_PROJECTS } from '../utils/queries';
 
@@ -19,6 +18,7 @@ export default function ProjectDescriptions() {
     if (loading) return <p>loading...</p>
     if (error) return <p>Error: {error.message}</p>
     const projects = data.projects
+    console.log(projects)
     if (projects.length === 0) {
         return <p>no projects!</p>
     }
@@ -34,6 +34,7 @@ export default function ProjectDescriptions() {
                             <div>
                                 <Typography align="left" mb={2} variant='h5'>{project.name}</Typography>
                                 <Typography align="left"><div dangerouslySetInnerHTML={{__html: project.description}} /></Typography>
+
                                 <Button variant='contained' style={{maxWidth: 50}} onClick={() => {setEditProjectId(project.id)}}>Edit</Button>
                             </div>
                             

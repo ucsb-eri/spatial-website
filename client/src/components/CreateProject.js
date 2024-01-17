@@ -101,6 +101,7 @@ export default function CreateProject(props) {
                 
                 if (imageSuccess) {
                     const image = imageSuccess.data.imagePath
+                    console.log(image)
                     const result = await addProject({
                         variables: {name, description, image}
                     })

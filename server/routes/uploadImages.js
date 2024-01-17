@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
+const path = require('path')
 
 
 const upload = multer({ dest: 'uploads/images' });
@@ -19,5 +20,22 @@ router.post('/images', upload.single('image'), (req, res) => {
     res.status(500).json({ message: 'Internal server error' });
   }
 });
+
+// Define the route to serve images
+router.get('/images/:filename', (req, res) => {
+  try {
+    // const filename = req.params.filename;
+    const filename = "5eabf8274acd3962e32b599080fbecd4"
+  console.log(filename)
+  const imagePath = path.join(__dirname, '../uploads/images', filename);
+  console.log(imagePath)
+  // Send the image file
+  res.sendFile(imagePath);
+  } catch (error) {
+    console.error(error)
+  }
+  
+});
+
 
 module.exports = router;

@@ -2,7 +2,7 @@ import * as React from 'react';
 import {useState} from 'react'
 import DOMPurify from 'dompurify'
 
-import {Container, Grid, Typography, Button} from '@mui/material';
+import {Container, Grid, Typography, Button, Card, CardMedia} from '@mui/material';
 import CreateProject from './CreateProject';
 import { useProjectContext } from './contexts/ProjectContext';
 
@@ -34,7 +34,18 @@ export default function ProjectDescriptions() {
                             <div>
                                 <Typography align="left" mb={2} variant='h5'>{project.name}</Typography>
                                 <Typography align="left"><div dangerouslySetInnerHTML={{__html: project.description}} /></Typography>
-
+                                <Grid item justifyContent="center" alignItems="center" align="center">
+                                    {/* person's pic */}
+                                    <Card sx={{ width: 300 }}>
+                                        <CardMedia
+                                            component="img"
+                                            alt="green iguana"
+                                            height="400"
+                                            src= {`http://localhost:3001/api/images/${project.image}`}
+                                            align="center"
+                                        />
+                                    </Card>
+                                </Grid>
                                 <Button variant='contained' style={{maxWidth: 50}} onClick={() => {setEditProjectId(project.id)}}>Edit</Button>
                             </div>
                             

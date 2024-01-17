@@ -41,7 +41,7 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addProject(name: String!, description: String!): Projects!
+    addProject(name: String!, description: String!, image: String): Projects!
     editProject(id: ID, name: String, description: String): Projects!
     deleteProject(id: ID!): [Projects]!
   }

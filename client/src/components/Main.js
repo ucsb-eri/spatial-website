@@ -30,9 +30,9 @@ function Main(props) {
       return <People />;
     }
 
-    if (currentPage === 'History') {
-      return <About />;
-    }
+    // if (currentPage === 'History') {
+    //   return <About />;
+    // }
 
   };
   

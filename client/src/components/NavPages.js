@@ -36,6 +36,7 @@ function NavPages(props) {
             onClick={() => handlePageChange(section.title)}
             value={section.value}
             label={section.title}
+            key={section.title}
           >
           </Tab>
         ))}

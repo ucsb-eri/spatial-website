@@ -1,11 +1,6 @@
 import {React, useState} from 'react';
-import Container from '@mui/material/Container';
-import Box from '@mui/material/Box'
-import Typography from '@mui/material/Typography'
-import Card from '@mui/material/Card';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Grid from '@mui/material/Grid';
+import {Container, Toolbar, Typography, Button} from '@mui/material';
+
 import { ProjectProvider } from '../components/contexts/ProjectContext';
 import ProjectDescriptions from '../components/ProjectDescriptions';
 import CreateProject from '../components/CreateProject';
@@ -16,7 +11,12 @@ function Research() {
     return (
         <Container>
             <ProjectProvider>
-            
+
+                <Toolbar sx={{ marginTop: '5px', marginBottom: '5px' }} align='center'>
+                        <Typography variant='h5' align='left' marginTop="30px" marginBottom="30px" paddingBottom="5px" borderBottom={1} borderColor="divider">
+                        Projects & Initiatives
+                        </Typography>
+                    </Toolbar>
                 {newProject ? (
                     <CreateProject onSubmit={backToProjects}/>
                 ) : (

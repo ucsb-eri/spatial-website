@@ -2,7 +2,7 @@ import * as React from 'react';
 import {useState} from 'react'
 import DOMPurify from 'dompurify'
 
-import {Container, Grid, Typography, Button, Card, CardMedia} from '@mui/material';
+import {Container, Grid, Typography, Button, Card, CardMedia, Toolbar} from '@mui/material';
 import CreateProject from './CreateProject';
 import { useProjectContext } from './contexts/ProjectContext';
 
@@ -15,38 +15,41 @@ export default function ProjectDescriptions() {
     const {editProjectId, setEditProjectId} = useProjectContext()
 
 
-    if (loading) return <p>loading...</p>
-    if (error) return <p>Error: {error.message}</p>
+    if (loading) return <div>loading...</div>
+    if (error) return <div>Error: {error.message}</div>
     const projects = data.projects
     console.log(projects)
     if (projects.length === 0) {
-        return <p>no projects!</p>
+        return <div>no projects!</div>
     }
 
     return (
         <Container>
-            <Typography align='left' variant='h6'>Projects</Typography>
+
             <Grid container direction="column">
                 {projects.map((project) => (
                     
                         <Grid container key={project.id} direction="column" style={{marginBottom: 50, padding: 20}}>
                         {project.id !== editProjectId ? (
                             <div>
-                                <Typography align="left" mb={2} variant='h5'>{project.name}</Typography>
-                                <Typography align="left"><div dangerouslySetInnerHTML={{__html: project.description}} /></Typography>
-                                <Grid item justifyContent="center" alignItems="center" align="center">
+                                <Grid item justifyContent="center" alignItems="center" align="center" style={{marginBottom: 50}}>
                                     {/* person's pic */}
-                                    <Card sx={{ width: 300 }}>
+                                    <Card sx={{ width: '100%' }}>
                                         <CardMedia
                                             component="img"
                                             alt="green iguana"
                                             height="400"
-                                            src= {`http://localhost:3001/api/images/${project.image}`}
+                                            src= {'https://source.unsplash.com/random?wallpapers'}
                                             align="center"
                                         />
                                     </Card>
                                 </Grid>
+                                <Typography align="left" mb={2} variant='h5'>{project.name}</Typography>
+                                <Typography align="left"><div dangerouslySetInnerHTML={{__html: project.description}} /></Typography>
+                                
                                 <Button variant='contained' style={{maxWidth: 50}} onClick={() => {setEditProjectId(project.id)}}>Edit</Button>
+                                <Toolbar sx={{ borderBottom: 1, borderColor: 'divider', marginTop: '5px', marginBottom: '5px' }} align='center'></Toolbar>
+                            
                             </div>
                             
                             ):(

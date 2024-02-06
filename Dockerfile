@@ -3,27 +3,28 @@ FROM node:20 AS builder
 
 WORKDIR /app
 
-# Install server dependencies
+# Install dependencies for both server and client
 COPY server/package*.json ./server/
-RUN cd server && npm install
-
-# Install client dependencies
 COPY client/package*.json ./client/
-RUN cd client && npm install
+
+RUN npm install --prefix server
+RUN npm install --prefix client
 
 # Build client app
 COPY client/ ./client/
-RUN cd client && npm run build
+RUN npm run build --prefix client
 
-# Copy server files and built client app
+# Copy server files
 COPY server/ ./server/
-COPY --from=builder /app/client/build /app/server/public
 
-# Stage 2: Setup with Nginx or just run Node.js server
+# Stage 2: Setup the final image
 FROM node:20
 
 WORKDIR /app
-COPY --from=builder /app .
+
+# Copy built assets from the builder stage
+COPY --from=builder /app/server /app/server
+COPY --from=builder /app/client/build /app/server/public
 
 EXPOSE 3000
 CMD ["node", "server/server.js"]

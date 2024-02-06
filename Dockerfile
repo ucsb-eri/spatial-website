@@ -20,7 +20,7 @@ COPY server/ ./server/
 COPY --from=builder /app/client/build /app/server/public
 
 # Stage 2: Setup with Nginx or just run Node.js server
-FROM node:14
+FROM node
 
 WORKDIR /app
 COPY --from=builder /app .

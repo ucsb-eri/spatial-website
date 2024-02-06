@@ -1,13 +1,29 @@
-# Stage 1: Build the Node.js app
+# Stage 1: Build the app
 FROM node:14 AS builder
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY . .
-RUN npm run build
 
-# Stage 2: Serve the app with Nginx
-FROM nginx:alpine
-COPY --from=builder /app/build /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+WORKDIR /app
+
+# Install server dependencies
+COPY server/package*.json ./server/
+RUN cd server && npm install
+
+# Install client dependencies
+COPY client/package*.json ./client/
+RUN cd client && npm install
+
+# Build client app
+COPY client/ ./client/
+RUN cd client && npm run build
+
+# Copy server files and built client app
+COPY server/ ./server/
+COPY --from=builder /app/client/build /app/server/public
+
+# Stage 2: Setup with Nginx or just run Node.js server
+FROM node:14
+
+WORKDIR /app
+COPY --from=builder /app .
+
+EXPOSE 3000
+CMD ["node", "server/server.js"]

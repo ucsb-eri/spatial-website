@@ -22,7 +22,6 @@ jobs:
     - name: Cache Node.js modules
       uses: actions/cache@v2
       with:
-        # Define path to cache
         path: |
           ~/.npm
           **/node_modules

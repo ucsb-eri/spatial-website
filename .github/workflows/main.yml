@@ -26,7 +26,7 @@ jobs:
           ~/.npm
           **/node_modules
         # Define key for cache
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}-v2
         # Define restore keys to find the cache in case of a partial match
         restore-keys: |
           ${{ runner.os }}-node-

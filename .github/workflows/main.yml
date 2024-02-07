@@ -19,6 +19,19 @@ jobs:
       with:
         node-version: '20'
 
+    - name: Cache Node.js modules
+      uses: actions/cache@v2
+      with:
+        # Define path to cache
+        path: |
+          ~/.npm
+          **/node_modules
+        # Define key for cache
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        # Define restore keys to find the cache in case of a partial match
+        restore-keys: |
+          ${{ runner.os }}-node-
+
     - name: Install Dependencies
       run: npm install
 
@@ -38,4 +51,8 @@ jobs:
         git config --global user.name "GitHub Actions"
         git remote add dokku dokku@grit-web02.grit.ucsb.edu:spatial || git remote set-url dokku dokku@grit-web02.grit.ucsb.edu:spatial
         git push dokku +main
+        echo "::set-output name=deployment_summary::Deployment to Dokku was successful."
       working-directory: ./
+
+    - name: Echo deployment summary
+      run: echo "${{ steps.deploy.outputs.deployment_summary }}"

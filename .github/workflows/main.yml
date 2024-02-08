@@ -43,15 +43,25 @@ jobs:
         echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
         ssh-keyscan -p 22 grit-web02.grit.ucsb.edu >> ~/.ssh/known_hosts
-
+    - name: Deployment Start Time
+      run: echo "DEPLOY_START_TIME=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> $GITHUB_ENV
+  
     - name: Deploy to Dokku
       run: |
+        DEPLOY_START=$(date +%s)
         git config --global user.email "actions@github.com"
         git config --global user.name "GitHub Actions"
         git remote add dokku dokku@grit-web02.grit.ucsb.edu:spatial || git remote set-url dokku dokku@grit-web02.grit.ucsb.edu:spatial
         git push dokku +main
+        DEPLOY_END=$(date +%s)
+        DEPLOY_DURATION=$((DEPLOY_END - DEPLOY_START))
+        echo "DEPLOY_DURATION=${DEPLOY_DURATION}" >> $GITHUB_ENV
         echo "::set-output name=deployment_summary::Deployment to Dokku was successful."
       working-directory: ./
 
     - name: Echo deployment summary
-      run: echo "${{ steps.deploy.outputs.deployment_summary }}"
+      run: |
+        echo "Deployment Summary:"
+        echo "Start Time: ${{ env.DEPLOY_START_TIME }}"
+        echo "Duration: ${{ env.DEPLOY_DURATION }} seconds"
+        echo "Status: ${{ steps.deploy.outputs.deployment_summary }}"

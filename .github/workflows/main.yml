@@ -43,6 +43,11 @@ jobs:
         echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
         ssh-keyscan -p 22 grit-web02.grit.ucsb.edu >> ~/.ssh/known_hosts
+        
+    
+    - name: Unlock Dokku app
+      run: ssh -o StrictHostKeyChecking=no dokku@grit-web02.grit.ucsb.edu apps:unlock spatial
+      
     - name: Deployment Start Time
       run: echo "DEPLOY_START_TIME=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> $GITHUB_ENV
   

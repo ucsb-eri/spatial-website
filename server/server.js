@@ -10,25 +10,27 @@ const db = require('./config/connection');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
-// app.use(cors(
-//   {
-//     origin: 'http://localhost:3000',
-//     credentials: true
-//   },
-//   {
-//     origin: "https://studio.apollographql.com",
-//     credentials: true
-//   }, 
 
-// ))
+const apolloCors = process.env.NODE_ENV === 'production' ? 'http://localhost:5000' : 'http://localhost:3000'
+app.use(cors(
+  {
+    origin: apolloCors,
+    credentials: true
+  },
+  {
+    origin: "https://studio.apollographql.com",
+    credentials: true
+  }, 
+
+))
 const server = new ApolloServer({
   typeDefs,
   resolvers,
   context: authMiddleware,
-  // cors: {
-  //   "origin": "http://localhost:3000",
-  //   "credentials": true
-  // }, 
+  cors: {
+    "origin": apolloCors,
+    "credentials": true
+  }, 
 });
 
 app.use(express.urlencoded({ extended: false }));
@@ -39,11 +41,12 @@ app.use('/api', uploadImageRoute)
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
+  app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
+  });
 }
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/build/index.html'));
-});
+
 
 
 // Create a new instance of an Apollo server with the GraphQL schema

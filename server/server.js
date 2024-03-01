@@ -8,7 +8,7 @@ const uploadImageRoute = require('./routes/uploadImages')
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.NODE_ENV === 'production' ? 5000 : 3001;
 const app = express();
 
 const apolloCors = process.env.NODE_ENV === 'production' ? 'https://spatialtest.grit.ucsb.edu' : 'http://localhost:3000'

@@ -10,25 +10,25 @@ const db = require('./config/connection');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
-app.use(cors(
-  {
-    origin: 'http://localhost:3000',
-    credentials: true
-  },
-  {
-    origin: "https://studio.apollographql.com",
-    credentials: true
-  }, 
+// app.use(cors(
+//   {
+//     origin: 'http://localhost:3000',
+//     credentials: true
+//   },
+//   {
+//     origin: "https://studio.apollographql.com",
+//     credentials: true
+//   }, 
 
-))
+// ))
 const server = new ApolloServer({
   typeDefs,
   resolvers,
   context: authMiddleware,
-  cors: {
-    "origin": "http://localhost:3000",
-    "credentials": true
-  }, 
+  // cors: {
+  //   "origin": "http://localhost:3000",
+  //   "credentials": true
+  // }, 
 });
 
 app.use(express.urlencoded({ extended: false }));

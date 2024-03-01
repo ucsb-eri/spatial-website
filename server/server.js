@@ -11,7 +11,7 @@ const db = require('./config/connection');
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-const apolloCors = process.env.NODE_ENV === 'production' ? 'http://localhost:5000' : 'http://localhost:3000'
+const apolloCors = process.env.NODE_ENV === 'production' ? 'https://spatialtest.grit.ucsb.edu' : 'http://localhost:3000'
 app.use(cors(
   {
     origin: apolloCors,

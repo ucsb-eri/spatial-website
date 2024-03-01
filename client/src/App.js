@@ -3,8 +3,15 @@ import Main from './components/Main'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 
+let apolloUri
+if (process.env.NODE_ENV === 'production'){
+  apolloUri =  'http://localhost:5000/graphql'
+} else {
+  apolloUri = 'http://localhost:3001/graphql'
+}
+
 const httpLink = createHttpLink({
-  uri: 'http://localhost:3001/graphql',
+  uri: apolloUri,
 });
 
 

@@ -9,6 +9,7 @@ if (process.env.NODE_ENV === 'production'){
 } else {
   apolloUri = 'http://localhost:3001/graphql'
 }
+console.log(httpLink)
 
 const httpLink = createHttpLink({
   uri: apolloUri,

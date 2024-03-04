@@ -1,76 +1,51 @@
 const express = require('express');
-const cors = require('cors')
+const cors = require('cors');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
 const { authMiddleware } = require('./utils/auth');
-const uploadImageRoute = require('./routes/uploadImages')
-
+const uploadImageRoute = require('./routes/uploadImages');
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 
-
 const app = express();
+const PORT = process.env.NODE_ENV === 'production' ? 5000 : 3001;
+const apolloCors = process.env.NODE_ENV === 'production' ? 'https://spatialtest.grit.ucsb.edu' : 'http://localhost:3000';
 
-let PORT
-let apolloCors
-if (process.env.NODE_ENV === 'production'){
-  apolloCors =  'https://spatialtest.grit.ucsb.edu'
-  PORT = 5000
-} else {
-  apolloCors = 'http://localhost:3000'
-  PORT = 3001
-}
-app.use(cors(
-  {
-    origin: apolloCors,
-  },
-  {
-    origin: 'http://localhost:5000'
-  },
-  {
-    origin: "https://studio.apollographql.com",
-    credentials: true
-  }, 
+const corsOptions = {
+  origin: [apolloCors, 'http://localhost:5000', "https://studio.apollographql.com"],
+  credentials: true,
+};
 
-))
+app.use(cors(corsOptions));
+
 const server = new ApolloServer({
   typeDefs,
   resolvers,
   context: authMiddleware,
-  cors: {
-    "origin": apolloCors,
-    "credentials": true
-  }, 
+  cors: corsOptions,
 });
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use('/api', uploadImageRoute)
-
-
+app.use('/api', uploadImageRoute);
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
-  app.get('/', (req, res) => {
+  app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/build/index.html'));
   });
 }
 
-
-
-
-// Create a new instance of an Apollo server with the GraphQL schema
-const startApolloServer = async (typeDefs, resolvers) => {
+const startApolloServer = async () => {
   await server.start();
   server.applyMiddleware({ app });
-  
+
   db.once('open', () => {
     app.listen(PORT, () => {
       console.log(`API server running on port ${PORT}!`);
-      console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
-    })
-  })
-  };
-  
-// Call the async function to start the server
-  startApolloServer(typeDefs, resolvers);
+      console.log(`Use GraphQL at ${apolloCors}${server.graphqlPath}`);
+    });
+  });
+};
+
+startApolloServer(typeDefs, resolvers);

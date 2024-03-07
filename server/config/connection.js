@@ -7,7 +7,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/spatial-w
 }).then(() => {
   console.log('MongoDB Connected');
 
-  const People = mongoose.model('People'); // Adjust with your actual model
+  const People = mongoose.model('people'); // Adjust with your actual model
 
   // Query for a specific person using their _id
   const personId = '65ce5bcf248484380d088ba4'; // Replace this with the _id of the person you want to query

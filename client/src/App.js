@@ -5,7 +5,7 @@ import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@ap
 
 let apolloUri
 if (process.env.NODE_ENV === 'production'){
-  apolloUri =  'https://spatialtest.grit.ucsb.edu/graphql'
+  apolloUri =  'http://localhost:5000/graphql'
 } else {
   apolloUri = 'http://localhost:3001/graphql'
 }

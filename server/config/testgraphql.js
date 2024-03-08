@@ -46,10 +46,9 @@ const testGraphQLConnection = async () => {
     );
 
     console.log('GraphQL Response:', response.data);
-    return response.data
   } catch (error) {
     console.error('Error connecting to GraphQL:', error.message);
   }
 };
 
-module.exports = testGraphQLConnection;
+testGraphQLConnection();

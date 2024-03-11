@@ -21,7 +21,7 @@ jobs:
 
       # New step to configure npm cache directory
       - name: Configure npm cache directory
-        run: npm config set cache /hopt/npm-cache
+        run: npm config set cache /opt/npm-cache
 
       - name: Install Dependencies
         run: npm ci --prefer-offline --no-audit

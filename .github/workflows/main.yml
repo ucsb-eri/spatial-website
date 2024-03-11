@@ -11,14 +11,11 @@ jobs:
     steps:
     - name: Check out code
       uses: actions/checkout@v4
-      with:
-        fetch-depth: 0 # Fetch all history to avoid needing to unshallow
 
     - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
         node-version: '20'
-        cache: 'npm' # Use setup-node's built-in caching mechanism
 
     - name: Install Dependencies
       run: npm ci --prefer-offline --no-audit
@@ -47,7 +44,7 @@ jobs:
         DEPLOY_END=$(date +%s)
         DEPLOY_DURATION=$((DEPLOY_END - DEPLOY_START))
         echo "DEPLOY_DURATION=${DEPLOY_DURATION}" >> $GITHUB_ENV
-        echo "::set-output name=deployment_summary::Deployment to Dokku was successful."
+        echo "Deployment to Dokku was successful."
       working-directory: ./
       # This ensures we don't fail the whole workflow if this step encounters an issue
       continue-on-error: true

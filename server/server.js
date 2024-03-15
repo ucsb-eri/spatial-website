@@ -11,6 +11,10 @@ const db = require('./config/connection');
 
 const app = express();
 
+console.log(process.env);
+console.log('Environment:', process.env.NODE_ENV);
+
+
 let PORT
 let apolloCors
 if (process.env.NODE_ENV === 'production'){

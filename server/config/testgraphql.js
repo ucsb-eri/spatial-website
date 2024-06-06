@@ -1,13 +1,13 @@
 const axios = require('axios');
 
 let graphqlEndpoint
-// if (process.env.NODE_ENV === 'production'){
-//     graphqlEndpoint = 'http://localhost:5000/graphql';
-//     graphqlEndpoint = 'https://spatialtest.grit.ucsb.edu/graphql'
-//   } else {
-//     graphqlEndpoint = 'http://localhost:3001/graphql';
-//   }
-graphqlEndpoint = 'https://spatialtest.grit.ucsb.edu/graphql'
+if (process.env.NODE_ENV === 'production'){
+    graphqlEndpoint = 'http://localhost:5000/graphql';
+    // graphqlEndpoint = 'https://spatialtest.grit.ucsb.edu/graphql'
+  } else {
+    graphqlEndpoint = 'http://localhost:3001/graphql';
+  }
+
 
 // Replace 'YOUR_GRAPHQL_QUERY' with your actual GraphQL query
 const graphqlQuery = `

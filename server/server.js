@@ -8,6 +8,9 @@ const uploadImageRoute = require('./routes/uploadImages')
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 
+const { People, Projects, AdminProfile } = require('./models');
+const peopleSeeds = require('./seeders/peopleSeeds.json')
+
 
 const app = express();
 
@@ -68,11 +71,25 @@ const startApolloServer = async (typeDefs, resolvers) => {
   await server.start();
   server.applyMiddleware({ app });
   
-  db.once('open', () => {
-    app.listen(PORT, () => {
-      console.log(`API server running on port ${PORT}!`);
-      console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
-    })
+  db.once('open', async () => {
+
+    try {
+      await People.deleteMany({});
+      await People.collection.drop();
+      await People.create(peopleSeeds);
+
+
+      console.log('all done!');
+    } catch (err) {
+      throw err;
+    }
+
+    process.exit(0);
+
+    // app.listen(PORT, () => {
+    //   console.log(`API server running on port ${PORT}!`);
+    //   console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
+    // })
   })
   };
   

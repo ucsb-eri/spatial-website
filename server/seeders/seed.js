@@ -1,7 +1,7 @@
 const db = require('../config/connection');
 const { People, Projects, AdminProfile } = require('../models');
 const peopleSeeds = require('./peopleSeeds.json');
-const adminSeeds = require('./adminSeed.json')
+// const adminSeeds = require('./adminSeed.json')
 
 db.once('open', async () => {
 
@@ -16,15 +16,15 @@ db.once('open', async () => {
     throw err;
   }
 
-  try {
-    await AdminProfile.deleteMany({});
-    await AdminProfile.collection.drop();
-    await AdminProfile.create(adminSeeds)
+  // try {
+  //   await AdminProfile.deleteMany({});
+  //   await AdminProfile.collection.drop();
+  //   await AdminProfile.create(adminSeeds)
 
-    console.log("got the admins!")
-  } catch (err) {
-    throw err
-  }
+  //   console.log("got the admins!")
+  // } catch (err) {
+  //   throw err
+  // }
 
   process.exit(0);
 });

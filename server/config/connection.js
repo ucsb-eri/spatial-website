@@ -1,8 +1,18 @@
 const mongoose = require('mongoose');
 require('dotenv').config()
-console.log(process.env.MONGODB_URI)
+
+
+let mongoURI;
+
+if (process.env.NODE_ENV === 'production') {
+    mongoURI = process.env.MONGODB_URI_PROD;
+} else {
+    mongoURI = 'mongodb://127.0.0.1:27017/spatial-website';
+}
+
+
 mongoose.connect(
-  process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/spatial-website',
+   mongoURI,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,

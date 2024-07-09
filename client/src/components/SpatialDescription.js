@@ -12,9 +12,6 @@ function SpatialDescription() {
     return (
         <Grid container direction='row' spacing={4} mt={2} justifyContent='space-between'>
             <Grid item xs={12} md={7}>
-                <Typography component="h2" variant="h4" color="inherit" align="left" mb={2}>
-                    Overview
-                </Typography>
                 
                 <Typography align="left" paragraph>
                     The Center for Spatial Studies focuses on promoting spatial thinking and spatial analytics across academia, industry, and government agencies, and across disciplines ranging from the humanities to the physical sciences with a particular focus on novel Spatial Data Science methods and Knowledge Graphs.

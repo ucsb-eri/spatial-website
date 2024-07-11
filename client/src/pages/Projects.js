@@ -1,15 +1,15 @@
 import {React, useState} from 'react';
-import {Container, Toolbar, Typography, Button} from '@mui/material';
+import {Grid, Toolbar, Typography, Button} from '@mui/material';
 
 import { ProjectProvider } from '../components/contexts/ProjectContext';
 import ProjectDescriptions from '../components/ProjectDescriptions';
 import CreateProject from '../components/CreateProject';
 
-function Research() {
+function Projects() {
     const [newProject, setNewProject] = useState(false)
     const backToProjects = () => setNewProject(false)
     return (
-        <Container>
+        <Grid item>
             <ProjectProvider>
 
                 <Toolbar sx={{ marginTop: '5px', marginBottom: '5px' }} align='center'>
@@ -31,8 +31,8 @@ function Research() {
             </ProjectProvider>
 
 
-        </Container>
+        </Grid>
     )
 }
 
-export default Research
+export default Projects

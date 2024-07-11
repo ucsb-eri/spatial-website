@@ -8,28 +8,12 @@ const uploadImageRoute = require('./routes/uploadImages')
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 
-
+const PORT = process.env.PORT || 3001;
 const app = express();
-
-console.log(process.env);
-console.log('Environment:', process.env.NODE_ENV);
-
-
-let PORT
-let apolloCors
-if (process.env.NODE_ENV === 'production'){
-  apolloCors =  'https://spatialtest.grit.ucsb.edu'
-  PORT = 5000
-} else {
-  apolloCors = 'http://localhost:3000'
-  PORT = 3001
-}
 app.use(cors(
   {
-    origin: apolloCors,
-  },
-  {
-    origin: 'http://localhost:5000'
+    origin: 'http://localhost:3000',
+    credentials: true
   },
   {
     origin: "https://studio.apollographql.com",
@@ -42,7 +26,7 @@ const server = new ApolloServer({
   resolvers,
   context: authMiddleware,
   cors: {
-    "origin": apolloCors,
+    "origin": "http://localhost:3000",
     "credentials": true
   }, 
 });
@@ -55,12 +39,11 @@ app.use('/api', uploadImageRoute)
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
-  app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/build/index.html'));
-  });
 }
 
-
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
 
 
 // Create a new instance of an Apollo server with the GraphQL schema

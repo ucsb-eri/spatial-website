@@ -40,11 +40,11 @@ function People() {
             ) : (
                 
              currentPerson ? (
-                <Container maxWidth='lg'>
+                <Container maxWidth={false}>
                     <PersonBio details={currentPersonDetails} backToCards= {backToCards}/>
                 </Container>
             ): (
-                <Container maxWidth='lg'>
+                <Container maxWidth={false}>
 
                     {/* FACULTY */}
                     <Toolbar sx={{ marginTop: '5px', marginBottom: '5px' }} align='center'>

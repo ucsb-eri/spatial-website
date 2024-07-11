@@ -24,6 +24,7 @@ const resolvers = {
 
   Mutation: {
     addProject: async (parent, {name, description, image}) => {
+      console.log(name)
       const project = await Projects.create({name, description, image})
       return project
     },

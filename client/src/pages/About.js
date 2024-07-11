@@ -1,6 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types'
-import {Grid, Container, Typography, Paper, Tabs, Tab, Box, useMediaQuery} from '@mui/material'
+import {Grid, Container, Typography, Paper, Tabs, Tab, Box, useMediaQuery, Toolbar} from '@mui/material'
 import LandingCarouselSlide from '../components/LandingCarouselSlide';
 
 function TabPanel(props) {
@@ -56,7 +56,7 @@ export default function About(props) {
     console.log(smallScreen)
 
     return(
-        <Container maxWidth="lg">
+        <Grid item>
             <Paper
                 sx={{
                     position: 'relative',
@@ -88,13 +88,16 @@ export default function About(props) {
                     <Tab label="History" {...a11yProps(1)} />
                     <Tab label="escholarship" {...a11yProps(2)} />
                 </Tabs>
+                {/* Overview */}
                 <TabPanel value={value} index={0}>
-                    <Grid container direction='row' spacing={4} justifyContent='space-between'>
-                        <Grid item xs={12} md={10}>
+                    <Grid container direction='row' spacing={4} justifyContent='center'>
+                        <Grid item xs={12} md={11}>
                             
-                            <Typography align='left' variant='h5' paragraph>
-                                Overview
-                            </Typography>
+                            <Toolbar align='left' disableGutters={true}>
+                                <Typography variant='h5' align='left'  marginBottom="30px" paddingBottom="5px" borderBottom={1} borderColor="divider">
+                                    Overview
+                                </Typography>
+                            </Toolbar>
                             <Typography align="left" paragraph>
                                 The Center for Spatial Studies focuses on promoting spatial thinking and spatial analytics across academia, industry, and government agencies, and across disciplines ranging from the humanities to the physical sciences with a particular focus on novel Spatial Data Science methods and Knowledge Graphs.
                             </Typography>
@@ -112,39 +115,43 @@ export default function About(props) {
 
                     </Grid>
                 </TabPanel>
+                {/* History */}
                 <TabPanel value={value} index={1}>
-                    <Grid container direction='row' spacing={4} justifyContent='space-between'>
-                        <Grid item xs={12} md={10}>
+                    <Grid container direction='row' spacing={4} justifyContent='center'>
+                        <Grid item xs={12} md={11}>
                             
-                            <Typography align='left' variant='h5' paragraph>
-                                History
-                            </Typography>
-                            <Typography align="left" paragraph>
-                                The Center for Spatial Studies (spatial@ucsb) was founded in July 2007 through an initiative by Professor Michael Goodchild. Upon his retirement in July 2012, Professor Mary Hegarty (Department of Psychological and Brain Sciences) assumed the directorship. Beginning November 2013, Werner Kuhn will be the director of the center and Hegarty will be the codirector.    The founding vision of the center was to develop spatial thinking as an approach to scholarship, supporting its use across the entire range of disciplines at UCSB for research and education.
-                            </Typography>
-                            <Typography align="left" paragraph>
-                                The Center for Spatial Studies, also known as spatial@ucsb, was established in July 2007 with three years of funding from the 
-                                Executive Vice-Chancellor. This report describes the center’s activities and achievements to date. 
-                                The vision of a Center for Spatial Studies was developed by a special committee that met in the first few months of 2007 with a 
-                                mandate to consider the state of spatial thinking, data, and tools across the campus. The committee recommended the establishment 
-                                of a center whose primary objective would be to develop spatial thinking as an approach to scholarship, supporting its use across 
-                                the entire range of disciplines at UCSB. 
+                            <Toolbar  align='left' disableGutters={true}>
+                                <Typography variant='h5' align='left'  marginBottom="30px" paddingBottom="5px" borderBottom={1} borderColor="divider">
+                                    History
                                 </Typography>
+                            </Toolbar>
                             <Typography align="left" paragraph>
-                                To be continued... 
+                                The Center for Spatial Studies and Data Science (@Spatial) was founded in July 2007 through an initiative by Professor Michael Goodchild. The vision of a Center for Spatial Studies was developed by a special committee that met in the first few months of 2007 with a mandate to consider the state of spatial thinking, data, and tools across the campus. The committee recommended the establishment of a center whose primary objective would be to develop spatial thinking as an approach to scholarship, supporting its use across the entire range of disciplines at UCSB.
+                            </Typography>
+                            <Typography align="left" paragraph>
+                                Upon Professor Goodchild’s retirement in July 2012, Mary Hegarty (Dept. of Psychological & Brain Sciences) served as interim director from 2012 to 2013, until Werner Kuhn was appointed Chair of the Jack and Laura Dangermond Endowment, director of @Spatial, and professor in the Dept. of Geography. Briefly, @Spatial provided several innovative educational resources and services to the academic community at UCSB and beyond. These included a consulting service (the GIS Help Desk) and two seminar series (ThinkSpatial and Spatial Technology Lunches); community outreach (most notably an annual poster and plenary session, spatial@ucsb.local); office space for students and visitors; student internships; a Specialist Meeting series; a new series of Spatial Un-conferences (participant-driven meetings); a Minor in Spatial Studies; and a Freshman Seminar in Thinking Spatially in the Arts and Sciences. These offerings helped enrich the resources at UCSB for spatially-enabled research and contributed to developing a strong interdisciplinary thread of spatial studies and broadening undergraduate and graduate educational opportunities. 
+                            </Typography>
+                            <Typography align="left" paragraph>
+                                After focusing on raising awareness (2008–2012), on introducing spatially-enabled knowledge infrastructures (2013–2016), and on spatially enabled and sensor-driven smart communities (2017–2020), @Spatial was well positioned to address a new cross-cutting theme. Under its former director, Dr. Krzysztof Janowicz (2020-2023), @Spatial shifted its focus to Spatial Data Science and Knowledge Graphs, thereby also connecting more closely to a campus emphasis that had steadily grown over @Spatial’s past funding period. More specifically, @Spatial focused on spatiotemporally explicit machine learning models operating on these graphs.
+                            </Typography>
+                            <Typography align="left" paragraph>
+                                Since 2023, @Spatial has been led by Professor Trisalyn Nelson and has continued to establish its presence as a premier research center in Geographic Information Sciences. The leadership team has expanded to include Professor Nelson (Director), Professor Somayeh Dodge (Associate Director), Professor Alan Murray (Associate Director), Professor Amy Frazier (Core Faculty), and Professor Peter Kedron (Core Faculty). This cohesive team integrates geographic information systems, spatial analysis, coding, statistics, optimization, and remote sensing for the analysis of spatial data. Through strategic partnerships on campus and within industry partnerships, they advance @Spatial’s mission to propel spatial data science at UC Santa Barbara by leading interdisciplinary discovery, education, and access to actionable solutions.
                             </Typography>
                             
                         </Grid>
                         
                     </Grid>
                 </TabPanel>
+                {/* eScholarship */}
                 <TabPanel value={value} index={2}>
-                <Grid container direction='row' spacing={4} justifyContent='space-between'>
-                        <Grid item xs={12} md={10}>
+                <Grid container direction='row' spacing={4} justifyContent='center'>
+                        <Grid item xs={12} md={11}>
                             
-                            <Typography align='left' variant='h5' paragraph>
-                                The Center's Archive on eScholarship
-                            </Typography>
+                            <Toolbar  align='left' disableGutters={true}>
+                                <Typography variant='h5' align='left'  marginBottom="30px" paddingBottom="5px" borderBottom={1} borderColor="divider">
+                                    The Center's Archive on eScholarship
+                                </Typography>
+                            </Toolbar>
                             <Typography align="left" paragraph>
                             The Center for Spatial Studies has created an archive through the <b>California Digital Library's 
                             eScholarship initiative</b> to preserve in perpetuity, and to enhance access to, the accomplishments and 
@@ -159,20 +166,8 @@ export default function About(props) {
                                 
                                 </ul>
                             </Typography>
-                            <Typography align="left" paragraph>
-                                The archive is available at <a href='#' target='_'>Professor Emeritus Don Janelle</a>.
-                            </Typography>
-                            <Typography align="left" paragraph>
-                                The Center for Spatial Studies, also known as spatial@ucsb, was established in July 2007 with three years of funding from the 
-                                Executive Vice-Chancellor. This report describes the center’s activities and achievements to date. 
-                                The vision of a Center for Spatial Studies was developed by a special committee that met in the first few months of 2007 with a 
-                                mandate to consider the state of spatial thinking, data, and tools across the campus. The committee recommended the establishment 
-                                of a center whose primary objective would be to develop spatial thinking as an approach to scholarship, supporting its use across 
-                                the entire range of disciplines at UCSB. 
-                                </Typography>
-                            <Typography align="left" paragraph>
-                                To be continued... 
-                            </Typography>
+                            
+                            
                             
                         </Grid>
                         
@@ -182,6 +177,6 @@ export default function About(props) {
             </Box>
 
           
-      </Container>
+      </Grid>
     )
 }

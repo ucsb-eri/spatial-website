@@ -60,14 +60,13 @@ export default function CreateProject(props) {
         console.log(formData)
       
         try {
-        const result = await axios.post('http://localhost:3001/api/images', formData, { headers: {'Content-Type': 'multipart/form-data'}})
-      
-          
-          console.log(result);
-          return result
+            const result = await axios.post('http://localhost:3001/api/images', formData, { headers: {'Content-Type': 'multipart/form-data'}})
+            console.log("result: ")
+            console.log(result);
+            return result
         } catch (error) {
-          console.error('Error uploading image:', error);
-          return false
+            console.error('Error uploading image:', error);
+            return false
         }
       };
 
@@ -97,16 +96,27 @@ export default function CreateProject(props) {
         handleProject = async () => {
             const description = stateToHTML(editorState.getCurrentContent())
             try {
-                const imageSuccess = await handleImageUpload(image)
-                
-                if (imageSuccess) {
-                    const image = imageSuccess.data.imagePath
-                    console.log(image)
-                    const result = await addProject({
-                        variables: {name, description, image}
-                    })
+                const projectDetails = {
+                    name: name,
+                    description: description
+                }
+                if (image != null) {
+                    const imageSuccess = await handleImageUpload(image)
+                    if (imageSuccess) {
+                        const imageName = imageSuccess.data.imagePath
+                        console.log(imageName)
+                        projectDetails.image = imageName
+                    }
                     
                 }
+                
+                console.log(projectDetails)
+                
+                const result = await addProject({
+                    variables: projectDetails
+                })
+                    
+                
                 
                 
             } catch (error) {
@@ -148,6 +158,7 @@ export default function CreateProject(props) {
                         accept="image/*"
                         id="contained-button-file"
                         type="file"
+                        name="image"
                         filename={image}
                         onChange={(e) => {
                             console.log(e.target.files)

@@ -72,7 +72,7 @@ function LandingCarousel(props) {
             enableMouseEvents
         >
             {slides.map((step, index) => (
-            <LandingCarouselSlide post={step}/>
+            <LandingCarouselSlide post={step} key={index} />
             ))}
         </SwipeableViews>
         <MobileStepper

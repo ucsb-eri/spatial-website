@@ -82,10 +82,21 @@ export default function CreateProject(props) {
             const id = props.id
             const description = stateToHTML(editorState.getCurrentContent())
             try {
-                const update = await editProject({
-                    variables: {id, name, description}
-                })
-                console.log(update)
+                if (image != null) {
+                    const imageSuccess = await handleImageUpload(image)
+                    if (imageSuccess) {
+                        const imageName = imageSuccess.data.imagePath
+                        console.log(imageName)
+                        const update = await editProject({
+                            variables: {name, description, imageName}
+                        })
+                    } else {
+                        const update = await editProject({
+                            variables: {id, name, description}
+                        })
+                    }
+                }
+
             } catch (error) {
                 console.log(error)
             }
@@ -96,25 +107,25 @@ export default function CreateProject(props) {
         handleProject = async () => {
             const description = stateToHTML(editorState.getCurrentContent())
             try {
-                const projectDetails = {
-                    name: name,
-                    description: description
-                }
+                
+                
                 if (image != null) {
                     const imageSuccess = await handleImageUpload(image)
                     if (imageSuccess) {
                         const imageName = imageSuccess.data.imagePath
                         console.log(imageName)
-                        projectDetails.image = imageName
+                        const result = await addProject({
+                            variables: {name, description, imageName}
+                        })
                     }
                     
+                } else {
+                    const result = await addProject({
+                        variables: {name, description}
+                    })
                 }
                 
-                console.log(projectDetails)
                 
-                const result = await addProject({
-                    variables: projectDetails
-                })
                     
                 
                 

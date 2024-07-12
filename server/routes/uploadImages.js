@@ -16,7 +16,11 @@ const upload = multer({ storage: storage });
 
 // Define the upload route
 router.post('/images', upload.single('image'), (req, res) => {
-
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000", "https://spatialtest.ucsb.edu")
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+  res.setHeader("Access-Control-Max-Age", "1800");
+  res.setHeader("Access-Control-Allow-Headers", "content-type");
+  res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" );
   try {
     console.log(req.file)
     const imagePath = req.file.path;

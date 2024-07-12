@@ -28,7 +28,7 @@ export default function ProjectDescriptions() {
 
             <Grid container direction="column">
                 {projects.map((project) => (
-                    
+                        
                         <Grid container key={project.id} direction="column" style={{marginBottom: 50, padding: 10}}>
                         {project.id !== editProjectId ? (
                             <Grid container direction="row" justifyContent="center" columnSpacing={5}>
@@ -39,7 +39,7 @@ export default function ProjectDescriptions() {
                                             component="img"
                                             alt="green iguana"
                                             height="400"
-                                            src= {'https://cff2.earth.com/uploads/2024/03/15171622/tree-frogs_live-in-trees_lay-eggs-on-ground_1.jpg'}
+                                            src= {project.image}
                                             align="center"
                                         />
                                     </Card>

@@ -11,10 +11,11 @@ export const ADD_PROJECT = gql`
     }` 
 
 export const EDIT_PROJECT = gql`
-  mutation EditProject($id: ID, $name: String, $description: String) {
-    editProject(id: $id, name: $name, description: $description) {
+  mutation EditProject($id: ID, $name: String, $description: String, $image: String) {
+    editProject(id: $id, name: $name, description: $description, image: $image) {
       id
       name
       description
+      image
     }
   }`

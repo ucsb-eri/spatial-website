@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import RichTextEditor from './RichTextEditor';
 import {EditorState, ContentState, Editor} from 'draft-js'
 import {stateToHTML} from 'draft-js-export-html'
@@ -8,6 +8,7 @@ import Container from '@mui/material/Container';
 import 'draft-js/dist/Draft.css'
 import '../css/RichText.css'
 import axios from 'axios'
+import Auth from '../utils/auth'
 
 
 
@@ -15,9 +16,19 @@ import { FormGroup, FormControl, TextField, InputLabel, Button, Input } from '@m
 import { useMutation } from '@apollo/client';
 import { ADD_PROJECT, EDIT_PROJECT } from '../utils/mutations';
 import { useProjectContext } from './contexts/ProjectContext';
+import { AdminLoginContext } from '../context/AdminProvider'
 
 
 export default function CreateProject(props) {
+    const { logout } = useContext(AdminLoginContext)
+    useEffect( () => {
+
+        if (Auth.isTokenExpired()) {
+            logout()
+        }
+
+    })
+        
 
     let onSubmit
     if (props.onSubmit) {
@@ -73,8 +84,6 @@ export default function CreateProject(props) {
     const [addProject] = useMutation(ADD_PROJECT)
     const [editProject] = useMutation(EDIT_PROJECT)
 
-    
-
     let handleProject
     if (props.id) {
 
@@ -84,17 +93,20 @@ export default function CreateProject(props) {
             try {
                 if (image != null) {
                     const imageSuccess = await handleImageUpload(image)
+                    console.log("image Success: ")
+                    console.log(imageSuccess)
                     if (imageSuccess) {
-                        const imageName = imageSuccess.data.imagePath
-                        console.log(imageName)
+                        console.log(imageSuccess)
+                        const image = imageSuccess.data.imageName
+                        console.log(image)
                         const update = await editProject({
-                            variables: {name, description, imageName}
+                            variables: {id, name, description, image}
                         })
-                    } else {
-                        const update = await editProject({
-                            variables: {id, name, description}
-                        })
-                    }
+                    } 
+                } else {
+                    const update = await editProject({
+                        variables: {id, name, description}
+                    })
                 }
 
             } catch (error) {
@@ -108,14 +120,16 @@ export default function CreateProject(props) {
             const description = stateToHTML(editorState.getCurrentContent())
             try {
                 
-                
                 if (image != null) {
                     const imageSuccess = await handleImageUpload(image)
+                    console.log("image Success: ")
+                    console.log(imageSuccess)
                     if (imageSuccess) {
-                        const imageName = imageSuccess.data.imagePath
-                        console.log(imageName)
+                        const image = imageSuccess.data.imageName
+                        console.log("image name! please")
+                        console.log(image)
                         const result = await addProject({
-                            variables: {name, description, imageName}
+                            variables: {name, description, image}
                         })
                     }
                     
@@ -124,11 +138,6 @@ export default function CreateProject(props) {
                         variables: {name, description}
                     })
                 }
-                
-                
-                    
-                
-                
                 
             } catch (error) {
                 console.error(error)

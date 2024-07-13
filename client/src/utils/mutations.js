@@ -19,3 +19,11 @@ export const EDIT_PROJECT = gql`
       image
     }
   }`
+
+export const ADMIN_LOGIN = gql`
+  mutation AdminSignOn($email: String!, $password: String!) {
+    adminSignOn(email: $email, password: $password) {
+      token  
+      
+    }
+  }`

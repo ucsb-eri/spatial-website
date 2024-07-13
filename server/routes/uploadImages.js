@@ -6,10 +6,10 @@ const path = require('path')
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'uploads/images')
+    cb(null, 'public/images')
   },
   filename: function (req, file, cb) {
-    cb(null, file.originalname)
+    cb(null, file.fieldname + "_" + Date.now() + path.extname(file.originalname))
   }
 })
 const upload = multer({ storage: storage });
@@ -20,33 +20,17 @@ router.post('/images', upload.single('image'), (req, res) => {
   res.setHeader("Access-Control-Allow-Credentials", "true");
   res.setHeader("Access-Control-Max-Age", "1800");
   res.setHeader("Access-Control-Allow-Headers", "content-type");
-  res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" );
+  res.setHeader( "Access-Control-Allow-Methods", "POST" );
   try {
     console.log(req.file)
-    const imagePath = req.file.path;
-    res.status(201).json({ imagePath });
+    const imageName = req.file.filename;
+    console.log("image name: ", imageName)
+    res.status(201).json({ imageName });
   } catch (error) {
     console.error(error);
     console.error('Error processing upload:', error);
     res.status(500).json({ message: 'Internal server error' });
   }
 });
-
-// Define the route to serve images
-router.get('/images/:filename', (req, res) => {
-  try {
-    // const filename = req.params.filename;
-    const filename = "5eabf8274acd3962e32b599080fbecd4"
-  console.log(filename)
-  const imagePath = path.join(__dirname, '../uploads/images', filename);
-  console.log(imagePath)
-  // Send the image file
-  res.sendFile(imagePath);
-  } catch (error) {
-    console.error(error)
-  }
-  
-});
-
 
 module.exports = router;

@@ -7,9 +7,12 @@ const uploadImageRoute = require('./routes/uploadImages')
 
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
-
+const createAdminAccount = require("./utils/admin")
 const PORT = process.env.PORT || 3001;
 const app = express();
+
+createAdminAccount()
+
 app.use(
   '/graphql',
   cors({origin: ["http:localhost:3001", "http://localhost:3000", "https://studio.apollographql.com", "https://spatialtest.ucsb.edu"]})
@@ -29,6 +32,9 @@ app.use('/api', uploadImageRoute)
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
+  app.use(express.static(path.join(__dirname, 'public')));
+} else {
+  app.use(express.static('public'));
 }
 
 app.get('/', (req, res) => {

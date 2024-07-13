@@ -1,4 +1,5 @@
-import {React, useState} from 'react';
+import { React, useContext, useState } from 'react';
+import { AdminLoginContext } from "../context/AdminProvider"
 import {Grid, Toolbar, Typography, Button} from '@mui/material';
 
 import { ProjectProvider } from '../components/contexts/ProjectContext';
@@ -7,6 +8,7 @@ import CreateProject from '../components/CreateProject';
 
 function Projects() {
     const [newProject, setNewProject] = useState(false)
+    const { isLoggedIn } = useContext(AdminLoginContext)
     const backToProjects = () => setNewProject(false)
     return (
         <Grid item>
@@ -22,7 +24,10 @@ function Projects() {
                 ) : (
                     <div>
                         <ProjectDescriptions />
-                        <Button variant='contained' style={{maxWidth: 200}} onClick={() => {setNewProject(true)}}>Add new project</Button>
+                        { isLoggedIn && (
+                            <Button variant='contained' style={{maxWidth: 200}} onClick={() => {setNewProject(true)}}>Add new project</Button>
+                        )}
+                        
                     </div>
                     
                 )

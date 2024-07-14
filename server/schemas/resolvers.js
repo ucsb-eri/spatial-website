@@ -23,23 +23,48 @@ const resolvers = {
   },
 
   Mutation: {
-    addProject: async (parent, {name, description, image}) => {
-      console.log(name)
-      const project = await Projects.create({name, description, image})
-      return project
+    addProject: async (parent, {name, description, image}, context) => {
+      if (context.user) {
+        console.log(name)
+        const project = await Projects.create({name, description, image})
+        return project
+      }
     },
-    editProject: async (parent, {id, name, description, image}) => {
-      const updateProject = await Projects.findByIdAndUpdate(
-        {_id: id},
-        {name, description, image},
-        {new: true}
-        )
-      return updateProject
+    editProject: async (parent, {id, name, description, image}, context) => {
+      if (context.user) {
+        const updateProject = await Projects.findByIdAndUpdate(
+          {_id: id},
+          {name, description, image},
+          {new: true}
+          )
+        return updateProject
+      } 
     },
-    deleteProject: async (parent, {id}) => {
-      const deletedProject = await Projects.deleteOne({_id: id})
-      const projects = await Projects.find()
-      return projects
+    deleteProject: async (parent, {id}, context) => {
+      if (context.user) {
+        const deletedProject = await Projects.deleteOne({_id: id})
+        const projects = await Projects.find()
+        return projects
+      }
+    },
+    adminSignOn: async (parent, {email, password}) => {
+      const admin = await AdminProfile.findOne({ email })
+      if (!admin) {
+        throw new AuthenticationError("incorrect credentials");
+      }
+      try {
+        const correctPw = await admin.isCorrectPassword(password)
+        if (!correctPw) {
+          throw new AuthenticationError("incorrect credentials");
+        }
+        const token = signToken(admin);
+        console.log(token)
+        console.log("admin signed in");
+        return {token, admin}
+      } catch (err) {
+        console.error("Error trying to login", err)
+      }
+      
     }
   }
   // Mutation: {

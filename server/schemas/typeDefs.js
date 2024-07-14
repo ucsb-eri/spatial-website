@@ -5,6 +5,17 @@ const typeDefs = gql`
     label: String
     url: String
   }
+  
+  type AdminProfile {
+    id: ID
+    email: String
+    password: String
+  }
+  
+  type Auth {
+    token: ID
+    admin: AdminProfile
+  }
 
   type People {
     _id: ID
@@ -42,8 +53,10 @@ const typeDefs = gql`
 
   type Mutation {
     addProject(name: String!, description: String!, image: String): Projects!
-    editProject(id: ID, name: String, description: String): Projects!
+    editProject(id: ID, name: String, description: String, image: String): Projects!
     deleteProject(id: ID!): [Projects]!
+
+    adminSignOn(email: String!, password: String!): Auth!
   }
 `;
 

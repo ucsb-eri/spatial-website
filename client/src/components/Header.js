@@ -1,4 +1,6 @@
-import * as React from 'react';
+import {React, useContext} from 'react';
+import { AdminLoginContext } from '../context/AdminProvider';
+
 import PropTypes from 'prop-types';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
@@ -8,7 +10,10 @@ import Typography from '@mui/material/Typography';
 import ucsbLogo from '../ucsb.png'
 // import spatialLogo from '../spatiallogo.png';
 
+
 function Header(props) {
+  const { isLoggedIn, logout } = useContext(AdminLoginContext)
+
   const { title } = props;
   const containerStyle = {
     marginTop: '10px', 
@@ -16,7 +21,7 @@ function Header(props) {
   };
   
   return (
-    <React.Fragment>
+
       <Toolbar sx={{ borderBottom: 1, borderColor: 'divider', marginTop: '5px', marginBottom: '5px' }} align='center'>
         <Grid container spacing={0} direction="column" style={containerStyle}>
           <Grid container item xs={12} md={12} direction="row" alignItems="center" justifyContent="space-between">
@@ -31,7 +36,10 @@ function Header(props) {
               src={ucsbLogo}
             />
 
-            <Button variant="outlined" size="small">Donate</Button>
+            { isLoggedIn && (
+              <Button variant="outlined" size="small" onClick={() => logout()}>Log Out!</Button>
+            )}
+            
        
           </Grid>
           <Grid item xs={12} md={6}>
@@ -50,7 +58,6 @@ function Header(props) {
    
       </Toolbar>
 
-    </React.Fragment>
   );
 }
 

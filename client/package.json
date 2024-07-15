@@ -6,6 +6,7 @@
     "@apollo/client": "^3.5.8",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@ericz1803/react-google-calendar": "^4.3.2",
     "@mui/icons-material": "^5.14.18",
     "@mui/material": "^5.14.18",
     "@testing-library/jest-dom": "^5.17.0",

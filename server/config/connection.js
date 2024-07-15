@@ -5,7 +5,10 @@ require('dotenv').config()
 let mongoURI;
 
 if (process.env.NODE_ENV === 'production') {
-    mongoURI = process.env.MONGODB_URI_PROD;
+  console.log("mongo uri")
+  console.log(process.env.MONGODB_URI)
+  console.log(process.env.MONGODB_URI_PROD)
+    mongoURI = process.env.MONGODB_URI;
 } else {
     mongoURI = 'mongodb://127.0.0.1:27017/spatial-website';
 }

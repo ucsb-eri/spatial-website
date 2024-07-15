@@ -20,8 +20,7 @@ export const QUERY_PEOPLE = gql`
                 url
                 }
         }
-    }
-    
+    } 
 `;
 
 export const GET_PROJECTS = gql`
@@ -34,13 +33,11 @@ export const GET_PROJECTS = gql`
         }
     }
 `
-
-// export const QUERY_SINGLE_PROFILE = gql`
-//   query singleProfile($profileId: ID!) {
-//     profile(profileId: $profileId) {
-//       _id
-//       name
-//       skills
-//     }
-//   }
-// `;
+export const GET_ABOUTPANELS = gql`
+    query GetAboutPanels {
+        aboutPanels {
+        id
+        description
+        name
+        }
+  }`

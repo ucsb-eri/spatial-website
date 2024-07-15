@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { AboutPanelProvider } from './contexts/AboutPanelContext';
 import {Container, Grid, Toolbar, Box, Tabs, Tab, Popover, MenuItem} from '@mui/material'
 
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
@@ -31,7 +32,11 @@ function Main(props) {
     if (currentPage === 'About') {
       console.log("changed about location")
       console.log(aboutLocation)
-      return <About value={aboutLocation} setValue={setAboutLocation} />;
+      return (
+        <AboutPanelProvider>
+          <About value={aboutLocation} setValue={setAboutLocation} />
+        </AboutPanelProvider>
+      )
     }
 
     if (currentPage === 'Projects') {

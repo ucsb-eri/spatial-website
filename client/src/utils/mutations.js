@@ -27,3 +27,22 @@ export const ADMIN_LOGIN = gql`
       
     }
   }`
+
+export const ADD_ABOUTPANEL = gql`
+  mutation AddAboutPanel($name: String!, $description: String!) {
+  addAboutPanel(name: $name, description: $description) {
+    id
+    name
+    description
+  }
+}`
+
+export const EDIT_ABOUTPANEL = gql`
+  mutation EditAboutPanel($name: String, $description: String, $id: ID!) {
+  editAboutPanel(name: $name, description: $description, id: $id) {
+    id
+    name
+    description
+  }
+}`
+    

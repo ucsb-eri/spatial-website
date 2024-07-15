@@ -45,18 +45,28 @@ const typeDefs = gql`
     image: String
   }
 
+  type AboutPanels {
+    id: ID
+    name: String
+    description: String
+  }
 
   type Query {
     people: [People]!
     projects: [Projects]!
+    aboutPanels: [AboutPanels]!
   }
 
   type Mutation {
     addProject(name: String!, description: String!, image: String): Projects!
-    editProject(id: ID, name: String, description: String, image: String): Projects!
+    editProject(id: ID!, name: String, description: String, image: String): Projects!
     deleteProject(id: ID!): [Projects]!
 
     adminSignOn(email: String!, password: String!): Auth!
+
+    addAboutPanel(name: String!, description: String!): AboutPanels!
+    editAboutPanel(id: ID!, name: String, description: String): AboutPanels!
+    deleteAboutPanel(id: ID!): AboutPanels!
   }
 `;
 

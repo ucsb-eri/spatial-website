@@ -7,11 +7,13 @@ const uploadImageRoute = require('./routes/uploadImages')
 
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
-const createAdminAccount = require("./utils/admin")
+const createAdminAccount = require("./utils/admin");
+const seedPeople = require('./seeders/seed');
 const PORT = process.env.PORT || 3001;
 const app = express();
 
 createAdminAccount()
+seedPeople()
 
 app.use(
   '/graphql',

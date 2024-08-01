@@ -1,30 +1,21 @@
-const db = require('../config/connection');
-const { People, Projects, AdminProfile } = require('../models');
+const { People, Projects } = require('../models');
 const peopleSeeds = require('./peopleSeeds.json');
-// const adminSeeds = require('./adminSeed.json')
 
-db.once('open', async () => {
+async function seedPeople() {
 
   try {
-    await People.deleteMany({});
-    await People.collection.drop();
-    await People.create(peopleSeeds);
-
-
-    console.log('all done!');
+    const peopleExists = await People.find() 
+    console.log(peopleExists)
+      if (peopleExists.length == 0) {
+        console.log("seeding people")
+        const people = await People.insertMany(peopleSeeds)
+        console.log("new people in the building", people)
+      } else {
+        console.log("people in the building")
+      } 
   } catch (err) {
-    throw err;
+    console.error("Error seeding people: ", err)
   }
+}
 
-  // try {
-  //   await AdminProfile.deleteMany({});
-  //   await AdminProfile.collection.drop();
-  //   await AdminProfile.create(adminSeeds)
-
-  //   console.log("got the admins!")
-  // } catch (err) {
-  //   throw err
-  // }
-
-  process.exit(0);
-});
+module.exports = seedPeople;

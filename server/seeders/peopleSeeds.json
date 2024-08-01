@@ -11,10 +11,8 @@
         "phone": "+1-805-893-2176",
         "image": "https://www.geog.ucsb.edu/sites/default/files/styles/medium_square/public/2021-01/trisalyn-nelson.jpg?h=855aa5ad&itok=OFz-V3Fs",
         "gscholar": "https://scholar.google.com/citations?user=Dz42kJIAAAAJ&hl=en",
-        "website": {
-            "label": "SPAR Lab",
-            "url": "https://www.sparlab.org/"
-        }
+        "website": "https://www.sparlab.org/"
+        
     },
     {
         "firstName": "Somayeh",
@@ -23,13 +21,11 @@
         "category": "Leadership",
         "current": true,
         "description": "Trisalyn Nelson joined the Department of Geography at UCSB as Jack and Laura Dangermond Endowed Chair of Geography in 2020. From 2016-2020 she was Director of the School of Geographical Sciences and Urban Planning at Arizona State University. Prior, she was the Lansdowne Research Professor and Director of the Spatial Pattern Analysis and Research Lab at the University of Victoria, Canada. \\n As a leader, Dr. Nelson is passionate about creating a positive culture and supporting diversity. In her four years as director at ASU she led the school in hiring 13 faculty, doubling research revenue (research awards increased from $2.1 to $4.7 million), generating $2 million in new revenue (from online learning, philanthropy, and a recharge center), increasing diversity of majors (>3x increase in minority students), and growing undergraduate majors by 25%. Dr. Nelson values partnerships, particularly connection between industry and academics, that enable innovation of methods and approaches to solving critical issues. She has worked with over a dozen partners to leverage data science methods for business and management solutions. \\n Dr. Nelson studies a variety of phenomena from spatial ecology to cities. Currently, her research focuses on active transportation, and the use of big data and analytics to better plan cities. Nelson led the creation of BikeMaps.org, a web-map and App to gather volunteered geographic information on bicycling collisions and near misses. With her team, she has developed new ways of using fitness app data (like Strava) to map bicycling volume useful for transportation planning. Nelson uses BikeMaps.org and other big data to quantify and monitor patterns of urban cycling safety and ridership.",
-        "email": "trisalyn@ucsb.edu",
+        "email": "tr@ucsb.edu",
         "location": "4803 Ellison Hall",
         "image": "https://www.geog.ucsb.edu/sites/default/files/styles/medium_square/public/2021-01/somayeh-dodge.jpg?h=c65a77be&itok=6nI-oosO",
-        "website": {
-            "label": "MOVE Lab",
-            "url": "http://move.geog.ucsb.edu/"
-        }
+        "website": "http://move.geog.ucsb.edu/"
+        
     },
     {
         "firstName": "Alan",
@@ -51,7 +47,7 @@
         "category": "Leadership",
         "current": true,
         "description": "Alan Murray is a Professor in the Department of Geography. He earned a BS in Mathematics, a Master’s in Statistics and Applied Probability and a PhD in Geography, all from UC Santa Barbara. After his PhD, he was Professor in the Department of Geography at Ohio State University (as well as Director of the Center for Urban and Regional Analysis), Professor in the School of Geographical Sciences and Urban Planning at Arizona State University and Professor in the College of Computing and Informatics as well as the School of Public Health at Drexel University prior to his return to UC Santa Barbara at the end of 2015. \\n Professor Murray’s research and teaching interests include: geographic information science; spatial optimization; emergency response, health informatics; urban growth and development; land use planning; urban, regional, and natural resource planning and development; and, infrastructure and transportation systems.",
-        "email": "amurray@ucsb.edu",
+        "email": "amuray@ucsb.edu",
         "location": "5718 Ellison Hall",
         "phone": "+1-805-893-3663",
         "image": "https://www.geog.ucsb.edu/sites/default/files/styles/medium_square/public/2023-09/peter-kedron.jpg?h=4428ea9c&itok=Fa74hNv3",
@@ -64,7 +60,7 @@
         "category": "Leadership",
         "current": true,
         "description": "Alan Murray is a Professor in the Department of Geography. He earned a BS in Mathematics, a Master’s in Statistics and Applied Probability and a PhD in Geography, all from UC Santa Barbara. After his PhD, he was Professor in the Department of Geography at Ohio State University (as well as Director of the Center for Urban and Regional Analysis), Professor in the School of Geographical Sciences and Urban Planning at Arizona State University and Professor in the College of Computing and Informatics as well as the School of Public Health at Drexel University prior to his return to UC Santa Barbara at the end of 2015. \\n Professor Murray’s research and teaching interests include: geographic information science; spatial optimization; emergency response, health informatics; urban growth and development; land use planning; urban, regional, and natural resource planning and development; and, infrastructure and transportation systems.",
-        "email": "amurray@ucsb.edu",
+        "email": "amur@ucsb.edu",
         "location": "5718 Ellison Hall",
         "phone": "+1-805-893-3663",
         "image": "https://www.geog.ucsb.edu/sites/default/files/styles/medium_square/public/2023-08/amy-frazier.jpg?h=83fd3f42&itok=j42-kok_",
@@ -88,7 +84,7 @@
         "category": "Staff",
         "current": true,
         "description": "Lizzy does a lot stuff. data collection, recharge, student internships. Works with grant stuff",
-        "email": "schattle@ucsb.edu",
+        "email": "schata@ucsb.edu",
         "location": "3512 Phelps Hall",
         "image": "https://www.geog.ucsb.edu/sites/default/files/styles/medium_square/public/2023-10/lizzy-schattle.jpeg?h=2101fcf3&itok=3lxQY1Zc"
     },
@@ -110,7 +106,7 @@
         "category": "Graduate Student",
         "current": true,
         "description": "Brianna holds a BS in Environmental Health from the Gillings School of Global Public Health at UNC Chapel Hill. She is broadly interested in using geospatial methods to analyze the role of the natural and built environment in driving health and social disparities. Ultimately, she aims to promote equitable access to better health in our communities.",
-        "email": "briannachan@ucsb.edu",
+        "email": "brian@ucsb.edu",
         "location": "5815 Phelps Hall",
         "image": "https://www.geog.ucsb.edu/sites/default/files/styles/medium_square/public/2022-09/brianna-chan.jpg?h=3d95d9db&itok=Nns0eMp1",
         "advisors": ["Trisalyn Nelson", "One other person"]

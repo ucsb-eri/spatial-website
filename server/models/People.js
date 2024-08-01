@@ -4,19 +4,19 @@ const peopleSchema = new Schema({
   firstName: {
     type: String,
     required: true,
-    unique: true,
+    unique: false,
     trim: true,
   },
   lastName: {
     type: String,
     required: true,
-    unique: true,
+    unique: false,
     trim: true,
   },
   title: {
     type: String,
     required: true,
-    unique: true,
+    unique: false,
     trim: true,
   },
   image: {
@@ -42,7 +42,7 @@ const peopleSchema = new Schema({
   email: {
     type: String,
     required: false,
-    unique: true,
+    unique: false,
     match: [/.+@.+\..+/, 'Must match an email address!'],
   },
   location: {
@@ -71,7 +71,7 @@ const peopleSchema = new Schema({
   linkedin: {
     type: String,
     required: false,
-    unique: true,
+    unique: false,
     trim: true,
     match: [
       /^(ftp|http|https):\/\/[^ "]+$/,

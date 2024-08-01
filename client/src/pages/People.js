@@ -27,7 +27,7 @@ function People() {
     }
 
     const currentPersonDetails = peopleList.find(person => person._id === currentPerson);
-    const facultyMembers = peopleList.filter(person => person.category === "Faculty");
+    const leadershipMembers = peopleList.filter(person => person.category === "Leadership");
     const staffMembers = peopleList.filter(person => person.category === "Staff");
     const gradMembers = peopleList.filter(person => person.category === "Graduate Student");
 
@@ -53,7 +53,7 @@ function People() {
                     </Toolbar>
             
                     <Grid container direction="row" justifyContent='center' columnSpacing={4} rowSpacing={4}> 
-                    {facultyMembers.map((person) => (    
+                    {leadershipMembers.map((person) => (    
                         <PersonCard details = {person} renderPerson={renderPerson} />    
                     ))}
                     </Grid>

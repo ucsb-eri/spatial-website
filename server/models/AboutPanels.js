@@ -7,6 +7,18 @@ const aboutPanelSchema = new Schema({
     unique: true,
     trim: true,
   },
+  tabname: {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true
+  },
+  taborder: {
+    type: Number,
+    required: true,
+    unique: false,
+    trim: true
+  },
   description: {
     type: String,
     required: true,

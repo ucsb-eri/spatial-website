@@ -1,30 +1,30 @@
-import * as React from 'react';
+import { React } from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import  CardActionArea from '@mui/material/CardActionArea';
+import CardActionArea from '@mui/material/CardActionArea';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 
+
+
 function PersonCard(props) {
-
-    const {details, renderPerson} = props
-    console.log(details)
-    const title = details.title
-    console.log(title)
-
     
+    
+    const {details, renderPerson} = props
+    const title = details.title
+       
 
     return (
-        <Grid item style={{margin: "30px"}}>
+        <Grid item xs={10} sm={8} md={4}>
             <CardActionArea onClick={() => {renderPerson(details)}}>
-                <Card sx={{ maxWidth: 250 }}>
+                <Card sx={{ width: "100%" }}>
                     <CardMedia
                         component="img"
                         alt="green iguana"
-                        height="300"
+                        height="50%"
                         src= {details.image}
                     />
                     <CardContent>

@@ -1,10 +1,10 @@
 const { gql } = require('apollo-server-express');
 
+
 const typeDefs = gql`
-  type WebsiteInfo {
-    label: String
-    url: String
-  }
+  scalar Date
+  scalar Int
+
   
   type AdminProfile {
     id: ID
@@ -30,11 +30,10 @@ const typeDefs = gql`
     location: String
     phone: String
     gscholar: String
-    website: WebsiteInfo
+    linkedin: String
+    website: String
     advisors: [String]
   }
-
-  scalar Date
 
   type Projects {
     id: ID
@@ -48,6 +47,8 @@ const typeDefs = gql`
   type AboutPanels {
     id: ID
     name: String
+    tabname: String
+    taborder: String
     description: String
   }
 
@@ -58,14 +59,17 @@ const typeDefs = gql`
   }
 
   type Mutation {
+
+    addPerson(firstName: String!, lastName: String!, title: String!, image: String, description: String!, category: String!, current: Boolean!, email: String, location: String, phone: String, gscholar: String, linkedin: String, website: String, advisors: [String]): People!
+
     addProject(name: String!, description: String!, image: String): Projects!
     editProject(id: ID!, name: String, description: String, image: String): Projects!
     deleteProject(id: ID!): [Projects]!
 
     adminSignOn(email: String!, password: String!): Auth!
 
-    addAboutPanel(name: String!, description: String!): AboutPanels!
-    editAboutPanel(id: ID!, name: String, description: String): AboutPanels!
+    addAboutPanel(name: String!, tabname: String!, taborder: String!, description: String!): AboutPanels!
+    editAboutPanel(id: ID!, name: String, tabname: String, taborder: String, description: String): AboutPanels!
     deleteAboutPanel(id: ID!): AboutPanels!
   }
 `;

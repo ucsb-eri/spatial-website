@@ -1,8 +1,11 @@
-import { React, useState, useEffect } from "react";
+import * as React from "react";
+import * as ReactDOM from "react-dom/client"
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import './App.css';
 import AdminProvider from "./context/AdminProvider";
+import { ProjectProvider } from "./context/ProjectContext";
 import Main from './components/Main'
 import Login from "./pages/Login";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -31,11 +34,22 @@ const authLink = setContext((_, { headers }) => {
 });
 
 
-
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
+
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Main />
+  },
+  {
+    path: 'login/',
+    element: <Login />
+  }
+])
 
 function App() {
   
@@ -52,16 +66,16 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <AdminProvider>
-        <ThemeProvider theme={THEME}>
-          <Router>
-            <div className="App">
-              <Routes>
-                <Route path="/login" element={<Login />} />
-                <Route path="/" element= {<Main />} />
-              </Routes>
-            </div>
-          </Router>
-        </ThemeProvider>
+        <ProjectProvider>
+          <ThemeProvider theme={THEME}>
+            
+              <div className="App">
+                <RouterProvider router={router} />
+
+              </div>
+                
+          </ThemeProvider>
+        </ProjectProvider>
       </AdminProvider>
     </ApolloProvider>
     

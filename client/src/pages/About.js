@@ -1,6 +1,6 @@
 import {React, useState, useContext} from 'react';
 import { AdminLoginContext } from "../context/AdminProvider"
-import { useAboutPanelContext} from "../components/contexts/AboutPanelContext"
+import { useProjectContext} from "../context/ProjectContext"
 import CreateAboutPanel from '../components/CreateAboutPanel';
 
 import PropTypes from 'prop-types'
@@ -8,7 +8,7 @@ import {Grid, Container, Typography, Paper, Tabs, Tab, Box, useMediaQuery, Toolb
 import LandingCarouselSlide from '../components/LandingCarouselSlide';
 
 import { useQuery, useMutation } from '@apollo/client';
-import { GET_ABOUTPANELS } from '../utils/queries';
+import { DELETE_ABOUTPANEL } from '../utils/mutations';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -54,25 +54,26 @@ const mainAboutOverview = {
 
 export default function About(props) {
     const { isLoggedIn } = useContext(AdminLoginContext)
-    const {editPanelId, setEditPanelId} = useAboutPanelContext()
+    const {editAboutPanelId, setEditAboutPanelId, aboutPanelData } = useProjectContext()
 
     const [newPanel, setNewPanel] = useState(false)
     const backToPanels = () => setNewPanel(false)
     const {value, setValue} = props
-
-    const {loading, data, error} = useQuery(GET_ABOUTPANELS)
-    
-    let panels = false
-    if (!error && !loading){
-        panels = data.aboutPanels
-    }
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
 
     const smallScreen = useMediaQuery("(max-width: 768px)");
-    console.log(smallScreen)
+
+    const [deletePanel] = useMutation(DELETE_ABOUTPANEL)
+    const deleteAboutPanel = async (id) => {
+        try {
+            const panel = await deletePanel({ variables: {id: id}})
+        } catch (err) {
+            console.error("Could not delete delete about panel", err)
+        }
+    }
 
     return(
         <>
@@ -97,10 +98,10 @@ export default function About(props) {
                         </Paper>
                     
                         
-                            { loading && (
+                            {/* { loading && (
                                 <Typography>Loading</Typography>
-                            )}
-                            { panels && (
+                            )} */}
+                            { aboutPanelData && (
                                 <Box sx={{ flexGrow: 1, bgcolor: 'background.paper', display: smallScreen ? "block" : "flex", height: "100%" }}>
                                     <Tabs
                                         orientation={smallScreen ? "horizontal" : "vertical"}
@@ -111,13 +112,13 @@ export default function About(props) {
                                         aria-label="Vertical tabs"
                                         sx={{ borderRight: smallScreen ? 0 : 1, borderColor: 'divider', minWidth: '150px' }}
                                     >   
-                                        {panels.map((panel, id) => (
-                                            <Tab label={panel.name} {...a11yProps(id)} />
+                                        {aboutPanelData.map((panel, id) => (
+                                            <Tab label={panel.tabname} {...a11yProps(id)} />
                                         ))}
                                     </Tabs>
-                                    {panels.map((panel, id) => (
+                                    {aboutPanelData.map((panel, id) => (
                                         <TabPanel value={value} index={id}>
-                                            {panel.id !== editPanelId ? (
+                                            {panel.id !== editAboutPanelId ? (
                                                 <Grid container direction='row' spacing={4} justifyContent='center'>
                                                     <Grid item xs={12} md={11}>                                   
                                                         <Toolbar align='left' disableGutters={true}>
@@ -130,15 +131,15 @@ export default function About(props) {
                                                     { isLoggedIn && (
                                                         <Grid xs={12}>
                                                             <Grid container direction="row">
-                                                                <Button variant='contained' style={{maxWidth: 50}} onClick={() => {setEditPanelId(panel.id)}}>Edit</Button>
-                                                                <Button variant='contained' style={{maxWidth: 50}} onClick={() => {setEditPanelId(panel.id)}}>Delete</Button>
+                                                                <Button variant='contained' style={{maxWidth: 50}} onClick={() => {setEditAboutPanelId(panel.id)}}>Edit</Button>
+                                                                <Button variant='contained' style={{maxWidth: 50}} onClick={() => {deleteAboutPanel(panel.id)}}>Delete</Button>
                                                             </Grid>
                                                         </Grid>
                                                     )}
                                                 </Grid>
                                                 
                                             ): (
-                                                <CreateAboutPanel id={panel.id} description={panel.description} name={panel.name} />
+                                                <CreateAboutPanel id={panel.id} description={panel.description} name={panel.name} tabname={panel.tabname} taborder={panel.taborder} />
                                             )}
                                         </TabPanel>
                                         

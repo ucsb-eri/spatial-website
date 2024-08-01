@@ -1,6 +1,9 @@
-import React, {useState} from 'react';
-import { AboutPanelProvider } from './contexts/AboutPanelContext';
+import React, {useState, useContext, useEffect} from 'react';
 import {Container, Grid, Toolbar, Box, Tabs, Tab, Popover, MenuItem} from '@mui/material'
+
+import { useQuery, useMutation } from '@apollo/client';
+import { GET_ABOUTPANELS } from '../utils/queries';
+import { useProjectContext } from '../context/ProjectContext'
 
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import Header from './Header';
@@ -30,12 +33,8 @@ function Main(props) {
     }
 
     if (currentPage === 'About') {
-      console.log("changed about location")
-      console.log(aboutLocation)
       return (
-        <AboutPanelProvider>
-          <About value={aboutLocation} setValue={setAboutLocation} />
-        </AboutPanelProvider>
+        <About value={aboutLocation} setValue={setAboutLocation} />
       )
     }
 
@@ -74,6 +73,19 @@ function Main(props) {
     handlePageChange("About")
     
   }
+
+  // get database queries
+
+  const {loading, data, error} = useQuery(GET_ABOUTPANELS)
+  const { setAboutPanelData, aboutPanelData } = useProjectContext()
+  useEffect(() => {
+    if (!error && !loading && data) {
+      const panels = data.aboutPanels;
+      const mutablePanels = [...panels]; // Create a shallow copy
+      mutablePanels.sort((a, b) => parseInt(a.taborder) - parseInt(b.taborder));
+      setAboutPanelData(mutablePanels);
+    }
+  }, [data, error, loading, setAboutPanelData]);
 
   
   return (
@@ -153,15 +165,13 @@ function Main(props) {
                   horizontal: "center"
                 }}
               >
-                <MenuItem onClick={() => handleAboutMenu(0)}>
-                  Overview
+                {aboutPanelData && aboutPanelData.map((panel, id) => (
+                  <MenuItem onClick={() => handleAboutMenu(id)}>
+                  {panel.tabname}
                 </MenuItem>
-                <MenuItem onClick={() => handleAboutMenu(1)}>
-                  History
-                </MenuItem>
-                <MenuItem onClick={() => handleAboutMenu(2)}>
-                  eScholarship
-                </MenuItem>
+                ))}
+                
+                
               </Popover>
                     
                     

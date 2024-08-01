@@ -19,7 +19,7 @@ import { useProjectContext } from '../context/ProjectContext';
 import { AdminLoginContext } from '../context/AdminProvider'
 
 
-export default function CreateProject(props) {
+export default function CreatePerson(props) {
     const { logout } = useContext(AdminLoginContext)
     useEffect( () => {
 

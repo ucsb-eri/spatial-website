@@ -28,7 +28,6 @@ function People() {
 
     const currentPersonDetails = peopleList.find(person => person._id === currentPerson);
     const facultyMembers = peopleList.filter(person => person.category === "Faculty");
-    console.log(facultyMembers)
     const staffMembers = peopleList.filter(person => person.category === "Staff");
     const gradMembers = peopleList.filter(person => person.category === "Graduate Student");
 
@@ -49,11 +48,11 @@ function People() {
                     {/* FACULTY */}
                     <Toolbar sx={{ marginTop: '5px', marginBottom: '5px' }} align='center'>
                         <Typography variant='h5' align='left' marginTop="30px" marginBottom="30px" paddingBottom="5px" borderBottom={1} borderColor="divider">
-                        Core Faculty
+                        Leadership
                         </Typography>
                     </Toolbar>
             
-                    <Grid container justifyContent='space-between'> 
+                    <Grid container direction="row" justifyContent='center' columnSpacing={4} rowSpacing={4}> 
                     {facultyMembers.map((person) => (    
                         <PersonCard details = {person} renderPerson={renderPerson} />    
                     ))}
@@ -66,7 +65,7 @@ function People() {
                         </Typography>
                     </Toolbar>
                     
-                    <Grid container justifyContent='space-between'> 
+                    <Grid container direction="row" justifyContent='center' columnSpacing={4} rowSpacing={4}> 
                     {staffMembers.map((person) => (    
                         <PersonCard details = {person} renderPerson={renderPerson} />    
                     ))}
@@ -79,20 +78,15 @@ function People() {
                         </Typography>
                     </Toolbar>
 
-                    <Grid container justifyContent='space-between'> 
+                    <Grid container direction="row" justifyContent='center' columnSpacing={4} rowSpacing={4}> 
                     {gradMembers.map((person) => (    
                         <PersonCard details = {person} renderPerson={renderPerson} />    
                     ))}
                     </Grid>
-
-
                 </Container>
-
             )
             )}
-
-        </div>
-            
+        </div>      
     )
 
 }

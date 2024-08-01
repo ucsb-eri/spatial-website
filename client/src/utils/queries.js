@@ -39,5 +39,7 @@ export const GET_ABOUTPANELS = gql`
         id
         description
         name
+        tabname
+        taborder
         }
   }`

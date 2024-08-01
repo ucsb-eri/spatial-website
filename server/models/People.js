@@ -33,7 +33,7 @@ const peopleSchema = new Schema({
   category: {
     type: String,
     required: true,
-    enum: ['Faculty', 'Staff', 'Graduate Student', 'Undergrad Student']
+    enum: ['Leadership', 'Affliated Faculty', 'Staff', 'Graduate Student', 'Undergrad Student']
   },
   current: {
     type: Boolean,
@@ -41,7 +41,7 @@ const peopleSchema = new Schema({
   },
   email: {
     type: String,
-    required: true,
+    required: false,
     unique: true,
     match: [/.+@.+\..+/, 'Must match an email address!'],
   },
@@ -68,21 +68,25 @@ const peopleSchema = new Schema({
       'Must be a valid URL format (e.g., http://example.com)',
     ],
   },
+  linkedin: {
+    type: String,
+    required: false,
+    unique: true,
+    trim: true,
+    match: [
+      /^(ftp|http|https):\/\/[^ "]+$/,
+      'Must be a valid URL format (e.g., http://example.com)',
+    ],
+  },
   website: {
-    label: {
-      type: String,
-      required: false,
-      trim: true,
-    },
-    url: {
-      type: String,
-      required: false,
-      trim: true,
-      match: [
-        /^(ftp|http|https):\/\/[^ "]+$/,
-        'Must be a valid URL format (e.g., http://example.com)',
-      ],
-    },
+    type: String,
+    required: false,
+    trim: true,
+    match: [
+      /^(ftp|http|https):\/\/[^ "]+$/,
+      'Must be a valid URL format (e.g., http://example.com)',
+    ],
+    
   },
   advisors: {
     type: [String],

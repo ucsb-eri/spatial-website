@@ -1,4 +1,7 @@
-import * as React from 'react';
+import { React, useContext } from 'react';
+import { AdminLoginContext } from "../context/AdminProvider"
+import { useProjectContext } from '../context/ProjectContext';
+import CreatePerson from './CreatePerson';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
@@ -15,30 +18,33 @@ import WebsiteIcon from '@mui/icons-material/Web'
 
 
 function PersonBio(props) {
-
+    const { isLoggedIn } = useContext(AdminLoginContext)
+    const {editPersonId, setEditPersonId} = useProjectContext()
+    
     const {details, backToCards} = props
     console.log(details)
     return (
         <Container maxWidth={100}>
-            <Grid item align="left">
-                <Button 
-                    variant="text" 
-                    onClick={() => backToCards()} 
-                    startIcon={<ArrowBackIcon />}
-                    sx={{maxWidth: "100px", marginTop: "20px"}}
-                    align="left"
 
-                    >
-                        Back
-                </Button>
-            </Grid>
+            {details.id !== editPersonId ? (
+                <div>
+                    <Grid item align="left">
+                        <Button 
+                            variant="text" 
+                            onClick={() => backToCards()} 
+                            startIcon={<ArrowBackIcon />}
+                            sx={{maxWidth: "100px", marginTop: "20px"}}
+                            align="left"
+                            >
+                                Back
+                        </Button>
+                    </Grid>
                 
                 <Container sx={{md: "80%", sm: "100%", marginTop: "50px"}}>
                     {/* <Grid container direction="column" rowGap={1} columnGap={2} alignItems="center" justifyContent="center" mb={4}>
                         <Typography component= "h2" variant="h4" align="center">{details.name}</Typography>
                     </Grid> */}
                     
-
                     <Grid container direction="row" rowGap="40px" columnGap={6} justifyContent="center" alignItems="top" minHeight="400px" >
                         
                         {/* Bio */}
@@ -53,8 +59,7 @@ function PersonBio(props) {
                                         lg: '600px',
                                         xlg: '600px'
                                     }
-                                }} 
-                        >
+                                }}>
                             <Typography component= "h2" variant="h4" align="left" mb={2}>{details.firstName} {details.lastName}</Typography>
                             <Typography component= "h2" variant="h6" align="left" mb={1}>{details.title}</Typography>
                             
@@ -92,8 +97,7 @@ function PersonBio(props) {
                                 width: '100%',
                                 bgcolor: 'background.paper',
                                 flexWrap: 'wrap'
-                            }}
-                            >
+                            }}>
                             <Box sx={{display:"flex", flexDirection: "row", flexWrap: "nowrap", alignItems: "center", marginBottom:'20px'}}>
                                 <Avatar>
                                     <MailIcon />
@@ -133,10 +137,20 @@ function PersonBio(props) {
                     </Grid>
                 </Container>
                 
+                { isLoggedIn && 
+                    (
+                    <Button variant='contained' style={{maxWidth: 50}} onClick={() => {setEditPersonId(details.id)}}>Edit</Button>
+                    )}
+
+
+            </div>
+
+
+            ) : (
+                <CreatePerson />
+            )}
+            </Container>
             
-
-
-        </Container>
     )
 
 }

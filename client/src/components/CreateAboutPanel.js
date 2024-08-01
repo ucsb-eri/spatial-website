@@ -13,7 +13,7 @@ import Auth from '../utils/auth'
 import { FormGroup, FormControl, TextField, InputLabel, Button, Input } from '@mui/material';
 import { useMutation } from '@apollo/client';
 import { ADD_ABOUTPANEL, EDIT_ABOUTPANEL } from '../utils/mutations';
-import { useAboutPanelContext } from './contexts/AboutPanelContext';
+import { useProjectContext } from '../context/ProjectContext';
 import { AdminLoginContext } from '../context/AdminProvider'
 
 
@@ -36,7 +36,7 @@ export default function CreateAboutPanel(props) {
             console.log("edited panel")
         }
     }
-    const {editPanelId, setEditPanelId} = useAboutPanelContext()
+    const {editAboutPanelId, setEditAboutPanelId} = useProjectContext()
 
     const createEditorState = () => {
         if (props.id) {
@@ -60,11 +60,28 @@ export default function CreateAboutPanel(props) {
             return null
         }
     }
+    const createTabnameState = () => {
+        if (props.id) {
+            console.log(props.tabname)
+            return props.tabname
+        } else {
+            return null
+        }
+    }
+    const createTaborderState = () => {
+        if (props.id) {
+            console.log(props.taborder)
+            return props.taborder
+        } else {
+            return null
+        }
+    }
     const [name, setName] = useState(createNameState)
+    const [tabname, setTabname] = useState(createTabnameState)
+    const [taborder, setTaborder] = useState(createTaborderState)
 
     const [addPanel] = useMutation(ADD_ABOUTPANEL)
     const [editPanel] = useMutation(EDIT_ABOUTPANEL)
-    console.log(editPanel)
 
     let handlePanel
     if (props.id) {
@@ -72,15 +89,15 @@ export default function CreateAboutPanel(props) {
         handlePanel = async () => {
             const id = props.id
             const description = stateToHTML(editorState.getCurrentContent())
-            console.log(id, description, name)
+            console.log(id, description, name, taborder, tabname)
             try {
                 const update = await editPanel({
-                    variables: {id, name, description}
+                    variables: {id, name, description, tabname, taborder}
                 })
             } catch (error) {
                 console.log(error)
             }
-            setEditPanelId(null)
+            setEditAboutPanelId(null)
             onSubmit()
         }
     } else {
@@ -89,7 +106,7 @@ export default function CreateAboutPanel(props) {
             try {
                 console.log(description, name)
                 const result = await addPanel({
-                    variables: {name, description}
+                    variables: {name, description, tabname, taborder}
                 }) 
                 
             } catch (error) {
@@ -120,6 +137,12 @@ export default function CreateAboutPanel(props) {
                 <FormControl style={{width:"100%", height: "80%"}}>
                     <TextField id="new-panel-name" label="Panel Name" defaultValue={props.name} variant="outlined" onChange={(e) => setName(e.target.value)}/>
                 </FormControl>
+                <FormControl style={{width:"200px", height: "80%"}}>
+                    <TextField id="new-panel-tabname" label="Tab Name" defaultValue={props.tabname} variant="outlined" onChange={(e) => setTabname(e.target.value)}/>
+                </FormControl>
+                <FormControl style={{width:"200px", height: "80%"}}>
+                    <TextField id="new-panel-taborder" label="Tab Order" defaultValue={props.taborder} variant="outlined" onChange={(e) => setTaborder(e.target.value)}/>
+                </FormControl>
                 <FormControl style={{width:"100%", height: "80%"}}>
                     <InputLabel htmlFor="my-input" style={formControlStyle}>Panel Description</InputLabel>
                     <div style={richTextEditorStyle}>
@@ -129,7 +152,7 @@ export default function CreateAboutPanel(props) {
                 
                 
             </FormGroup>
-            <Button variant="contained"  onClick={handlePanel}>Save</Button>
+            <Button variant="contained" onClick={handlePanel}>Save</Button>
             
             
         </Container>

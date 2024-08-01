@@ -2,7 +2,6 @@ import { React, useContext, useState } from 'react';
 import { AdminLoginContext } from "../context/AdminProvider"
 import {Grid, Toolbar, Typography, Button} from '@mui/material';
 
-import { ProjectProvider } from '../components/contexts/ProjectContext';
 import ProjectDescriptions from '../components/ProjectDescriptions';
 import CreateProject from '../components/CreateProject';
 
@@ -12,8 +11,6 @@ function Projects() {
     const backToProjects = () => setNewProject(false)
     return (
         <Grid item>
-            <ProjectProvider>
-
                 <Toolbar sx={{ marginTop: '5px', marginBottom: '5px' }} align='center'>
                         <Typography variant='h5' align='left' marginTop="30px" marginBottom="30px" paddingBottom="5px" borderBottom={1} borderColor="divider">
                         Projects & Initiatives
@@ -31,11 +28,7 @@ function Projects() {
                     </div>
                     
                 )
-
-                }
-            </ProjectProvider>
-
-
+                }           
         </Grid>
     )
 }

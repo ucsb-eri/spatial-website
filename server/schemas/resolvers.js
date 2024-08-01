@@ -16,6 +16,14 @@ const resolvers = {
   },
 
   Mutation: {
+
+    addPerson: async (parent, {firstName, lastName, title, image, description, category, current, email, location, phone, gscholar, linkedin, website, advisors}) => {
+      // if (context.user) {
+        const person = await People.create({firstName, lastName, title, image, description, category, current, email, location, phone, gscholar, linkedin, website, advisors})
+        return person
+      // }
+    },
+
     addProject: async (parent, {name, description, image}, context) => {
       if (context.user) {
         const project = await Projects.create({name, description, image})
@@ -59,33 +67,34 @@ const resolvers = {
       }
     },
 
-    addAboutPanel: async (parent, {name, description}, context) => {
+    addAboutPanel: async (parent, {name, tabname, taborder, description}, context) => {
       if (context.user) {
         console.log("valid user")
         console.log(name, description)
-        const aboutPanel = await AboutPanels.create({name, description})
+        const aboutPanel = await AboutPanels.create({name, description, tabname, taborder})
         return aboutPanel
       }
     },
-    editAboutPanel: async (parent, {id, name, description}, context) => {
+    editAboutPanel: async (parent, {id, name, tabname, taborder, description}, context) => {
+      console.log("are yoyu working?")
       if (context.user) {
         console.log("valid user")
         console.log(name, description)
         const updateAboutPanel = await AboutPanels.findByIdAndUpdate(
           {_id: id},
-          {name, description},
+          {name, description, tabname, taborder},
           {new: true}
           )
         return updateAboutPanel
       } 
     },
     deleteAboutPanel: async (parent, {id}, context) => {
-      // if (context.user) {
+      if (context.user) {
         const deletedPanel = await AboutPanels.deleteOne({_id: id})
         const panels = await AboutPanels.find()
         return panels
       }
-    // },
+    },
   }
   
 };

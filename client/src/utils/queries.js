@@ -8,6 +8,8 @@ export const QUERY_PEOPLE = gql`
             lastName
             title
             description
+            research
+            projects
             image
             category
             current

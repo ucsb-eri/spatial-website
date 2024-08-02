@@ -30,6 +30,15 @@ const peopleSchema = new Schema({
     minlength: [50, 'Description must be at least 50 characters'],
     maxlength: [5000, 'Description cannot exceed 500 characters'],
   },
+  research: {
+    type: String,
+    required: false,
+    minlength: [50, 'Description must be at least 50 characters'],
+  },
+  projects: {
+    type: [String],
+    required: false
+  },
   category: {
     type: String,
     required: true,

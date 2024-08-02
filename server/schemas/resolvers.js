@@ -17,9 +17,9 @@ const resolvers = {
 
   Mutation: {
 
-    addPerson: async (parent, {firstName, lastName, title, image, description, category, current, email, location, phone, gscholar, linkedin, website, advisors}) => {
+    addPerson: async (parent, {firstName, lastName, title, image, description, research, projects, category, current, email, location, phone, gscholar, linkedin, website, advisors}) => {
       // if (context.user) {
-        const person = await People.create({firstName, lastName, title, image, description, category, current, email, location, phone, gscholar, linkedin, website, advisors})
+        const person = await People.create({firstName, lastName, title, image, description, research, projects, category, current, email, location, phone, gscholar, linkedin, website, advisors})
         return person
       // }
     },

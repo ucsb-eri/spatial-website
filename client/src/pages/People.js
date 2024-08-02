@@ -54,7 +54,7 @@ function People() {
             
                     <Grid container direction="row" justifyContent='center' columnSpacing={4} rowSpacing={4}> 
                     {leadershipMembers.map((person) => (    
-                        <PersonCard details = {person} renderPerson={renderPerson} />    
+                        <PersonCard details = {person} renderPerson={renderPerson} key={person.id} />    
                     ))}
                     </Grid>
                     
@@ -67,7 +67,7 @@ function People() {
                     
                     <Grid container direction="row" justifyContent='center' columnSpacing={4} rowSpacing={4}> 
                     {staffMembers.map((person) => (    
-                        <PersonCard details = {person} renderPerson={renderPerson} />    
+                        <PersonCard details = {person} renderPerson={renderPerson} key={person.id} />    
                     ))}
                     </Grid>
                     
@@ -80,7 +80,7 @@ function People() {
 
                     <Grid container direction="row" justifyContent='center' columnSpacing={4} rowSpacing={4}> 
                     {gradMembers.map((person) => (    
-                        <PersonCard details = {person} renderPerson={renderPerson} />    
+                        <PersonCard details = {person} renderPerson={renderPerson} key={person.id} />    
                     ))}
                     </Grid>
                 </Container>

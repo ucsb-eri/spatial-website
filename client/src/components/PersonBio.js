@@ -46,25 +46,23 @@ function PersonBio(props) {
                     </Button>
                 </Grid>
                 <HorizontalLine />
-                <Container sx={{md: "80%", sm: "100%", marginTop: "50px"}}>
-                    
+                
+                <Container maxWidth="md">
                     <Grid container direction="row" justifyContent="space-between" rowGap={3} minHeight="300px" >
-                        <Grid item alignItems="center" align="center" xs={12} sm={5} md={6}>
+                        <Grid item alignItems="center" align="left" xs={12} sm={5}>
                             {/* person's pic */}
-                            <Card sx={{ maxWidth: 300, borderRadius: 0 }} elevation={0}>
+                            <Card sx={{ width:"100%", borderRadius: 0 }} elevation={0}>
 
                                 <CardMedia
                                     component="img"
                                     alt="green iguana"
                                     maxHeight="400"
                                     src= {details.image}
-                                    align="center" 
-                                    
-                                />
+                                    align="center"/>
                             </Card>
                         </Grid>
                         {/* Bio */}
-                        <Grid item alignContent="top" sx={{paddingTop: isXsScreen ? "0px" : "110px"}} justifyContent="center" xs={12} sm={7} md={6} pt={3}>
+                        <Grid item alignContent="top" sx={{paddingTop: isXsScreen ? "0px" : "150px"}} justifyContent="center" xs={12} sm={7} md={7} pt={3}>
                             <Typography component= "h2" variant="h4" align="center" mb={1} >{details.firstName} {details.lastName}</Typography>
                             <Typography component= "h2" variant="h6" align="center" mb={1}>{details.title}</Typography>
                             
@@ -116,41 +114,40 @@ function PersonBio(props) {
                         </Grid>
 
                     </Grid>
-                    
-                    {/* contact info + links? */}
-                    <Grid container sx={{marginTop: "60px"}}>
-                        <Grid item
-                            sx={{
-                                display: 'flex',
-                                flexDirection: 'row', // Set the direction to row for horizontal alignment
-                                justifyContent: 'space-between',
-                                width: '100%',
-                                bgcolor: 'background.paper',
-                                flexWrap: 'wrap'
-                            }}>
-                            
-                            {/* {details.location !== null && (<Box sx={{display:"flex", flexDirection: "row", flexWrap: "nowrap", alignItems: "center", marginBottom:'20px'}}>
-                                <Avatar>
-                                    <WorkIcon />
-                                </Avatar>
-                                <Typography  sx={{ paddingLeft: "15px", paddingRight: "15px",  whiteSpace: 'nowrap'}}>
-                                {details.location}
-                                </Typography>
-                            </Box>)} */}
-                            {/* {details.phone !== null && (<Box sx={{display:"flex", flexDirection: "row", flexWrap: "nowrap", alignItems: "center", marginBottom:'20px'}}>
-                                <Avatar>
-                                    <PhoneIcon />
-                                </Avatar>
-                                <Typography sx={{ paddingLeft: "15px", paddingRight: "15px",  whiteSpace: 'nowrap'}}>
-                                    {details.phone}
-                                </Typography>
-                            </Box>)} */}
-                            
-                            
-                            
-                        </Grid>                         
-                    </Grid>
                 </Container>
+                
+                {/* contact info + links? */}
+                <Grid container sx={{marginTop: "60px"}}>
+                    <Grid item
+                        sx={{
+                            display: 'flex',
+                            flexDirection: 'row', // Set the direction to row for horizontal alignment
+                            justifyContent: 'space-between',
+                            width: '100%',
+                            bgcolor: 'background.paper',
+                            flexWrap: 'wrap'
+                        }}>
+                        
+                        {/* {details.location !== null && (<Box sx={{display:"flex", flexDirection: "row", flexWrap: "nowrap", alignItems: "center", marginBottom:'20px'}}>
+                            <Avatar>
+                                <WorkIcon />
+                            </Avatar>
+                            <Typography  sx={{ paddingLeft: "15px", paddingRight: "15px",  whiteSpace: 'nowrap'}}>
+                            {details.location}
+                            </Typography>
+                        </Box>)} */}
+                        {/* {details.phone !== null && (<Box sx={{display:"flex", flexDirection: "row", flexWrap: "nowrap", alignItems: "center", marginBottom:'20px'}}>
+                            <Avatar>
+                                <PhoneIcon />
+                            </Avatar>
+                            <Typography sx={{ paddingLeft: "15px", paddingRight: "15px",  whiteSpace: 'nowrap'}}>
+                                {details.phone}
+                            </Typography>
+                        </Box>)} */}
+
+                    </Grid>                         
+                </Grid>
+               
             
             { isLoggedIn && 
                 (

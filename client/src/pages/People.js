@@ -23,7 +23,6 @@ function People() {
     const backToCards = () => {
         setCurrentPerson(null)
         console.log("Current person: ", currentPerson)
-
     }
 
     const currentPersonDetails = peopleList.find(person => person._id === currentPerson);

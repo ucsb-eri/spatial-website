@@ -12,7 +12,6 @@ import Grid from '@mui/material/Grid';
 
 function PersonCard(props) {
     
-    
     const {details, renderPerson} = props
     const title = details.title
        

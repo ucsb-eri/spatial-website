@@ -156,7 +156,7 @@ function PersonBio(props) {
             </div>
 
         ) : (
-            <CreatePerson />
+            <CreatePerson id={details.id} details={details} />
         )}
         </Container>
             

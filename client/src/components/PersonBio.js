@@ -13,6 +13,8 @@ import WorkIcon from '@mui/icons-material/Work';
 import PhoneIcon from '@mui/icons-material/Phone';
 import WebsiteIcon from '@mui/icons-material/Web'
 
+const imageRoute = process.env.NODE_ENV === "production" ? "https://spatialtest.grit.ucsb.edu/images/" : "http://localhost:3001/images/"
+
 // Styled line in the card
 const HorizontalLine = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -63,9 +65,9 @@ function PersonBio(props) {
 
                                 <CardMedia
                                     component="img"
-                                    alt="green iguana"
+                                    alt={`${details.firstName} ${details.lastName} headshot`}
                                     maxHeight="400"
-                                    src= {details.image ? `http://localhost:3001/images/${details.image}` : "https://images.freeimages.com/images/large-previews/ac7/sky-1401862.jpg?fmt=webp&w=500"}
+                                    src= {imageRoute + details.image}
                                     align="center"/>
                             </Card>
                         </Grid>

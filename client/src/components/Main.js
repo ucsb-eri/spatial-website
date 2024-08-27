@@ -13,6 +13,8 @@ import Footer from './Footer';
 import People from '../pages/People';
 import Projects from '../pages/Projects';
 import Give from '../pages/Give';
+import Products from '../pages/Products';
+import Education from '../pages/Education';
 
 
 function Main(props) {
@@ -48,6 +50,14 @@ function Main(props) {
 
     if (currentPage === 'Give') {
       return <Give />
+    }
+
+    if (currentPage === 'Products'){
+      return <Products />
+    }
+
+    if (currentPage === 'Education') {
+      return <Education />
     }
   };
   
@@ -139,14 +149,27 @@ function Main(props) {
                   key={'Projects'}
                 />
                 <Tab
-                  onClick={() => handlePageChange('Recharge Center')}
+                  onClick={() => handlePageChange('Products')}
                   value={'five'}
+                  label={'Products'}
+                  key={'Products'}
+                />
+                <Tab
+                  onClick={() => handlePageChange('Education')}
+                  value={'six'}
+                  label={'Education'}
+                  key={'Education'}
+                />
+                <Tab
+                  onClick={() => handlePageChange('Recharge Center')}
+                  value={'seven'}
                   label={'Recharge Center'}
                   key={'Recharge Center'}
                 />
+                
                 <Tab
                   onClick={() => handlePageChange('Give')}
-                  value={'six'}
+                  value={'eight'}
                   label={'Give'}
                   key={'Give'}
                 />

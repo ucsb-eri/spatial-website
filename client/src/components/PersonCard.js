@@ -8,7 +8,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 
-
+const imageRoute = process.env.NODE_ENV === "production" ? "https://spatialtest.grit.ucsb.edu/images/" : "http://localhost:3001/images/"
 
 function PersonCard(props) {
     
@@ -22,9 +22,9 @@ function PersonCard(props) {
                 <Card sx={{ width: "100%" }}>
                     <CardMedia
                         component="img"
-                        alt="green iguana"
+                        alt={`${details.firstName} ${details.lastName} headshot`}
                         height="50%"
-                        src= {details.image ? `http://localhost:3001/images/${details.image}` : "https://images.freeimages.com/images/large-previews/ac7/sky-1401862.jpg?fmt=webp&w=500"}
+                        src= {imageRoute + details.image}
                     />
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div">

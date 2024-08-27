@@ -8,6 +8,8 @@ export const QUERY_PEOPLE = gql`
             lastName
             title
             description
+            research
+            projects
             image
             category
             current
@@ -15,10 +17,8 @@ export const QUERY_PEOPLE = gql`
             location
             phone
             gscholar
-            website {
-                label
-                url
-                }
+            websiteUrl
+            websiteName 
         }
     } 
 `;

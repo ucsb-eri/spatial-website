@@ -4,19 +4,19 @@ const peopleSchema = new Schema({
   firstName: {
     type: String,
     required: true,
-    unique: true,
+    unique: false,
     trim: true,
   },
   lastName: {
     type: String,
     required: true,
-    unique: true,
+    unique: false,
     trim: true,
   },
   title: {
     type: String,
     required: true,
-    unique: true,
+    unique: false,
     trim: true,
   },
   image: {
@@ -30,6 +30,15 @@ const peopleSchema = new Schema({
     minlength: [50, 'Description must be at least 50 characters'],
     maxlength: [5000, 'Description cannot exceed 500 characters'],
   },
+  research: {
+    type: String,
+    required: false,
+    minlength: [50, 'Description must be at least 50 characters'],
+  },
+  projects: {
+    type: [String],
+    required: false
+  },
   category: {
     type: String,
     required: true,
@@ -42,7 +51,7 @@ const peopleSchema = new Schema({
   email: {
     type: String,
     required: false,
-    unique: true,
+    unique: false,
     match: [/.+@.+\..+/, 'Must match an email address!'],
   },
   location: {
@@ -71,14 +80,14 @@ const peopleSchema = new Schema({
   linkedin: {
     type: String,
     required: false,
-    unique: true,
+    unique: false,
     trim: true,
     match: [
       /^(ftp|http|https):\/\/[^ "]+$/,
       'Must be a valid URL format (e.g., http://example.com)',
     ],
   },
-  website: {
+  websiteUrl: {
     type: String,
     required: false,
     trim: true,
@@ -86,7 +95,11 @@ const peopleSchema = new Schema({
       /^(ftp|http|https):\/\/[^ "]+$/,
       'Must be a valid URL format (e.g., http://example.com)',
     ],
-    
+  },
+  websiteName: {
+    type: String,
+    required: false,
+    trim: true
   },
   advisors: {
     type: [String],

@@ -1,30 +1,35 @@
-const db = require('../config/connection');
-const { People, Projects, AdminProfile } = require('../models');
+const { People, Projects, AboutPanels } = require('../models');
 const peopleSeeds = require('./peopleSeeds.json');
-// const adminSeeds = require('./adminSeed.json')
+const aboutSeeds = require('./aboutSeeds.json')
 
-db.once('open', async () => {
+async function seedWebsite() {
 
   try {
-    await People.deleteMany({});
-    await People.collection.drop();
-    await People.create(peopleSeeds);
-
-
-    console.log('all done!');
+    const peopleExists = await People.find() 
+      if (peopleExists.length == 0) {
+        console.log("seeding people")
+        const people = await People.insertMany(peopleSeeds)
+        console.log("new people in the building", people)
+      } else {
+        console.log("people in the building")
+      } 
   } catch (err) {
-    throw err;
+    console.error("Error seeding people: ", err)
   }
 
-  // try {
-  //   await AdminProfile.deleteMany({});
-  //   await AdminProfile.collection.drop();
-  //   await AdminProfile.create(adminSeeds)
+  try {
+    const panelsExist = await AboutPanels.find()
+      if (panelsExist.length == 0) {
+        console.log("seeding about panels")
+        const panels = await AboutPanels.insertMany(aboutSeeds)
+        console.log("new panels on the walls", panels)
+      } else {
+        console.log("panels already installed")
+      }
+  } catch (err) {
+    console.error("Error seeding panels: ", err)
+  }
 
-  //   console.log("got the admins!")
-  // } catch (err) {
-  //   throw err
-  // }
+}
 
-  process.exit(0);
-});
+module.exports = seedWebsite;

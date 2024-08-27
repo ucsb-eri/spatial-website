@@ -20,7 +20,7 @@ function LandingCarouselSlide(props) {
               pr: { md: 0 },
             }}
           >
-            <Typography component="h1" variant="h3" color="inherit" align='left'>
+            <Typography component="h1" variant="h1" color="inherit" align='left'>
               {post.title}
             </Typography>
             <Typography variant="h5" color="inherit" paragraph align='left' marginTop='20px'>

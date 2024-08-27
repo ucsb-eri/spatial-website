@@ -44,12 +44,11 @@ function Header(props) {
           </Grid>
           <Grid item xs={12} md={6}>
               <Typography
-                component="h1"
-                variant="h4"
+                component="h3"
+                variant="h3"
                 color="inherit"
                 align="left"
                 sx={{ flex: 1, marginTop: 1 }}
-                className="produkt-thin"
               >
                 {title}
               </Typography>

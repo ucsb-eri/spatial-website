@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
 export const ADD_PERSON = gql`
-  mutation AddPerson($firstName: String!, $lastName: String!, $title: String!, $category: String!, $description: String!, $current: Boolean!, $image: String, $email: String, $location: String, $phone: String, $gscholar: String, $linkedin: String, $website: String, $advisors: [String]) {
-    addPerson(firstName: $firstName, lastName: $lastName, title: $title, category: $category, description: $description, current: $current, image: $image, email: $email, location: $location, phone: $phone, gscholar: $gscholar, linkedin: $linkedin, website: $website, advisors: $advisors) {
+  mutation AddPerson($firstName: String!, $lastName: String!, $title: String!, $category: String!, $description: String!, $research: String, $projects: [String], $current: Boolean!, $image: String, $email: String, $location: String, $phone: String, $gscholar: String, $linkedin: String, $websiteUrl: String, $websiteName: String, $advisors: [String]) {
+    addPerson(firstName: $firstName, lastName: $lastName, title: $title, category: $category, description: $description, research: $research, projects: $projects, current: $current, image: $image, email: $email, location: $location, phone: $phone, gscholar: $gscholar, linkedin: $linkedin, websiteUrl: $websiteUrl, websiteName: $websiteName, advisors: $advisors) {
       firstName
       lastName
       title

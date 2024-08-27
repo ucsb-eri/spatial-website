@@ -8,7 +8,8 @@ import AdminProvider from "./context/AdminProvider";
 import { ProjectProvider } from "./context/ProjectContext";
 import Main from './components/Main'
 import Login from "./pages/Login";
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
+import { theme } from "./theme";
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { setContext } from "@apollo/client/link/context";
 
@@ -53,21 +54,13 @@ const router = createBrowserRouter([
 
 function App() {
   
-  const THEME = createTheme({
-    typography: {
-     "fontFamily": `Avenir, "Century Gothic", sans-serif`,
-     "fontSize": 14,
-     "fontWeightLight": 100,
-     "fontWeightRegular": 400,
-     "fontWeightMedium": 500
-    }
-  });
+
 
   return (
     <ApolloProvider client={client}>
       <AdminProvider>
         <ProjectProvider>
-          <ThemeProvider theme={THEME}>
+          <ThemeProvider theme={theme}>
             
               <div className="App">
                 <RouterProvider router={router} />

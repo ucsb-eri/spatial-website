@@ -33,7 +33,8 @@ const typeDefs = gql`
     phone: String
     gscholar: String
     linkedin: String
-    website: String
+    websiteUrl: String
+    websiteName: String
     advisors: [String]
   }
 
@@ -62,7 +63,7 @@ const typeDefs = gql`
 
   type Mutation {
 
-    addPerson(firstName: String!, lastName: String!, title: String!, image: String, description: String!, research: String, projects: [String], category: String!, current: Boolean!, email: String, location: String, phone: String, gscholar: String, linkedin: String, website: String, advisors: [String]): People!
+    addPerson(firstName: String!, lastName: String!, title: String!, image: String, description: String!, research: String, projects: [String], category: String!, current: Boolean!, email: String, location: String, phone: String, gscholar: String, linkedin: String, websiteUrl: String, websiteName: String, advisors: [String]): People!
 
     addProject(name: String!, description: String!, image: String): Projects!
     editProject(id: ID!, name: String, description: String, image: String): Projects!

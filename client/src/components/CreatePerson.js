@@ -10,12 +10,10 @@ import '../css/RichText.css'
 import axios from 'axios'
 import Auth from '../utils/auth'
 
-
-
-import { FormGroup, FormControl, TextField, InputLabel, Button, Input, MenuItem, Typography } from '@mui/material';
+import { FormGroup, FormControl, TextField, InputLabel, Button, Input, MenuItem, Typography, FormControlLabel, Checkbox } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useMutation } from '@apollo/client';
-import { ADD_PROJECT, EDIT_PROJECT } from '../utils/mutations';
+import { ADD_PERSON, EDIT_PROJECT } from '../utils/mutations';
 import { useProjectContext } from '../context/ProjectContext';
 import { AdminLoginContext } from '../context/AdminProvider'
 
@@ -23,7 +21,7 @@ import { AdminLoginContext } from '../context/AdminProvider'
 export default function CreatePerson(props) {
     const { details } = props
     const { logout } = useContext(AdminLoginContext)
-    useEffect( () => {
+    useEffect(() => {
         if (Auth.isTokenExpired()) {
             logout()
         }
@@ -71,10 +69,10 @@ export default function CreatePerson(props) {
     const [firstName, setFirstName] = useState(null)
     const [lastName, setLastName] = useState(null)
     const [title, setTitle] = useState(null)
-    const [research, setResearch] = useState(null)
+    const [research, setResearch] = useState()
     const [projects, setProjects] = useState([])
-    const [category, setCategory] = useState(null)
-    const [current, setCurrent]  = useState(null)
+    const [category, setCategory] = useState('')
+    const [current, setCurrent]  = useState(true)
     const [email, setEmail] = useState(null)
     const [gscholar, setGscholar] = useState(null)
     const [linkedin, setLinkedin] = useState(null)
@@ -83,13 +81,12 @@ export default function CreatePerson(props) {
     const [image, setImage] = useState(null)
 
     useEffect(() => {
-        console.log("effect")
         if (props.id) {
             setFirstName(details.firstName)
             setLastName(details.lastName)
             setTitle(details.title)
             setResearch(details.research)
-            // setProjects([...projects, details.projects])
+            setProjects([details.projects])
             setCategory(details.category)
             setCurrent(details.current)
             setEmail(details.email)
@@ -101,7 +98,7 @@ export default function CreatePerson(props) {
         }
     }, [props.id])
     
-
+    
     const [newProject, setNewProject] = useState('')
 
     const removeProject = (index) => {
@@ -124,7 +121,7 @@ export default function CreatePerson(props) {
         }
       };
 
-    const [addPerson] = useMutation(ADD_PROJECT)
+    const [addPerson] = useMutation(ADD_PERSON)
     const [editPerson] = useMutation(EDIT_PROJECT)
 
     let handlePerson
@@ -133,7 +130,12 @@ export default function CreatePerson(props) {
         handlePerson = async () => {
             const id = props.id
             const description = stateToHTML(desEditorState.getCurrentContent())
-            const research = stateToHTML(resEditorState.getCurrentContent())
+            let research = stateToHTML(resEditorState.getCurrentContent())
+            console.log("description: " + description)
+            console.log("research: " + research)
+            if (research === "<p><br></p>"){
+                research = null
+            }
             try {
                 if (image != null) {
                     const imageSuccess = await handleImageUpload(image)
@@ -162,7 +164,10 @@ export default function CreatePerson(props) {
     } else {
         handlePerson = async () => {
             const description = stateToHTML(desEditorState.getCurrentContent())
-            const research = stateToHTML(resEditorState.getCurrentContent())
+            let research = stateToHTML(resEditorState.getCurrentContent())
+            if (research === "<p><br></p>"){
+                research = null
+            }
             try {
                 
                 if (image != null) {
@@ -179,6 +184,7 @@ export default function CreatePerson(props) {
                     }
                     
                 } else {
+                    console.log({firstName, lastName, title, image, description, research, projects, category, current, email, gscholar, linkedin, website, advisors})
                     const result = await addPerson({
                         variables: {firstName, lastName, title, image, description, research, projects, category, current, email, gscholar, linkedin, website, advisors}
                     })
@@ -210,8 +216,8 @@ export default function CreatePerson(props) {
         <Container >
             <FormGroup>
                 <div>
-                    <FormControl sx= {{m:1, width: '50ch'}}>
-                        <TextField select id="category" label="Category" defaultValue={details.category} helperText="Please select member role">
+                    <FormControl sx= {{m:1, width: '40ch'}}>
+                        <TextField select id="category" label="Category" defaultValue={details.category} helperText="Please select member role" onChange={(e) => setCategory(e.target.value)} >
                             <MenuItem key="leadership" value="Leadership">Leadership</MenuItem>
                             <MenuItem key="affiliated-faculty" value="Affiliated Faculty">Affiliated Faculty</MenuItem>
                             <MenuItem key="Staff" value="Staff">Staff</MenuItem>
@@ -220,25 +226,24 @@ export default function CreatePerson(props) {
                         </TextField>
                     </FormControl>
                     
-                    <FormControl sx= {{m:1, width: '50ch'}}>
+                    <FormControl sx= {{m:1, width: '40ch'}}>
                         <TextField id="title" label="Title" defaultValue={details.title} variant="outlined" onChange={(e) => setTitle(e.target.value)} />
                     </FormControl>
                     
                 </div>
+
                 <div>
-                    <FormControl sx= {{m:1, width: '50ch'}}>
+                    <FormControl sx= {{m:1, width: '40ch'}}>
                         <TextField id="first-name" label="First Name" defaultValue={details.firstName} variant="outlined" onChange={(e) => setFirstName(e.target.value)} />
                     </FormControl>
-                    <FormControl sx= {{m:1, width: '50ch'}}>
+                    <FormControl sx= {{m:1, width: '40ch'}}>
                         <TextField id="last-name" label= "Last Name" defaultValue={details.lastName} variant="outlined" onChange={(e) => setLastName(e.target.value)} />
                     </FormControl>
                 </div>
 
                 <div>
-                    <FormControl sx= {{m:1, width: '50ch'}}>
-                        <TextField id="title" label= "Title" defaultValue={details.title} variant="outlined" onChange={(e) => setLastName(e.target.value)} />
-                    </FormControl>
-                    <FormControl sx= {{m:1, width: '50ch'}}>
+                    <FormControlLabel control={<Checkbox defaultChecked onChange={(e) => setCurrent(e.target.checked)} />} label="Current Member" />
+                    <FormControl sx= {{m:1, width: '40ch'}}>
                         <TextField id="email" label="Email" defaultValue={details.email} variant="outlined" onChange={(e) => setEmail(e.target.value)} />
                     </FormControl>
                 </div>
@@ -249,13 +254,15 @@ export default function CreatePerson(props) {
                         <RichTextEditor editorState={desEditorState} setEditorState={setDesEditorState}/>
                     </div>
                 </FormControl>
+
                 <FormControl style={{width:"100%", height: "80%", margin: '10px'}}>
                     <InputLabel htmlFor="my-input" style={formControlStyle}>Research Description</InputLabel>
                     <div style={richTextEditorStyle}>
                         <RichTextEditor editorState = {resEditorState} setEditorState = {setResEditorState}/>
                     </div>
                 </FormControl>
-                <FormControl style={{width:"100%", height: "80%"}}>
+
+                <FormControl style={{width:"100%", height: "80%", margin: "10px"}}>
                     <Input
                         accept="image/*"
                         id="contained-button-file"
@@ -271,28 +278,22 @@ export default function CreatePerson(props) {
                 <div>
                     <TextField id="project" label="Projects" helperText="Add a new project" onChange={(e) => setNewProject(e.target.value)} />
                     <Button variant="contained" 
-                    onClick={() => {
-                        console.log(projects)
-                        // setProjects([
-                        //     ...projects,
-                        //     newProject])
-                        // }
-                        setProjects(["hi"])
-                        projects.push(newProject)
-                        console.log(projects)
-                    }}
+                        onClick={() => {
+                            setProjects([
+                                ...projects,
+                                newProject])
+                            }
+                        }
                     >Add</Button>
                 </div>
                 
                 {projects.map((project, index) => (
-                    <Button variant='text' startIcon={<DeleteIcon />} key={index} onClick={removeProject(index)}>{project}</Button>
-                    
+                    <Button sx={{margin: '10px'}} variant='text' startIcon={<DeleteIcon />} key={index} onClick={() => removeProject(index)}>{project}</Button>  
                 ))}
                 
             </FormGroup>
             <Button variant="contained" onClick={handlePerson}>Save</Button>
-            
-            
+
         </Container>
         
     )

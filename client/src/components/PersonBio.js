@@ -1,9 +1,11 @@
 import { React, useContext } from 'react';
 import { AdminLoginContext } from "../context/AdminProvider"
 import { useProjectContext } from '../context/ProjectContext';
+import emailIcon from '../content/logos/emailicon.png'
+import scholarIcon from '../content/logos/googlescholaricon.png'
 import CreatePerson from './CreatePerson';
 
-import { Container, Box, Typography, Card, CardMedia, Button, Grid, Avatar, styled, useMediaQuery } from '@mui/material';
+import { Container, Box, Link, Typography, Card, CardMedia, Button, Grid, Avatar, styled, useMediaQuery } from '@mui/material';
 
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import MailIcon from '@mui/icons-material/Mail';
@@ -18,14 +20,20 @@ const HorizontalLine = styled('div')(({ theme }) => ({
     top: "130px",
     width: '100%',
     height: '15px',
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: '#027C91',
     zIndex: -1
   }));
+
+const copyEmail = (email) => {
+    navigator.clipboard.writeText(email)
+    alert(`Copied ${email} to clipboard!`)
+}
 
 function PersonBio(props) {
     const { isLoggedIn } = useContext(AdminLoginContext)
     const {editPersonId, setEditPersonId} = useProjectContext()
     const {details, backToCards} = props
+    console.log("image: " + details.image)
 
     const isXsScreen = useMediaQuery('(max-width: 599px')
 
@@ -57,31 +65,57 @@ function PersonBio(props) {
                                     component="img"
                                     alt="green iguana"
                                     maxHeight="400"
-                                    src= {details.image}
+                                    src= {details.image ? `http://localhost:3001/images/${details.image}` : "https://images.freeimages.com/images/large-previews/ac7/sky-1401862.jpg?fmt=webp&w=500"}
                                     align="center"/>
                             </Card>
                         </Grid>
                         {/* Bio */}
                         <Grid item alignContent="top" sx={{paddingTop: isXsScreen ? "0px" : "150px"}} justifyContent="center" xs={12} sm={7} md={7} pt={3}>
-                            <Typography component= "h2" variant="h4" align="center" mb={1} >{details.firstName} {details.lastName}</Typography>
+                            <Typography component= "h2" variant="h2" align="center" mb={1} >{details.firstName} {details.lastName}</Typography>
                             <Typography component= "h2" variant="h6" align="center" mb={1}>{details.title}</Typography>
                             
                             <Grid container direction="row" justifyContent="center" mt={4}>
                                 <Box sx={{display:"flex", flexDirection: "row", flexWrap: "nowrap", alignItems: "center", align: "center", marginBottom:'20px'}}>
-                                    <Avatar>
-                                        <MailIcon />
-                                    </Avatar>
-                                    <Typography  sx={{ paddingLeft: "15px", paddingRight: "15px",  whiteSpace: 'nowrap'}}>
-                                        {/* {details.email} */}
-                                    </Typography>
+                                <Link p={1}>
+                                    <Box 
+                                        flex= {1}
+                                        flexShrink={1}
+                                        component="img"
+                                        className='logos'
+                                        sx={{maxWidth: '56px'}}
+                                        src={emailIcon}
+                                        onClick={() => copyEmail(details.email)}
+                                         />
+                                </Link>
+                                    
+                                    
+                                <Link href={details.googlescholar} target="_blank" p={1}>
+                                    <Box 
+                                        flex= {1}
+                                        flexShrink={1}
+                                        component="img"
+                                        className='logos'
+                                        sx={{maxWidth: '56px'}}
+                                        src={scholarIcon}
+                                        
+                                         />
+                                </Link>
                                 </Box>
-                                {details.website !== null && (<Box sx={{display:"flex", flexDirection: "row", flexWrap: "nowrap", alignItems: "center", marginBottom:'20px'}}>
-                                    <Avatar>
-                                        <WebsiteIcon />
-                                    </Avatar>
-                                    <Typography sx={{ paddingLeft: "15px", paddingRight: "15px",  whiteSpace: 'nowrap'}}>
-                                        {/* {details.website} */}
-                                    </Typography>
+                                {details.websiteUrl !== null && (<Box sx={{display:"flex", flexDirection: "row", flexWrap: "nowrap", alignItems: "center", marginBottom:'20px'}}>
+                                    <Link href={details.websiteUrl} target="_blank" p={1} color='#027C91'>
+                                    {details.websiteName !== null ? (
+                                        <Typography variant="h4" >
+                                        {details.websiteName}
+                                        </Typography>
+                                    ) : (
+                                        <Typography>
+                                        {details.websiteUrl}
+                                        </Typography>
+                                    )
+                                     }
+                                        
+                                    </Link>
+                                    
                                 </Box>)}
                             </Grid>
                             
@@ -96,21 +130,21 @@ function PersonBio(props) {
 
                         
                     </Grid>
-                    <Grid container direction="row" mt={4}>
+                    <Grid container direction="row" mt={4} columnSpacing={2}>
                         
                         <Grid item xs={12}>
                             <Typography variant='h5' paragraph align="left">About</Typography>
-                            <Typography align="left">{details.description}</Typography>
+                            <Typography align="left"><div dangerouslySetInnerHTML={{__html: details.description}} /></Typography>
                         </Grid>
 
                         <Grid item xs={12} sm={7} mt={4}>
                             <Typography variant='h5' paragraph align="left">Research</Typography>
-                            <Typography align="left">{details.research}</Typography>
+                            <Typography align="left"><div dangerouslySetInnerHTML={{__html: details.research}} /></Typography>
                         </Grid>
 
                         <Grid item xs={12} sm={5} mt={4}>
                             <Typography variant='h5' paragraph align="left">Current Projects</Typography>
-                            <Typography align="left">{details.projects}</Typography>
+                            <Typography align="left"><div dangerouslySetInnerHTML={{__html: details.projects}} /></Typography>
                         </Grid>
 
                     </Grid>

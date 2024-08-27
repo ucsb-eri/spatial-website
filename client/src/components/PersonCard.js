@@ -24,7 +24,7 @@ function PersonCard(props) {
                         component="img"
                         alt="green iguana"
                         height="50%"
-                        src= {details.image}
+                        src= {details.image ? `http://localhost:3001/images/${details.image}` : "https://images.freeimages.com/images/large-previews/ac7/sky-1401862.jpg?fmt=webp&w=500"}
                     />
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div">

@@ -87,7 +87,7 @@ const peopleSchema = new Schema({
       'Must be a valid URL format (e.g., http://example.com)',
     ],
   },
-  website: {
+  websiteUrl: {
     type: String,
     required: false,
     trim: true,
@@ -95,7 +95,11 @@ const peopleSchema = new Schema({
       /^(ftp|http|https):\/\/[^ "]+$/,
       'Must be a valid URL format (e.g., http://example.com)',
     ],
-    
+  },
+  websiteName: {
+    type: String,
+    required: false,
+    trim: true
   },
   advisors: {
     type: [String],

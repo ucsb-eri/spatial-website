@@ -17,7 +17,8 @@ export const QUERY_PEOPLE = gql`
             location
             phone
             gscholar
-            website 
+            websiteUrl
+            websiteName 
         }
     } 
 `;

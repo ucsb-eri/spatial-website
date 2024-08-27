@@ -99,7 +99,7 @@ function PersonBio(props) {
                                 </HoverLink>
                                     
                                     
-                                <HoverLink href={details.googlescholar} target="_blank" p={1}>
+                                <HoverLink href={details.gscholar} target="_blank" p={1}>
                                     <Box 
                                         flex= {1}
                                         flexShrink={1}

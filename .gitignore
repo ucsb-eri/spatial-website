@@ -3,4 +3,4 @@ node_modules
 build
 package-lock.json
 server/seeders/adminSeed.json
-server/public
+

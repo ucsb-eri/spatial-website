@@ -4,6 +4,17 @@ const aboutSeeds = require('./aboutSeeds.json')
 
 async function seedWebsite() {
 
+  // if in test-production, delete all entries first and reseed every time
+  if (process.env.NODE_ENV === 'production'){
+    try {
+      const deletePeople = await People.deleteMany({})
+      const deletePanels = await AboutPanels.deleteMany({})
+      console.log("deleted all people and aboutpanel seeds")
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
   try {
     const peopleExists = await People.find() 
       if (peopleExists.length == 0) {

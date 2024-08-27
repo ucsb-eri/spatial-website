@@ -26,6 +26,14 @@ const HorizontalLine = styled('div')(({ theme }) => ({
     zIndex: -1
   }));
 
+const HoverLink = styled(Link)(({ theme }) => ({
+    transition: 'background-color 0.3s ease',
+    '&:hover': {
+      backgroundColor: theme.palette.action.hover,
+      cursor: 'pointer'
+    }
+  }));
+
 const copyEmail = (email) => {
     navigator.clipboard.writeText(email)
     alert(`Copied ${email} to clipboard!`)
@@ -78,7 +86,7 @@ function PersonBio(props) {
                             
                             <Grid container direction="row" justifyContent="center" mt={4}>
                                 <Box sx={{display:"flex", flexDirection: "row", flexWrap: "nowrap", alignItems: "center", align: "center", marginBottom:'20px'}}>
-                                <Link p={1}>
+                                <HoverLink p={1}>
                                     <Box 
                                         flex= {1}
                                         flexShrink={1}
@@ -88,10 +96,10 @@ function PersonBio(props) {
                                         src={emailIcon}
                                         onClick={() => copyEmail(details.email)}
                                          />
-                                </Link>
+                                </HoverLink>
                                     
                                     
-                                <Link href={details.googlescholar} target="_blank" p={1}>
+                                <HoverLink href={details.googlescholar} target="_blank" p={1}>
                                     <Box 
                                         flex= {1}
                                         flexShrink={1}
@@ -101,10 +109,10 @@ function PersonBio(props) {
                                         src={scholarIcon}
                                         
                                          />
-                                </Link>
+                                </HoverLink>
                                 </Box>
                                 {details.websiteUrl !== null && (<Box sx={{display:"flex", flexDirection: "row", flexWrap: "nowrap", alignItems: "center", marginBottom:'20px'}}>
-                                    <Link href={details.websiteUrl} target="_blank" p={1} color='#027C91'>
+                                    <HoverLink href={details.websiteUrl} target="_blank" p={1} color='#027C91'>
                                     {details.websiteName !== null ? (
                                         <Typography variant="h4" >
                                         {details.websiteName}
@@ -116,7 +124,7 @@ function PersonBio(props) {
                                     )
                                      }
                                         
-                                    </Link>
+                                    </HoverLink>
                                     
                                 </Box>)}
                             </Grid>

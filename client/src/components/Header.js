@@ -2,11 +2,9 @@ import {React, useContext} from 'react';
 import { AdminLoginContext } from '../context/AdminProvider';
 
 import PropTypes from 'prop-types';
-import Toolbar from '@mui/material/Toolbar';
-import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid'
-import Typography from '@mui/material/Typography';
+import { Toolbar, Button, Box, Grid, Typography, IconButton} from '@mui/material'
+import MenuIcon from '@mui/icons-material/Menu'
+
 import ucsbLogo from '../ucsb.png'
 // import spatialLogo from '../spatiallogo.png';
 
@@ -14,17 +12,20 @@ import ucsbLogo from '../ucsb.png'
 function Header(props) {
   const { isLoggedIn, logout } = useContext(AdminLoginContext)
 
-  const { title } = props;
+  const { title, handleDrawerToggle } = props;
   const containerStyle = {
     marginTop: '10px', 
     marginBottom: '10px',// Adjust the spacing as needed
   };
+
+  
+
   
   return (
 
-      <Toolbar sx={{ borderBottom: 1, borderColor: 'divider', marginTop: '5px', marginBottom: '5px' }} align='center'>
-        <Grid container spacing={0} direction="column" style={containerStyle}>
-          <Grid container item xs={12} md={12} direction="row" alignItems="center" justifyContent="space-between">
+      <Toolbar sx={{ borderBottom: 1, borderColor: 'divider', marginTop: '5px' }} align='center'>
+        <Grid container justifyContent='space-between' direction="row" alignItems="center" columnGap={1} style={containerStyle} >
+          <Grid container xs={12} md={12} direction="row" alignItems="center" justifyContent="space-between">
             
             <Box
               component="img"
@@ -42,16 +43,26 @@ function Header(props) {
             
        
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={10}>
               <Typography
                 component="h3"
                 variant="h3"
                 color="inherit"
                 align="left"
-                sx={{ flex: 1, marginTop: 1 }}
-              >
+                sx={{ flex: 1, marginTop: 1}} >
                 {title}
               </Typography>
+          </Grid>
+          <Grid item xs={1}>
+                <IconButton
+                    aria-label="open drawer"
+                    edge="start"
+                    onClick={handleDrawerToggle}
+                    color="primary"
+                    sx={{ display: { md: 'none' }}}
+                >
+                    <MenuIcon />
+                </IconButton>
           </Grid>
         </Grid>
    

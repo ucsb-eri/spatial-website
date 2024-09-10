@@ -33,6 +33,7 @@ const typeDefs = gql`
     phone: String
     gscholar: String
     linkedin: String
+    x: String
     websiteUrl: String
     websiteName: String
     advisors: [String]
@@ -43,6 +44,8 @@ const typeDefs = gql`
     name: String
     startDate: Date
     endDate: Date
+    pis: [String]
+    summary: String
     description: String
     image: String
   }
@@ -65,8 +68,8 @@ const typeDefs = gql`
 
     addPerson(firstName: String!, lastName: String!, title: String!, image: String, description: String!, research: String, projects: [String], category: String!, current: Boolean!, email: String, location: String, phone: String, gscholar: String, linkedin: String, websiteUrl: String, websiteName: String, advisors: [String]): People!
 
-    addProject(name: String!, description: String!, image: String): Projects!
-    editProject(id: ID!, name: String, description: String, image: String): Projects!
+    addProject(name: String!, pis: [String!], summary: String!, description: String!, image: String): Projects!
+    editProject(id: ID!, name: String, pis: [String], summary: String, description: String, image: String): Projects!
     deleteProject(id: ID!): [Projects]!
 
     adminSignOn(email: String!, password: String!): Auth!

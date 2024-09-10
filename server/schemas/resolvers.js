@@ -17,24 +17,24 @@ const resolvers = {
 
   Mutation: {
 
-    addPerson: async (parent, {firstName, lastName, title, image, description, research, projects, category, current, email, location, phone, gscholar, linkedin, website, advisors}) => {
+    addPerson: async (parent, {firstName, lastName, title, image, description, research, projects, category, current, email, location, phone, gscholar, linkedin, x, websiteName, websiteUrl, advisors}) => {
       // if (context.user) {
-        const person = await People.create({firstName, lastName, title, image, description, research, projects, category, current, email, location, phone, gscholar, linkedin, website, advisors})
+        const person = await People.create({firstName, lastName, title, image, description, research, projects, category, current, email, location, phone, gscholar, linkedin, x, websiteName, websiteUrl, advisors})
         return person
       // }
     },
 
-    addProject: async (parent, {name, description, image}, context) => {
+    addProject: async (parent, {name, pis, summary, description, image}, context) => {
       if (context.user) {
-        const project = await Projects.create({name, description, image})
+        const project = await Projects.create({name, pis, summary, description, image})
         return project
       }
     },
-    editProject: async (parent, {id, name, description, image}, context) => {
+    editProject: async (parent, {id, name, pis, summary, description, image}, context) => {
       if (context.user) {
         const updateProject = await Projects.findByIdAndUpdate(
           {_id: id},
-          {name, description, image},
+          {name, pis, summary, description, image},
           {new: true}
           )
         return updateProject

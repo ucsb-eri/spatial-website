@@ -1,27 +1,18 @@
 [
     {
         "name": "Wilfire Resilience Initiative",
-        "description": ""
+        "summary": "The Wildfire Resience Initiative (WRI) is working group led by Dr. Alan Murray. They use research to stop wildfires.",
+        "pis": ["Alan Murray"],
+        "description": "I'm not totally sure what they do, but I think they do a lot. I know they look at community engagement with wildfires and spread resources. I think they also try to map out fire hydrants and stuff to see if neighborhoods have the resources to battle wildfires. Maybe they give fire hydrant training so residents can purch up on their rooves and battle the wildfires on their own. After all, if you have to rely on firefighters for everything, odds are something is going to burn down.",
+        "image": "beach.jpg"
     },
     {
-        "name": "Wilfire Resilience Initiative",
-        "description": ""
-    },
-    {
-        "name": "Wilfire Resilience Initiative",
-        "description": ""
-    },
-    {
-        "name": "Wilfire Resilience Initiative",
-        "description": ""
-    },
-    {
-        "name": "Wilfire Resilience Initiative",
-        "description": ""
-    },
-    {
-        "name": "Wilfire Resilience Initiative",
-        "description": ""
+        "name": "Modern GIS Curriculum",
+        "summary": "We are developing new curriculum that's primarily online.",
+        "pis": ["Peter Kedron", "Trisalyn Nelson", "Amy Frazier"],
+        "description": "So this project is a little more confusing to me. I'm not totally sure what is happening, but I know that ESRI asked us to create this new GIS curriculum which primarily uses ArcGIS Online instead of ArcGIS Pro. Maybe I'm a little old fashioned, but I like Pro. Having everything online does have its benefits though. You wouldn't have to install a bunch of stuff, and it's much more accessible to Mac users. That is one of my biggest grievances with ArcGIS Pro as a Mac user. It seems like the lesson plans they are making will be cool though. There's one that revolves around how East Coast flooding impacts community access to import facilities such as pharmacy following a major flooding event. Imagine having to wait days to pick up important prescriptions! Wishing those folks the best.",
+        "image": "beach.jpg"
     }
+    
     
 ]

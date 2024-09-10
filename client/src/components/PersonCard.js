@@ -1,12 +1,5 @@
 import { React } from 'react';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import CardActionArea from '@mui/material/CardActionArea';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
+import { Card, Box, CardActionArea, CardContent, CardMedia, Typography, Grid } from '@mui/material';
 
 const imageRoute = process.env.NODE_ENV === "production" ? "https://spatialtest.grit.ucsb.edu/images/" : "http://localhost:3001/images/"
 
@@ -20,12 +13,26 @@ function PersonCard(props) {
         <Grid item xs={10} sm={8} md={4}>
             <CardActionArea onClick={() => {renderPerson(details)}}>
                 <Card sx={{ width: "100%" }}>
-                    <CardMedia
-                        component="img"
-                        alt={`${details.firstName} ${details.lastName} headshot`}
-                        height="50%"
-                        src= {imageRoute + details.image}
-                    />
+                <Box
+                sx={{
+                    position: 'relative',
+                    paddingTop: '95%', // Aspect ratio 16:9
+                }}
+            >
+                <CardMedia
+                    component="img"
+                    alt={`${details.firstName} ${details.lastName} headshot`}
+                    src={imageRoute + details.image}
+                    sx={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                    }}
+                />
+            </Box>
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div">
                         {details.firstName} {details.lastName}

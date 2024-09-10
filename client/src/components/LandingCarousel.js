@@ -59,6 +59,8 @@ function LandingCarousel(props) {
         mb: 4,
         minHeight: '30vh',
         height: '600px',
+        maxHeight: '60vh',
+        maxWidth: '100%',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
@@ -70,8 +72,11 @@ function LandingCarousel(props) {
             index={activeStep}
             onChangeIndex={handleStepChange}
             enableMouseEvents
+            
+            
         >
             {slides.map((step, index) => (
+                // <div>hi</div>
             <LandingCarouselSlide post={step} key={index} />
             ))}
         </SwipeableViews>

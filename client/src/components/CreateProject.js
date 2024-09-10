@@ -62,7 +62,16 @@ export default function CreateProject(props) {
             return null
         }
     }
+    const createSummaryState = () => {
+        if (props.id) {
+            return props.summary
+        } else {
+            return null
+        }
+    }
+
     const [name, setName] = useState(createNameState)
+    const [summary, setSummary] = useState(createSummaryState)
     const [image, setImage] = useState(null)
 
     const handleImageUpload = async (image) => {
@@ -93,19 +102,15 @@ export default function CreateProject(props) {
             try {
                 if (image != null) {
                     const imageSuccess = await handleImageUpload(image)
-                    console.log("image Success: ")
-                    console.log(imageSuccess)
                     if (imageSuccess) {
-                        console.log(imageSuccess)
                         const image = imageSuccess.data.imageName
-                        console.log(image)
                         const update = await editProject({
-                            variables: {id, name, description, image}
+                            variables: {id, name, summary, description, image}
                         })
                     } 
                 } else {
                     const update = await editProject({
-                        variables: {id, name, description}
+                        variables: {id, name, summary, description}
                     })
                 }
 
@@ -122,20 +127,16 @@ export default function CreateProject(props) {
                 
                 if (image != null) {
                     const imageSuccess = await handleImageUpload(image)
-                    console.log("image Success: ")
-                    console.log(imageSuccess)
                     if (imageSuccess) {
                         const image = imageSuccess.data.imageName
-                        console.log("image name! please")
-                        console.log(image)
                         const result = await addProject({
-                            variables: {name, description, image}
+                            variables: {name, summary, description, image}
                         })
                     }
                     
                 } else {
                     const result = await addProject({
-                        variables: {name, description}
+                        variables: {name, summary, description}
                     })
                 }
                 
@@ -166,6 +167,9 @@ export default function CreateProject(props) {
             <FormGroup>
                 <FormControl style={{width:"100%", height: "80%"}}>
                     <TextField id="new-project-name" label="Project Name" defaultValue={props.name} variant="outlined" onChange={(e) => setName(e.target.value)}/>
+                </FormControl>
+                <FormControl style={{width:"100%", height: "80%"}}>
+                    <TextField id="project-summary" label="Project Summary" defaultValue={props.summary} variant="outlined" onChange={(e) => setSummary(e.target.value)}/>
                 </FormControl>
                 <FormControl style={{width:"100%", height: "80%"}}>
                     <InputLabel htmlFor="my-input" style={formControlStyle}>Project Description</InputLabel>

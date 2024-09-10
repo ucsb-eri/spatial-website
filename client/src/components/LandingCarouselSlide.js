@@ -11,19 +11,27 @@ function LandingCarouselSlide(props) {
 
   return (
     <div>
-      <Grid container>
-        <Grid item md={8}>
+      <Grid container direction="row">
+        <Grid item xs={12}>
           <Box
             sx={{
               position: 'relative',
-              p: { xs: 3, md: 6 },
-              pr: { md: 0 },
+              paddingX: {
+                xs: "30px",
+                sm: "35px",
+                md:"50px"
+              },
+              paddingTop: {
+                xs: "50px"
+              },
+              maxWidth: '600px' 
             }}
           >
-            <Typography component="h1" variant="h1" color="inherit" align='left'>
+            
+            <Typography variant="h1" color="inherit" mb={3} align='left'>
               {post.title}
             </Typography>
-            <Typography variant="h5" color="inherit" paragraph align='left' marginTop='20px'>
+            <Typography variant="h4" color="inherit" paragraph align='left' marginTop='20px'>
               {post.description}
             </Typography>
             {/* <Link variant="subtitle1" href="#">

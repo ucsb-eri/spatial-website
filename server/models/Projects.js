@@ -19,10 +19,15 @@ const projectSchema = new Schema({
     unique: false,
     trim: true,
   },
-  description: {
+  summary: {
     type: String,
     required: true,
     minlength: [50, 'Description must be at least 50 characters'],
+  },
+  description: {
+    type: String,
+    required: true,
+    minlength: [300, 'Description must be at least 300 characters'],
   },
   image: {
     type: String, // will store this on locally in an uploads folder

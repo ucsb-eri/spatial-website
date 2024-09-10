@@ -87,6 +87,16 @@ const peopleSchema = new Schema({
       'Must be a valid URL format (e.g., http://example.com)',
     ],
   },
+  x: {
+    type: String,
+    required: false,
+    unique: false,
+    trim: true,
+    match: [
+      /^(ftp|http|https):\/\/[^ "]+$/,
+      'Must be a valid URL format (e.g., http://example.com)',
+    ],
+  },
   websiteUrl: {
     type: String,
     required: false,

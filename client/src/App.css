@@ -74,4 +74,8 @@ h5 { font-family: Avenir, "Century Gothic", sans-serif; font-weight: 600; font-s
  
 
 h6 { font-family: Avenir, "Century Gothic", sans-serif; font-weight: 400; font-size: 12px; text-transform: uppercase; }
- 
+
+.react-swipeable-view-container {
+  /* display: block !important */
+  max-width: 100vw; 
+}

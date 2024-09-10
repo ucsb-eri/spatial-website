@@ -5,13 +5,12 @@ import emailIcon from '../content/logos/emailicon.png'
 import scholarIcon from '../content/logos/googlescholaricon.png'
 import CreatePerson from './CreatePerson';
 
-import { Container, Box, Link, Typography, Card, CardMedia, Button, Grid, Avatar, styled, useMediaQuery } from '@mui/material';
+import { Container, Box, Link, Typography, Card, CardMedia, Button, Grid, Avatar, Icon, styled, useMediaQuery } from '@mui/material';
 
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import MailIcon from '@mui/icons-material/Mail';
-import WorkIcon from '@mui/icons-material/Work';
-import PhoneIcon from '@mui/icons-material/Phone';
-import WebsiteIcon from '@mui/icons-material/Web'
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import XIcon from '@mui/icons-material/X';
+
 
 const imageRoute = process.env.NODE_ENV === "production" ? "https://spatialtest.grit.ucsb.edu/images/" : "http://localhost:3001/images/"
 
@@ -43,9 +42,14 @@ function PersonBio(props) {
     const { isLoggedIn } = useContext(AdminLoginContext)
     const {editPersonId, setEditPersonId} = useProjectContext()
     const {details, backToCards} = props
-    console.log("image: " + details.image)
-
     const isXsScreen = useMediaQuery('(max-width: 599px')
+    const showProjects = details.projects.length !== 0 
+    const showAdvisors = details.advisors.length !== 0
+    const showGscholar = details.gscholar !== null
+    const showX = details.x !== null
+    const showLinkedIn = details.linkedin !== null
+    const showWebsite = details.websiteUrl !== null
+    
 
     return (
         <Container maxWidth={100}>
@@ -67,7 +71,7 @@ function PersonBio(props) {
                 
                 <Container maxWidth="md">
                     <Grid container direction="row" justifyContent="space-between" rowGap={3} minHeight="300px" >
-                        <Grid item alignItems="center" align="left" xs={12} sm={5}>
+                        <Grid item alignItems="center" align="left" xs={10} sm={5}>
                             {/* person's pic */}
                             <Card sx={{ width:"100%", borderRadius: 0 }} elevation={0}>
 
@@ -81,37 +85,67 @@ function PersonBio(props) {
                         </Grid>
                         {/* Bio */}
                         <Grid item alignContent="top" sx={{paddingTop: isXsScreen ? "0px" : "150px"}} justifyContent="center" xs={12} sm={7} md={7} pt={3}>
-                            <Typography component= "h2" variant="h2" align="center" mb={1} >{details.firstName} {details.lastName}</Typography>
+                            <Typography component= "h2" variant="h2" align="center" mb={1} ><b>{details.firstName} {details.lastName}</b></Typography>
                             <Typography component= "h2" variant="h6" align="center" mb={1}>{details.title}</Typography>
                             
-                            <Grid container direction="row" justifyContent="center" mt={4}>
-                                <Box sx={{display:"flex", flexDirection: "row", flexWrap: "nowrap", alignItems: "center", align: "center", marginBottom:'20px'}}>
-                                <HoverLink p={1}>
-                                    <Box 
-                                        flex= {1}
-                                        flexShrink={1}
-                                        component="img"
-                                        className='logos'
-                                        sx={{maxWidth: '56px'}}
-                                        src={emailIcon}
-                                        onClick={() => copyEmail(details.email)}
-                                         />
-                                </HoverLink>
+                            <Grid container direction="row" justifyContent="center" alignItems="center" mt={4}>
+                                <Box sx={{display:"flex", flexDirection: "row", flexWrap: "nowrap", alignItems: "center", marginBottom:'20px'}}>
+                                    <HoverLink p={1} >
+                                        <Box 
+                                            flex= {1}
+                                            flexShrink={1}
+                                            component="img"
+                                            className='logos'
+                                            sx={{maxWidth: '56px'}}
+                                            src={emailIcon}
+                                            onClick={() => copyEmail(details.email)}
+                                            />
+                                    </HoverLink>
                                     
+                                    {showGscholar && (
+                                        <HoverLink href={details.gscholar} target="_blank" p={1}>
+                                        <Box 
+                                            flex= {1}
+                                            flexShrink={1}
+                                            component="img"
+                                            className='logos'
+                                            sx={{maxWidth: '56px'}}
+                                            src={scholarIcon}
+                                            
+                                            />
+                                        </HoverLink>
+                                    )}
+
+                                    {showLinkedIn && (
+                                        <HoverLink href={details.linkedin} target="_blank" p={1}>
+                                        <LinkedInIcon 
+                                            flex= {1}
+                                            flexShrink={1}
+                                            className='logos'
+                                            sx={{fontSize: '56px', color: '#027C91'}}
+                                            />
+                                            
+                                        </HoverLink>
+                                    )}
+
+
+                                    {showX && (
+                                        <HoverLink href={details.x} target="_blank" p={1}>
+                                        <XIcon 
+                                            flex= {1}
+                                            flexShrink={1}
+                                            className='logos'
+                                            sx={{fontSize: '56px', color: '#027C91'}}
+                                            />
+                                            
+                                        </HoverLink>
+                                    )}
                                     
-                                <HoverLink href={details.gscholar} target="_blank" p={1}>
-                                    <Box 
-                                        flex= {1}
-                                        flexShrink={1}
-                                        component="img"
-                                        className='logos'
-                                        sx={{maxWidth: '56px'}}
-                                        src={scholarIcon}
-                                        
-                                         />
-                                </HoverLink>
-                                </Box>
-                                {details.websiteUrl !== null && (<Box sx={{display:"flex", flexDirection: "row", flexWrap: "nowrap", alignItems: "center", marginBottom:'20px'}}>
+                                    </Box>
+
+                                
+
+                                {showWebsite && (<Box sx={{display:"flex", flexDirection: "row", flexWrap: "nowrap", alignItems: "center", marginBottom:'20px'}}>
                                     <HoverLink href={details.websiteUrl} target="_blank" p={1} color='#027C91'>
                                     {details.websiteName !== null ? (
                                         <Typography variant="h4" >
@@ -136,26 +170,38 @@ function PersonBio(props) {
                                 The center has expertise in spatiotemporally-explicit machine learning, in the formal representation of spatial phenomena including but not limited to geographic space, knowledge engineering, as well as in methods to improve the publication, retrieval, reuse, and integration of heterogeneous data across domain boundaries.
                             </Typography>  */}
                         </Grid>
-                        
-
-                        
+                            
                     </Grid>
-                    <Grid container direction="row" mt={4} columnSpacing={2}>
+                    <Grid container direction="row" mt={4} columnSpacing={2} justifyContent="space-between" >
                         
                         <Grid item xs={12}>
-                            <Typography variant='h5' paragraph align="left">About</Typography>
-                            <Typography align="left"><div dangerouslySetInnerHTML={{__html: details.description}} /></Typography>
+                            <Typography variant='h5' paragraph align="left"><b>About</b></Typography>
+                            <Typography align="left" paragraph variant='h6'><div dangerouslySetInnerHTML={{__html: details.description}} /></Typography>
                         </Grid>
 
                         <Grid item xs={12} sm={7} mt={4}>
-                            <Typography variant='h5' paragraph align="left">Research</Typography>
-                            <Typography align="left"><div dangerouslySetInnerHTML={{__html: details.research}} /></Typography>
+                            <Typography variant='h5' paragraph align="left"><b>Research</b></Typography>
+                            <Typography align="left" paragraph variant='h6'><div dangerouslySetInnerHTML={{__html: details.research}} /></Typography>
                         </Grid>
+                        
+                        {showProjects && (
+                            <Grid item xs={12} sm={5} mt={4}>
+                                <Typography variant='h5' paragraph align="left"><b>Current Projects</b></Typography>
+                                <Typography align="left" paragraph variant='h6'><div dangerouslySetInnerHTML={{__html: details.projects}} /></Typography>
+                            </Grid>
+                        )}
 
-                        <Grid item xs={12} sm={5} mt={4}>
-                            <Typography variant='h5' paragraph align="left">Current Projects</Typography>
-                            <Typography align="left"><div dangerouslySetInnerHTML={{__html: details.projects}} /></Typography>
-                        </Grid>
+                        {showAdvisors && (
+                            <Grid item xs={12} sm={4} mt={4}>
+                                <Typography variant='h5' paragraph align="left"><b>Advisors</b></Typography>
+                                {details.advisors.map((advisor, index) => (
+                                    <Typography paragraph variant='h6' align='left'>
+                                        {advisor}
+                                    </Typography>    
+                                ))}
+                            </Grid>
+                        )}
+                        
 
                     </Grid>
                 </Container>

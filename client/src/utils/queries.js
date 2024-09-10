@@ -17,6 +17,9 @@ export const QUERY_PEOPLE = gql`
             location
             phone
             gscholar
+            linkedin
+            x
+            advisors
             websiteUrl
             websiteName 
         }
@@ -27,6 +30,8 @@ export const GET_PROJECTS = gql`
     query getProjects {
         projects {
         name
+        pis
+        summary
         description
         image
         id

@@ -1,6 +1,7 @@
 const { People, Projects, AboutPanels } = require('../models');
 const peopleSeeds = require('./peopleSeeds.json');
-const aboutSeeds = require('./aboutSeeds.json')
+const aboutSeeds = require('./aboutSeeds.json');
+const projectSeeds = require('./projectSeeds.json');
 
 async function seedWebsite() {
 
@@ -8,6 +9,7 @@ async function seedWebsite() {
   if (process.env.NODE_ENV === 'production'){
     try {
       const deletePeople = await People.collection.drop()
+      const deleteProjects = await Projects.collection.drop()
       const deletePanels = await AboutPanels.collection.drop()
       console.log("deleted all people and aboutpanel seeds")
     } catch (err) {
@@ -26,6 +28,19 @@ async function seedWebsite() {
       } 
   } catch (err) {
     console.error("Error seeding people: ", err)
+  }
+
+  try {
+    const projectsExists = await Projects.find()
+      if (projectsExists.length == 0) {
+        console.log("seeding projects")
+        const projects = await Projects.insertMany(projectSeeds)
+        console.log("Remodel! New projects coming in")
+      } else {
+        console.log("We got plenty of projects to do")
+      }
+  } catch (err) {
+    console.error("Error seeding projects", err)
   }
 
   try {

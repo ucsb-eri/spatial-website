@@ -1,12 +1,7 @@
 import * as React from 'react';
-import {Grid, Container, Typography}  from '@mui/material';
+import {Grid, Typography}  from '@mui/material';
 
-import Header from '../components/Header';
 import LandingCarousel from '../components/LandingCarousel';
-import FeaturedPost from '../components/FeaturedPost';
-import EventsTable from '../components/EventsTable';
-
-
 
 const featuredPosts = [
   {
@@ -44,22 +39,15 @@ const featuredPosts = [
 ];
 
 
-
 export default function Home() {
   return (
       <Grid item>
-          <main>
-            <LandingCarousel slides={featuredPosts} />
-           
-            {/* <Grid container spacing={4}>
-            {featuredPosts.map((post) => (
-                <FeaturedPost key={post.title} post={post} />
-              ))}
-            </Grid> */}
-          </main>
-        
+          
           {/* center description + goals or whatever + events calender */}
-          <Grid container direction='row' spacing={4} mt={2} justifyContent='center' rowGap={5}>
+          <Grid container direction='row' spacing={4} justifyContent='center'>
+            <Grid item xs={12}>
+              <LandingCarousel slides={featuredPosts} />
+            </Grid>
             <Grid item xs={11} md={8}>
                 <Typography align="left" variant="h5" paragraph>
                 The Center for Spatial Studies and Data Science at UC Santa Barbara is an interdisciplinary research hub dedicated to pushing the boundaries of spatial thinking, geoinformatics, and geographic information science. It champions scientific discovery and educational excellence through workshops, speaker series, and annual Specialist Meetings that assemble leading global experts in spatial data science.
@@ -80,3 +68,4 @@ export default function Home() {
   
   );
 }
+

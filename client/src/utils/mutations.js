@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
 export const ADD_PERSON = gql`
-  mutation AddPerson($firstName: String!, $lastName: String!, $title: String!, $category: String!, $description: String!, $research: String, $projects: [String], $current: Boolean!, $image: String, $email: String, $location: String, $phone: String, $gscholar: String, $linkedin: String, $websiteUrl: String, $websiteName: String, $advisors: [String]) {
-    addPerson(firstName: $firstName, lastName: $lastName, title: $title, category: $category, description: $description, research: $research, projects: $projects, current: $current, image: $image, email: $email, location: $location, phone: $phone, gscholar: $gscholar, linkedin: $linkedin, websiteUrl: $websiteUrl, websiteName: $websiteName, advisors: $advisors) {
+  mutation AddPerson($firstName: String!, $lastName: String!, $title: String!, $category: String!, $description: String!, $research: String, $projects: [String], $current: Boolean!, $image: String, $email: String, $location: String, $phone: String, $gscholar: String, $linkedin: String, $x: String, $websiteUrl: String, $websiteName: String, $advisors: [String]) {
+    addPerson(firstName: $firstName, lastName: $lastName, title: $title, category: $category, description: $description, research: $research, projects: $projects, current: $current, image: $image, email: $email, location: $location, phone: $phone, gscholar: $gscholar, linkedin: $linkedin, x: $x, websiteUrl: $websiteUrl, websiteName: $websiteName, advisors: $advisors) {
       firstName
       lastName
       title
@@ -13,8 +13,8 @@ export const ADD_PERSON = gql`
   }`
 
 export const ADD_PROJECT = gql`
-  mutation addProject($name: String!, $description: String!, $image: String) {
-      addProject(name: $name, description: $description, image: $image) {
+  mutation addProject($name: String!, $pis: [String]!, $summary: String!, $description: String!, $image: String) {
+      addProject(name: $name, pi: $pi, summary: $summary, description: $description, image: $image) {
         id
         name
         description
@@ -23,8 +23,8 @@ export const ADD_PROJECT = gql`
     }` 
 
 export const EDIT_PROJECT = gql`
-  mutation EditProject($id: ID, $name: String, $description: String, $image: String) {
-    editProject(id: $id, name: $name, description: $description, image: $image) {
+  mutation EditProject($id: ID, $name: String, $pi: [String], $summary: String, $description: String, $image: String) {
+    editProject(id: $id, name: $name, pi: $pi, summary: $summary, description: $description, image: $image) {
       id
       name
       description

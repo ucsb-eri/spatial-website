@@ -15,7 +15,16 @@ export const theme = createTheme({
         },
         h2: {
             fontFamily: ['"Nunito Sans"', 'sans-serif'].join(','),
-            fontSize: '2.5rem'
+            fontSize: '2.5rem',
+            '@media (max-width:750px)': {
+            fontSize: '2rem', // Font size for small screens
+            },
+            '@media (max-width:600px)': {
+            fontSize: '1.75rem', // Font size for small screens
+            },
+            '@media (max-width:400px)': {
+                fontSize: '1.5rem', // Font size for medium screens
+            },
         },
         h3: {
             fontFamily: ['"Nunito Sans"', 'sans-serif'].join(','),
@@ -60,12 +69,28 @@ export const theme = createTheme({
         },
         h6: {
             fontFamily: ['"Nunito Sans"', 'sans-serif'].join(','),
-            fontSize: '1.15rem',
-            '@media (max-width:500px)': {
+            fontSize: '1.1rem',
+            '@media (max-width:750px)': {
                 fontSize: '1rem', // Font size for small screens
             },
-            '@media (max-width:400px)': {
+            '@media (max-width:500px)': {
                 fontSize: '0.9rem', // Font size for small screens
+            },
+            '@media (max-width:400px)': {
+                fontSize: '0.8rem', // Font size for small screens
+            },
+        },
+        caption: {
+            fontFamily: ['"Nunito Sans"', 'sans-serif'].join(','),
+            fontSize: '1rem',
+            '@media (max-width:750px)': {
+                fontSize: '0.9rem', // Font size for small screens
+            },
+            '@media (max-width:500px)': {
+                fontSize: '0.8rem', // Font size for small screens
+            },
+            '@media (max-width:400px)': {
+                fontSize: '0.7rem', // Font size for small screens
             },
         }
 

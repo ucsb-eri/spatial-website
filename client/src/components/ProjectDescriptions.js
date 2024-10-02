@@ -6,11 +6,13 @@ import {Container, Grid, Typography, Button, Card, CardMedia, CardActionArea, To
 import CreateProject from './CreateProject';
 import { useProjectContext } from '../context/ProjectContext';
 
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+
 // import { useQuery } from '@apollo/client';
 // import { GET_PROJECTS } from '../utils/queries';
 
 export default function ProjectDescriptions(props) {
-    const { project } = props
+    const { project, backToCards } = props
     console.log(project)
     const { isLoggedIn } = useContext(AdminLoginContext)
     // const {loading, data, error} = useQuery(GET_PROJECTS)
@@ -28,6 +30,17 @@ export default function ProjectDescriptions(props) {
 
     return (
         <Container maxWidth={false} >
+            <Grid item align="left">
+                    <Button 
+                        variant="text" 
+                        onClick={() => backToCards()} 
+                        startIcon={<ArrowBackIcon />}
+                        sx={{maxWidth: "100px", marginTop: "20px"}}
+                        align="left"
+                        >
+                            Back
+                    </Button>
+            </Grid>
 
             <Grid container key={project.id} direction="column" my={4} style={{padding: 10}}>
             {project.id !== editProjectId ? (

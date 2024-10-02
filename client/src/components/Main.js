@@ -37,7 +37,7 @@ function Main(props) {
       )
     }
 
-    if (currentPage === 'Projects') {
+    if (currentPage === 'Research') {
       return <Projects />;
     }
 
@@ -53,7 +53,15 @@ function Main(props) {
       return <Products />
     }
 
-    if (currentPage === 'Education') {
+    if (currentPage === 'Events') {
+      return <Education />
+    }
+
+    if (currentPage === 'Opportunities') {
+      return <Education />
+    }
+
+    if (currentPage === 'Request GIS Services') {
       return <Education />
     }
   };
@@ -70,8 +78,6 @@ function Main(props) {
       console.log(mobileOpen)
   };
   
-  
-
   // get database queries
 
   const {loading, data, error} = useQuery(GET_ABOUTPANELS)

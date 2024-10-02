@@ -3,6 +3,7 @@ import {Grid, Typography}  from '@mui/material';
 
 import LandingCarousel from '../components/LandingCarousel';
 
+const imageRoute = process.env.NODE_ENV === "production" ? "https://spatialtest.grit.ucsb.edu/images/" : "http://localhost:3001/images/"
 const featuredPosts = [
   {
     title: 'Initiative 1',
@@ -11,14 +12,16 @@ const featuredPosts = [
       'This is a wider card with supporting text below as a natural lead-in to additional content.',
     image: 'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
     imageText: 'Image Text',
+    color: 'white'
   },
   {
-    title: 'Project X',
+    title: 'ESRI Curriculum',
     labgroup: 'MOVE',
     description:
-      'This is a wider card with supporting text below as a natural lead-in to additional content.',
-    image: 'https://source.unsplash.com/random?wallpapers',
+      'Advancing the Geographic Approach to Conservation',
+    image: `${imageRoute + 'research_geographic_approach.png'}`,
     imageText: 'Image Text',
+    color:'black'
   },
   {
     title: 'Goal Y',
@@ -27,6 +30,7 @@ const featuredPosts = [
       'This is a wider card with supporting text below as a natural lead-in to additional content.',
     image: 'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60',
     imageText: 'Image Text',
+    color: 'white'
   },
   {
     title: 'Initiative 2',
@@ -35,6 +39,7 @@ const featuredPosts = [
       'This is a wider card with supporting text below as a natural lead-in to additional content.',
     image: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250',
     imageText: 'Image Text',
+    color: 'white'
   },
 ];
 

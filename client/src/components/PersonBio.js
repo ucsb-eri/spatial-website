@@ -18,7 +18,6 @@ const imageRoute = process.env.NODE_ENV === "production" ? "https://spatialtest.
 const HorizontalLine = styled('div')(({ theme }) => ({
     position: 'relative',
     left: 0,
-    top: "130px",
     width: '100%',
     height: '15px',
     backgroundColor: '#027C91',
@@ -38,11 +37,14 @@ const copyEmail = (email) => {
     alert(`Copied ${email} to clipboard!`)
 }
 
+
+
 function PersonBio(props) {
     const { isLoggedIn } = useContext(AdminLoginContext)
     const {editPersonId, setEditPersonId} = useProjectContext()
     const {details, backToCards} = props
     const isXsScreen = useMediaQuery('(max-width: 599px')
+    const isSmScreen = useMediaQuery('(max-width: 800px')
     const showProjects = details.projects.length !== 0 
     const showAdvisors = details.advisors.length !== 0
     const showGscholar = details.gscholar !== null
@@ -67,11 +69,11 @@ function PersonBio(props) {
                             Back
                     </Button>
                 </Grid>
-                <HorizontalLine />
+                <HorizontalLine sx={{ top: isXsScreen ? "100px" : "135px" }} />
                 
                 <Container maxWidth="md">
-                    <Grid container direction="row" justifyContent="space-between" rowGap={3} minHeight="300px" >
-                        <Grid item alignItems="center" align="left" xs={10} sm={5}>
+                    <Grid container direction="row" alignItems="center" columnSpacing={2} justifyContent="center" rowGap={3} minHeight="300px" >
+                        <Grid item xs={10} sm={5}>
                             {/* person's pic */}
                             <Card sx={{ width:"100%", borderRadius: 0 }} elevation={0}>
 
@@ -84,68 +86,73 @@ function PersonBio(props) {
                             </Card>
                         </Grid>
                         {/* Bio */}
-                        <Grid item alignContent="top" sx={{paddingTop: isXsScreen ? "0px" : "150px"}} justifyContent="center" xs={12} sm={7} md={7} pt={3}>
+                        <Grid item alignContent="top" sx={{paddingTop: isXsScreen ? "0px" : "145px"}} justifyContent="center" xs={12} sm={7} md={7} pt={3}>
                             <Typography component= "h2" variant="h2" align="center" mb={1} ><b>{details.firstName} {details.lastName}</b></Typography>
-                            <Typography component= "h2" variant="h6" align="center" mb={1}>{details.title}</Typography>
+                            <Typography variant="h5" component="h2" align="center" mb={1}>{details.title}</Typography>
                             
-                            <Grid container direction="row" justifyContent="center" alignItems="center" mt={4}>
-                                <Box sx={{display:"flex", flexDirection: "row", flexWrap: "nowrap", alignItems: "center", marginBottom:'20px'}}>
-                                    <HoverLink p={1} >
+                            <Grid container direction="row" columnSpacing={1} justifyContent="center" alignItems="center" mt={2}>
+                                <Grid item xs={2}>
+                                    <HoverLink   >
                                         <Box 
-                                            flex= {1}
-                                            flexShrink={1}
+                                            
                                             component="img"
                                             className='logos'
-                                            sx={{maxWidth: '56px'}}
+                                            sx={{
+                                                maxWidth: '45px',
+                                                width: '100%'
+                                            }}
                                             src={emailIcon}
                                             onClick={() => copyEmail(details.email)}
                                             />
                                     </HoverLink>
+                                </Grid>
                                     
-                                    {showGscholar && (
-                                        <HoverLink href={details.gscholar} target="_blank" p={1}>
+                                {showGscholar && (
+                                    <Grid item xs={2}>
+                                        <HoverLink href={details.gscholar} target="_blank" >
                                         <Box 
-                                            flex= {1}
-                                            flexShrink={1}
+                                            
                                             component="img"
                                             className='logos'
-                                            sx={{maxWidth: '56px'}}
+                                            sx={{maxWidth: '45px',
+                                                width: '100%'
+                                            }}
                                             src={scholarIcon}
                                             
                                             />
                                         </HoverLink>
-                                    )}
+                                    </Grid>
+                                )}
 
-                                    {showLinkedIn && (
-                                        <HoverLink href={details.linkedin} target="_blank" p={1}>
+                                {showLinkedIn && (
+                                    <Grid item xs={2}>
+                                        <HoverLink href={details.linkedin} target="_blank" >
                                         <LinkedInIcon 
-                                            flex= {1}
-                                            flexShrink={1}
                                             className='logos'
-                                            sx={{fontSize: '56px', color: '#027C91'}}
+                                            sx={{fontSize: '45px', color: '#027C91'}}
                                             />
                                             
                                         </HoverLink>
-                                    )}
+                                    </Grid>
+                                )}
 
 
-                                    {showX && (
-                                        <HoverLink href={details.x} target="_blank" p={1}>
-                                        <XIcon 
-                                            flex= {1}
-                                            flexShrink={1}
-                                            className='logos'
-                                            sx={{fontSize: '56px', color: '#027C91'}}
-                                            />
-                                            
-                                        </HoverLink>
-                                    )}
-                                    
-                                    </Box>
-
+                                {showX && (
+                                    <Grid item xs={2}>
+                                    <HoverLink href={details.x} target="_blank" >
+                                    <XIcon 
+                                        flex= {1}
+                                        flexShrink={1}
+                                        className='logos'
+                                        sx={{fontSize: '45px', color: '#027C91'}}
+                                        />
+                                        
+                                    </HoverLink>
+                                    </Grid>
+                                )}
                                 
-
-                                {showWebsite && (<Box sx={{display:"flex", flexDirection: "row", flexWrap: "nowrap", alignItems: "center", marginBottom:'20px'}}>
+                                {showWebsite && (
+                                    <Box sx={{display:"flex", flexDirection: "row", flexWrap: "nowrap", alignItems: "center"}}>
                                     <HoverLink href={details.websiteUrl} target="_blank" p={1} color='#027C91'>
                                     {details.websiteName !== null ? (
                                         <Typography variant="h4" >

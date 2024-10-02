@@ -29,7 +29,7 @@ export default function NavTabs(props) {
     }
 
     const drawerWidth = 240;
-    const navItems = ['Home', 'About', 'People', 'Projects', 'Products', 'Education', 'Recharge Center', 'Give']
+    const navItems = ['Home', 'About', 'People', 'Research', 'Events', 'Opportunities', 'Give', 'Request GIS Services']
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
           <Typography variant="h6" sx={{ my: 2 }}>
@@ -93,36 +93,44 @@ export default function NavTabs(props) {
                   key={'People'}
                 />
                 <Tab
-                  onClick={() => handlePageChange('Projects')}
+                  onClick={() => handlePageChange('Research')}
                   value={'four'}
-                  label={'Projects'}
+                  label={'Research'}
                   key={'Projects'}
                 />
                 <Tab
-                  onClick={() => handlePageChange('Products')}
+                  onClick={() => handlePageChange('Events')}
                   value={'five'}
-                  label={'Products'}
-                  key={'Products'}
+                  label={'Events'}
+                  key={'Events'}
                 />
                 <Tab
-                  onClick={() => handlePageChange('Education')}
+                  onClick={() => handlePageChange('Opportunities')}
                   value={'six'}
-                  label={'Education'}
-                  key={'Education'}
+                  label={'Opportunities'}
+                  key={'Opportunities'}
                 />
-                <Tab
-                  onClick={() => handlePageChange('Recharge Center')}
-                  value={'seven'}
-                  label={'Recharge Center'}
-                  key={'Recharge Center'}
-                />
-                
                 <Tab
                   onClick={() => handlePageChange('Give')}
-                  value={'eight'}
+                  value={'seven'}
                   label={'Give'}
                   key={'Give'}
                 />
+                
+                <Button
+                  variant='contained'
+                  sx= {{
+                    minWidth: '100px',
+                    maxWidth: '120px',
+                    whiteSpace: 'normal', // Allow text to wrap
+                    textTransform: 'none',
+                    marginY: '15px'
+                   
+                  }}
+                  // onClick={() => handlePageChange('GIS Services')}
+                  >GIS Services</Button>
+               
+                
 
               </Tabs>
               <Popover
@@ -144,7 +152,8 @@ export default function NavTabs(props) {
                 </MenuItem>
                 ))}
                 
-              </Popover>                          
+              </Popover> 
+
             </Box>
             </Toolbar>
             <Drawer  

@@ -24,7 +24,8 @@ function LandingCarouselSlide(props) {
               paddingTop: {
                 xs: "50px"
               },
-              maxWidth: '600px' 
+              maxWidth: '600px',
+              color: post.color === 'white' ? '#fff' : '#333333' 
             }}
           >
             

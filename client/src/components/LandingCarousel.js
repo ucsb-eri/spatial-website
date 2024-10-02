@@ -55,7 +55,6 @@ function LandingCarousel(props) {
       sx={{
         position: 'relative',
         backgroundColor: 'grey.800',
-        color: '#fff',
         mb: 4,
         minHeight: '30vh',
         height: '600px',

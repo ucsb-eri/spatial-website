@@ -1,6 +1,6 @@
 import { React, useContext, useState } from 'react';
 import { AdminLoginContext } from "../context/AdminProvider"
-import {Grid, Toolbar, Typography, Button} from '@mui/material';
+import {Grid, Toolbar, Typography, Button, Container} from '@mui/material';
 
 import ProjectCard from '../components/ProjectCard';
 import ProjectDescriptions from '../components/ProjectDescriptions';
@@ -15,6 +15,10 @@ function Projects() {
     const [newProject, setNewProject] = useState(false)
     const { isLoggedIn } = useContext(AdminLoginContext)
     const backToProjects = () => setNewProject(false)
+
+    const backToCards = () => {
+        setCurrentProject(null)
+    }
 
     const renderProject = (id) => {
         setCurrentProject(id)
@@ -40,23 +44,25 @@ function Projects() {
                             <div>Loading...</div>
                             ) : (
                                 currentProject ? (
-                                    <ProjectDescriptions project={currentProjectDetails} />
+                                    <ProjectDescriptions project={currentProjectDetails} backToCards={backToCards} />
                                 ) : (
-                                    <Grid>
-                                        <Toolbar sx={{ marginTop: '5px', marginBottom: '5px' }} align='center'>
-                                            <Typography variant='h5' align='left' marginTop="30px" marginBottom="30px" paddingBottom="5px" borderBottom={1} borderColor="divider">
-                                                Projects & Initiatives
-                                            </Typography>
-                                        </Toolbar>
-                                        <Grid container justifyContent="space-evenly" alignItems="center" rowGap={3}>
-                                            { projects.map((project, index) => (    
-                                                <Grid item xs={9} sm={5} md={10} lg={9} xl={8} >                                    
-                                                    <ProjectCard project={project} index={index} renderProject={renderProject} />
-                                                </Grid>
-                                            ))}
+                                    <Container maxWidth={false}>
+                                        <Grid>
+                                            <Toolbar sx={{ marginTop: '5px', marginBottom: '5px' }} align='center'>
+                                                <Typography variant='h5' align='left' marginTop="30px" marginBottom="30px" paddingBottom="5px" borderBottom={1} borderColor="divider">
+                                                    Research
+                                                </Typography>
+                                            </Toolbar>
+                                            <Grid container justifyContent="space-evenly" alignItems="center" rowGap={3}>
+                                                { projects.map((project, index) => (    
+                                                    <Grid item xs={11} lg={8}>                                    
+                                                        <ProjectCard project={project} index={index} renderProject={renderProject} />
+                                                    </Grid>
+                                                ))}
+                                            </Grid>
+                                        
                                         </Grid>
-                                    
-                                    </Grid>
+                                    </Container>
                                 )
                                                             
 

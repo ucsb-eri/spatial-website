@@ -50,8 +50,9 @@ const typeDefs = gql`
     image: String
   }
 
-  type AboutPanels {
+  type InfoPanels {
     id: ID
+    location: String
     name: String
     tabname: String
     taborder: String
@@ -61,7 +62,7 @@ const typeDefs = gql`
   type Query {
     people: [People]!
     projects: [Projects]!
-    aboutPanels: [AboutPanels]!
+    infoPanels: [InfoPanels]!
   }
 
   type Mutation {
@@ -74,9 +75,9 @@ const typeDefs = gql`
 
     adminSignOn(email: String!, password: String!): Auth!
 
-    addAboutPanel(name: String!, tabname: String!, taborder: String!, description: String!): AboutPanels!
-    editAboutPanel(id: ID!, name: String, tabname: String, taborder: String, description: String): AboutPanels!
-    deleteAboutPanel(id: ID!): AboutPanels!
+    addInfoPanel(name: String!, tabname: String!, taborder: String!, description: String!): InfoPanels!
+    editInfoPanel(id: ID!, name: String, tabname: String, taborder: String, description: String): InfoPanels!
+    deleteInfoPanel(id: ID!): InfoPanels!
   }
 `;
 

@@ -1,6 +1,11 @@
 const { Schema, model } = require('mongoose');
 
-const aboutPanelSchema = new Schema({
+const infoPanelSchema = new Schema({
+  location: {
+    type: String,
+    required: true,
+    enum: ['about', 'events', 'opportunities'],
+  },
   name: {
     type: String,
     required: true,
@@ -27,6 +32,6 @@ const aboutPanelSchema = new Schema({
   
 });
 
-const AboutPanels = model('AboutPanels', aboutPanelSchema);
+const InfoPanels = model('InfoPanels', infoPanelSchema);
 
-module.exports = AboutPanels;
+module.exports = InfoPanels;

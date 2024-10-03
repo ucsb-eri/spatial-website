@@ -11,7 +11,7 @@ import { useQuery, useMutation } from '@apollo/client';
 import { DELETE_INFOPANEL } from '../utils/mutations';
 
 
-const mainAboutOverview = {
+const mainOppsOverview = {
   title: '@ Spatial Center',
   description:
     "Collaborative Design, Implementation, and Dissemination of Spatial Science for a Better World",
@@ -22,14 +22,15 @@ const mainAboutOverview = {
 };
 
 
-export default function About(props) {
+export default function Opportunities(props) {
     const { isLoggedIn } = useContext(AdminLoginContext)
     const {editInfoPanelId, setEditInfoPanelId, infoPanelData } = useProjectContext()
     
-    let aboutPanelData
+    let oppsPanelData
     if (infoPanelData) {
-        aboutPanelData = infoPanelData.filter(panel => panel.location === "about")
+        oppsPanelData = infoPanelData.filter(panel => panel.location === "opportunities")
     }
+    console.log(oppsPanelData)
 
     const [newPanel, setNewPanel] = useState(false)
     const backToPanels = () => setNewPanel(false)
@@ -43,7 +44,7 @@ export default function About(props) {
         <>
             {newPanel ? (
                     // <CreateAboutPanel onSubmit={backToPanels}/>
-                    <CreateInfoPanel location="about" onSubmit={backToPanels} />
+                    <CreateInfoPanel location="opps" onSubmit={backToPanels} />
                 ) : (
                     <Grid item>
                         <Paper
@@ -57,17 +58,17 @@ export default function About(props) {
                                 backgroundSize: 'cover',
                                 backgroundRepeat: 'no-repeat',
                                 backgroundPosition: 'center',
-                                backgroundImage: `url(${mainAboutOverview.image})`,
+                                backgroundImage: `url(${mainOppsOverview.image})`,
                             }}>
-                            <LandingCarouselSlide post={mainAboutOverview} />
+                            <LandingCarouselSlide post={mainOppsOverview} />
                         </Paper>
                     
                     
-                            { aboutPanelData && (
+                            { oppsPanelData && (
                                 <TabsContainer 
                                     editPanelId = {editInfoPanelId} 
                                     setEditPanelId = {setEditInfoPanelId} 
-                                    panelData = {aboutPanelData} 
+                                    panelData = {oppsPanelData} 
                                     deletePanelMutation = {deleteInfoPanel} 
                                     value = {value} 
                                     setValue = {setValue}

@@ -38,10 +38,11 @@ export const GET_PROJECTS = gql`
         }
     }
 `
-export const GET_ABOUTPANELS = gql`
-    query GetAboutPanels {
-        aboutPanels {
+export const GET_INFOPANELS = gql`
+    query GetInfoPanels {
+        infoPanels {
         id
+        location
         description
         name
         tabname

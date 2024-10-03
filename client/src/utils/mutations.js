@@ -40,9 +40,10 @@ export const ADMIN_LOGIN = gql`
     }
   }`
 
-export const ADD_ABOUTPANEL = gql`
-  mutation AddAboutPanel($name: String!, $taborder: String!, $description: String!, $tabname: String!) {
-  addAboutPanel(name: $name, taborder: $taborder, description: $description, tabname: $tabname) {
+export const ADD_INFOPANEL = gql`
+  mutation AddInfoPanel($location: String!, $name: String!, $taborder: String!, $description: String!, $tabname: String!) {
+  addInfoPanel(location: $location, name: $name, taborder: $taborder, description: $description, tabname: $tabname) {
+    location
     description
     name
     tabname
@@ -50,9 +51,10 @@ export const ADD_ABOUTPANEL = gql`
   }
 }`
 
-export const EDIT_ABOUTPANEL = gql`
-  mutation EditAboutPanel($id: ID!, $name: String, $tabname: String, $taborder: String, $description: String) {
-  editAboutPanel(id: $id, name: $name, tabname: $tabname, taborder: $taborder, description: $description) {
+export const EDIT_INFOPANEL = gql`
+  mutation EditInfoPanel($id: ID!, $location: String, $name: String, $tabname: String, $taborder: String, $description: String) {
+  editInfoPanel(id: $id, location: $location, name: $name, tabname: $tabname, taborder: $taborder, description: $description) {
+    location
     description
     id
     name
@@ -61,9 +63,10 @@ export const EDIT_ABOUTPANEL = gql`
   }
 }`
 
-export const DELETE_ABOUTPANEL = gql`
-mutation DeleteAboutPanel($id: ID!) {
-  deleteAboutPanel(id: $id) {
+export const DELETE_INFOPANEL = gql`
+mutation DeleteInfoPanel($id: ID!) {
+  deleteInfoPanel(id: $id) {
+    location
     description
     name
     tabname

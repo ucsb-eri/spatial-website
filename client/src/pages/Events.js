@@ -22,14 +22,15 @@ const mainAboutOverview = {
 };
 
 
-export default function About(props) {
+export default function Events(props) {
     const { isLoggedIn } = useContext(AdminLoginContext)
     const {editInfoPanelId, setEditInfoPanelId, infoPanelData } = useProjectContext()
     
-    let aboutPanelData
+    let eventPanelData
     if (infoPanelData) {
-        aboutPanelData = infoPanelData.filter(panel => panel.location === "about")
+        eventPanelData = infoPanelData.filter(panel => panel.location === "events")
     }
+    console.log(eventPanelData)
 
     const [newPanel, setNewPanel] = useState(false)
     const backToPanels = () => setNewPanel(false)
@@ -43,7 +44,7 @@ export default function About(props) {
         <>
             {newPanel ? (
                     // <CreateAboutPanel onSubmit={backToPanels}/>
-                    <CreateInfoPanel location="about" onSubmit={backToPanels} />
+                    <CreateInfoPanel location="events" onSubmit={backToPanels} />
                 ) : (
                     <Grid item>
                         <Paper
@@ -63,11 +64,11 @@ export default function About(props) {
                         </Paper>
                     
                     
-                            { aboutPanelData && (
+                            { eventPanelData && (
                                 <TabsContainer 
                                     editPanelId = {editInfoPanelId} 
                                     setEditPanelId = {setEditInfoPanelId} 
-                                    panelData = {aboutPanelData} 
+                                    panelData = {eventPanelData} 
                                     deletePanelMutation = {deleteInfoPanel} 
                                     value = {value} 
                                     setValue = {setValue}

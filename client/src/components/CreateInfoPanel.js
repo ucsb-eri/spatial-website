@@ -12,12 +12,12 @@ import Auth from '../utils/auth'
 
 import { FormGroup, FormControl, TextField, InputLabel, Button, Input } from '@mui/material';
 import { useMutation } from '@apollo/client';
-import { ADD_ABOUTPANEL, EDIT_ABOUTPANEL } from '../utils/mutations';
+import { ADD_INFOPANEL, EDIT_INFOPANEL } from '../utils/mutations';
 import { useProjectContext } from '../context/ProjectContext';
 import { AdminLoginContext } from '../context/AdminProvider'
 
 
-export default function CreateAboutPanel(props) {
+export default function CreateInfoPanel(props) {
     const { logout } = useContext(AdminLoginContext)
     useEffect( () => {
 
@@ -26,7 +26,8 @@ export default function CreateAboutPanel(props) {
         }
 
     })
-        
+    
+    const {location} = props
 
     let onSubmit
     if (props.onSubmit) {
@@ -36,7 +37,7 @@ export default function CreateAboutPanel(props) {
             console.log("edited panel")
         }
     }
-    const {editAboutPanelId, setEditAboutPanelId} = useProjectContext()
+    const {editInfoPanelId, setEditInfoPanelId} = useProjectContext()
 
     const createEditorState = () => {
         if (props.id) {
@@ -80,8 +81,8 @@ export default function CreateAboutPanel(props) {
     const [tabname, setTabname] = useState(createTabnameState)
     const [taborder, setTaborder] = useState(createTaborderState)
 
-    const [addPanel] = useMutation(ADD_ABOUTPANEL)
-    const [editPanel] = useMutation(EDIT_ABOUTPANEL)
+    const [addPanel] = useMutation(ADD_INFOPANEL)
+    const [editPanel] = useMutation(EDIT_INFOPANEL)
 
     let handlePanel
     if (props.id) {
@@ -89,15 +90,15 @@ export default function CreateAboutPanel(props) {
         handlePanel = async () => {
             const id = props.id
             const description = stateToHTML(editorState.getCurrentContent())
-            console.log(id, description, name, taborder, tabname)
+            console.log(id, location, description, name, taborder, tabname)
             try {
                 const update = await editPanel({
-                    variables: {id, name, description, tabname, taborder}
+                    variables: {id, location, name, description, tabname, taborder}
                 })
             } catch (error) {
                 console.log(error)
             }
-            setEditAboutPanelId(null)
+            setEditInfoPanelId(null)
             onSubmit()
         }
     } else {
@@ -106,7 +107,7 @@ export default function CreateAboutPanel(props) {
             try {
                 console.log(description, name)
                 const result = await addPanel({
-                    variables: {name, description, tabname, taborder}
+                    variables: {name, location, description, tabname, taborder}
                 }) 
                 
             } catch (error) {

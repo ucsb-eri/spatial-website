@@ -59,27 +59,27 @@
         "location": "opportunities",
         "name": "Goodchild Fellowship",
         "description": "<p>Listen to some great lectures on topics in Space! We used to have lunch catered, but our budget got cut :( </p>",
-        "tabname": "Goodchild Fellowship",
+        "tabname": "Fellowships",
         "taborder": 2
     },
     {
         "location": "opportunities",
         "name": "Interdisciplinary Internship",
         "description": "<p>Shaine organizes this big conference with Spatial experts all over the country and world. They come to SB, we feed them, and we talk about research in the field.</p>",
-        "tabname": "Interdisciplinary Internship",
+        "tabname": "Internships",
         "taborder": 3
     },
     {
         "location": "opportunities",
         "name": "Dangermond Travel Awards",
-        "tabname": "Dangermond Travel Awards",
+        "tabname": "Travel Grants",
         "taborder": 4,
         "description": "<p>We've been doing things in the past year. Here's some of them: ~list~</p>"
     },
     {
         "location": "opportunities",
         "name": "Past Awardees",
-        "tabname": "Past Awardees",
+        "tabname": "Awardees",
         "taborder": 5,
         "description": "<p>We've been doing things in the past year. Here's some of them: ~list~</p>"
     },

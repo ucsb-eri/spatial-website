@@ -55,7 +55,7 @@ export default function NavTabs(props) {
     }
 
     const drawerWidth = 240;
-    const navItems = ['Home', 'About', 'People', 'Research', 'Events', 'Opportunities', 'Give', 'Request GIS Services']
+    const navItems = ['Home', 'About', 'People', 'Research', 'Events', 'Opportunities', 'Give'] //, 'Request GIS Services']
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
           <Typography variant="h6" sx={{ my: 2 }}>
@@ -163,7 +163,7 @@ export default function NavTabs(props) {
                   sx={{ fontSize: fontSize }}
                 />
                 
-                <Button
+                {/* <Button
                   variant='contained'
                   sx= {{
                     minWidth: '100px',
@@ -177,7 +177,7 @@ export default function NavTabs(props) {
                   // onClick={() => handlePageChange('GIS Services')}
                   >
                     GIS Services
-                  </Button>                              
+                  </Button>                               */}
 
               </Tabs>
               {/* About popover menu */}

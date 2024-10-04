@@ -36,7 +36,6 @@ export default function Opportunities(props) {
     const backToPanels = () => setNewPanel(false)
     
     const {value, setValue} = props
-
     const [deleteInfoPanel] = useMutation(DELETE_INFOPANEL)
     
 

@@ -4,7 +4,7 @@ import CreateInfoPanel from './CreateInfoPanel';
 
 
 import PropTypes from 'prop-types'
-import {Grid, Container, Typography, Paper, Tabs, Tab, Box, useMediaQuery, Toolbar, Button} from '@mui/material'
+import {Grid, Container, Typography, Paper, Card, CardMedia, Tabs, Tab, Box, useMediaQuery, Toolbar, Button, CardContent} from '@mui/material'
 import LandingCarouselSlide from '../components/LandingCarouselSlide';
 
 
@@ -78,14 +78,41 @@ export default function TabsContainer(props) {
             {panelData.map((panel, id) => (
                 <TabPanel value={value} index={id}>
                     {panel.id !== editPanelId ? (
-                        <Grid container direction='row' spacing={4} justifyContent='center'>
+                        <Grid container direction='row' justifyContent='center'>
                             <Grid item xs={12} md={11}>                                   
                                 <Toolbar align='left' disableGutters={true}>
                                     <Typography variant='h5' align='left'  marginBottom="30px" paddingBottom="5px" borderBottom={1} borderColor="divider">
                                         {panel.name}
                                     </Typography>
                                 </Toolbar>
-                                <Typography align="left"><div dangerouslySetInnerHTML={{__html: panel.description}}/></Typography>
+                                <Card elevation={0} sx={{borderRadius: '0'}}>
+                                
+                                {panel.image ? (
+                                    <Grid container justifyContent='center' columnSpacing={4}>
+                                        <Grid item xs={12} md={11} lg={7}>
+                                            <CardContent>
+                                                <Typography align="left"><div dangerouslySetInnerHTML={{__html: panel.description}}/></Typography>
+                                            </CardContent>
+                                        </Grid>
+                                
+                                    
+                                        <Grid item xs={10} md={9}lg={5}>
+                                            <CardMedia
+                                                component="img"
+                                                alt="funding logo"
+                                                src= {panel.image ? `http://localhost:3001/images/${panel.image}` : "https://images.freeimages.com/images/large-previews/ac7/sky-1401862.jpg?fmt=webp&w=500"}
+                                                align="left"
+                                                sx={{ width: '100%'}}/>
+                                        </Grid>
+                                        </Grid>
+                                        ): (
+                                            <CardContent>
+                                                <Typography align="left"><div dangerouslySetInnerHTML={{__html: panel.description}}/></Typography>
+                                            </CardContent>
+                                        )}
+                                        
+                                        
+                                </Card>
                             </Grid>
                             { isLoggedIn && (
                                 <Grid xs={12}>

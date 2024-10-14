@@ -4,7 +4,7 @@ import LandingCarouselSlide from '../components/LandingCarouselSlide';
 import GiveCard from '../components/GiveCard';
 
 const giveBanner = {
-    description: "Please",
+    description: "",
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwvaheFL9X72HGjx7tMEb5GJBLZ49MYba5TA&s',
     imageLabel: '',
     title: 'Give to the Spatial Center!',
@@ -13,17 +13,17 @@ const giveBanner = {
 const giveCards = [
     {
         title: 'Spatial General Fund',
-        description: 'fund goes to a bunch of really great things. You should totally donate!',
+        description: "The Center for Spatial Studies and Data Science at UC Santa Barbara is an interdisciplinary research hub dedicated to pushing the boundaries of spatial thinking, geoinformatics, and geographic information science. It champions scientific discovery and educational excellence through workshops, speaker series, and annual Specialist Meetings that assemble leading global experts in spatial data science. Your gift supports the Center's research, students, and outreach efforts.",
         image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQt1OOHhuPndEfrgOGJzZHoFqrhQW185csfUw&s',
         imageDescription: '',
-        link: 'https://google.com'
+        link: ''
     },
     {
         title: 'Goodchild Fund',
-        description: 'fund goes to a bunch of really great things. You should totally donate!',
+        description: 'The Goodchild Fellowship was established to support outstanding geography doctoral students, including incoming students, pursuing research in Geographic Information Science. Gifts to this Fund support annual fellowship awards.',
         image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyPu2jKzxeWh7Yv0l0G6esEce_ochybEvEag&s',
         imageDescription: '',
-        link: 'https://google.com'
+        link: 'https://giving.ucsb.edu/Funds/Give?id=487'
     },
 
 ]
@@ -64,10 +64,10 @@ export default function Give() {
                 </Grid>
 
                 <Grid item xs={11}>
-                    <Grid container direction="row" justifyContent="space-between" columnSpacing={3} rowSpacing={5}>
+                    <Grid container direction="row" justifyContent="center" columnSpacing={3} rowSpacing={5}>
                         
                         {giveCards.map((card) => (
-                            <Grid item xs={11} sm={6}>
+                            <Grid item xs={11} md={6}>
                             <GiveCard {...card} key={card.title} />
                             </Grid>
                         )

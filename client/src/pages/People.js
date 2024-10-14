@@ -30,12 +30,14 @@ function People() {
     const currentPersonDetails = peopleList.find(person => person._id === currentPerson);
     const leadershipMembers = peopleList.filter(person => person.category === "Leadership");
     const staffMembers = peopleList.filter(person => person.category === "Staff");
+    const postdocMembers = peopleList.filter(person => person.category === "Postdoc")
     const gradMembers = peopleList.filter(person => person.category === "Graduate Student");
+    const alumniMembers = peopleList.filter(person =>person.category === "Center Alumnus");
 
     const emptyDetails = {
         firstName: null,
         lastName: null,
-        title: null,
+        title: [],
         image: null,
         description: null,
         research: null,
@@ -89,7 +91,20 @@ function People() {
                             </Toolbar>
                             
                             <Grid container direction="row" justifyContent='center' columnSpacing={4} rowSpacing={4}> 
-                            {staffMembers.map((person) => (    
+                            {staffMembers && staffMembers.map((person) => (    
+                                <PersonCard details = {person} renderPerson={renderPerson} key={person.id} />    
+                            ))}
+                            </Grid>
+
+                            {/* POSTDOCS */}
+                            <Toolbar sx={{ marginTop: '40px', marginBottom: '5px' }} align='center'>
+                                <Typography variant='h5' align='left' marginTop="30px" marginBottom="30px" paddingBottom="5px" borderBottom={1} borderColor="divider">
+                                Postdocs
+                                </Typography>
+                            </Toolbar>
+        
+                            <Grid container direction="row" justifyContent='center' columnSpacing={4} rowSpacing={4}> 
+                            {postdocMembers && postdocMembers.map((person) => (    
                                 <PersonCard details = {person} renderPerson={renderPerson} key={person.id} />    
                             ))}
                             </Grid>
@@ -102,7 +117,20 @@ function People() {
                             </Toolbar>
         
                             <Grid container direction="row" justifyContent='center' columnSpacing={4} rowSpacing={4}> 
-                            {gradMembers.map((person) => (    
+                            {gradMembers && gradMembers.map((person) => (    
+                                <PersonCard details = {person} renderPerson={renderPerson} key={person.id} />    
+                            ))}
+                            </Grid>
+
+                            {/* CENTER ALUMNI */}
+                            <Toolbar sx={{ marginTop: '40px', marginBottom: '5px' }} align='center'>
+                                <Typography variant='h5' align='left' marginTop="30px" marginBottom="30px" paddingBottom="5px" borderBottom={1} borderColor="divider">
+                                Center Alumni
+                                </Typography>
+                            </Toolbar>
+        
+                            <Grid container direction="row" justifyContent='center' columnSpacing={4} rowSpacing={4}> 
+                            {alumniMembers && alumniMembers.map((person) => (    
                                 <PersonCard details = {person} renderPerson={renderPerson} key={person.id} />    
                             ))}
                             </Grid>

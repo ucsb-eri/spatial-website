@@ -29,7 +29,21 @@ const projectSchema = new Schema({
     required: true,
     minlength: [300, 'Description must be at least 300 characters'],
   },
+  pis: {
+    type: String,
+    required: true,
+  },
   image: {
+    type: String, // will store this on locally in an uploads folder
+    required: false,
+    unique: false,
+  },
+  funder: {
+    type: String,
+    required: false,
+    unique: false
+  },
+  funderLogo: {
     type: String, // will store this on locally in an uploads folder
     required: false,
     unique: false,

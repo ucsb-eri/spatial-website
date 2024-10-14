@@ -33,21 +33,27 @@ function PersonCard(props) {
                     }}
                 />
             </Box>
-                    <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
-                        {details.firstName} {details.lastName}
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                                {title}
-                        </Typography>
-                        {/* {title.map((title) => (
-                            <Typography variant="body2" color="text.secondary">
-                                {title}
-                            </Typography> */}
-
-                        {/* ))} */}
-                        
-                    </CardContent>
+            <CardContent>
+                <Typography gutterBottom mt={1}variant="h5" component="div">
+                {details.firstName} {details.lastName}
+                </Typography>
+                <Box
+                sx={{
+                    height: '50px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'start'
+                }}
+                >
+                    {title && title.map((title) => (
+                    <Typography variant="body2" color="text.secondary" sx={{'lineHeight': '25px'}}>
+                        {title}
+                    </Typography> 
+                    ))}
+                </Box>
+                
+                
+            </CardContent>
                     {/* <CardActions>
                         <Button size="small">Share</Button>
                         <Button size="small">Learn More</Button>

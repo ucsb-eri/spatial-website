@@ -23,21 +23,22 @@
     {
         "location": "events",
         "name": "@Spatial Hour",
-        "description": "<p>Listen to some great lectures on topics in Space! We used to have lunch catered, but our budget got cut :( </p>",
+        "description": "The @Spatial Hour series is a platform for researchers from UCSB and beyond to share their spatial research, provide unique perspectives, and foster interdisciplinary collaboration within our community. ",
         "tabname": "@Spatial Hour",
         "taborder": 1
     },
     {
         "location": "events",
         "name": "ESRI Educational Visits",
-        "description": "<p>Listen to some great lectures on topics in Space! We used to have lunch catered, but our budget got cut :( </p>",
-        "tabname": "ESRI Trips",
+        "description": "Students involved in the Center for Spatial Studies and Data Science are offered a unique opportunity to join Esri Educational Visits to connect with UCSB alumni and explore Esri’s innovative campus. These visits not only provide insight into exciting career opportunities at Esri but also foster networking among aspiring professionals and established experts. Students can engage in meaningful conversations and receive guidance from Esri employees, who are eager to mentor the next generation of change-makers. It's an invaluable experience that bridges education and real-world applications in the field of Geographic Information Science (GIS).",
+        "image": "esri_educational_trip.jpg",
+        "tabname": "ESRI Visits",
         "taborder": 2
     },
     {
         "location": "events",
         "name": "Specialist Meeting 2024",
-        "description": "<p>Shaine organizes this big conference with Spatial experts all over the country and world. They come to SB, we feed them, and we talk about research in the field.</p>",
+        "description": "<p>Confronted by climate change, there is a renewed global focus on conservation, exemplified by agreements like the Kunming-Montreal commitment to protect 30 percent of the planet by 2030. However, many countries struggle to meet these targets due to insufficient analytical support for local land use planning and a disconnect between scientific geographic information and on-the-ground decision-making. Additionally, achieving multiple spatial planning goals—such as biodiversity, carbon reduction, and habitat restoration—across fragmented administrative agencies presents significant challenges.</p><p>To address these issues, the Center for Spatial Studies and Data Science has collaborated with global conservation organizations to explore how a geographic approach leveraging GIScience can better support conservation efforts. Key needs identified include increasing GIS capacity in resource-constrained organizations, integrating emerging geospatial technologies while addressing ethical considerations, creating spatial data infrastructure for evidence-based analysis, and tracking the conservation impacts of private actors.</p><p>In December 2024, the Center will host colleagues in conservation and GIScience to a two-day meeting at UCSB in Santa Barbara, where we will outline research priorities, develop collaborative programs, and discuss training opportunities. This workshop aims to catalyze a broader initiative to enhance GIScience in support of 21st-century conservation needs.</p>",
         "tabname": "Specialist Meetings",
         "taborder": 3
     },

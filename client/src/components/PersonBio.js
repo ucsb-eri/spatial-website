@@ -10,6 +10,8 @@ import { Container, Box, Link, Typography, Card, CardMedia, Button, Grid, Avatar
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import XIcon from '@mui/icons-material/X';
+import WebIcon from '@mui/icons-material/Web';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 
 const imageRoute = process.env.NODE_ENV === "production" ? "https://spatialtest.grit.ucsb.edu/images/" : "http://localhost:3001/images/"
@@ -47,10 +49,11 @@ function PersonBio(props) {
     const isSmScreen = useMediaQuery('(max-width: 800px')
     const showProjects = details.projects.length !== 0 
     const showAdvisors = details.advisors.length !== 0
-    const showGscholar = details.gscholar !== null
-    const showX = details.x !== null
-    const showLinkedIn = details.linkedin !== null
-    const showWebsite = details.websiteUrl !== null
+    const showGscholar = details.gscholar !== null && details.gscholar !== ""
+    const showX = details.x !== null && details.x !== ""
+    const showLinkedIn = details.linkedin !== null && details.linkedin !== ""
+    const showWebsite = details.websiteUrl !== null && details.websiteUrl!== ""
+    const showGithub = details.github !== null && details.github !== ""
     
 
     return (
@@ -86,9 +89,19 @@ function PersonBio(props) {
                             </Card>
                         </Grid>
                         {/* Bio */}
-                        <Grid item alignContent="top" sx={{paddingTop: isXsScreen ? "0px" : "145px"}} justifyContent="center" xs={12} sm={7} md={7} pt={3}>
+                        <Grid item 
+                            alignContent="top" 
+                            sx={{paddingTop: isXsScreen ? "0px" : "145px"}} 
+                            justifyContent="center" 
+                            xs={12} 
+                            sm={7} 
+                            md={7} 
+                            pt={3}>
                             <Typography component= "h2" variant="h2" align="center" mb={1} ><b>{details.firstName} {details.lastName}</b></Typography>
-                            <Typography variant="h5" component="h2" align="center" mb={1}>{details.title}</Typography>
+                            {details.title.map((title) => (
+                                <Typography variant="h6" component="h2" align="center">{title}</Typography>
+                            ))}
+                            
                             
                             <Grid container direction="row" columnSpacing={1} justifyContent="center" alignItems="center" mt={2}>
                                 <Grid item xs={2}>
@@ -150,6 +163,19 @@ function PersonBio(props) {
                                     </HoverLink>
                                     </Grid>
                                 )}
+                                {showGithub && (
+                                    <Grid item xs={2}>
+                                    <HoverLink href={details.github} target="_blank" >
+                                    <GitHubIcon 
+                                        flex= {1}
+                                        flexShrink={1}
+                                        className='logos'
+                                        sx={{fontSize: '45px', color: '#027C91'}}
+                                        />
+                                        
+                                    </HoverLink>
+                                    </Grid>
+                                )}
                                 
                                 {showWebsite && (
                                     <Box sx={{display:"flex", flexDirection: "row", flexWrap: "nowrap", alignItems: "center"}}>
@@ -159,15 +185,19 @@ function PersonBio(props) {
                                         {details.websiteName}
                                         </Typography>
                                     ) : (
-                                        <Typography>
-                                        {details.websiteUrl}
-                                        </Typography>
+                                        <WebIcon 
+                                        flex= {1}
+                                        flexShrink={1}
+                                        className='logos'
+                                        sx={{fontSize: '45px', color: '#027C91'}}
+                                        />
                                     )
                                      }
                                         
                                     </HoverLink>
                                     
                                 </Box>)}
+
                             </Grid>
                             
                             {/* <Typography align="left" paragraph>

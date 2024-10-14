@@ -1,13 +1,13 @@
 import React from "react";
 
-import { Card, CardHeader, CardActionArea, CardMedia, CardContent, Typography } from "@mui/material";
+import { Card, CardHeader, CardActionArea, CardMedia, CardContent, Typography, Link } from "@mui/material";
 
 export default function GiveCard(props) {
 
     const { title, description, image, imageDescription, link } = props
 
     return(
-        <Card sx={{width: '100%'}}>
+        <Card elevation={0} sx={{width: '100%', borderRadius: '0'}}>
             <CardActionArea href={link} target="_blank">
                 <CardHeader
                     title={title}
@@ -29,9 +29,19 @@ export default function GiveCard(props) {
                     }}
                 />
             <CardContent>
-                <Typography variant="h6" component="h4">
+                <Typography variant="h6" paragraph align='left' component="h4">
                     {description}
                 </Typography>
+                <Typography variant="h6" align='left' component="h4">
+                    {link ? (
+                        <Link align='left' href={link}>Donate Here!</Link>
+                    ): (
+                        <p>Donatation link coming soon!</p>
+                    )}
+                </Typography>
+                
+                
+
             </CardContent>
             </CardActionArea>
             

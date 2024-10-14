@@ -55,12 +55,12 @@ export const theme = createTheme({
         },
         h5: {
             fontFamily: ['"Nunito Sans"', 'sans-serif'].join(','),
-            fontSize: '1.5rem',
+            fontSize: '1.25rem',
             '@media (max-width:750px)': {
-                fontSize: '1.25rem', // Font size for small screens
+                fontSize: '1.15rem', // Font size for small screens
             },
             '@media (max-width:500px)': {
-                fontSize: '1.15rem', // Font size for small screens
+                fontSize: '1rem', // Font size for small screens
             },
             '@media (max-width:400px)': {
                 fontSize: '1rem', // Font size for small screens

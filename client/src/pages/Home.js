@@ -1,7 +1,8 @@
 import * as React from 'react';
-import {Grid, Typography}  from '@mui/material';
+import {Grid, Typography, Toolbar}  from '@mui/material';
 
 import LandingCarousel from '../components/LandingCarousel';
+import EventsTable from '../components/EventsTable'
 
 const imageRoute = process.env.NODE_ENV === "production" ? "https://spatialtest.grit.ucsb.edu/images/" : "http://localhost:3001/images/"
 const featuredPosts = [
@@ -53,18 +54,35 @@ export default function Home() {
             <Grid item xs={12}>
               <LandingCarousel slides={featuredPosts} />
             </Grid>
-            <Grid item xs={11} md={8}>
-                <Typography align="left" variant="h5" paragraph>
-                The Center for Spatial Studies and Data Science at UC Santa Barbara is an interdisciplinary research hub dedicated to pushing the boundaries of spatial thinking, geoinformatics, and geographic information science. It champions scientific discovery and educational excellence through workshops, speaker series, and annual Specialist Meetings that assemble leading global experts in spatial data science.
-                </Typography>
+            <Grid item xs={11} md={9} sx={{mb: '50px'}}>
+                  <Typography align="center" variant="h4" paragraph>
+                  At the Center for Spatial Studies and Data Science at University of California Santa Barbara - we collaboratively design, implement and disseminate spatial science for a better world!
+                  </Typography>
+                  
+              </Grid>
+            <Grid item xs={12} sm={11}>
+              <Grid container direction='row' justifyContent="space-around">
                 
+                <Grid item xs={12}>
+                  <Toolbar sx={{ marginTop: '5px', marginBottom: '5px' }} align='center'>
+                      <Typography variant='h4' component="h2" align='left' marginTop="30px" marginBottom="30px" paddingBottom="5px" borderBottom={1} borderColor="divider">
+                      News & Events
+                      </Typography>
+                  </Toolbar>
+
+                </Grid>
+
+
+                <Grid item xs={11} md={5}>
+                
+                <EventsTable />
+                {/* <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FLos_Angeles&bgcolor=%23ffffff&src=ZGFud2lsbGV0dEB1Y3NiLmVkdQ&src=Y19iOWQyOTA4NzdiNGE4NTlkMWY3MGJjYTdlOGZkMTBkZTMxOTVmZjUwYWZhNzExMWMyMmJiMDEwMDMzY2ZlY2M3QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23039BE5&color=%234285F4&color=%230B8043" style={{border:"solid 1px #777", width: "800", height: "600", frameborder:"0", scrolling:"no"}}></iframe> */}
+                {/* <iframe src="https://calendar.google.com/calendar/embed?src=c_b9d290877b4a859d1f70bca7e8fd10de3195ff50afa7111c22bb010033cfecc7%40group.calendar.google.com&ctz=America%2FLos_Angeles" style={{border: "0", width: '100%', height: '450px', frameborder: "0", scrolling: "no"}}></iframe> */}
+                
+                </Grid>
+              </Grid>
             </Grid>
-            <Grid item xs={11} md={8}>
             
-            {/* <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FLos_Angeles&bgcolor=%23ffffff&src=ZGFud2lsbGV0dEB1Y3NiLmVkdQ&src=Y19iOWQyOTA4NzdiNGE4NTlkMWY3MGJjYTdlOGZkMTBkZTMxOTVmZjUwYWZhNzExMWMyMmJiMDEwMDMzY2ZlY2M3QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23039BE5&color=%234285F4&color=%230B8043" style={{border:"solid 1px #777", width: "800", height: "600", frameborder:"0", scrolling:"no"}}></iframe> */}
-            <iframe src="https://calendar.google.com/calendar/embed?src=c_b9d290877b4a859d1f70bca7e8fd10de3195ff50afa7111c22bb010033cfecc7%40group.calendar.google.com&ctz=America%2FLos_Angeles" style={{border: "0", width: '100%', height: '450px', frameborder: "0", scrolling: "no"}}></iframe>
-            
-            </Grid>
 
           </Grid>
       </Grid>

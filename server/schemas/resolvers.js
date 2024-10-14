@@ -17,9 +17,9 @@ const resolvers = {
 
   Mutation: {
 
-    addPerson: async (parent, {firstName, lastName, title, image, description, research, projects, category, current, email, location, phone, gscholar, linkedin, x, websiteName, websiteUrl, advisors}) => {
+    addPerson: async (parent, {firstName, lastName, title, image, description, research, projects, category, current, email, github, location, phone, gscholar, linkedin, x, websiteName, websiteUrl, advisors}) => {
       // if (context.user) {
-        const person = await People.create({firstName, lastName, title, image, description, research, projects, category, current, email, location, phone, gscholar, linkedin, x, websiteName, websiteUrl, advisors})
+        const person = await People.create({firstName, lastName, title, image, description, research, projects, category, current, email, github, location, phone, gscholar, linkedin, x, websiteName, websiteUrl, advisors})
         return person
       // }
     },
@@ -67,22 +67,22 @@ const resolvers = {
       }
     },
 
-    addInfoPanel: async (parent, {location, name, tabname, taborder, description}, context) => {
+    addInfoPanel: async (parent, {location, name, tabname, taborder, description, image}, context) => {
       if (context.user) {
         console.log("valid user")
         console.log(name, description)
-        const aboutPanel = await InfoPanels.create({location, name, description, tabname, taborder})
+        const aboutPanel = await InfoPanels.create({location, name, description, image, tabname, taborder})
         return aboutPanel
       }
     },
-    editInfoPanel: async (parent, {id, location, name, tabname, taborder, description}, context) => {
+    editInfoPanel: async (parent, {id, location, name, tabname, image, taborder, description}, context) => {
       console.log("are yoyu working?")
       if (context.user) {
         console.log("valid user")
         console.log(name, description)
         const updateInfoPanel = await InfoPanels.findByIdAndUpdate(
           {_id: id},
-          {location, name, description, tabname, taborder},
+          {location, name, description, image, tabname, taborder},
           {new: true}
           )
         return updateInfoPanel

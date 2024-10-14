@@ -195,7 +195,7 @@ export default function NavTabs(props) {
                 }}
               >
                 {aboutPanelData && aboutPanelData.map((panel, id) => (
-                  <MenuItem onClick={() => handleAboutMenu(id)}>
+                  <MenuItem key={panel.tabname} onClick={() => handleAboutMenu(id)}>
                   {panel.tabname}
                 </MenuItem>
                 ))}
@@ -216,7 +216,7 @@ export default function NavTabs(props) {
                 }}
               >
                 {eventPanelData && eventPanelData.map((panel, id) => (
-                  <MenuItem onClick={() => handleEventsMenu(id)}>
+                  <MenuItem key={panel.tabname} onClick={() => handleEventsMenu(id)}>
                   {panel.tabname}
                 </MenuItem>
                 ))}
@@ -237,7 +237,7 @@ export default function NavTabs(props) {
                 }}
               >
                 {oppsPanelData && oppsPanelData.map((panel, id) => (
-                  <MenuItem onClick={() => handleOppsMenu(id)}>
+                  <MenuItem key={panel.tabname} onClick={() => handleOppsMenu(id)}>
                   {panel.tabname}
                 </MenuItem>
                 ))}

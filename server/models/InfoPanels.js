@@ -28,6 +28,10 @@ const infoPanelSchema = new Schema({
     type: String,
     required: true,
     minlength: [50, 'Description must be at least 50 characters'],
+  },
+  image: {
+    type: String,
+    required: false
   }
   
 });

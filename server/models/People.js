@@ -14,7 +14,7 @@ const peopleSchema = new Schema({
     trim: true,
   },
   title: {
-    type: String,
+    type: [String],
     required: true,
     unique: false,
     trim: true,
@@ -42,7 +42,7 @@ const peopleSchema = new Schema({
   category: {
     type: String,
     required: true,
-    enum: ['Leadership', 'Affliated Faculty', 'Staff', 'Graduate Student', 'Undergrad Student']
+    enum: ['Leadership', 'Affliated Faculty', 'Staff', 'Graduate Student', 'Undergrad Student', 'Center Alumnus', 'Postdoc']
   },
   current: {
     type: Boolean,
@@ -88,6 +88,16 @@ const peopleSchema = new Schema({
     ],
   },
   x: {
+    type: String,
+    required: false,
+    unique: false,
+    trim: true,
+    match: [
+      /^(ftp|http|https):\/\/[^ "]+$/,
+      'Must be a valid URL format (e.g., http://example.com)',
+    ],
+  },
+  github: {
     type: String,
     required: false,
     unique: false,

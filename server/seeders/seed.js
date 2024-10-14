@@ -1,6 +1,6 @@
-const { People, Projects, AboutPanels } = require('../models');
+const { People, Projects, InfoPanels } = require('../models');
 const peopleSeeds = require('./peopleSeeds.json');
-const aboutSeeds = require('./aboutSeeds.json');
+const infoSeeds = require('./infoSeeds.json');
 const projectSeeds = require('./projectSeeds.json');
 
 async function seedWebsite() {
@@ -10,8 +10,8 @@ async function seedWebsite() {
     try {
       const deletePeople = await People.collection.drop()
       const deleteProjects = await Projects.collection.drop()
-      const deletePanels = await AboutPanels.collection.drop()
-      console.log("deleted all people and aboutpanel seeds")
+      const deletePanels = await InfoPanels.collection.drop()
+      console.log("deleted all people and infopanel seeds")
     } catch (err) {
       console.error(err)
     }
@@ -44,10 +44,10 @@ async function seedWebsite() {
   }
 
   try {
-    const panelsExist = await AboutPanels.find()
+    const panelsExist = await InfoPanels.find()
       if (panelsExist.length == 0) {
-        console.log("seeding about panels")
-        const panels = await AboutPanels.insertMany(aboutSeeds)
+        console.log("seeding info panels")
+        const panels = await InfoPanels.insertMany(infoSeeds)
         console.log("new panels on the walls", panels)
       } else {
         console.log("panels already installed")

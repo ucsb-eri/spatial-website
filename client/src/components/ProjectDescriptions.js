@@ -2,7 +2,7 @@ import { React, useContext, useState } from 'react';
 import { AdminLoginContext } from "../context/AdminProvider"
 import DOMPurify from 'dompurify'
 
-import {Container, Grid, Typography, Button, Card, CardMedia, CardActionArea, Toolbar, Divider} from '@mui/material';
+import {Container, Grid, Typography, Button, Card, CardMedia, CardActionArea, Toolbar, Divider, CardContent} from '@mui/material';
 import CreateProject from './CreateProject';
 import { useProjectContext } from '../context/ProjectContext';
 
@@ -47,18 +47,45 @@ export default function ProjectDescriptions(props) {
                 <Grid container direction="row" justifyContent="center" columnSpacing={5}>
                     <Grid item xs={12} sm={5} md={5} lg={4} justifyContent="center" alignItems="center" align="center" style={{marginBottom: 50}}>
                         
-                        <Card sx={{ maxWidth: '500px' }}>
+                        <Card 
+                            key={project.id}
+                            elevation={0}
+                            
+                            sx={{ maxWidth: '500px', borderRadius: '0' }}>
                             <CardMedia
                                 component="img"
-                                alt="green iguana"
+                                alt="project image"
                                 height="400"
                                 src= {project.image ? `http://localhost:3001/images/${project.image}` : "https://images.freeimages.com/images/large-previews/ac7/sky-1401862.jpg?fmt=webp&w=500"}
                                 align="center"
                             />
+                            <CardContent>
+                                {project.pis && (
+                                    <Typography variant='h5' paragraph component='h2' align='left'>
+                                    <strong>PIs:</strong> {project.pis}
+                                    </Typography>
+                                )}
+                                {project.funder && (
+                                    <Typography variant='h5' component='h2' paragraph align='left'>
+                                    <strong>Funded by:</strong> {project.funder}
+                                    </Typography>
+                                )}
+                                {project.funderLogo && (
+                                    <CardMedia
+                                    component="img"
+                                    alt="funding logo"
+                                    src= {project.funderLogo ? `http://localhost:3001/images/${project.funderLogo}` : "https://images.freeimages.com/images/large-previews/ac7/sky-1401862.jpg?fmt=webp&w=500"}
+                                    align="left"
+                                    sx={{width: '150px'}}
+                                />
+                                )}
+                                
+                                
+                            </CardContent>
                         </Card>
                     </Grid>
                     <Grid item xs={11} sm={6} md={7} lg={8}>
-                        <Typography align="left" mb={2} variant='h5'>{project.name}</Typography>
+                        <Typography align="left" mb={2} variant='h4' component='h2'>{project.name}</Typography>
                         <Typography align="left"><div dangerouslySetInnerHTML={{__html: project.description}} /></Typography>
                         { isLoggedIn && (
                             <Button variant='contained' style={{maxWidth: 50}} onClick={() => {setEditProjectId(project.id)}}>Edit</Button>

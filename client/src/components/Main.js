@@ -2,7 +2,7 @@ import React, {useState, useContext, useEffect} from 'react';
 import {Container, Grid, Toolbar, Box, Tabs, Tab, Popover, MenuItem} from '@mui/material'
 
 import { useQuery, useMutation } from '@apollo/client';
-import { GET_ABOUTPANELS } from '../utils/queries';
+import { GET_INFOPANELS } from '../utils/queries';
 import { useProjectContext } from '../context/ProjectContext'
 
 import Header from './Header';
@@ -14,13 +14,16 @@ import People from '../pages/People';
 import Projects from '../pages/Projects';
 import Give from '../pages/Give';
 import Products from '../pages/Products';
-import Education from '../pages/Education';
+import Events from '../pages/Events';
+import Opportunities from '../pages/Opportunities';
 
 
 function Main(props) {
   const [currentPage, setCurrentPage] = useState('Home');
   const [value, setValue] = useState('one');
   const [aboutLocation, setAboutLocation] = useState(0)
+  const [eventLocation, setEventLocation] = useState(0)
+  const [oppsLocation, setOppsLocation] = useState(0)
 
   const handleChange = (event, newValue) => {
     setValue(newValue)
@@ -54,15 +57,15 @@ function Main(props) {
     }
 
     if (currentPage === 'Events') {
-      return <Education />
+      return <Events value={eventLocation} setValue={setEventLocation} />
     }
 
     if (currentPage === 'Opportunities') {
-      return <Education />
+      return <Opportunities value={oppsLocation} setValue={setOppsLocation} />
     }
 
     if (currentPage === 'Request GIS Services') {
-      return <Education />
+      return <Events />
     }
   };
   
@@ -80,16 +83,32 @@ function Main(props) {
   
   // get database queries
 
-  const {loading, data, error} = useQuery(GET_ABOUTPANELS)
-  const { setAboutPanelData, aboutPanelData } = useProjectContext()
+  const {loading, data, error} = useQuery(GET_INFOPANELS)
+  const { setInfoPanelData, infoPanelData } = useProjectContext()
+  
+  let aboutPanelData
+  if (infoPanelData) {
+      aboutPanelData = infoPanelData.filter(panel => panel.location === "about")
+  }
+
+  let eventPanelData
+  if (infoPanelData) {
+      eventPanelData = infoPanelData.filter(panel => panel.location === "events")
+  }
+
+  let oppsPanelData
+  if (infoPanelData) {
+      oppsPanelData = infoPanelData.filter(panel => panel.location === "opportunities")
+  }
+
   useEffect(() => {
     if (!error && !loading && data) {
-      const panels = data.aboutPanels;
+      const panels = data.infoPanels;
       const mutablePanels = [...panels]; // Create a shallow copy
       mutablePanels.sort((a, b) => parseInt(a.taborder) - parseInt(b.taborder));
-      setAboutPanelData(mutablePanels);
+      setInfoPanelData(mutablePanels);
     }
-  }, [data, error, loading, setAboutPanelData]);
+  }, [data, error, loading, setInfoPanelData]);
 
   
   return (
@@ -105,6 +124,10 @@ function Main(props) {
             setValue={setValue} 
             setAboutLocation={setAboutLocation} 
             aboutPanelData={aboutPanelData}
+            setEventLocation={setEventLocation} 
+            eventPanelData={eventPanelData}
+            setOppsLocation={setOppsLocation}
+            oppsPanelData={oppsPanelData}
             handleDrawerToggle={handleDrawerToggle}
             mobileOpen={mobileOpen} 
             />

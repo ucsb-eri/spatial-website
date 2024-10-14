@@ -25,7 +25,7 @@ function Header(props) {
 
       <Toolbar sx={{ borderBottom: 1, borderColor: 'divider', marginTop: '5px' }} align='center'>
         <Grid container justifyContent='space-between' direction="row" alignItems="center" columnGap={1} style={containerStyle} >
-          <Grid container xs={12} md={12} direction="row" alignItems="center" justifyContent="space-between">
+          <Grid container direction="row" alignItems="center" justifyContent="space-between">
             
             <Box
               component="img"
@@ -71,14 +71,5 @@ function Header(props) {
   );
 }
 
-Header.propTypes = {
-  sections: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      url: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
-  title: PropTypes.string.isRequired,
-};
 
 export default Header;

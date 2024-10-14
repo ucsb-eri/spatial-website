@@ -1,6 +1,6 @@
 const People = require('./People');
 const AdminProfile = require('./AdminProfile')
 const Projects = require('./Projects')
-const AboutPanels = require('./AboutPanels')
+const InfoPanels = require('./InfoPanels')
 
-module.exports = { People, AdminProfile, Projects, AboutPanels };
+module.exports = { People, AdminProfile, Projects, InfoPanels };

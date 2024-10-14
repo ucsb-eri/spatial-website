@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { People, Projects, AdminProfile, AboutPanels} = require('../models');
+const { People, Projects, AdminProfile, InfoPanels} = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -10,16 +10,16 @@ const resolvers = {
     projects: async () => {
       return Projects.find();
     },
-    aboutPanels: async () => {
-      return AboutPanels.find()
+    infoPanels: async () => {
+      return InfoPanels.find()
     }
   },
 
   Mutation: {
 
-    addPerson: async (parent, {firstName, lastName, title, image, description, research, projects, category, current, email, location, phone, gscholar, linkedin, x, websiteName, websiteUrl, advisors}) => {
+    addPerson: async (parent, {firstName, lastName, title, image, description, research, projects, category, current, email, github, location, phone, gscholar, linkedin, x, websiteName, websiteUrl, advisors}) => {
       // if (context.user) {
-        const person = await People.create({firstName, lastName, title, image, description, research, projects, category, current, email, location, phone, gscholar, linkedin, x, websiteName, websiteUrl, advisors})
+        const person = await People.create({firstName, lastName, title, image, description, research, projects, category, current, email, github, location, phone, gscholar, linkedin, x, websiteName, websiteUrl, advisors})
         return person
       // }
     },
@@ -67,31 +67,31 @@ const resolvers = {
       }
     },
 
-    addAboutPanel: async (parent, {name, tabname, taborder, description}, context) => {
+    addInfoPanel: async (parent, {location, name, tabname, taborder, description, image}, context) => {
       if (context.user) {
         console.log("valid user")
         console.log(name, description)
-        const aboutPanel = await AboutPanels.create({name, description, tabname, taborder})
+        const aboutPanel = await InfoPanels.create({location, name, description, image, tabname, taborder})
         return aboutPanel
       }
     },
-    editAboutPanel: async (parent, {id, name, tabname, taborder, description}, context) => {
+    editInfoPanel: async (parent, {id, location, name, tabname, image, taborder, description}, context) => {
       console.log("are yoyu working?")
       if (context.user) {
         console.log("valid user")
         console.log(name, description)
-        const updateAboutPanel = await AboutPanels.findByIdAndUpdate(
+        const updateInfoPanel = await InfoPanels.findByIdAndUpdate(
           {_id: id},
-          {name, description, tabname, taborder},
+          {location, name, description, image, tabname, taborder},
           {new: true}
           )
-        return updateAboutPanel
+        return updateInfoPanel
       } 
     },
-    deleteAboutPanel: async (parent, {id}, context) => {
+    deleteInfoPanel: async (parent, {id}, context) => {
       if (context.user) {
-        const deletedPanel = await AboutPanels.deleteOne({_id: id})
-        const panels = await AboutPanels.find()
+        const deletedPanel = await InfoPanels.deleteOne({_id: id})
+        const panels = await InfoPanels.find()
         return panels
       }
     },

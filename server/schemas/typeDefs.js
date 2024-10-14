@@ -21,7 +21,7 @@ const typeDefs = gql`
     _id: ID
     firstName: String
     lastName: String
-    title: String
+    title: [String]
     image: String
     description: String
     research: String
@@ -32,6 +32,7 @@ const typeDefs = gql`
     location: String
     phone: String
     gscholar: String
+    github: String
     linkedin: String
     x: String
     websiteUrl: String
@@ -44,39 +45,44 @@ const typeDefs = gql`
     name: String
     startDate: Date
     endDate: Date
-    pis: [String]
+    pis: String
     summary: String
     description: String
     image: String
+    funder: String
+    funderLogo: String
   }
 
-  type AboutPanels {
+  type InfoPanels {
     id: ID
+    location: String
     name: String
+    pis: String
     tabname: String
     taborder: String
     description: String
+    image: String
   }
 
   type Query {
     people: [People]!
     projects: [Projects]!
-    aboutPanels: [AboutPanels]!
+    infoPanels: [InfoPanels]!
   }
 
   type Mutation {
 
-    addPerson(firstName: String!, lastName: String!, title: String!, image: String, description: String!, research: String, projects: [String], category: String!, current: Boolean!, email: String, location: String, phone: String, gscholar: String, linkedin: String, websiteUrl: String, websiteName: String, advisors: [String]): People!
+    addPerson(firstName: String!, lastName: String!, title: [String]!, image: String, description: String!, research: String, projects: [String], category: String!, current: Boolean!, email: String, location: String, github: String, phone: String, gscholar: String, linkedin: String, websiteUrl: String, websiteName: String, advisors: [String]): People!
 
-    addProject(name: String!, pis: [String!], summary: String!, description: String!, image: String): Projects!
-    editProject(id: ID!, name: String, pis: [String], summary: String, description: String, image: String): Projects!
+    addProject(name: String!, pis: String!, summary: String!, description: String!, image: String, funder: String, funderLogo: String): Projects!
+    editProject(id: ID!, name: String, pis: String, summary: String, description: String, image: String, funder: String, funderLogo: String): Projects!
     deleteProject(id: ID!): [Projects]!
 
     adminSignOn(email: String!, password: String!): Auth!
 
-    addAboutPanel(name: String!, tabname: String!, taborder: String!, description: String!): AboutPanels!
-    editAboutPanel(id: ID!, name: String, tabname: String, taborder: String, description: String): AboutPanels!
-    deleteAboutPanel(id: ID!): AboutPanels!
+    addInfoPanel(name: String!, tabname: String!, taborder: String!, description: String!, image: String): InfoPanels!
+    editInfoPanel(id: ID!, name: String, tabname: String, taborder: String, description: String, image: String): InfoPanels!
+    deleteInfoPanel(id: ID!): InfoPanels!
   }
 `;
 

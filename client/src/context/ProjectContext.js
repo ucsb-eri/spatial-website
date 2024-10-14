@@ -7,8 +7,8 @@ export const ProjectProvider = ({ children }) => {
     // home page
 
     // about page
-    const [editAboutPanelId, setEditAboutPanelId] = useState(null)
-    const [aboutPanelData, setAboutPanelData] = useState(null)
+    const [editInfoPanelId, setEditInfoPanelId] = useState(null)
+    const [infoPanelData, setInfoPanelData] = useState(null)
 
 
     // projects page
@@ -22,7 +22,7 @@ export const ProjectProvider = ({ children }) => {
         <ProjectContext.Provider 
             value={{
                 editProjectId, setEditProjectId, 
-                editAboutPanelId, setEditAboutPanelId, aboutPanelData, setAboutPanelData,
+                editInfoPanelId, setEditInfoPanelId, infoPanelData, setInfoPanelData,
                 editPersonId, setEditPersonId, peopleData, setPeopleData
                 }}>
             {children}

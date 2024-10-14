@@ -2,11 +2,11 @@
     {
         "firstName": "Trisalyn",
         "lastName": "Nelson",
-        "title": "Center Director",
+        "title": ["Center Director", "Dangermond Chair of Geography"],
         "category": "Leadership",
         "current": true,
-        "description": "Trisalyn Nelson joined the Department of Geography at UCSB as Jack and Laura Dangermond Endowed Chair of Geography in 2020. From 2016-2020 she was Director of the School of Geographical Sciences and Urban Planning at Arizona State University. Prior, she was the Lansdowne Research Professor and Director of the Spatial Pattern Analysis and Research Lab at the University of Victoria, Canada. Dr. Nelson values partnerships, particularly connections between industry and academics, that enable innovation of methods and approaches to solving critical issues.",
-        "research": "Dr. Nelson’s current research focuses on active transportation and the use of big data and analytics to better plan cities. Nelson led the creation of BikeMaps.org, a web-map and App to gather volunteered geographic information on bicycling collisions and near misses. With her team, she has developed new ways of using fitness app data (like Strava) to map bicycling volume useful for transportation planning. Nelson uses BikeMaps.org and other big data to quantify and monitor patterns of urban cycling safety and ridership.",
+        "description": "Trisalyn Nelson is the Jack and Laura Dangermond Endowed Chair and a Professor in the Department of Geography at the University of California Santa Barabara. Prior Trisalyn was a Professor and Director of the School of Geographical Sciences and Urban Planning at Arizona State University. She began her faculty career as a Geography Professor at the University of Victoria in Canada where she was Director of the Spatial Pattern Analysis and Research Lab.",
+        "research": "Dr. Nelson’s current research focuses on mobility with an emphasis on active transportation and the use of big data and analytics to better plan cities. Nelson led the creation of BikeMaps.org, a web-map and App to gather volunteered geographic information on bicycling collisions and near misses. Dr. Nelson is also interested in ethical use of spatial data and creating data science practices that are inclusive and create a more empathic world.",
         "projects": "<ul><li>Active Transportation Dashboard</li><li>Electric Bicycles</li><li>Crowdsource Data Bias Correction</li></ul>",
         "email": "trisalyn@ucsb.edu",
         "image": "trisalyn_nelson.jpg",
@@ -18,7 +18,7 @@
     {
         "firstName": "Somayeh",
         "lastName": "Dodge",
-        "title": "Associate Professor",
+        "title": ["Associate Director"],
         "category": "Leadership",
         "current": true,
         "description": "Somayeh is an associate professor of spatial data science at UC Santa Barbara, where she leads the MOVE Lab and serves as an associate director at the Center for Spatial Studies and Data Science. She holds a Ph.D. in Geography from the University of Zurich, and degrees in GIS Engineering and Geomatics Engineering from KNT University of Technology. She has published in several high-ranked international journals and received the 2021 NSF CAREER award and the 2022 Emerging Scholar Award from the Spatial Analysis and Modeling Specialty Group of the American Associations of Geographers. Prior to joining UCSB, she was an Assistant Professor at the University of Minnesota, Twin Cities, and the University of Colorado, Colorado Springs.",
@@ -32,9 +32,24 @@
         
     },
     {
+        "firstName": "Peter",
+        "lastName": "Kedron",
+        "title": ["Associate Director"],
+        "category": "Leadership",
+        "current": true,
+        "description": "Peter Kedron is a human geographer and GIScientist with expertise in economic geography, spatial analysis, and the design and evaluation of research. Dr. Kedron joined UCSB as an Associate Professor and member of the Center for Spatial Studies and Data Science after previously holding faculty positions at Arizona State University (2018-2023), Oklahoma State University (2016-2018), and Ryerson University (2012-2016). He earned his Ph.D. in Geography from the State University of New York at Buffalo, an MA in Economics from the University of Michigan, and BAs in Economics and Psychology from the State University of New York at Buffalo. To date, he has authored over 70 peer-reviewed articles, given over 100 conference presentations and public talks, and supervised over 20 graduate students and postdoctoral scholars. His research has been consistently funded by the National Science Foundation (NSF) and appears in publications in top journals in Geography, GIScience, and Regional Science.",        
+        "research": "Dr. Kedron's research focuses on understanding how and when inferences made from spatial data are internally valid and externally generalizable. Working at the intersection of geography, statistics, and social science, he develops research approaches, analytical methods, and pedagogical models to build a reproducible and reliable spatial data science. His recent research focuses on bringing a geographic approach to understanding not only what policies work, but what policies work where.",
+        "projects":"<ul><li>Transforming Theory-building and STEM Education using Reproductions and Replications</li><li>When Can We Generalize Across Locations? A Spatial Framework for Interpreting Findings from Impact Evaluations</li><li>Modernizing GIS Education</li></ul>",
+        "email": "peterkedron@ucsb.edu",
+        "location": "5718 Ellison Hall",
+        "phone": "+1-805-893-3663",
+        "image": "peter_kedron.jpg",
+        "gscholar": "https://scholar.google.com/citations?authuser=1&hl=en&user=e_WSMGkAAAAJ"
+    },
+    {
         "firstName": "Alan",
         "lastName": "Murray",
-        "title": "Professor",
+        "title": ["Core Faculty"],
         "category": "Leadership",
         "current": true,
         "description": "Alan Murray is a Professor in the Department of Geography. He earned a BS in Mathematics, a Master’s in Statistics and Applied Probability and a PhD in Geography, all from UC Santa Barbara. After his PhD, he was Professor in the Department of Geography at Ohio State University (as well as Director of the Center for Urban and Regional Analysis), Professor in the School of Geographical Sciences and Urban Planning at Arizona State University and Professor in the College of Computing and Informatics as well as the School of Public Health at Drexel University prior to his return to UC Santa Barbara at the end of 2015.",
@@ -51,7 +66,7 @@
     {
         "firstName": "Amy",
         "lastName": "Frazier",
-        "title": "Professor",
+        "title": ["Core Faculty", "Dangermond Chair of Conservation"],
         "category": "Leadership",
         "current": true,
         "description": "Amy Frazier is a professor and the Jack and Laura Dangermond Endowed Chair of Conservation Science. She joined the Geography department in 2023, and previously held faculty appointments at Arizona State University (2018-2023) and Oklahoma State University (2013-2018). Dr. Frazier holds an A.B. in Environmental Earth Science from Dartmouth College, an M.A. in Geography from West Chester University, and a Ph.D. in Geography from the University at Buffalo.",
@@ -66,24 +81,9 @@
         "websiteName": "SCALE Lab"
     },
     {
-        "firstName": "Peter",
-        "lastName": "Kedron",
-        "title": "Associate Professor",
-        "category": "Leadership",
-        "current": true,
-        "description": "Peter Kedron is a human geographer and GIScientist with expertise in economic geography, spatial analysis, and the design and evaluation of research. Dr. Kedron joined UCSB as an Associate Professor and member of the Center for Spatial Studies and Data Science after previously holding faculty positions at Arizona State University (2018-2023), Oklahoma State University (2016-2018), and Ryerson University (2012-2016). He earned his Ph.D. in Geography from the State University of New York at Buffalo, an MA in Economics from the University of Michigan, and BAs in Economics and Psychology from the State University of New York at Buffalo. To date, he has authored over 55 peer-reviewed articles, given over 100 conference presentations and public talks, and supervised over 20 graduate students and postdoctoral scholars.",
-        "research": "His research develops spatial analytical methods to explain why social and ecological processes differ between locations. In collaboration with students and colleagues, he also develops research practices and pedagogical models that integrate replication and geographic analysis. Integrating space and spatial thinking into the evaluation and accumulation of evidence is critical given the growing use of spatial data across the sciences and the increasing number of mandates that the evidence we use to inform policy be reproducible and validated by replication. Peter’s research has been consistently funded by the National Science Foundation (NSF) and appears in publications in top field journals in Geography, GIScience, and Regional Science.",
-        "projects":"<ul><li>Transforming Theory-building and STEM Education using Reproductions and Replications</li><li>When Can We Generalize Across Locations? A Spatial Framework for Interpreting Findings from Impact Evaluations</li><li>Modernizing GIS Education</li></ul>",
-        "email": "peterkedron@ucsb.edu",
-        "location": "5718 Ellison Hall",
-        "phone": "+1-805-893-3663",
-        "image": "peter_kedron.jpg",
-        "gscholar": "https://scholar.google.com/citations?authuser=1&hl=en&user=e_WSMGkAAAAJ"
-    },
-    {
         "firstName": "Shaine",
         "lastName": "Lutsky",
-        "title": "Center Administrative Coordinator",
+        "title": ["Center Administrative Coordinator"],
         "category": "Staff",
         "current": true,
         "description": "Shaine Lutsky is the admnisitrative coordinator for the center. She does a lot of stuff.",
@@ -94,13 +94,13 @@
     {
         "firstName": "Lizzy",
         "lastName": "Schattle",
-        "title": "SPAR Lab Communications Director",
+        "title": ["SPAR Lab Communications Director"],
         "category": "Staff",
         "current": true,
-        "description": "Lizzy does a lot stuff. data collection, recharge, student internships. Works with grant stuff",
-        "email": "schata@ucsb.edu",
+        "description": "As SPAR Lab Communication Manager, Lizzy specializes in overseeing grants and leading communication efforts for BikeMaps.org. Additionally, she leads a bike and pedestrian count program for Santa Barbara County, providing valuable data for sustainable transportation planning and improvements.",
+        "email": "schattle@ucsb.edu",
         "location": "3512 Phelps Hall",
-        "image": "lizzy_schattle.jpeg"
+        "image": "lizzy_schattle.jpg"
     },
     {
         "firstName": "Caitlyn Jeri",
@@ -113,14 +113,13 @@
         "linkedin": "https://www.linkedin.com/in/caitlyn-linehan/",
         "email": "caitlynlinehan@ucsb.edu",
         "image": "caitlyn_linehan.jpg",
-        "websiteName": "Caitlyn Linehan",
         "websiteUrl": "https://www.linkedin.com/in/caitlyn-linehan/",
         "advisors": ["Trisalyn Nelson"]
     },
     {
         "firstName": "Zijian",
         "lastName": "Wan",
-        "title": "PhD Student",
+        "title": ["PhD Student"],
         "category": "Graduate Student",
         "current": true,
         "description": "Zijian Wan is a Ph.D. candidate in Geography at the University of California, Santa Barbara (UCSB). He obtained his B.S. degree in Geographic Information Science from Wuhan University, China, and his M.A. in Geography from UCSB. To further strengthen his statistical background, he also pursued an M.A. in Mathematical Statistics at UCSB.",
@@ -147,13 +146,12 @@
     {
         "firstName": "Wenxin",
         "lastName": "Yang",
-        "title": "PhD Student",
+        "title": ["PhD Student"],
         "category": "Graduate Student",
         "current": true,
         "description": "Wenxin Yang holds a Bachelor Degree from Beijing Normal University and a Master's from University of Pennsylvania. Prior to pursuing PhD, she worked at nature conservation NGOs in China.",
         "research": "Wenxin Yang is interested in leveraging remote sensing and spatial statistics to study landscape ecology and approach biodiversity conservation challenges. She hopes her research can help improve understanding of the links between spatial patterns and biodiversity and contribute to conservation actions and outcomes.",
         "email": "wenxinyang@ucsb.edu",
-        "websiteName": "Wenxin Yang",
         "websiteUrl": "https://wxyang007.github.io",
         "gscholar": "https://scholar.google.com/citations?hl=en&user=uwEpq2kAAAAJ",
         "linkedin": "https://www.linkedin.com/in/wenxin-yang-9a7729183/",
@@ -163,7 +161,7 @@
     {
         "firstName": "Xue",
         "lastName": "Yan",
-        "title": "PhD Student",
+        "title": ["PhD Student"],
         "category": "Graduate Student",
         "current": true,
         "description": "I received an M.S. in Ecology from the University of the Chinese Academy of Sciences and a B.S. in Physical Geography and Resource & Environment from Changsha University of Science & Technology. My research interests include ecological modeling, the impacts of disturbances on terrestrial ecosystems, and biodiversity conservation.",
@@ -175,7 +173,7 @@
     {
         "firstName": "Yuyan",
         "lastName": "Che",
-        "title": "MA/PhD Student",
+        "title": ["MA/PhD Student"],
         "category": "Graduate Student",
         "current": true,
         "description": "Yuyan is a MA/PhD student in the Department of Geography at UC Santa Barbara. She received her Bachelor and Master both in Urban Planning in the School of Geographical Sciences and Urban Planning at Arizona State University. After graduation, she worked as an research assistant in a land planning company, and then became a co-founder of an educational consulting company in China.",
@@ -188,7 +186,7 @@
     {
         "firstName": "Mary",
         "lastName": "Salami",
-        "title": "MA/PhD Student",
+        "title": ["MA/PhD Student"],
         "category": "Graduate Student",
         "current": true,
         "description": "I am Mary Salami. I am a third-year MA/PhD student at UCSB Geography. Before that, I received my B.S. degree in Surveying and Geoinformatics from Obafemi Awolowo University, Nigeria. My research focuses on spatiotemporal data modeling and spatial data science.",
@@ -202,7 +200,7 @@
     {
         "firstName": "Danial",
         "lastName": "Alizadeh",
-        "title": "PhD Student",
+        "title": ["PhD Student"],
         "category": "Graduate Student",
         "current": true,
         "description": "My name is Danial Alizadeh, and I am a third-year Ph.D. student in the Department of Geography at UC Santa Barbara. I am currently a member of the MOVE Research Lab at UCSB.",
@@ -213,7 +211,202 @@
         "x": "https://x.com/danial_alz?s=21&t=VUfK1JDgl-4EtSeBRbIccg",
         "image": "danial_alizadeh.jpg",
         "advisors": ["Somayeh Dodge"]
+    },
+    {
+        "firstName": "Izzy",
+        "lastName": "Lopez",
+        "email": "izzylopez@ucsb.edu",
+        "title": ["MA/PhD Student"],
+        "category": "Graduate Student",
+        "advisors": ["Amy Frazier"],
+        "current": true,
+        "description": "I am a current MA/PhD student in the Geography department at UCSB. I graduated with a B.S. in Wildlife & Conservation Biology and Geospatial Analysis from the University of New Hampshire in 2023. My previous research has focused on remote sensing for forest disease ecology and management.",
+        "research": "My current research interests involve the intersection of remote sensing, restoration ecology, and conservation in southern California ecosystems. Specifically, I plan on investigating the use of remote sensing and GIS methods for restoration ecology management and modeling in coastal sage scrub and chaparral habitats.",
+        "gscholar": "https://scholar.google.com/citations?view_op=list_works&hl=en&user=jPTIzIMAAAAJ&gmla=AC6lMd_Rp0-",
+        "linkedin": "",
+        "x": "",
+        "image": "izzy_lopez.jpeg"
+        
+    },
+    {
+        "firstName": "Lily",
+        "lastName": "Heidger",
+        "email": "lheidger@ucsb.edu",
+        "title": ["MA/PhD Student"],
+        "category": "Graduate Student",
+        "advisors": ["Trisalyn Nelson"],
+        "current": true,
+        "description": "I grew up in Georgia, graduating from the College of Coastal Georgia with a Bachelor's in Environmental Science in 2022. I love doing anything outdoors like biking, hiking, camping, and exploring! I am passionate about sustainable, equitable cities and inspiring community engagement in local decision-making.",
+        "research": "Lily previously studied spatial analysis in urban heat and environmental justice research, and she also helped develop NASA's Environmental Justice Data Catalog. She is passionate about climate-resilient, equitable urban design and using geospatial data to identify disparities in access to safe micro-mobility. Her research interests lie at the intersection of sustainability, environmental justice, and the impacts of climate change. ",
+        "gscholar": "https://scholar.google.com/citations?user=24Wp1PYAAAAJ&hl=en&oi=ao",
+        "linkedin": "https://www.linkedin.com/in/lily-heidger/",
+        "x": "",
+        "image": "lily_heidger.jpeg"
+        
+    },
+    {
+        "firstName": "Zhongqi",
+        "lastName": "Zheng",
+        "email": "zhongqizheng@ucsb.edu",
+        "title": ["MA/PhD Student"],
+        "category": "Graduate Student",
+        "advisors": ["Alan Murray"],
+        "current": true,
+        "description": "Zhongqi Zheng earned a B.S. in Environmental Systems (Earth Sciences) from UC San Diego. She joined the Geography department at UCSB as a MA/PhD student in 2023.",
+        "research": "Her focus areas encompass population dynamics, vulnerability assessment, and community resilience. She employed various spatial analysis methods, including GIS, spatial optimization, and spatial statistics, to determine where and who the vulnerable are in the context of wildfire risk.",
+        "gscholar": "https://scholar.google.com/citations?user=ujXict4AAAAJ&hl=en",
+        "linkedin": "",
+        "x": "",
+        "image": "zhongqi_zheng.jpg"
+        
+        
+    },
+    {
+        "firstName": "Jin",
+        "lastName": "Huang",
+        "email": "jinhuang@ucsb.edu",
+        "title": ["PhD Student"],
+        "category": "Graduate Student",
+        "advisors": ["Trisalyn Nelson", "Sergio Rey"],
+        "current": true,
+        "description": "Jin Huang is a PhD student from Joint Doctoral Program. She earned a Master’s degree in Public Policy from the University of California, San Diego, where she cultivated a strong interest in applying GIS tools to social science research. Following her graduation, she decided to delve deeper into the use of GIS for analyzing urban change, with a particular focus on spatial inequality and gentrification.",
+        "research": "Her research centers on the intersections of these themes, exploring spatial-temporal patterns of gentrification and inequality in urban areas undergoing gentrification.",
+        "gscholar": "",
+        "linkedin": "",
+        "x": "",
+        "image": "jin_huang.jpeg"
+        
+    },
+    {
+        "firstName": "Yeshuo",
+        "lastName": "Shu",
+        "email": "yeshuo@ucsb.edu",
+        "title": ["PhD Student"],
+        "category": "Graduate Student",
+        "advisors": ["Somayeh Dodge"],
+        "current": true,
+        "description": "I’m from China and have spent about 10 years living in both Wuhan and Beijing. I completed my undergraduate and master’s degrees at Peking University, majoring in urban planning and geography. In my spare time, I enjoy skateboarding, outdoor activities, and creating latte art. I’m really looking forward to learning how to surf at UCSB.",
+        "research": "My research focus on examining equitable access to modern modes of transportation through analysis of human mobility. By comparing the spatial structures of human mobility and transportation networks, I intend to provide empirical evidence on people's access to these networks. Also, I am interested in integrating geographically enriched LLMs or GeoAI into human mobility analysis.",
+        "gscholar": "",
+        "linkedin": "",
+        "x": "",
+        "image": "yeshuo_shu.jpg"
+        
+    },
+    {
+        "firstName": "Niall",
+        "lastName": "Newsham",
+        "email": "nnewsh@ucsb.edu",
+        "title": ["Postdoctoral Researcher"],
+        "category": "Postdoc",
+        "advisors": ["Somayeh Dodge"],
+        "current": true,
+        "description": "I am Niall Newsham, a postdoctoral research scholar within the MOVE Research Lab at UC Santa Barbara. I received my PhD in Human Geography from the University of Liverpool in 2024, having previously completed an MS in Demography and a BS in Geography. I have studied at the Max Planck Institute for Demographic Research, Center for Spatial Data Science at the University of Chicago, and the Universidad Autónoma de Barcelona.",
+        "research": "My research focuses on applying spatiotemporal methods to understand population dynamics, with a particular interest in population decline, and human mobility. I am also interested in developing machine learning models to forecast population change outcomes and trajectories of human mobility.",
+        "gscholar": "https://scholar.google.com/citations?user=PKwwzgoAAAAJ&hl=en&oi=ao ",
+        "linkedin": "",
+        "x": "https://twitter.com/nnewsh_?lang=en",
+        "image": "niall_newsham.png"
+        
+    },
+    {
+        "firstName": "Zijun",
+        "lastName": "Li",
+        "email": "zijun_li@ucsb.edu",
+        "title": ["PhD Student"],
+        "category": "Graduate Student",
+        "advisors": ["Peter Kedron"],
+        "current": true,
+        "description": "Zijun holds a MS in Environmental Informatics from University of Michigan, Ann Arbor and a BS in Geospatial Science from South China Normal University. Throughout research and practice, she has worked on projects in domestic industries, California State-wide Database and USGS mapping. ",
+        "research": "Zijun's research enhances and develops spatial analytical methods and models to understand environmental variations and assist decision-making. With a background in GIS, remote sensing, machine learning and human geography, Zijun ‘s ultimate goal is to uphold environmental sustainability and foster the harmonious development of human society. ",
+        "gscholar": "",
+        "linkedin": "",
+        "x": "",
+        "image": "zijun_li.jpg"
+        
+    },
+    {
+        "firstName": "Jiahua",
+        "lastName": "Chen",
+        "email": "jiahua_chen@ucsb.edu",
+        "title": ["MA/PhD Student"],
+        "category": "Graduate Student",
+        "advisors": ["Trisalyn Nelson"],
+        "current": true,
+        "description": "I’m Jiahua, hailing from Guangzhou, China. Before coming to UCSB, I earned my degree in Environmental Sciences and GIS at McGill University and spent two years working on a sustainable food venture in my hometown. I enjoy traveling, vibing to R&B, whipping up new recipes, and tending to my garden. As for pets, I’ve got some earthworms that make sure my plants are always thriving!",
+        "research": "My research focuses on the intersection of GIS, environments, and equity. For my master’s thesis, I analyzed bike network connectivity and safety using network analysis and regression. Moving orward, I plan to further explore climate adaptation in my studies.",
+        "gscholar": "",
+        "linkedin": "https://www.linkedin.com/in/jiahua-chen/",
+        "x": "",
+        "image": "jiahua_chen.jpg"
+        
+    },
+    {
+        "firstName": "Lei",
+        "lastName": "Song",
+        "email": "lsong@ucsb.edu",
+        "title": ["Postdoctoral Researcher"],
+        "category": "Postdoc",
+        "advisors": ["Amy Frazier"],
+        "current": true,
+        "description": "Lei Song is a Postdoctoral Research Scholar at the University of California, Santa Barbara, working under Dr. Amy Frazier at the SCALE Lab. She holds a PhD and MA in Geography from Clark University and a BS in Geographic Information Science from Nanjing University of Information Science & Technology.",
+        "research": "My research is about species conservation and human-wildlife relations. I specialize in using Remote Sensing (RS) data to understand terrestrial ecosystems and optimize tools for modeling species distribution and landscape connectivity. I study strategies to mitigate the ecological impacts of climate change and human disturbances, such as agriculture. I also do some analysis of land cover and land cover change, with a particular emphasis on employing Deep Learning (DL) models.",
+        "gscholar": "https://scholar.google.com/citations?user=fInwdhQAAAAJ&hl=en",
+        "websiteUrl": "https://lleisong.github.io/website/",
+        "github": "https://github.com/LLeiSong",
+        "linkedin": "",
+        "x": "",
+        "image": "lei_song.png"
+        
+    },
+    {
+        "firstName": "Rongxiang",
+        "lastName": "Su",
+        "email": "rongxiangsu@ucsb.edu",
+        "title": ["Postdoctoral Fellow"],
+        "category": "Center Alumnus",
+        "advisors": ["Somayeh Dodge"],
+        "current": true,
+        "description": "My name is Rongxiang Su (he/him), and I am currently a Postdoctoral Fellow at MIT Senseable City Lab. I received my Ph.D. in Geography from the University of California, Santa Barbara in December 2023. My research interests include geospatial data science, human mobility, travel behavior, and urban analytics.",
+        "research": "My research focuses on understanding human mobility, travel behavior, and activity patterns in urban systems through the analysis of human-generated data (e.g., mobile phone traces, household travel surveys, and food delivery transaction data). I am particularly interested in developing computational methods to identify and quantify spatiotemporal patterns of human daily activities and interactions. In parallel, I aim to understand disparities in human behavior by modeling and predicting activity-travel patterns across different socio-geographical contexts, contributing to the promotion of sustainable, equitable, and inclusive transportation systems and access to urban amenities.",
+        "gscholar": "",
+        "linkedin": "",
+        "x": "",
+        "websiteUrl": "https://rongxiangsu.github.io/",
+        "image": "rongxiang_su.jpg"
+        
+        
+    },
+    {
+        "firstName": "Yuyang",
+        "lastName": "Zhang",
+        "email": "yuyangzhang@ucsb.edu",
+        "title": ["PhD Student"],
+        "category": "Graduate Student",
+        "advisors": ["Alan Murray"],
+        "current": true,
+        "description": "B.S. Geography, University of Bristol, 2018-2021, M.S. Social and Geographic Data Science, University College London, 2021-2022",
+        "research": "My research emphasize on spatial pattern of political orientation and health outcomes, with the integration of GIS, spatial analysis, and human geography. ",
+        "gscholar": "https://scholar.google.com/citations?user=P5g1dqoAAAAJ&hl=en",
+        "linkedin": "",
+        "x": "",
+        "image": "yuyang_zhang.jpg"
+        
+    },
+    {
+        "firstName": "Diyang",
+        "lastName": "Cui",
+        "email": "diyang_cui@ucsb.edu",
+        "title": ["Postdoctoral Researcher"],
+        "category": "Postdoc",
+        "advisors": ["Amy Frazier"],
+        "current": true,
+        "description": "I completed my Ph.D. in Geographic Sciences at the University of Maryland. I am interested in global change biology, conservation biogeography, and remote sensing. ",
+        "research": "My research involves using climate and species data and integrating geospatial analyses and modeling tools, to understand and predict biodiversity patterns and inform conservation under climate change. ",
+        "gscholar": "https://scholar.google.com/citations?user=0dSguGcAAAAJ&hl=en",
+        "linkedin": "https://linkedin.com/in/diyang-cui-37814a182",
+        "x": "",
+        "image": "diyang_cui.jpg"
+        
     }
-    
 ]
-

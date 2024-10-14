@@ -18,6 +18,7 @@ export const QUERY_PEOPLE = gql`
             phone
             gscholar
             linkedin
+            github
             x
             advisors
             websiteUrl
@@ -35,14 +36,18 @@ export const GET_PROJECTS = gql`
         description
         image
         id
+        funder
+        funderLogo
         }
     }
 `
-export const GET_ABOUTPANELS = gql`
-    query GetAboutPanels {
-        aboutPanels {
+export const GET_INFOPANELS = gql`
+    query GetInfoPanels {
+        infoPanels {
         id
+        location
         description
+        image
         name
         tabname
         taborder

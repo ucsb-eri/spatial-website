@@ -12,9 +12,9 @@ const seedWebsite = require('./seeders/seed');
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-if (process.env.NODE_ENV !== 'production') {
-  createAdminAccount()
-}
+// if (process.env.NODE_ENV !== 'production') {
+//   createAdminAccount()
+// }
 
 seedWebsite()
 

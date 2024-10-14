@@ -19,8 +19,8 @@ export default function ProjectCard(props) {
                 backgroundPosition: 'center', 
                 color: 'white', // Light text color
                 height: {
-                    sm: '500px', 
-                    xs: '400px'
+                    xs: '550px',
+                    sm: '500px'
                 }
             }}
         >
@@ -28,10 +28,17 @@ export default function ProjectCard(props) {
             <CardActionArea onClick={() => renderProject(project.id)}>
                 <Box
                     sx={{ 
-                        display: 'flex', 
-                        flexDirection: 'column', 
-                        justifyContent: { xs: 'flex-end', sm: 'flex-start' }, // Position at the bottom for xs
-                        flexGrow: 1 // Allow this box to grow and push content down
+                        position: 'absolute',
+                        left: {
+                            xs: '0', 
+                            sm: '0px' 
+                        },
+                        top: {
+                            xs: '0', 
+                            sm: 'auto' 
+                        },
+                        width: '100%',
+                        height: '500px'
                     }}
                 >
                     <CardContent 
@@ -40,13 +47,15 @@ export default function ProjectCard(props) {
                             width: {
                                 sm: '40%'
                             },
-                            maxWidth: '350px',
+                            maxWidth: {
+                                sm: '300px'
+                            },
                             height: {                              
                                 sm: '500px',
-                                xs: '400px'
+                                xs: 'auto'
                             },
                             backgroundColor: 'rgba(0, 0, 0, 0.6)', // Dark gray background with transparency
-                            padding: 2,
+                            padding: '20px',
                         }}
                         >
                         <Typography component="div" variant="h5" align='left' paragraph>

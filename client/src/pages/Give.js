@@ -56,7 +56,7 @@ export default function Give() {
                 </Grid>
                 <Grid item xs={11} sm={10} md={9} my={5}>
                     <Typography variant='h3' paragraph>Why Give?</Typography>
-                    <Typography paragraph variant='h6' align='left'>
+                    <Typography paragraph variant='h6' align='center'>
                         Giving to the Center for Spatial Studies and Data Science supports promote groundbreaking research by providing funding support for grad students, computational resources, conference expenses, and catered lunch at Spatial Hour!
                         We hope to see you donate to either the General Spatial Fund or the Goodchild Fund!
                         </Typography>

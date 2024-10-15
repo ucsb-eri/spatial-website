@@ -1,5 +1,4 @@
 import { React, useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import { Grid, Divider, Link } from '@mui/material'
 import LaunchIcon from '@mui/icons-material/Launch';
 import Typography from '@mui/material/Typography';
@@ -9,7 +8,7 @@ import DOMPurify from 'dompurify'
 
 function EventsTable() {
     const calendarID = process.env.REACT_APP_CALENDAR_ID
-    const apiKey = process.env.REACT_APP_CALENDAR_API_KEY
+    const apiKey = process.env.REACT_APP_SPATIAL_CALENDAR_ID
     const now = new Date().toISOString()
 
     const [events, setEvents] = useState([])
@@ -46,21 +45,6 @@ function EventsTable() {
     useEffect(() => {
         getEvents(calendarID, apiKey, eventsNum)
     }, [])
-
-    // const events = [
-    //     {
-    //         name: "Spatial Hour",
-    //         date: "11/28/2023",
-    //         description: "Trisalyn Nelson on Virtual Twins",
-    //         location: "Phelps 3123"
-    //     },
-    //     {
-    //         name: "Spatial Hour",
-    //         date: "12/14/2023",
-    //         description: "Shaine on GIS",
-    //         location: "Phelps 3123"
-    //     },
-    // ]
 
     const formatDate = (dateStr) => {
         
@@ -206,7 +190,6 @@ function EventsTable() {
         //   </Table>
         // </TableContainer>
     )
-
 }
 
 export default EventsTable

@@ -2,14 +2,14 @@
     {
         "location": "about",
         "name": "History",
-        "description": "<p>The Center for Spatial Studies and Data Science (@Spatial) was founded in July 2007 through an initiative by Professor Michael Goodchild. The vision of a Center for Spatial Studies was developed by a special committee that met in the first few months of 2007 with a mandate to consider the state of spatial thinking, data, and tools across the campus. The committee recommended the establishment of a center whose primary objective would be to develop spatial thinking as an approach to scholarship, supporting its use across the entire range of disciplines at UCSB.</p>\n<p>Upon Professor Goodchild’s retirement in July 2012, Mary Hegarty (Dept. of Psychological &amp; Brain Sciences) served as interim director from 2012 to 2013, until Werner Kuhn was appointed Chair of the Jack and Laura Dangermond Endowment, director of @Spatial, and professor in the Dept. of Geography. Briefly, @Spatial provided several innovative educational resources and services to the academic community at UCSB and beyond. These included a consulting service (the GIS Help Desk) and two seminar series (ThinkSpatial and Spatial Technology Lunches); community outreach (most notably an annual poster and plenary session, spatial@ucsb.local); office space for students and visitors; student internships; a Specialist Meeting series; a new series of Spatial Un-conferences (participant-driven meetings); a Minor in Spatial Studies; and a Freshman Seminar in Thinking Spatially in the Arts and Sciences. These offerings helped enrich the resources at UCSB for spatially-enabled research and contributed to developing a strong interdisciplinary thread of spatial studies and broadening undergraduate and graduate educational opportunities.</p>\n<p>After focusing on raising awareness (2008–2012), on introducing spatially-enabled knowledge infrastructures (2013–2016), and on spatially enabled and sensor-driven smart communities (2017–2020), @Spatial was well positioned to address a new cross-cutting theme. Under its former director, Dr. Krzysztof Janowicz (2020-2023), @Spatial shifted its focus to Spatial Data Science and Knowledge Graphs, thereby also connecting more closely to a campus emphasis that had steadily grown over @Spatial’s past funding period. More specifically, @Spatial focused on spatiotemporally explicit machine learning models operating on these graphs.</p>\n<p>Since 2023, @Spatial has been led by Professor Trisalyn Nelson and has continued to establish its presence as a premier research center in Geographic Information Sciences. The leadership team has expanded to include Professor Nelson (Director), Professor Somayeh Dodge (Associate Director), Professor Alan Murray (Associate Director), Professor Amy Frazier (Core Faculty), and Professor Peter Kedron (Core Faculty). This cohesive team integrates geographic information systems, spatial analysis, coding, statistics, optimization, and remote sensing for the analysis of spatial data. Through strategic partnerships on campus and within industry partnerships, they advance @Spatial’s mission to propel spatial data science at UC Santa Barbara by leading interdisciplinary discovery, education, and access to actionable solutions.</p>",
+        "description": "<h6>The Center for Spatial Studies and Data Science (@Spatial) was founded in July 2007 through an initiative by Professor Michael Goodchild. The vision of a Center for Spatial Studies was developed by a special committee that met in the first few months of 2007 with a mandate to consider the state of spatial thinking, data, and tools across the campus. The committee recommended the establishment of a center whose primary objective would be to develop spatial thinking as an approach to scholarship, supporting its use across the entire range of disciplines at UCSB.</h6>\n<h6>Upon Professor Goodchild’s retirement in July 2012, Mary Hegarty (Dept. of Psychological &amp; Brain Sciences) served as interim director from 2012 to 2013, until Werner Kuhn was appointed Chair of the Jack and Laura Dangermond Endowment, director of @Spatial, and professor in the Dept. of Geography. Briefly, @Spatial provided several innovative educational resources and services to the academic community at UCSB and beyond. These included a consulting service (the GIS Help Desk) and two seminar series (ThinkSpatial and Spatial Technology Lunches); community outreach (most notably an annual poster and plenary session, spatial@ucsb.local); office space for students and visitors; student internships; a Specialist Meeting series; a new series of Spatial Un-conferences (participant-driven meetings); a Minor in Spatial Studies; and a Freshman Seminar in Thinking Spatially in the Arts and Sciences. These offerings helped enrich the resources at UCSB for spatially-enabled research and contributed to developing a strong interdisciplinary thread of spatial studies and broadening undergraduate and graduate educational opportunities.</h6>\n<h6>After focusing on raising awareness (2008–2012), on introducing spatially-enabled knowledge infrastructures (2013–2016), and on spatially enabled and sensor-driven smart communities (2017–2020), @Spatial was well positioned to address a new cross-cutting theme. Under its former director, Dr. Krzysztof Janowicz (2020-2023), @Spatial shifted its focus to Spatial Data Science and Knowledge Graphs, thereby also connecting more closely to a campus emphasis that had steadily grown over @Spatial’s past funding period. More specifically, @Spatial focused on spatiotemporally explicit machine learning models operating on these graphs.</h6>\n<h6>Since 2023, @Spatial has been led by Professor Trisalyn Nelson and has continued to establish its presence as a premier research center in Geographic Information Sciences. The leadership team has expanded to include Professor Nelson (Director), Professor Somayeh Dodge (Associate Director), Professor Alan Murray (Associate Director), Professor Amy Frazier (Core Faculty), and Professor Peter Kedron (Core Faculty). This cohesive team integrates geographic information systems, spatial analysis, coding, statistics, optimization, and remote sensing for the analysis of spatial data. Through strategic partnerships on campus and within industry partnerships, they advance @Spatial’s mission to propel spatial data science at UC Santa Barbara by leading interdisciplinary discovery, education, and access to actionable solutions.</h6>",
         "tabname": "History",
         "taborder": 2
     },
     {
         "location": "about",
         "name": "The Center's Archive on eScholarship",
-        "description": "<p>The Center for Spatial Studies has created an archive through the <strong>California Digital Library’s eScholarship initiative</strong> to preserve in perpetuity, and to enhance access to, the accomplishments and publications of the National Center for Geographic Information and Analysis (NCGIA), the Center for Spatially Integrated Social Science (CSISS), and the Center for Spatial Studies (spatial@ucsb).</p>\n<p>The initiative is led by <a href=\"https://spatial.ucsb.edu/people/center-personnel/donald-janelle\"><u>Professor Emeritus Don Janelle</u></a>.</p>\n<p>The archive is available at <a href=\"https://escholarship.org/\"><u>https://escholarship.org/</u></a>:</p>\n<ul>\n  <li>Archive for the <a href=\"https://escholarship.org/uc/spatial_ucsb\"><u>UCSB Center for Spatial Studies</u></a> (since 2007)</li>\n  <li>Archive for the <a href=\"https://escholarship.org/uc/spatial_ucsb_csiss\"><u>Center for Spatially Integrated Social Science (CSISS)</u></a> (1999‒2013)</li>\n</ul>\n<p>Archive for the <a href=\"https://escholarship.org/uc/spatial_ucsb_ncgia\"><u>National Center for Geographic Information and Analysis (NCGIA)</u></a> (1988‒1999)</p>",
+        "description": "<h6>The Center for Spatial Studies has created an archive through the <strong>California Digital Library’s eScholarship initiative</strong> to preserve in perpetuity, and to enhance access to, the accomplishments and publications of the National Center for Geographic Information and Analysis (NCGIA), the Center for Spatially Integrated Social Science (CSISS), and the Center for Spatial Studies (spatial@ucsb).</h6>\n<h6>The initiative is led by <a href=\"https://spatial.ucsb.edu/people/center-personnel/donald-janelle\"><u>Professor Emeritus Don Janelle</u></a>.</h6>\n<h6>The archive is available at <a href=\"https://escholarship.org/\"><u>https://escholarship.org/</u></a>:</h6>\n<ul>\n  <li><h6>Archive for the <a href=\"https://escholarship.org/uc/spatial_ucsb\"><u>UCSB Center for Spatial Studies</u></a> (since 2007)</h6></li>\n  <li><h6>Archive for the <a href=\"https://escholarship.org/uc/spatial_ucsb_csiss\"><u>Center for Spatially Integrated Social Science (CSISS)</u></a> (1999‒2013)</h6></li>\n</ul>\n<h6>Archive for the <a href=\"https://escholarship.org/uc/spatial_ucsb_ncgia\"><u>National Center for Geographic Information and Analysis (NCGIA)</u></a> (1988‒1999)</h6>",
         "tabname": "eScholarship",
         "taborder": 3
     },
@@ -18,8 +18,8 @@
         "name": "Overview",
         "tabname": "Overview",
         "taborder": 1,
-        "description": "<p>The Center for Spatial Studies and Data Science (@spatial) a research center at the University of California, Santa Barbara built on a rich legacy of providing visionary and interdisciplinary leadership in geographic data science. Formerly named the Center for Spatial Studies, @spatia<strong>l </strong>was founded in 2008 by Michael Goodchild, and focuses on spatial thinking across domains, spatial intelligence, geoinformatics, geographic information science, and geographic information systems.</p>\n<p>Founded on values of excellence and inclusion, the mission of the Center for Spatial Studies and Data Science is to serve the UC Santa Barbara campus, the local community, and society by accelerating scientific discovery, education, and access to actionable solutions. The Center hosts speakers, workshops, and visiting researchers as well as the annual Specialist Meeting that brings global experts together on emerging topics in spatial data science to fuel discussion and set research agendas.</p>\n<p>The Center is comprised of core researchers engaged in center management and initiatives, affiliate researchers across UC Santa Barbara interested in participating in Center activities, a Trainee Network of post-docs, graduate students, and undergraduate students, support staff, and valued external partners. Community engagement and outreach is a priority of the Center, with efforts including the Earth + Humans podcast about the challenges brought on by human’s interactions with the environment and the Community GIS Initiative, which aims to increase access to GIS solutions by creating a pathway to those who have GIS skills.</p>"
-    },
+        "description": "<h5><b>At the Center for Spatial Studies and Data Science at University of California Santa Barbara - we collaboratively design, implement and disseminate spatial science for a better world!</b></h5><h6>Design: We are leading interdisciplinary research to develop the next wave of spatial data science methods and convene agenda setting conversations through Specialist Meetings and partnerships.</h6><h6>Implement: We are leveraging spatial science solutions to solve the world’s challenging problems, through applied and community embedded research.</h6><h6>Disseminate: We are leaders in GIScience education and are advancing curriculum at all levels and disseminating the geographic approach.</h6><h6>The Center is comprised of core researchers engaged in center management and initiatives, affiliate researchers across UC Santa Barbara interested in participating in Center activities, a Trainee Network of post-docs, graduate students, and undergraduate students, support staff, and valued external partners. Community engagement and outreach is a priority of the Center, with efforts including the Earth + Humans podcast about the challenges brought on by human’s interactions with the environment and the Community GIS Initiative, which aims to increase access to GIS solutions by creating a pathway to those who have GIS skills.</h6>"
+        },
     {
         "location": "events",
         "name": "@Spatial Hour",
@@ -30,7 +30,7 @@
     {
         "location": "events",
         "name": "ESRI Educational Visits",
-        "description": "Students involved in the Center for Spatial Studies and Data Science are offered a unique opportunity to join Esri Educational Visits to connect with UCSB alumni and explore Esri’s innovative campus. These visits not only provide insight into exciting career opportunities at Esri but also foster networking among aspiring professionals and established experts. Students can engage in meaningful conversations and receive guidance from Esri employees, who are eager to mentor the next generation of change-makers. It's an invaluable experience that bridges education and real-world applications in the field of Geographic Information Science (GIS).",
+        "description": "<h6>Students involved in the Center for Spatial Studies and Data Science are offered a unique opportunity to join Esri Educational Visits to connect with UCSB alumni and explore Esri’s innovative campus. These visits not only provide insight into exciting career opportunities at Esri but also foster networking among aspiring professionals and established experts. Students can engage in meaningful conversations and receive guidance from Esri employees, who are eager to mentor the next generation of change-makers. It's an invaluable experience that bridges education and real-world applications in the field of Geographic Information Science (GIS).</h6>",
         "image": "esri_educational_trip.jpg",
         "tabname": "ESRI Visits",
         "taborder": 2
@@ -38,7 +38,7 @@
     {
         "location": "events",
         "name": "Specialist Meeting 2024",
-        "description": "<p>Confronted by climate change, there is a renewed global focus on conservation, exemplified by agreements like the Kunming-Montreal commitment to protect 30 percent of the planet by 2030. However, many countries struggle to meet these targets due to insufficient analytical support for local land use planning and a disconnect between scientific geographic information and on-the-ground decision-making. Additionally, achieving multiple spatial planning goals—such as biodiversity, carbon reduction, and habitat restoration—across fragmented administrative agencies presents significant challenges.</p><p>To address these issues, the Center for Spatial Studies and Data Science has collaborated with global conservation organizations to explore how a geographic approach leveraging GIScience can better support conservation efforts. Key needs identified include increasing GIS capacity in resource-constrained organizations, integrating emerging geospatial technologies while addressing ethical considerations, creating spatial data infrastructure for evidence-based analysis, and tracking the conservation impacts of private actors.</p><p>In December 2024, the Center will host colleagues in conservation and GIScience to a two-day meeting at UCSB in Santa Barbara, where we will outline research priorities, develop collaborative programs, and discuss training opportunities. This workshop aims to catalyze a broader initiative to enhance GIScience in support of 21st-century conservation needs.</p>",
+        "description": "<h6>Confronted by climate change, there is a renewed global focus on conservation, exemplified by agreements like the Kunming-Montreal commitment to protect 30 percent of the planet by 2030. However, many countries struggle to meet these targets due to insufficient analytical support for local land use planning and a disconnect between scientific geographic information and on-the-ground decision-making. Additionally, achieving multiple spatial planning goals—such as biodiversity, carbon reduction, and habitat restoration—across fragmented administrative agencies presents significant challenges.</h6><h6>To address these issues, the Center for Spatial Studies and Data Science has collaborated with global conservation organizations to explore how a geographic approach leveraging GIScience can better support conservation efforts. Key needs identified include increasing GIS capacity in resource-constrained organizations, integrating emerging geospatial technologies while addressing ethical considerations, creating spatial data infrastructure for evidence-based analysis, and tracking the conservation impacts of private actors.</h6><h6>In December 2024, the Center will host colleagues in conservation and GIScience to a two-day meeting at UCSB in Santa Barbara, where we will outline research priorities, develop collaborative programs, and discuss training opportunities. This workshop aims to catalyze a broader initiative to enhance GIScience in support of 21st-century conservation needs.</h6>",
         "tabname": "Specialist Meetings",
         "taborder": 3
     },
@@ -47,26 +47,26 @@
         "name": "Past Events",
         "tabname": "Past Events",
         "taborder": 4,
-        "description": "<p>We've been doing things in the past year. Here's some of them: ~list~</p>"
+        "description": "Check back in soon. More details are on their way!"
     },
     {
         "location": "opportunities",
         "name": "Open Positions",
-        "description": "<p>Listen to some great lectures on topics in Space! We used to have lunch catered, but our budget got cut :( </p>",
+        "description": "Check back in soon. More details are on their way!",
         "tabname": "Open Positions",
         "taborder": 1
     },
     {
         "location": "opportunities",
         "name": "Goodchild Fellowship",
-        "description": "<p>Listen to some great lectures on topics in Space! We used to have lunch catered, but our budget got cut :( </p>",
+        "description": "Check back in soon. More details are on their way!",
         "tabname": "Fellowships",
         "taborder": 2
     },
     {
         "location": "opportunities",
         "name": "Interdisciplinary Internship",
-        "description": "<p>Shaine organizes this big conference with Spatial experts all over the country and world. They come to SB, we feed them, and we talk about research in the field.</p>",
+        "description": "<h6>Shaine organizes this big conference with Spatial experts all over the country and world. They come to SB, we feed them, and we talk about research in the field.</h6>",
         "tabname": "Internships",
         "taborder": 3
     },
@@ -75,20 +75,20 @@
         "name": "Dangermond Travel Awards",
         "tabname": "Travel Grants",
         "taborder": 4,
-        "description": "<p>We've been doing things in the past year. Here's some of them: ~list~</p>"
+        "description": "Check back in soon. More details are on their way!"
     },
     {
         "location": "opportunities",
         "name": "Past Awardees",
         "tabname": "Awardees",
         "taborder": 5,
-        "description": "<p>We've been doing things in the past year. Here's some of them: ~list~</p>"
+        "description": "Check back in soon. More details are on their way!"
     },
     {
         "location": "opportunities",
         "name": "Faculty Affiliates",
         "tabname": "Faculty Affiliates",
         "taborder": 6,
-        "description": "<p>We've been doing things in the past year. Here's some of them: ~list~</p>"
+        "description": "Check back in soon. More details are on their way!"
     }
 ]

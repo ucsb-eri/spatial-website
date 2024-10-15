@@ -81,7 +81,7 @@ export default function TabsContainer(props) {
                         <Grid container direction='row' justifyContent='center'>
                             <Grid item xs={12} md={11}>                                   
                                 <Toolbar align='left' disableGutters={true}>
-                                    <Typography variant='h5' align='left'  marginBottom="30px" paddingBottom="5px" borderBottom={1} borderColor="divider">
+                                    <Typography variant='h5' align='left' paddingBottom="5px" borderBottom={1} borderColor="divider">
                                         {panel.name}
                                     </Typography>
                                 </Toolbar>
@@ -91,7 +91,7 @@ export default function TabsContainer(props) {
                                     <Grid container justifyContent='center' columnSpacing={4}>
                                         <Grid item xs={12} md={11} lg={7}>
                                             <CardContent>
-                                                <Typography align="left"><div dangerouslySetInnerHTML={{__html: panel.description}}/></Typography>
+                                                <Typography sx={{textTransform: 'none'}}  align="left"><div dangerouslySetInnerHTML={{__html: panel.description}}/></Typography>
                                             </CardContent>
                                         </Grid>
                                 
@@ -107,7 +107,7 @@ export default function TabsContainer(props) {
                                         </Grid>
                                         ): (
                                             <CardContent>
-                                                <Typography align="left"><div dangerouslySetInnerHTML={{__html: panel.description}}/></Typography>
+                                                <Typography sx={{textTransform: 'none'}} align="left"><div dangerouslySetInnerHTML={{__html: panel.description}}/></Typography>
                                             </CardContent>
                                         )}
                                         

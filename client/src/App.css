@@ -46,34 +46,120 @@
   font-style:normal;
 }
 
-h1 { 
-  font-family: Avenir, 
-  "Century Gothic", sans-serif; 
-  font-weight: 600; 
-  font-size: 38px; 
-  letter-spacing: -0.1pt; 
+/* Global CSS for Typography */
+
+/* Headings with font family */
+h1, h2, h3, h4, h5, h6, p {
+  font-family: "Nunito Sans", sans-serif;
+  margin: 0 0 16px;
 }
- 
 
-h2 { 
-  font-family: Avenir, 
-  "Century Gothic", sans-serif; 
-  font-weight: 600; 
-  font-size: 27px; 
-  letter-spacing: -0.1pt; 
-  margin: 26px 0 10px 0; }
- 
+h1 {
+  font-weight: 700;
+  font-size: 3rem;
+  line-height: 1.167;
+  letter-spacing: -0.01562em;
+}
 
-h3 { font-family: Avenir, "Century Gothic", sans-serif; font-weight: 600; font-size: 21px; margin: 20px 0 10px 0; }
- 
+h2 {
+  font-weight: 600;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  letter-spacing: -0.00833em;
+}
 
-h4 { font-family: Avenir, "Century Gothic", sans-serif; font-weight: 600; font-size: 16px; margin: 16px 0 8px 0; }
- 
+h3 {
+  
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 1.167;
+  letter-spacing: 0em;
+}
 
-h5 { font-family: Avenir, "Century Gothic", sans-serif; font-weight: 600; font-size: 12px; text-transform: uppercase; }
- 
+h4 {
+  font-weight: 400;
+  font-size: 1.75rem;
+  line-height: 1.235;
+  letter-spacing: 0.00735em;
+}
 
-h6 { font-family: Avenir, "Century Gothic", sans-serif; font-weight: 400; font-size: 12px; text-transform: uppercase; }
+h5 {
+  font-weight: 400;
+  font-size: 1.15rem;
+  line-height: 1.334;
+  letter-spacing: 0em;
+}
+
+h6, p {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.6;
+  letter-spacing: 0.0075em;
+}
+
+/* Media Queries */
+@media (max-width: 750px) {
+  h2 {
+      font-size: 2rem; /* Font size for small screens */
+  }
+  h3 {
+      font-size: 1.75rem; /* Font size for small screens */
+  }
+  h4 {
+      font-size: 1.5rem; /* Font size for small screens */
+  }
+  h5 {
+      font-size: 1.15rem; /* Font size for small screens */
+  }
+  h6, p {
+      font-size: 1rem; /* Font size for small screens */
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+      font-size: 2.5rem; /* Font size for small screens */
+  }
+  h2 {
+      font-size: 1.75rem; /* Font size for small screens */
+  }
+}
+
+@media (max-width: 500px) {
+  h3 {
+      font-size: 1.6rem; /* Font size for small screens */
+  }
+  h4 {
+      font-size: 1.25rem; /* Font size for small screens */
+  }
+  h5 {
+      font-size: 1rem; /* Font size for small screens */
+  }
+  h6, p {
+      font-size: 0.9rem; /* Font size for small screens */
+  }
+}
+
+@media (max-width: 400px) {
+  h1 {
+      font-size: 2.25rem; /* Font size for medium screens */
+  }
+  h2 {
+      font-size: 1.5rem; /* Font size for medium screens */
+  }
+  h3 {
+      font-size: 1.3rem; /* Font size for small screens */
+  }
+  h4 {
+      font-size: 1.15rem; /* Font size for small screens */
+  }
+  h5 {
+      font-size: .95rem; /* Font size for small screens */
+  }
+  h6, p {
+    font-size: .85rem; /* Font size for small screens */
+}
+}
 
 .react-swipeable-view-container {
   /* display: block !important */

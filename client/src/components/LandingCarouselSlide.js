@@ -22,7 +22,7 @@ function LandingCarouselSlide(props) {
                 md:"50px"
               },
               paddingTop: {
-                xs: "50px"
+                xs: "100px"
               },
               maxWidth: '600px',
               color: post.color === 'white' ? '#fff' : '#333333' 

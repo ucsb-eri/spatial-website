@@ -3,25 +3,28 @@ import {Grid, Container, Paper, Box, Typography}  from '@mui/material';
 import LandingCarouselSlide from '../components/LandingCarouselSlide';
 import GiveCard from '../components/GiveCard';
 
+const imageRoute = process.env.NODE_ENV === "production" ? "https://spatialtest.grit.ucsb.edu/images/" : "http://localhost:3001/images/"
+
 const giveBanner = {
     description: "",
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwvaheFL9X72HGjx7tMEb5GJBLZ49MYba5TA&s',
+    image: `${imageRoute + 'give.jpeg'}`,
     imageLabel: '',
     title: 'Give to the Spatial Center!',
+    color: 'white'
 }
 
 const giveCards = [
     {
         title: 'Spatial General Fund',
         description: "The Center for Spatial Studies and Data Science at UC Santa Barbara is an interdisciplinary research hub dedicated to pushing the boundaries of spatial thinking, geoinformatics, and geographic information science. It champions scientific discovery and educational excellence through workshops, speaker series, and annual Specialist Meetings that assemble leading global experts in spatial data science. Your gift supports the Center's research, students, and outreach efforts.",
-        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQt1OOHhuPndEfrgOGJzZHoFqrhQW185csfUw&s',
+        image: `${imageRoute + 'LagoonCampusPoint7.jpg'}`,
         imageDescription: '',
         link: ''
     },
     {
         title: 'Goodchild Fund',
         description: 'The Goodchild Fellowship was established to support outstanding geography doctoral students, including incoming students, pursuing research in Geographic Information Science. Gifts to this Fund support annual fellowship awards.',
-        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyPu2jKzxeWh7Yv0l0G6esEce_ochybEvEag&s',
+        image: `${imageRoute + 'LagoonCampusPoint66.jpg'}`,
         imageDescription: '',
         link: 'https://giving.ucsb.edu/Funds/Give?id=487'
     },
@@ -42,7 +45,7 @@ export default function Give() {
                             backgroundColor: 'grey.800',
                             color: '#fff',
                             mb: 4,
-                            maxHeight: '50vh',
+                            maxHeight: '70vh',
                             height: '400px',
                             backgroundSize: 'cover',
                             backgroundRepeat: 'no-repeat',

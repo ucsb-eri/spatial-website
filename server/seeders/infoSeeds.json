@@ -116,10 +116,28 @@
     },
     {
         "location": "events",
-        "name": "Specialist Meeting 2024",
-        "content": [
+        "name": "Specialist Meetings",
+        "content": [],
+        "accordion": [
             {
-                "description": "<h6>Confronted by climate change, there is a renewed global focus on conservation, exemplified by agreements like the Kunming-Montreal commitment to protect 30 percent of the planet by 2030. However, many countries struggle to meet these targets due to insufficient analytical support for local land use planning and a disconnect between scientific geographic information and on-the-ground decision-making. Additionally, achieving multiple spatial planning goals—such as biodiversity, carbon reduction, and habitat restoration—across fragmented administrative agencies presents significant challenges.</h6><h6>To address these issues, the Center for Spatial Studies and Data Science has collaborated with global conservation organizations to explore how a geographic approach leveraging GIScience can better support conservation efforts. Key needs identified include increasing GIS capacity in resource-constrained organizations, integrating emerging geospatial technologies while addressing ethical considerations, creating spatial data infrastructure for evidence-based analysis, and tracking the conservation impacts of private actors.</h6><h6>In December 2024, the Center will host colleagues in conservation and GIScience to a two-day meeting at UCSB in Santa Barbara, where we will outline research priorities, develop collaborative programs, and discuss training opportunities. This workshop aims to catalyze a broader initiative to enhance GIScience in support of 21st-century conservation needs.</h6>"
+                "title": "Specialist Meeting 2024",
+                "content": [
+                    {
+                        "subtitle": null,
+                        "description": "<h6>Confronted by climate change, there is a renewed global focus on conservation, exemplified by agreements like the Kunming-Montreal commitment to protect 30 percent of the planet by 2030. However, many countries struggle to meet these targets due to insufficient analytical support for local land use planning and a disconnect between scientific geographic information and on-the-ground decision-making. Additionally, achieving multiple spatial planning goals—such as biodiversity, carbon reduction, and habitat restoration—across fragmented administrative agencies presents significant challenges.</h6><h6>To address these issues, the Center for Spatial Studies and Data Science has collaborated with global conservation organizations to explore how a geographic approach leveraging GIScience can better support conservation efforts. Key needs identified include increasing GIS capacity in resource-constrained organizations, integrating emerging geospatial technologies while addressing ethical considerations, creating spatial data infrastructure for evidence-based analysis, and tracking the conservation impacts of private actors.</h6><h6>In December 2024, the Center will host colleagues in conservation and GIScience to a two-day meeting at UCSB in Santa Barbara, where we will outline research priorities, develop collaborative programs, and discuss training opportunities. This workshop aims to catalyze a broader initiative to enhance GIScience in support of 21st-century conservation needs.</h6>",
+                        "image": null
+                    }
+                ]
+            },
+            {
+                "title": "Specialist Meeting 2023",
+                "content": [
+                    {
+                        "subtitle": null,
+                        "description": "<h6>Scientific disruptions are transforming fields like GIScience by driving innovation and reshaping how we address global challenges such as climate change and food insecurity. Advances in technology and society are changing scientific practices and prioritizing data-intensive discovery, with emerging cyberinfrastructure and AI techniques paving the way for new modes of inquiry. However, these disruptions also bring ethical considerations and highlight barriers to equity in science. Given their expertise in spatial data creation and analysis, GIScientists are uniquely positioned to lead in this era of disruption, developing both technical solutions—like digital twins and geoAI—and conceptual frameworks in areas such as Geoethics and spatial theory, thus linking knowledge with actionable solutions.</h6><h6>The Center for Spatial Studies and Data Science hosted colleagues working at the forefront of GIScience research and education for a two day, in person meeting to discuss these issues and collaboratively co-author two agenda setting papers on GIScience and spatial data science in an age of science disruption. Papers focus on 1) the development of a forward-looking research agenda and 2) a curriculum attuned to the challenges of scientific disruption.</h6>",
+                        "image": "specialistmeeting2023.jpg"
+                    }
+                ]
             }
         ],
         "tabname": "Specialist Meetings",
@@ -130,7 +148,7 @@
         "name": "Past Events",
         "content": [
             {
-                "description": "Check back in soon. More details are on their way!"
+                "description": "<p>Check back in soon. More details are on their way!</p>"
             }
         ],
         "tabname": "Past Events",
@@ -141,7 +159,7 @@
         "name": "Open Positions",
         "content": [
             {
-                "description": "Check back in soon. More details are on their way!"
+                "description": "<p>Check back in soon. More details are on their way!</p>"
             }
         ],
         "tabname": "Open Positions",
@@ -152,7 +170,7 @@
         "name": "Goodchild Fellowship",
         "content": [
             {
-                "description": "Check back in soon. More details are on their way!"
+                "description": "<p>Check back in soon. More details are on their way!</p>"
             }
         ],
         "tabname": "Fellowships",
@@ -163,7 +181,7 @@
         "name": "Interdisciplinary Internship",
         "content": [
             {
-                "description": "<h6>Shaine organizes this big conference with Spatial experts all over the country and world. They come to SB, we feed them, and we talk about research in the field.</h6>"
+                "description": "<p>Check back in soon. More details are on their way!</p>"
             }
         ],
         "tabname": "Internships",
@@ -174,7 +192,7 @@
         "name": "Dangermond Travel Awards",
         "content": [
             {
-                "description": "Check back in soon. More details are on their way!"
+                "description": "<p>The Jack and Laura Dangermond Fund is named for the generosity of Jack and Laura Dangermond. It has been established to support annual graduate and undergraduate GIScience awards (one award for a graduate and one award for an undergraduate) and annual, multiple travel expense awards for graduate and undergraduate students.</p><p>Jack and Laura Dangermond are the co-founders and President and Executive Vice President, respectively, of Environmental Systems Research Institute. Esri is a major industrial supplier of software in the field of GIS.</p><p>Thanks to the generosity of Jack and Laura Dangermond, multiple travel expense awards are available to help qualified students present GIS related work at conferences/workshops. Support is preferentially given to students who have submitted full papers which have been accepted through a peer review process.</p><p>Terms of the Award:</p><ul><li>To attend a conference that requires only a short abstract, a maximum of $600 can be requested regardless of location. This includes AAG and AGU.</li><li>To attend a conference that requires an extended abstract or paper a maximum of $1200 for national conferences, and $2000 for international conferences can be requested.</li><li>In special cases, where the student participates in organizing the conference or workshops for GIScience related conferences, total travel expenses (up to a maximum of $2500) might be awarded given the availability of funds.</li><li>Applicant must be a currently registered Geography graduate student.</li><li>Applicant must be invited or selected to present work that is related to GIS at a major professional conference. (Proof of invitation of the applicant for a presentation must be provided with the application.)</li><li>Allowable travel expenses are the actual costs of the roundtrip airline ticket or ground transportation to the conference, lodging, and conference registration.</li></ul><p>What to submit?</p><ol><li>The abstract or paper submitted to the conference, and a proof of acceptance.</li><li>A statement describing your role in the conference and why you selected this conference in particular to present your research.</li><li>A description of how your work is advancing GIScience (up to 200 words). Use of GIScience techniques is not sufficient for this award. Please consider describing how your work contributes to and advances GIScience.</li></ol><p>You may access the application form and submit your request via <a href='https://docs.google.com/forms/d/e/1FAIpQLSf8GQUMHlGDFgNWZYZG9GwEPJLYExWnSMLcA5mgWAdBY8qMtQ/viewform'><u>this form</u></a>.</p>"
             }
         ],
         "tabname": "Travel Grants",
@@ -185,7 +203,7 @@
         "name": "Past Awardees",
         "content": [
             {
-                "description": "Check back in soon. More details are on their way!"
+                "description": "<p>Check back in soon. More details are on their way!</p>"
             }
         ],
         "tabname": "Awardees",
@@ -198,7 +216,7 @@
         "taborder": 6,
         "content": [
             {
-                "description": "Check back in soon. More details are on their way!"
+                "description": "<p><strong>About</strong></p><p>The Center for Spatial Studies and Data Science’s (@Spatial) Faculty Affiliate program builds collaboration across UC Santa Barbara faculty members interested in spatial data, methods, and teaching. Through diverse collaboration in center events, teaching, and research we will build a network capable of addressing challenging problems using a spatial approach.</p><p><strong>Participants</strong></p><p>Affiliated faculty positions are selected through an application process open to all UC Santa Barbara faculty members interested in benefiting from and contributing to @Spatial's mission and seeking to collaborate on research and educational endeavors related to spatial studies and data science. These positions are granted for three years, with the opportunity to apply for renewal at the end of the third year.</p><p><strong>Affiliate Expectations</strong></p><p>Ideally, affiliates will collaborate with other Center Affiliated faculty on research and teaching. Affiliates are expected to:</p><ul><li>Present research at at least 1 workshop/event annually</li><li>Attend 2-3 additional Center activities annually, such as speaker series, conferences, workshops, or other events.</li><li>Provide information about publications, awards, and fellowships once a year for the annual report.</li><li>Acknowledge @Spatial in conference papers and published works that have benefited from funding provided by @Spatial or have received feedback from Center associates</li><li>Promote @Spatial as appropriate.</li></ul><p><strong>Affiliate Benefits</strong></p><p>The Center for Spatial Studies and Data Science provides a supportive scholarly environment, granting affiliates access to a network of faculty members and graduate students. This network nurtures interdisciplinary connections, research opportunities, and mentorship and collaboration in related fields. Additionally, affiliate research related to @Spatial’s mission will be amplified on its website, social media, and to the larger campus and local community.</p><p><strong>Application Process</strong></p><p>Faculty members interested in becoming affiliates should send the following information to @Spatial Administrative Coordinator, Shaine Lutsky at shainelutsky@ucsb.edu:</p><ol><li>A current CV</li><li>One paragraph statement of interest. Highlight the Spatial-related work you would like to contribute or benefit from.</li></ol><p>The Leadership Team will review the materials sent by the prospective affiliate faculty member and, in consultation with the Center for Spatial Studies and Data Science Affiliate Faculty Committee, will appoint successful applicants for renewable three-year terms.</p>"
             }
         ]
     }

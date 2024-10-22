@@ -1,4 +1,4 @@
-const { People, Projects, InfoPanels } = require('../models');
+const { People, Projects, InfoPanels, InfoContent, AccordionItem } = require('../models');
 const peopleSeeds = require('./peopleSeeds.json');
 const infoSeeds = require('./infoSeeds.json');
 const projectSeeds = require('./projectSeeds.json');
@@ -47,8 +47,42 @@ async function seedWebsite() {
     const panelsExist = await InfoPanels.find()
       if (panelsExist.length == 0) {
         console.log("seeding info panels")
-        const panels = await InfoPanels.insertMany(infoSeeds)
-        console.log("new panels on the walls", panels)
+        console.log("seeding infoContent")
+        infoSeeds.forEach(async (seed) => {
+          try {
+            const infoContent = await InfoContent.create(seed.content)
+            
+            if (seed.accordion) {
+              const accordionItems = await Promise.all(seed.accordion.map(async (accordion) => {
+
+                const accordionContent = await Promise.all(accordion.content.map(infoContent => InfoContent.create(infoContent)))
+                const newAccordionItem = await AccordionItem.create({
+                  title: accordion.title,
+                  content: accordionContent.map(item => item._id)
+                })
+                return newAccordionItem
+              }))
+              const panels = InfoPanels.create({
+                ...seed,
+                accordion: accordionItems.map(item => item._id),
+                content: infoContent.map(item => item._id)
+              })
+            } else {
+              const panels = InfoPanels.create({
+                ...seed,
+                content: infoContent.map(item => item._id)
+              })
+            }
+
+            
+
+          } catch (err) {
+            console.error("error seeding info panels", err)
+          }
+          
+        })
+        // const panels = await InfoPanels.insertMany(infoSeeds)
+        // console.log("new panels on the walls", panels)
       } else {
         console.log("panels already installed")
       }

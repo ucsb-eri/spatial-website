@@ -4,11 +4,9 @@ import LaunchIcon from '@mui/icons-material/Launch';
 import Typography from '@mui/material/Typography';
 import DOMPurify from 'dompurify'
 
-
-
 function EventsTable() {
     const calendarID = process.env.REACT_APP_CALENDAR_ID
-    const apiKey = process.env.REACT_APP_SPATIAL_CALENDAR_ID
+    const apiKey = process.env.REACT_APP_CALENDAR_API_KEY
     const now = new Date().toISOString()
 
     const [events, setEvents] = useState([])

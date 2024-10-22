@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { People, Projects, AdminProfile, InfoPanels} = require('../models');
+const { People, Projects, AdminProfile, InfoPanels, InfoContent, AccordionItem} = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -12,6 +12,15 @@ const resolvers = {
     },
     infoPanels: async () => {
       return InfoPanels.find()
+        .populate({
+          path: 'content'
+        })
+        .populate({
+        path: 'accordion', // populate any accordion content
+        populate: {
+          path: 'content' // populate content within the accordion components
+        }
+      })
     }
   },
 
@@ -67,12 +76,43 @@ const resolvers = {
       }
     },
 
-    addInfoPanel: async (parent, {location, name, tabname, taborder, description, image}, context) => {
+    addInfoPanel: async (parent, {input}, context) => {
       if (context.user) {
-        console.log("valid user")
-        console.log(name, description)
-        const aboutPanel = await InfoPanels.create({location, name, description, image, tabname, taborder})
-        return aboutPanel
+
+          const accordionContentIds = await Promise.all(
+          input.accordion.flatMap(async (accordion) => {
+            const content = accordion.content.map( async (infoContent) => {
+              const newContent = await InfoContent.create(infoContent);
+              return newContent._id
+            })
+          })
+        )
+
+        
+        const accordionItems = await Promise.all(
+          input.accordion.map(async (accordion) => {
+            const newAccordionItem = await AccordionItem.create({
+              title: accordion.title,
+              content: accordionContentIds,
+            })
+          })
+        )
+
+        const contentItems = await Promise.all(
+          input.content.flatMap(async (contentInfo) => {
+            console.log(contentInfo)
+            const newContent = await InfoContent.create(contentInfo);
+            return newContent._id
+          })
+        )
+
+        const newInfoPanel = await InfoPanels.create({
+          ...input,
+          content: contentItems,
+          accordion: accordionItems
+        })
+
+        return newInfoPanel
       }
     },
     editInfoPanel: async (parent, {id, location, name, tabname, image, taborder, description}, context) => {

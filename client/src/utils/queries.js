@@ -46,8 +46,21 @@ export const GET_INFOPANELS = gql`
         infoPanels {
         id
         location
-        description
-        image
+        content {
+            id
+            subtitle
+            description
+            image
+        }
+        accordion {
+            title
+            content {
+                id
+                subtitle
+                description
+                image
+            }
+        }
         name
         tabname
         taborder

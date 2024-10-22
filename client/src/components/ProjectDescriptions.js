@@ -1,4 +1,4 @@
-import { React, useContext, useState } from 'react';
+import { React, useContext, useState, useEffect } from 'react';
 import { AdminLoginContext } from "../context/AdminProvider"
 import DOMPurify from 'dompurify'
 
@@ -12,8 +12,12 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 // import { GET_PROJECTS } from '../utils/queries';
 
 export default function ProjectDescriptions(props) {
+    
+    useEffect(() => {
+        window.scrollTo(0,0)
+    })
+
     const { project, backToCards } = props
-    console.log(project)
     const { isLoggedIn } = useContext(AdminLoginContext)
     // const {loading, data, error} = useQuery(GET_PROJECTS)
 

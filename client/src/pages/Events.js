@@ -62,8 +62,7 @@ export default function Events(props) {
                             }}>
                             <LandingCarouselSlide post={mainAboutOverview} />
                         </Paper>
-                    
-                    
+                                      
                             { eventPanelData && (
                                 <TabsContainer 
                                     editPanelId = {editInfoPanelId} 

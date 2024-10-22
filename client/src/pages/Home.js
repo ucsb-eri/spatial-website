@@ -7,41 +7,29 @@ import EventsTable from '../components/EventsTable'
 const imageRoute = process.env.NODE_ENV === "production" ? "https://spatialtest.grit.ucsb.edu/images/" : "http://localhost:3001/images/"
 const featuredPosts = [
   {
-    title: 'Initiative 1',
-    labgroup: 'SPAR',
-    description:
-      'This is a wider card with supporting text below as a natural lead-in to additional content.',
-    image: 'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
+    title: 'Learn through our Esri Curriculum about spatial methods, techniques, and data',
+    description: '',
+    image: `${imageRoute + 'Home1.jpg'}`,
     imageText: 'Image Text',
     color: 'white'
   },
   {
-    title: 'ESRI Curriculum',
-    labgroup: 'MOVE',
-    description:
-      'Advancing the Geographic Approach to Conservation',
-    image: `${imageRoute + 'research_geographic_approach.png'}`,
+    title: 'Listen to our Earth + Humans podcast to hear from spatial experts on the global problems they’re working on',
+    labgroup: '',
+    description: '',
+    image: `${imageRoute + 'Home2.jpg'}`,
     imageText: 'Image Text',
-    color:'black'
+    color:'white'
   },
   {
-    title: 'Goal Y',
-    labgroup: 'SPAR',
-    description:
-      'This is a wider card with supporting text below as a natural lead-in to additional content.',
-    image: 'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60',
+    title: 'Attend Spatial Center Events by keeping up with our event calendar',
+    labgroup: '',
+    description: '',
+    image: `${imageRoute + 'Home3.jpg'}`,
     imageText: 'Image Text',
     color: 'white'
   },
-  {
-    title: 'Initiative 2',
-    labgroup: 'MOVE',
-    description:
-      'This is a wider card with supporting text below as a natural lead-in to additional content.',
-    image: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250',
-    imageText: 'Image Text',
-    color: 'white'
-  },
+  
 ];
 
 

@@ -4,7 +4,6 @@ const { gql } = require('apollo-server-express');
 const typeDefs = gql`
   scalar Date
   scalar Int
-
   
   type AdminProfile {
     id: ID
@@ -53,6 +52,20 @@ const typeDefs = gql`
     funderLogo: String
   }
 
+  type InfoContent {
+    id: ID
+    subtitle: String
+    description: String!
+    image: [String]
+
+  }
+  
+  type AccordionItem {
+    id: ID
+    title: String!
+    content: [InfoContent]
+  }
+
   type InfoPanels {
     id: ID
     location: String
@@ -60,14 +73,34 @@ const typeDefs = gql`
     pis: String
     tabname: String
     taborder: String
-    description: String
-    image: String
+    content: [InfoContent]!
+    accordion: [AccordionItem]
   }
 
   type Query {
     people: [People]!
     projects: [Projects]!
     infoPanels: [InfoPanels]!
+  }
+
+  input InfoContentInput {
+    subtitle: String
+    description: String!
+    image: [String]
+  }
+
+  input AccordionItemInput {
+    title: String!
+    content: [InfoContentInput]
+  }
+
+  input InfoPanelInput {
+    location: String!
+    name: String!
+    tabname: String!
+    taborder: Int!
+    content: [InfoContentInput]!
+    accordion: [AccordionItemInput]
   }
 
   type Mutation {
@@ -80,7 +113,7 @@ const typeDefs = gql`
 
     adminSignOn(email: String!, password: String!): Auth!
 
-    addInfoPanel(name: String!, tabname: String!, taborder: String!, description: String!, image: String): InfoPanels!
+    addInfoPanel(input: InfoPanelInput!): InfoPanels!
     editInfoPanel(id: ID!, name: String, tabname: String, taborder: String, description: String, image: String): InfoPanels!
     deleteInfoPanel(id: ID!): InfoPanels!
   }

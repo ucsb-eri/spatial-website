@@ -1,4 +1,4 @@
-import { React, useContext } from 'react';
+import { React, useContext, useEffect } from 'react';
 import { AdminLoginContext } from "../context/AdminProvider"
 import { useProjectContext } from '../context/ProjectContext';
 import emailIcon from '../content/logos/emailicon.png'
@@ -42,6 +42,12 @@ const copyEmail = (email) => {
 
 
 function PersonBio(props) {
+
+    useEffect(() => {
+        window.scrollTo(0,0)
+    })
+
+    
     const { isLoggedIn } = useContext(AdminLoginContext)
     const {editPersonId, setEditPersonId} = useProjectContext()
     const {details, backToCards} = props

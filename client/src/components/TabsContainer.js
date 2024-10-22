@@ -6,6 +6,7 @@ import CreateInfoPanel from './CreateInfoPanel';
 import PropTypes from 'prop-types'
 import {Grid, Container, Typography, Paper, Card, CardMedia, Tabs, Tab, Box, useMediaQuery, Toolbar, Button, CardContent} from '@mui/material'
 import LandingCarouselSlide from '../components/LandingCarouselSlide';
+import PastEventsAccordian from './PastEventsAccordian';
 
 
 function TabPanel(props) {
@@ -75,6 +76,9 @@ export default function TabsContainer(props) {
                     <Tab label={panel.tabname} {...a11yProps(id)} />
                 ))}
             </Tabs>
+
+
+
             {panelData.map((panel, id) => (
                 <TabPanel value={value} index={id}>
                     {panel.id !== editPanelId ? (
@@ -94,8 +98,7 @@ export default function TabsContainer(props) {
                                                 <Typography sx={{textTransform: 'none'}}  align="left"><div dangerouslySetInnerHTML={{__html: panel.description}}/></Typography>
                                             </CardContent>
                                         </Grid>
-                                
-                                    
+                                                        
                                         <Grid item xs={10} md={9}lg={5}>
                                             <CardMedia
                                                 component="img"
@@ -104,13 +107,20 @@ export default function TabsContainer(props) {
                                                 align="left"
                                                 sx={{ width: '100%'}}/>
                                         </Grid>
-                                        </Grid>
-                                        ): (
-                                            <CardContent>
-                                                <Typography sx={{textTransform: 'none'}} align="left"><div dangerouslySetInnerHTML={{__html: panel.description}}/></Typography>
-                                            </CardContent>
-                                        )}
-                                        
+                                    </Grid>
+                                    ): (
+                                    <CardContent>
+                                        <Typography sx={{textTransform: 'none'}} align="left"><div dangerouslySetInnerHTML={{__html: panel.description}}/></Typography>
+                                    </CardContent>
+                                )}
+
+                                { panel.accordian && (
+                                    
+                                    <PastEventsAccordian events={panel.accordian} />
+                                
+                                )}
+
+                                    
                                         
                                 </Card>
                             </Grid>

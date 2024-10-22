@@ -1,5 +1,17 @@
 const { Schema, model } = require('mongoose');
 
+const accordionContent = new Schema({
+  
+})
+
+const accordionItemSchema = new Schema({
+  title: { type: String, required: true },
+  content: { type: String, required: true },
+  // other fields as necessary
+});
+
+const AccordionItem = mongoose.model('AccordionItem', accordionItemSchema);
+
 const infoPanelSchema = new Schema({
   location: {
     type: String,
@@ -32,7 +44,11 @@ const infoPanelSchema = new Schema({
   image: {
     type: String,
     required: false
-  }
+  },
+  accordion: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'AccordionItem',
+  }]
   
 });
 

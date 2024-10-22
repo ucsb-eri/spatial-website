@@ -5,8 +5,9 @@ import CreateInfoPanel from './CreateInfoPanel';
 
 import PropTypes from 'prop-types'
 import {Grid, Container, Typography, Paper, Card, CardMedia, Tabs, Tab, Box, useMediaQuery, Toolbar, Button, CardContent} from '@mui/material'
+import ContentCard from './ContentCard';
 import LandingCarouselSlide from '../components/LandingCarouselSlide';
-import PastEventsAccordian from './PastEventsAccordian';
+import AccordionContent from './AccordionContent';
 
 
 function TabPanel(props) {
@@ -90,33 +91,16 @@ export default function TabsContainer(props) {
                                     </Typography>
                                 </Toolbar>
                                 <Card elevation={0} sx={{borderRadius: '0'}}>
-                                
-                                {panel.image ? (
-                                    <Grid container justifyContent='center' columnSpacing={4}>
-                                        <Grid item xs={12} md={11} lg={7}>
-                                            <CardContent>
-                                                <Typography sx={{textTransform: 'none'}}  align="left"><div dangerouslySetInnerHTML={{__html: panel.description}}/></Typography>
-                                            </CardContent>
-                                        </Grid>
-                                                        
-                                        <Grid item xs={10} md={9}lg={5}>
-                                            <CardMedia
-                                                component="img"
-                                                alt="funding logo"
-                                                src= {panel.image ? `http://localhost:3001/images/${panel.image}` : "https://images.freeimages.com/images/large-previews/ac7/sky-1401862.jpg?fmt=webp&w=500"}
-                                                align="left"
-                                                sx={{ width: '100%'}}/>
-                                        </Grid>
-                                    </Grid>
-                                    ): (
-                                    <CardContent>
-                                        <Typography sx={{textTransform: 'none'}} align="left"><div dangerouslySetInnerHTML={{__html: panel.description}}/></Typography>
-                                    </CardContent>
-                                )}
+                                { panel.content.map((content) => (
+                                    <ContentCard content={content} />
+                                ))}
 
-                                { panel.accordian && (
+                                
+                                
+
+                                { panel.accordion && (
                                     
-                                    <PastEventsAccordian events={panel.accordian} />
+                                    <AccordionContent accordions={panel.accordion} />
                                 
                                 )}
 

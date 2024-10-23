@@ -3,6 +3,7 @@ import {Grid, Typography, Toolbar}  from '@mui/material';
 
 import LandingCarousel from '../components/LandingCarousel';
 import EventsTable from '../components/EventsTable'
+import InstagramEmbed from '../components/InstagramEmbed';
 
 const imageRoute = process.env.NODE_ENV === "production" ? "https://spatialtest.grit.ucsb.edu/images/" : "http://localhost:3001/images/"
 const featuredPosts = [
@@ -60,7 +61,9 @@ export default function Home() {
 
                 </Grid>
 
-
+                <Grid item xs={11} md={5}>
+                  <InstagramEmbed />
+                </Grid>
                 <Grid item xs={11} md={5}>
                 
                 <EventsTable />

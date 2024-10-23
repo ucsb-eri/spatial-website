@@ -40,6 +40,7 @@ function Projects() {
                     <CreateProject onSubmit={backToProjects}/>
                 ) : (
                     <div>
+                        
                         {loading ? (
                             <div>Loading...</div>
                             ) : (
@@ -47,19 +48,33 @@ function Projects() {
                                     <ProjectDescriptions project={currentProjectDetails} backToCards={backToCards} />
                                 ) : (
                                     <Container maxWidth={false}>
-                                        <Grid>
+                                        <Grid container direciton='row' justifyContent='center'>
+                                            <Grid item xs={12} >
+                                            <Toolbar  align='center'>
                                             <Toolbar sx={{ marginTop: '5px', marginBottom: '5px' }} align='center'>
-                                                <Typography variant='h5' align='left' marginTop="30px" marginBottom="30px" paddingBottom="5px" borderBottom={1} borderColor="divider">
-                                                    Research
+                                                <Typography variant='h4' align='left' marginTop="30px" marginBottom="10px" paddingBottom="5px" borderBottom={1} borderColor="divider">
+                                                Research
                                                 </Typography>
                                             </Toolbar>
-                                            <Grid container justifyContent="space-evenly" alignItems="center" rowGap={3}>
+                                                
+                                            </Toolbar>
+                                            </Grid>
+                                            
+                                            <Grid item xs={11} my={4}>
+                                                <Typography variant='h6' align='left'>
+                                                    UC Santa Barbara Spatial faculty, researchers, and students work together on diverse projects, applying spatial data science techniques to solve a variety of challenges. These projects range from analyzing patterns of transportation safety and accessibility to studying environmental changes and their impact on communities. By using GIS, remote sensing, spatial analysis, and machine learning, our team is able to tackle real-world issues with innovative approaches. This collaborative work environment enables us to address complex problems and advance the field of spatial data science.
+                                                </Typography>
+                                            </Grid>
+                                            <Grid item xs={12} lg={11}>
+                                            <Grid container justifyContent="space-evenly" alignItems="center" rowGap={3} columnSpacing={3} my={3}>
                                                 { projects.map((project, index) => (    
-                                                    <Grid item xs={11} lg={8}>                                    
+                                                    <Grid item xs={11} lg={6}>                                    
                                                         <ProjectCard project={project} index={index} renderProject={renderProject} />
                                                     </Grid>
                                                 ))}
+                                                </Grid>
                                             </Grid>
+                                            
                                         
                                         </Grid>
                                     </Container>

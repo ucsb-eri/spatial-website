@@ -103,7 +103,7 @@
     },
     {
         "location": "events",
-        "name": "ESRI Educational Visits",
+        "name": "Esri Educational Visits",
         "content": [
             {
                 "title": "",
@@ -111,7 +111,7 @@
                 "image": "esri_educational_trip.jpg"
             }
         ],
-        "tabname": "ESRI Visits",
+        "tabname": "Esri Visits",
         "taborder": 2
     },
     {

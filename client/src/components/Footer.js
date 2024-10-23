@@ -70,7 +70,7 @@ function Footer(props) {
                    
         </Grid>
         <Grid container direction="row" justifyContent="center" py={2}>
-          <Typography>
+          <Typography variant='body2'>
             Center for Spatial Studies and Data Science | Phelps 3512 | UC Santa Barbara, CA 93106-4060
           </Typography>
         </Grid>

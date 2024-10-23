@@ -1,14 +1,15 @@
-import { React, useContext, useEffect } from 'react';
+import { React, useContext, useEffect, useState } from 'react';
 import { AdminLoginContext } from "../context/AdminProvider"
 import { useProjectContext } from '../context/ProjectContext';
 import emailIcon from '../content/logos/emailicon.png'
 import scholarIcon from '../content/logos/googlescholaricon.png'
 import CreatePerson from './CreatePerson';
 
-import { Container, Box, Link, Typography, Card, CardMedia, Button, Grid, Avatar, Icon, styled, useMediaQuery } from '@mui/material';
+import { Container, Box, Link, Typography, Card, CardMedia, Button, Grid, Alert, Popover, styled, useMediaQuery } from '@mui/material';
 
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import CheckIcon from '@mui/icons-material/Check'
 import XIcon from '@mui/icons-material/X';
 import WebIcon from '@mui/icons-material/Web';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -34,12 +35,6 @@ const HoverLink = styled(Link)(({ theme }) => ({
     }
   }));
 
-const copyEmail = (email) => {
-    navigator.clipboard.writeText(email)
-    alert(`Copied ${email} to clipboard!`)
-}
-
-
 
 function PersonBio(props) {
 
@@ -61,10 +56,19 @@ function PersonBio(props) {
     const showWebsite = details.websiteUrl !== null && details.websiteUrl!== ""
     const showGithub = details.github !== null && details.github !== ""
     
+    
+    const [ anchorEl, setAnchorEl ] = useState(null)  
+
+    const [ showEmailAlert, setShowEmailAlert ] = useState(false)
+
+    const copyEmail = (email) => {
+        navigator.clipboard.writeText(email)
+        setShowEmailAlert(true)
+        setTimeout(() => setShowEmailAlert(false), 2500)
+    }
 
     return (
         <Container maxWidth={100}>
-
         {details.id !== editPersonId ? (
             <div>
                 <Grid item align="left">
@@ -121,7 +125,10 @@ function PersonBio(props) {
                                                 width: '100%'
                                             }}
                                             src={emailIcon}
-                                            onClick={() => copyEmail(details.email)}
+                                            onClick={(event) => {
+                                                setAnchorEl(event.currentTarget)
+                                                copyEmail(details.email)}
+                                            }
                                             />
                                     </HoverLink>
                                 </Grid>
@@ -203,7 +210,7 @@ function PersonBio(props) {
                                     </HoverLink>
                                     
                                 </Box>)}
-
+                                
                             </Grid>
                             
                             {/* <Typography align="left" paragraph>
@@ -221,11 +228,13 @@ function PersonBio(props) {
                             <Typography variant='h5' paragraph align="left"><b>About</b></Typography>
                             <Typography align="left" paragraph variant='h6'><div dangerouslySetInnerHTML={{__html: details.description}} /></Typography>
                         </Grid>
-
-                        <Grid item xs={12} sm={7} mt={4}>
+                        { details.research && (
+                            <Grid item xs={12} sm={7} mt={4}>
                             <Typography variant='h5' paragraph align="left"><b>Research</b></Typography>
                             <Typography align="left" paragraph variant='h6'><div dangerouslySetInnerHTML={{__html: details.research}} /></Typography>
                         </Grid>
+                        )}
+                        
                         
                         {showProjects && (
                             <Grid item xs={12} sm={5} mt={4}>
@@ -261,22 +270,6 @@ function PersonBio(props) {
                             flexWrap: 'wrap'
                         }}>
                         
-                        {/* {details.location !== null && (<Box sx={{display:"flex", flexDirection: "row", flexWrap: "nowrap", alignItems: "center", marginBottom:'20px'}}>
-                            <Avatar>
-                                <WorkIcon />
-                            </Avatar>
-                            <Typography  sx={{ paddingLeft: "15px", paddingRight: "15px",  whiteSpace: 'nowrap'}}>
-                            {details.location}
-                            </Typography>
-                        </Box>)} */}
-                        {/* {details.phone !== null && (<Box sx={{display:"flex", flexDirection: "row", flexWrap: "nowrap", alignItems: "center", marginBottom:'20px'}}>
-                            <Avatar>
-                                <PhoneIcon />
-                            </Avatar>
-                            <Typography sx={{ paddingLeft: "15px", paddingRight: "15px",  whiteSpace: 'nowrap'}}>
-                                {details.phone}
-                            </Typography>
-                        </Box>)} */}
 
                     </Grid>                         
                 </Grid>
@@ -291,6 +284,24 @@ function PersonBio(props) {
         ) : (
             <CreatePerson id={details.id} details={details} />
         )}
+
+            <Popover
+                open={showEmailAlert}
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                    vertical: "bottom",
+                    horizontal: "center"
+                  }}
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "center"
+                  }}
+                py={4}
+            >
+                <Alert icon={<CheckIcon fontSize="inherit" />} severity="success">
+                    Email Copied!
+                </Alert>
+            </Popover>
         </Container>
             
     )

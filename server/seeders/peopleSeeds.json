@@ -9,7 +9,7 @@
         "research": "Dr. Nelson’s current research focuses on mobility with an emphasis on active transportation and the use of big data and analytics to better plan cities. Nelson led the creation of BikeMaps.org, a web-map and App to gather volunteered geographic information on bicycling collisions and near misses. Dr. Nelson is also interested in ethical use of spatial data and creating data science practices that are inclusive and create a more empathic world.",
         "projects": "<ul><li>Active Transportation Dashboard</li><li>Electric Bicycles</li><li>Crowdsource Data Bias Correction</li></ul>",
         "email": "trisalyn@ucsb.edu",
-        "image": "trisalyn_nelson.jpg",
+        "image": "people/trisalyn_nelson.jpg",
         "gscholar": "https://scholar.google.com/citations?user=Dz42kJIAAAAJ&hl=en",
         "websiteUrl": "https://www.sparlab.org/",
         "websiteName": "SPAR Lab"
@@ -25,7 +25,7 @@
         "research": "Somayeh’s research focuses on developing data analytics, knowledge discovery, modeling, simulation, and visualization techniques to study movement and spatiotemporal processes. By examining how movement relates to the environment, her work enhances our understanding of social and ecological systems. She applies spatial data science and quantitative methods to model problems such as human-wildlife conflicts, environmental change, natural hazards, the spread of diseases, human mobility, and spatial interaction. Through interdisciplinary research, Dr. Dodge aims to develop a broadly applicable analytical framework to unravel how movement patterns of individuals are driven by their behavior, their environment, and their interactions across multiple spatial and temporal scales.",
         "projects": "<ul><li>Visualizing Motion: A Framework for the Cartography of Movement (<a href='https://www.nsf.gov/awardsearch/showAward?AWD_ID=1853681&amp;HistoricalAwards=false'><u>link</u></a>)</li><li>CAREER: Modeling Movement and Behavior Responses to Environmental Disruptions (<a href='https://www.nsf.gov/awardsearch/showAward?AWD_ID=2043202&amp;HistoricalAwards=false'><u>link</u></a>)</li><li>Advancing methods to trace and contextualize space-time interaction patterns in movement data (<a href='https://www.nsf.gov/awardsearch/showAward?AWD_ID=2217460&amp;HistoricalAwards=false'><u>link</u></a>)</li></ul>",
         "email": "sdodge@ucsb.edu",
-        "image": "somayeh_dodge.jpg",
+        "image": "people/somayeh_dodge.jpg",
         "gscholar": "https://scholar.google.com/citations?user=vDaqmVQAAAAJ&hl=en",
         "websiteUrl": "https://move.geog.ucsb.edu/",
         "websiteName": "MOVE Lab"
@@ -43,7 +43,7 @@
         "email": "peterkedron@ucsb.edu",
         "location": "5718 Ellison Hall",
         "phone": "+1-805-893-3663",
-        "image": "peter_kedron.jpg",
+        "image": "people/peter_kedron.jpg",
         "gscholar": "https://scholar.google.com/citations?authuser=1&hl=en&user=e_WSMGkAAAAJ"
     },
     {
@@ -58,7 +58,7 @@
         "projects": "<ul><li>Wildfire Resilience Initiative (WRI)</li></ul>",
         "location": "5718 Ellison Hall",
         "phone": "+1-805-893-3663",
-        "image": "alan_murray.jpg",
+        "image": "people/alan_murray.jpg",
         "gscholar": "https://scholar.google.com/citations?user=Raj7sewAAAAJ&hl=en&oi=ao",
         "websiteUrl": "https://wri.ucsb.edu/",
         "websiteName": "WRI"
@@ -75,7 +75,7 @@
         "email": "afrazier@ucsb.edu",
         "location": "5718 Ellison Hall",
         "phone": "+1-805-893-3663",
-        "image": "amy_frazier.jpg",
+        "image": "people/amy_frazier.jpg",
         "gscholar": "https://scholar.google.com/citations?user=kWFPqesAAAAJ&hl=en&oi=sra",
         "websiteUrl": "https://www.frazierlab.org/",
         "websiteName": "SCALE Lab"
@@ -86,10 +86,10 @@
         "title": ["Center Administrative Coordinator"],
         "category": "Staff",
         "current": true,
-        "description": "Shaine Lutsky is the admnisitrative coordinator for the center. She does a lot of stuff.",
+        "description": "Shaine Lutsky is the Administrative Coordinator for the Center for Spatial Studies and Data Science. In her role, she serves as the primary administrative and operations contact for the center, with responsibilities that range from event planning, space coordination, scheduling, design, and special projects. Shaine closely collaborates with all researchers and staff, ensuring the center operates seamlessly and efficiently.",
         "email": "shainelutsky@ucsb.edu",
-        "location": "3512 Phelps Hall",
-        "image": "shaine_lutsky.jpg"
+        "linkedin": "https://www.linkedin.com/in/shainelutsky/",
+        "image": "people/shaine_lutsky.jpg"
     },
     {
         "firstName": "Lizzy",
@@ -100,7 +100,18 @@
         "description": "As SPAR Lab Communication Manager, Lizzy specializes in overseeing grants and leading communication efforts for BikeMaps.org. Additionally, she leads a bike and pedestrian count program for Santa Barbara County, providing valuable data for sustainable transportation planning and improvements.",
         "email": "schattle@ucsb.edu",
         "location": "3512 Phelps Hall",
-        "image": "lizzy_schattle.jpg"
+        "image": "people/lizzy_schattle.jpg"
+    },
+    {
+        "firstName": "Dan",
+        "lastName": "Willett",
+        "title": ["GIS Developer"],
+        "category": "Staff",
+        "current": true,
+        "description": "Dan Willett is a GIS Developer here in the Center for Spatial Studies and Data Science. His work includes geospatial application development, database curation and management, and data analysis and visualization. Dan is currently working with @Spatial faculty Trislayn Nelson and Amy Frazier on projects related to active transportation and land use modeling.",
+        "email": "danwillett@ucsb.edu",
+        "github": "https://github.com/danwillett",
+        "image": "people/dan_willett.jpeg"
     },
     {
         "firstName": "Caitlyn Jeri",
@@ -112,7 +123,7 @@
         "research": "Caitlyn Linehan is a PhD candidate in Geography at the University of California, Santa Barbara, where she specializes in using GISc to improve urban walkability. Her research explores integrating volunteered geographic information with traditional data sources to enhance urban well-being. Caitlyn is also dedicated to developing innovative educational methods for college geography students.",
         "linkedin": "https://www.linkedin.com/in/caitlyn-linehan/",
         "email": "caitlynlinehan@ucsb.edu",
-        "image": "caitlyn_linehan.jpg",
+        "image": "people/caitlyn_linehan.jpg",
         "websiteUrl": "https://www.linkedin.com/in/caitlyn-linehan/",
         "advisors": ["Trisalyn Nelson"]
     },
@@ -127,7 +138,7 @@
         "email": "zijian.wan@geog.ucsb.edu",
         "x": "https://x.com/zijian_wan",
         "gscholar": "https://scholar.google.com/citations?user=vLywcvcAAAAJ&hl=en",
-        "image": "zijian_wan.png",
+        "image": "people/zijian_wan.png",
         "advisors": ["Somayeh Dodge"]
     },
     {
@@ -140,7 +151,7 @@
         "research": "My research interests focus on understanding the dynamics of wildlife interactions using GPS tracking data, particularly among carnivores like tigers, leopards, and pumas. I aim to explore how environmental factors impact both interspecific and intraspecific interactions. By developing and applying advanced computational models, my work aims to reveal the ecological processes that drive these interactions, ultimately informing more effective conservation strategies and wildlife management practices.",
         "email": "yifei_liu@ucsb.edu",
         "gscholar": "https://scholar.google.com/citations?user=IXn2D8YAAAAJ&hl=en",
-        "image": "yifei_liu.jpg",
+        "image": "people/yifei_liu.jpg",
         "advisors": ["Somayeh Dodge"]
     },
     {
@@ -155,7 +166,7 @@
         "websiteUrl": "https://wxyang007.github.io",
         "gscholar": "https://scholar.google.com/citations?hl=en&user=uwEpq2kAAAAJ",
         "linkedin": "https://www.linkedin.com/in/wenxin-yang-9a7729183/",
-        "image": "wenxin_yang.jpg",
+        "image": "people/wenxin_yang.jpg",
         "advisors": ["Amy Frazier", "Peter Kedron"]
     },
     {
@@ -167,7 +178,7 @@
         "description": "I received an M.S. in Ecology from the University of the Chinese Academy of Sciences and a B.S. in Physical Geography and Resource & Environment from Changsha University of Science & Technology. My research interests include ecological modeling, the impacts of disturbances on terrestrial ecosystems, and biodiversity conservation.",
         "research": "I‘m interested in using landscape ecology approaches to promote invasive species control and biodiversity conservation. My current research focuses on integrating field investigation, remote sensing, geospatial analysis, and modeling tools to study the mechanisms of plant invasion.",
         "email": "xyan253@ucsb.edu",
-        "image": "xue_yan.jpg",
+        "image": "people/xue_yan.jpg",
         "advisors": ["Amy Frazier"]
     },
     {
@@ -180,7 +191,7 @@
         "research": "Yuyan enjoys investigating social practical issues through spatial data. Currently, she is working on spatial patterns of bike commuting, and emerging e-bike spatial analysis. She is specifically interested in exploring multiple spatial approaches in GIScience.",
         "email": "yuyanche@ucsb.edu",
         "x": "https://twitter.com/YuyanChe",
-        "image": "yuyan_che.jpg",
+        "image": "people/yuyan_che.jpg",
         "advisors": ["Trisalyn Nelson"]
     },
     {
@@ -194,7 +205,7 @@
         "email": "marysalami@ucsb.edu",
         "gscholar": "https://scholar.google.com/citations?user=A5wFQmIAAAAJ&hl=en&oi=ao",
         "linkedin": "https://www.linkedin.com/in/marysalami/",
-        "image": "mary_salami.jpg",
+        "image": "people/mary_salami.jpg",
         "advisors": ["Somayeh Dodge"]
     },
     {
@@ -209,7 +220,7 @@
         "gscholar": "https://scholar.google.com/citations?user=KnwH5o0AAAAJ&hl=en&oi=ao",
         "linkedin": "https://www.linkedin.com/in/danial-alizadeh-481893149/",
         "x": "https://x.com/danial_alz?s=21&t=VUfK1JDgl-4EtSeBRbIccg",
-        "image": "danial_alizadeh.jpg",
+        "image": "people/danial_alizadeh.jpg",
         "advisors": ["Somayeh Dodge"]
     },
     {
@@ -225,7 +236,7 @@
         "gscholar": "https://scholar.google.com/citations?view_op=list_works&hl=en&user=jPTIzIMAAAAJ&gmla=AC6lMd_Rp0-",
         "linkedin": "",
         "x": "",
-        "image": "izzy_lopez.jpeg"
+        "image": "people/izzy_lopez.jpeg"
         
     },
     {
@@ -241,7 +252,7 @@
         "gscholar": "https://scholar.google.com/citations?user=24Wp1PYAAAAJ&hl=en&oi=ao",
         "linkedin": "https://www.linkedin.com/in/lily-heidger/",
         "x": "",
-        "image": "lily_heidger.jpeg"
+        "image": "people/lily_heidger.jpeg"
         
     },
     {
@@ -257,7 +268,7 @@
         "gscholar": "https://scholar.google.com/citations?user=ujXict4AAAAJ&hl=en",
         "linkedin": "",
         "x": "",
-        "image": "zhongqi_zheng.jpg"
+        "image": "people/zhongqi_zheng.jpg"
         
         
     },
@@ -274,7 +285,7 @@
         "gscholar": "",
         "linkedin": "",
         "x": "",
-        "image": "jin_huang.jpeg"
+        "image": "people/jin_huang.jpeg"
         
     },
     {
@@ -290,7 +301,7 @@
         "gscholar": "",
         "linkedin": "",
         "x": "",
-        "image": "yeshuo_shu.jpg"
+        "image": "people/yeshuo_shu.jpg"
         
     },
     {
@@ -306,7 +317,7 @@
         "gscholar": "https://scholar.google.com/citations?user=PKwwzgoAAAAJ&hl=en&oi=ao ",
         "linkedin": "",
         "x": "https://twitter.com/nnewsh_?lang=en",
-        "image": "niall_newsham.png"
+        "image": "people/niall_newsham.png"
         
     },
     {
@@ -322,7 +333,7 @@
         "gscholar": "",
         "linkedin": "",
         "x": "",
-        "image": "zijun_li.jpg"
+        "image": "people/zijun_li.jpg"
         
     },
     {
@@ -338,7 +349,7 @@
         "gscholar": "",
         "linkedin": "https://www.linkedin.com/in/jiahua-chen/",
         "x": "",
-        "image": "jiahua_chen.jpg"
+        "image": "people/jiahua_chen.jpg"
         
     },
     {
@@ -356,7 +367,7 @@
         "github": "https://github.com/LLeiSong",
         "linkedin": "",
         "x": "",
-        "image": "lei_song.png"
+        "image": "people/lei_song.png"
         
     },
     {
@@ -373,7 +384,7 @@
         "linkedin": "",
         "x": "",
         "websiteUrl": "https://rongxiangsu.github.io/",
-        "image": "rongxiang_su.jpg"
+        "image": "people/rongxiang_su.jpg"
         
         
     },
@@ -390,7 +401,7 @@
         "gscholar": "https://scholar.google.com/citations?user=P5g1dqoAAAAJ&hl=en",
         "linkedin": "",
         "x": "",
-        "image": "yuyang_zhang.jpg"
+        "image": "people/yuyang_zhang.jpg"
         
     },
     {
@@ -406,7 +417,7 @@
         "gscholar": "https://scholar.google.com/citations?user=0dSguGcAAAAJ&hl=en",
         "linkedin": "https://linkedin.com/in/diyang-cui-37814a182",
         "x": "",
-        "image": "diyang_cui.jpg"
+        "image": "people/diyang_cui.jpg"
         
     }
 ]

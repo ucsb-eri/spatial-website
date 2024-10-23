@@ -72,7 +72,7 @@ function People() {
         
                             {/* FACULTY */}
                             <Toolbar sx={{ marginTop: '5px', marginBottom: '5px' }} align='center'>
-                                <Typography variant='h5' align='left' marginTop="30px" marginBottom="30px" paddingBottom="5px" borderBottom={1} borderColor="divider">
+                                <Typography variant='h4' align='left' marginTop="30px" marginBottom="30px" paddingBottom="5px" borderBottom={1} borderColor="divider">
                                 Leadership
                                 </Typography>
                             </Toolbar>
@@ -85,7 +85,7 @@ function People() {
                             
                             {/* STAFF */}
                             <Toolbar sx={{ marginTop: '40px', marginBottom: '5px' }} align='center'>
-                                <Typography variant='h5' align='left' marginTop="30px" marginBottom="30px" paddingBottom="5px" borderBottom={1} borderColor="divider">
+                                <Typography variant='h4' align='left' marginTop="30px" marginBottom="30px" paddingBottom="5px" borderBottom={1} borderColor="divider">
                                 Staff
                                 </Typography>
                             </Toolbar>
@@ -98,7 +98,7 @@ function People() {
 
                             {/* POSTDOCS */}
                             <Toolbar sx={{ marginTop: '40px', marginBottom: '5px' }} align='center'>
-                                <Typography variant='h5' align='left' marginTop="30px" marginBottom="30px" paddingBottom="5px" borderBottom={1} borderColor="divider">
+                                <Typography variant='h4' align='left' marginTop="30px" marginBottom="30px" paddingBottom="5px" borderBottom={1} borderColor="divider">
                                 Postdocs
                                 </Typography>
                             </Toolbar>
@@ -111,7 +111,7 @@ function People() {
                             
                             {/* GRAD STUDENTS */}
                             <Toolbar sx={{ marginTop: '40px', marginBottom: '5px' }} align='center'>
-                                <Typography variant='h5' align='left' marginTop="30px" marginBottom="30px" paddingBottom="5px" borderBottom={1} borderColor="divider">
+                                <Typography variant='h4' align='left' marginTop="30px" marginBottom="30px" paddingBottom="5px" borderBottom={1} borderColor="divider">
                                 Graduate Students
                                 </Typography>
                             </Toolbar>
@@ -124,7 +124,7 @@ function People() {
 
                             {/* CENTER ALUMNI */}
                             <Toolbar sx={{ marginTop: '40px', marginBottom: '5px' }} align='center'>
-                                <Typography variant='h5' align='left' marginTop="30px" marginBottom="30px" paddingBottom="5px" borderBottom={1} borderColor="divider">
+                                <Typography variant='h4' align='left' marginTop="30px" marginBottom="30px" paddingBottom="5px" borderBottom={1} borderColor="divider">
                                 Center Alumni
                                 </Typography>
                             </Toolbar>

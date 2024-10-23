@@ -15,7 +15,7 @@ export default function ContentCard(props) {
                         <Typography sx={{textTransform: 'none'}} align="left" variant='h6' paragraph>{content.subtitle}</Typography>
                                
                         )}
-                        <Typography sx={{textTransform: 'none'}}  align="left"><div dangerouslySetInnerHTML={{__html: content.description}}/></Typography>
+                        <Typography sx={{textTransform: 'none'}}  align="left"><div className="fontTheme" dangerouslySetInnerHTML={{__html: content.description}}/></Typography>
                     </CardContent>
                 </Grid>
                 { content.image.map(image => (
@@ -35,7 +35,7 @@ export default function ContentCard(props) {
                 {content.subtitle && (
                     <Typography sx={{textTransform: 'none'}} align="left" variant='h6' paragraph>{content.subtitle}</Typography>
                 )}
-                <Typography sx={{textTransform: 'none'}} align="left"><div dangerouslySetInnerHTML={{__html: content.description}}/></Typography>
+                <Typography sx={{textTransform: 'none'}} align="left"><div className='fontTheme' dangerouslySetInnerHTML={{__html: content.description}}/></Typography>
             </CardContent>
         )
 

@@ -13,10 +13,10 @@ export default function AccordionContent(props) {
                 <Accordion>
                     <AccordionSummary
                         expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel${index}-content"
-                        id="panel${index}-header"
+                        aria-controls="panel-content"
+                        id="panel-header"
                     >
-                        <Typography variant="h6">{accordion.title}</Typography>
+                        <Typography variant="h5">{accordion.title}</Typography>
                     </AccordionSummary>
                     { accordion.content.map( (content ) => (
                         <AccordionDetails >

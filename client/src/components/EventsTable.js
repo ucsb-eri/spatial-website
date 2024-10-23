@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import DOMPurify from 'dompurify'
 
 function EventsTable() {
-    const calendarID = process.env.REACT_APP_CALENDAR_ID
+    const calendarID = process.env.REACT_APP_SPATIAL_CALENDAR_ID
     const apiKey = process.env.REACT_APP_CALENDAR_API_KEY
     const now = new Date().toISOString()
 

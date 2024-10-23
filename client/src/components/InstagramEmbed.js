@@ -9,12 +9,31 @@ export default function InstagramEmbed() {
         script.src = '//www.instagram.com/embed.js';
         script.async = true;
         document.body.appendChild(script);
-    
-        // Cleanup: remove the script when the component unmounts
+
+        const initializeInstagramEmbed = () => {
+          console.log(window)
+          if (window.instgrm) {
+              window.instgrm.Embeds.process();
+          }
+        };
+
+      // Call initialize on script load
+      script.onload = initializeInstagramEmbed;
         return () => {
           document.body.removeChild(script);
         };
       }, []);
+
+      useEffect(() => {
+        // Re-initialize the embed whenever this component is visible again
+        const initializeInstagramEmbed = () => {
+          if (window.instgrm) {
+            window.instgrm.Embeds.process();
+          }
+        };
+
+        initializeInstagramEmbed();
+    });
     
       return (
         <blockquote

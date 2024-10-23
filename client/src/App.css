@@ -49,7 +49,7 @@
 /* Global CSS for Typography */
 
 /* Headings with font family */
-h1, h2, h3, h4, h5, h6, p, ul, li {
+h1, h2, h3, h4, h5, h6, p, ul, li, .fontTheme {
   font-family: "Nunito Sans", sans-serif;
   margin: 0 0 16px;
 }

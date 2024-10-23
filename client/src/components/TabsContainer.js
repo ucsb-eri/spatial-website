@@ -86,7 +86,7 @@ export default function TabsContainer(props) {
                         <Grid container direction='row' justifyContent='center'>
                             <Grid item xs={12} md={11}>                                   
                                 <Toolbar align='left' disableGutters={true}>
-                                    <Typography variant='h5' align='left' paddingBottom="5px" borderBottom={1} borderColor="divider">
+                                    <Typography variant='h4' align='left' paddingBottom="5px" borderBottom={1} borderColor="divider">
                                         {panel.name}
                                     </Typography>
                                 </Toolbar>

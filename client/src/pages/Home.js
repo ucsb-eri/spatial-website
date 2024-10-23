@@ -51,27 +51,27 @@ export default function Home() {
                   
               </Grid>
             <Grid item xs={12} sm={11}>
-              <Grid container direction='row' columnSpacing={3} justifyContent="space-around">
-                
-                <Grid item xs={12}>
-                  <Toolbar sx={{ marginTop: '5px', marginBottom: '5px' }} align='center'>
-                      <Typography variant='h4' component="h2" align='left' marginTop="30px" marginBottom="30px" paddingBottom="5px" borderBottom={1} borderColor="divider">
-                      News & Events
-                      </Typography>
-                  </Toolbar>
+              <Toolbar sx={{ marginTop: '5px', marginBottom: '5px' }} align='center'>
+                  <Typography variant='h4' component="h2" align='left' marginTop="30px" marginBottom="30px" paddingBottom="5px" borderBottom={1} borderColor="divider">
+                  News & Events
+                  </Typography>
+              </Toolbar>
+            </Grid>
+            <Grid item xs={12} sm={11} lg={10}>
+              
 
-                </Grid>
-
-                <Grid item xs={11} sm={6} lg={5}>
-                  <InstagramEmbed />
-                </Grid>
-                <Grid item xs={11} sm={6} lg={5}>
+              <Grid container direction='row-reverse' columnSpacing={3} rowGap={3} justifyContent="center">
+                <Grid item xs={11} md={6} xl={5}>
                 
                 <EventsTable />
                 {/* <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FLos_Angeles&bgcolor=%23ffffff&src=ZGFud2lsbGV0dEB1Y3NiLmVkdQ&src=Y19iOWQyOTA4NzdiNGE4NTlkMWY3MGJjYTdlOGZkMTBkZTMxOTVmZjUwYWZhNzExMWMyMmJiMDEwMDMzY2ZlY2M3QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23039BE5&color=%234285F4&color=%230B8043" style={{border:"solid 1px #777", width: "800", height: "600", frameborder:"0", scrolling:"no"}}></iframe> */}
                 {/* <iframe src="https://calendar.google.com/calendar/embed?src=c_b9d290877b4a859d1f70bca7e8fd10de3195ff50afa7111c22bb010033cfecc7%40group.calendar.google.com&ctz=America%2FLos_Angeles" style={{border: "0", width: '100%', height: '450px', frameborder: "0", scrolling: "no"}}></iframe> */}
                 
                 </Grid>
+                <Grid item xs={11} md={6} xl={5}>
+                  <InstagramEmbed />
+                </Grid>
+                
               </Grid>
             </Grid>
             

@@ -3,6 +3,8 @@ import { Typography, Grid, CardContent, CardMedia } from '@mui/material'
 
 export default function ContentCard(props) {
     const { content } = props
+    const imageRoute = process.env.NODE_ENV === "production" ? "https://spatialtest.grit.ucsb.edu/images/" : "http://localhost:3001/images/"
+
     return (
 
         content.image && content.image.length > 0 ? (
@@ -23,7 +25,7 @@ export default function ContentCard(props) {
                         <CardMedia
                             component="img"
                             alt={image}
-                            src= {image ? `http://localhost:3001/images/${image}` : "https://images.freeimages.com/images/large-previews/ac7/sky-1401862.jpg?fmt=webp&w=500"}
+                            src= {imageRoute + image}
                             align="left"
                             sx={{ width: '100%'}}/>
                     </Grid>

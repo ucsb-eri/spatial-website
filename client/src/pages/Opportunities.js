@@ -30,7 +30,6 @@ export default function Opportunities(props) {
     if (infoPanelData) {
         oppsPanelData = infoPanelData.filter(panel => panel.location === "opportunities")
     }
-    console.log(oppsPanelData)
 
     const [newPanel, setNewPanel] = useState(false)
     const backToPanels = () => setNewPanel(false)

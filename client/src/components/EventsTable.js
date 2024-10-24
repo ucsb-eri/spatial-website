@@ -24,7 +24,7 @@ function EventsTable() {
             setEvents(items)
             return data.items;
         } catch (error) {
-            console.log("aer")
+            console.error("Error loading events table", error)
         }
     }
 

@@ -27,13 +27,11 @@ function Projects() {
     const {loading, data, error} = useQuery(GET_PROJECTS)
 
     const projects = data?.projects || [];
-    console.log(projects)
     if (projects.length === 0) {
         return <div>no projects!</div>
     }
 
     const currentProjectDetails = projects.find(project => project.id === currentProject);
-    console.log("this project: ", currentProjectDetails)
     return (
         <Grid item>
             {newProject ? (

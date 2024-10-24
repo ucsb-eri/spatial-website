@@ -18,13 +18,11 @@ function People() {
     const backToPeople = () => setNewPerson(false)
   
     const renderPerson = (details) => {
-        console.log(details.firstName, details._id)
         setCurrentPerson(details._id)
     };
 
     const backToCards = () => {
         setCurrentPerson(null)
-        console.log("Current person: ", currentPerson)
     }
 
     const currentPersonDetails = peopleList.find(person => person._id === currentPerson);

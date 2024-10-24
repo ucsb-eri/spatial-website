@@ -30,7 +30,6 @@ export default function Events(props) {
     if (infoPanelData) {
         eventPanelData = infoPanelData.filter(panel => panel.location === "events")
     }
-    console.log(eventPanelData)
 
     const [newPanel, setNewPanel] = useState(false)
     const backToPanels = () => setNewPanel(false)

@@ -11,7 +11,6 @@ export default function InstagramEmbed() {
         document.body.appendChild(script);
 
         const initializeInstagramEmbed = () => {
-          console.log(window)
           if (window.instgrm) {
               window.instgrm.Embeds.process();
           }
@@ -49,7 +48,6 @@ export default function InstagramEmbed() {
             width: '100%',
             minWidth: '326px',
             padding: 0,
-            width: '99.375%',
           }}
         >
           

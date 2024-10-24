@@ -6,7 +6,6 @@ import ContentCard from './ContentCard'
 
 export default function AccordionContent(props) {
     const { accordions } = props
-    console.log(accordions)
     return (
         <div>
             { accordions.map( (accordion, index) => (

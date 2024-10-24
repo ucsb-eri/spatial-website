@@ -12,10 +12,8 @@ export default function ContentCard(props) {
                 
                 <Grid item xs={12} md={11} lg={7}>
                     <CardContent>
-                        {content.subtitle && (
-                            
+                        {content.subtitle && (                            
                         <Typography sx={{textTransform: 'none'}} align="left" variant='h6' paragraph>{content.subtitle}</Typography>
-                               
                         )}
                         <Typography sx={{textTransform: 'none'}}  align="left"><div className="fontTheme" dangerouslySetInnerHTML={{__html: content.description}}/></Typography>
                     </CardContent>

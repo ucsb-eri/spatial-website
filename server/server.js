@@ -4,6 +4,7 @@ const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
 const { authMiddleware } = require('./utils/auth');
 const uploadImageRoute = require('./routes/uploadImages')
+const calendarEventsRoute = require('./routes/calendarEvents')
 
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
@@ -15,16 +16,12 @@ const app = express();
 if (process.env.NODE_ENV !== 'production') {
   createAdminAccount()
 }
-
-if (process.env.REACT_APP_CALENDAR_API_KEY !== null) {
-  console.log("API key exists")
-}
-
-console.log(process.env.REACT_APP_SPATIAL_CALENDAR_ID)
-
+app.use(cors({
+  origin: ["http://localhost:3000", "https://spatialtest.grit.ucsb.edu", "https://spatial.ucsb.edu"]
+}))
 app.use(
   '/graphql',
-  cors({origin: ["http:localhost:3001", "http://localhost:3000", "https://studio.apollographql.com", "https://spatialtest.ucsb.edu"]})
+  cors({origin: ["http://localhost:3001", "http://localhost:3000", "https://studio.apollographql.com", "https://spatialtest.ucsb.edu"]})
 )
 
 const server = new ApolloServer({
@@ -33,10 +30,10 @@ const server = new ApolloServer({
   context: authMiddleware, 
 });
 
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use('/api', uploadImageRoute)
-
+app.use('/api', calendarEventsRoute)
 
 
 if (process.env.NODE_ENV === 'production') {

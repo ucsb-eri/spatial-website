@@ -5,24 +5,17 @@ import Typography from '@mui/material/Typography';
 import DOMPurify from 'dompurify'
 
 function EventsTable() {
-    const calendarID = process.env.REACT_APP_SPATIAL_CALENDAR_ID
-    const apiKey = process.env.REACT_APP_CALENDAR_API_KEY
-    const now = new Date().toISOString()
 
     const [events, setEvents] = useState([])
-    const eventsNum = 5  
-    const getEvents = async (calendarID, apiKey, eventsNum) => {
+    const getEvents = async () => {
         
-        const url = `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calendarID)}/events?key=${apiKey}&timeMin=${now}&maxResults=${eventsNum}&singleEvents=true&orderBy=startTime&eventTypes=default`;
         try {
-            const response = await fetch(url)
-            if (!response.ok) {
-                throw new Error("Calendar can't be reached")
-            }
-            const data = await response.json()
-            const items = data.items
-            setEvents(items)
-            return data.items;
+            const eventsFetch = await fetch("http://localhost:3001/api/spatialevents")
+            console.log(eventsFetch)
+            const events = await eventsFetch.json()
+            console.log(events)
+            setEvents(events)
+  
         } catch (error) {
             console.error("Error loading events table", error)
         }
@@ -40,7 +33,7 @@ function EventsTable() {
     }
 
     useEffect(() => {
-        getEvents(calendarID, apiKey, eventsNum)
+        getEvents()
     }, [])
 
     const formatDate = (dateStr) => {

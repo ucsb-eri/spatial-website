@@ -16,7 +16,11 @@ if (process.env.NODE_ENV !== 'production') {
   createAdminAccount()
 }
 
-seedWebsite()
+if (process.env.REACT_APP_CALENDAR_API_KEY !== null) {
+  console.log("API key exists")
+}
+
+console.log(process.env.REACT_APP_SPATIAL_CALENDAR_ID)
 
 app.use(
   '/graphql',

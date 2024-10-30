@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import DOMPurify from 'dompurify'
 
 function EventsTable() {
-    const eventsRoute = process.env.NODE_ENV === "production" ? "https://spatialtest.grit.ucsb.edu/api/spatialevents" : "http://localhost:3001/api/spatialevents/"
+    const eventsRoute = process.env.NODE_ENV === "production" ? "https://spatial.ucsb.edu/api/spatialevents" : "http://localhost:3001/api/spatialevents/"
     const [events, setEvents] = useState([])
     const getEvents = async () => {
         

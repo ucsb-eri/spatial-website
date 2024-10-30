@@ -3,7 +3,7 @@ import { Typography, Grid, CardContent, CardMedia } from '@mui/material'
 
 export default function ContentCard(props) {
     const { content } = props
-    const imageRoute = process.env.NODE_ENV === "production" ? "https://spatialtest.grit.ucsb.edu/images/" : "http://localhost:3001/images/"
+    const imageRoute = process.env.NODE_ENV === "production" ? "https://spatial.ucsb.edu/images/" : "http://localhost:3001/images/"
 
     return (
 

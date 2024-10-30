@@ -1,6 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
-import { Box, Container, Grid, Typography, Icon, IconButton, Link, Divider } from '@mui/material' 
+import { Box, Container, Grid, Typography, Link, Divider } from '@mui/material' 
 import spatialLogoNavy from '../content/logos/spatialnavy.png'
 import instagramIcon from '../content/logos/instaicon.png'
 import emailIcon from '../content/logos/emailicon.png'

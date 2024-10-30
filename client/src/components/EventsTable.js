@@ -1,19 +1,17 @@
 import { React, useEffect, useState } from 'react';
-import { Grid, Divider, Link, Box } from '@mui/material'
+import { Grid, Divider, Link } from '@mui/material'
 import LaunchIcon from '@mui/icons-material/Launch';
 import Typography from '@mui/material/Typography';
 import DOMPurify from 'dompurify'
 
 function EventsTable() {
-
+    const eventsRoute = process.env.NODE_ENV === "production" ? "https://spatialtest.grit.ucsb.edu/api/spatialevents" : "http://localhost:3001/api/spatialevents/"
     const [events, setEvents] = useState([])
     const getEvents = async () => {
         
         try {
-            const eventsFetch = await fetch("http://localhost:3001/api/spatialevents")
-            console.log(eventsFetch)
+            const eventsFetch = await fetch(eventsRoute)
             const events = await eventsFetch.json()
-            console.log(events)
             setEvents(events)
   
         } catch (error) {

@@ -1,12 +1,12 @@
-import {React, useState, useContext} from 'react';
+import {React, useContext} from 'react';
 import { AdminLoginContext } from "../context/AdminProvider"
 import CreateInfoPanel from './CreateInfoPanel';
 
 
 import PropTypes from 'prop-types'
-import {Grid, Container, Typography, Paper, Card, CardMedia, Tabs, Tab, Box, useMediaQuery, Toolbar, Button, CardContent} from '@mui/material'
+import {Grid, Typography, Card, Tabs, Tab, Box, useMediaQuery, Toolbar, Button} from '@mui/material'
 import ContentCard from './ContentCard';
-import LandingCarouselSlide from '../components/LandingCarouselSlide';
+
 import AccordionContent from './AccordionContent';
 
 

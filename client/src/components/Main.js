@@ -1,7 +1,7 @@
-import React, {useState, useContext, useEffect} from 'react';
-import {Container, Grid, Toolbar, Box, Tabs, Tab, Popover, MenuItem} from '@mui/material'
+import React, {useState, useEffect} from 'react';
+import {Container, Grid } from '@mui/material'
 
-import { useQuery, useMutation } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import { GET_INFOPANELS } from '../utils/queries';
 import { useProjectContext } from '../context/ProjectContext'
 

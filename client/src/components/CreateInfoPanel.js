@@ -1,13 +1,12 @@
 import * as React from 'react';
 import { useState, useEffect, useContext } from 'react';
 import RichTextEditor from './RichTextEditor';
-import {EditorState, ContentState, Editor} from 'draft-js'
+import {EditorState, ContentState} from 'draft-js'
 import {stateToHTML} from 'draft-js-export-html'
 import { convertFromHTML } from 'draft-js';
 import Container from '@mui/material/Container';
 import 'draft-js/dist/Draft.css'
 import '../css/RichText.css'
-import axios from 'axios'
 import Auth from '../utils/auth'
 
 import { FormGroup, FormControl, TextField, InputLabel, Button, Input } from '@mui/material';

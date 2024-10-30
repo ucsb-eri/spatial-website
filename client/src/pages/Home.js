@@ -1,4 +1,4 @@
-import { React, useEffect } from 'react';
+import { React } from 'react';
 import {Grid, Typography, Toolbar}  from '@mui/material';
 
 import LandingCarousel from '../components/LandingCarousel';

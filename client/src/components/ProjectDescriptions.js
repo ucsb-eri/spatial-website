@@ -1,8 +1,7 @@
-import { React, useContext, useState, useEffect } from 'react';
+import { React, useContext, useEffect } from 'react';
 import { AdminLoginContext } from "../context/AdminProvider"
-import DOMPurify from 'dompurify'
 
-import {Container, Grid, Typography, Button, Card, CardMedia, CardActionArea, Toolbar, Divider, CardContent} from '@mui/material';
+import {Container, Grid, Typography, Button, Card, CardMedia, CardContent} from '@mui/material';
 import CreateProject from './CreateProject';
 import { useProjectContext } from '../context/ProjectContext';
 

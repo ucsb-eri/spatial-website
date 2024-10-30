@@ -1,7 +1,6 @@
 import {React, useContext} from 'react';
 import { AdminLoginContext } from '../context/AdminProvider';
 
-import PropTypes from 'prop-types';
 import { Toolbar, Button, Box, Grid, Typography, IconButton} from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
 

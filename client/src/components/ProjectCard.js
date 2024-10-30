@@ -1,6 +1,6 @@
 import { React} from 'react';
 
-import {Typography, Card, CardActionArea, CardContent, CardMedia, Box} from '@mui/material';
+import {Typography, Card, CardActionArea, CardContent, Box} from '@mui/material';
 
 export default function ProjectCard(props) {
 

@@ -11,7 +11,8 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 // import { GET_PROJECTS } from '../utils/queries';
 
 export default function ProjectDescriptions(props) {
-    
+    const imageRoute = process.env.NODE_ENV === "production" ? "https://spatial.ucsb.edu/images/" : "http://localhost:3001/images/"
+
     useEffect(() => {
         window.scrollTo(0,0)
     })
@@ -59,7 +60,7 @@ export default function ProjectDescriptions(props) {
                                 component="img"
                                 alt="project image"
                                 height="400"
-                                src= {project.image ? `http://localhost:3001/images/${project.image}` : "https://images.freeimages.com/images/large-previews/ac7/sky-1401862.jpg?fmt=webp&w=500"}
+                                src= {project.image ? `${imageRoute}${project.image}` : "https://images.freeimages.com/images/large-previews/ac7/sky-1401862.jpg?fmt=webp&w=500"}
                                 align="center"
                             />
                             <CardContent>
@@ -77,7 +78,7 @@ export default function ProjectDescriptions(props) {
                                     <CardMedia
                                     component="img"
                                     alt="funding logo"
-                                    src= {project.funderLogo ? `http://localhost:3001/images/${project.funderLogo}` : "https://images.freeimages.com/images/large-previews/ac7/sky-1401862.jpg?fmt=webp&w=500"}
+                                    src= {project.funderLogo ? `${imageRoute}${project.funderLogo}` : "https://images.freeimages.com/images/large-previews/ac7/sky-1401862.jpg?fmt=webp&w=500"}
                                     align="left"
                                     sx={{width: '150px'}}
                                 />

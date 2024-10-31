@@ -1,7 +1,7 @@
 import { React } from 'react';
 import { Card, Box, CardActionArea, CardContent, CardMedia, Typography, Grid } from '@mui/material';
 
-const imageRoute = process.env.NODE_ENV === "production" ? "https://spatialtest.grit.ucsb.edu/images/" : "http://localhost:3001/images/"
+const imageRoute = process.env.NODE_ENV === "production" ? "https://spatial.ucsb.edu/images/" : "http://localhost:3001/images/"
 
 function PersonCard(props) {
     

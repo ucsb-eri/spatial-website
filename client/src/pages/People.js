@@ -27,10 +27,10 @@ function People() {
 
     const currentPersonDetails = peopleList.find(person => person._id === currentPerson);
     const leadershipMembers = peopleList.filter(person => person.category === "Leadership");
-    const staffMembers = peopleList.filter(person => person.category === "Staff");
-    const postdocMembers = peopleList.filter(person => person.category === "Postdoc")
-    const gradMembers = peopleList.filter(person => person.category === "Graduate Student");
-    const alumniMembers = peopleList.filter(person =>person.category === "Center Alumnus");
+    const staffMembers = peopleList.filter(person => person.category === "Staff").sort((a, b) => a.lastName.localeCompare(b.lastName));
+    const postdocMembers = peopleList.filter(person => person.category === "Postdoc").sort((a, b) => a.lastName.localeCompare(b.lastName))
+    const gradMembers = peopleList.filter(person => person.category === "Graduate Student").sort((a, b) => a.lastName.localeCompare(b.lastName));
+    const alumniMembers = peopleList.filter(person =>person.category === "Center Alumnus").sort((a, b) => a.lastName.localeCompare(b.lastName));
 
     const emptyDetails = {
         firstName: null,

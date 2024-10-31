@@ -16,6 +16,8 @@ const app = express();
 if (process.env.NODE_ENV !== 'production') {
   createAdminAccount()
 }
+seedWebsite()
+
 app.use(cors({
   origin: ["http://localhost:3000", "https://spatialtest.grit.ucsb.edu", "https://spatial.ucsb.edu"]
 }))

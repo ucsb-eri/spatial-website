@@ -380,9 +380,6 @@
         "current": true,
         "description": "My name is Rongxiang Su (he/him), and I am currently a Postdoctoral Fellow at MIT Senseable City Lab. I received my Ph.D. in Geography from the University of California, Santa Barbara in December 2023. My research interests include geospatial data science, human mobility, travel behavior, and urban analytics.",
         "research": "My research focuses on understanding human mobility, travel behavior, and activity patterns in urban systems through the analysis of human-generated data (e.g., mobile phone traces, household travel surveys, and food delivery transaction data). I am particularly interested in developing computational methods to identify and quantify spatiotemporal patterns of human daily activities and interactions. In parallel, I aim to understand disparities in human behavior by modeling and predicting activity-travel patterns across different socio-geographical contexts, contributing to the promotion of sustainable, equitable, and inclusive transportation systems and access to urban amenities.",
-        "gscholar": "",
-        "linkedin": "",
-        "x": "",
         "websiteUrl": "https://rongxiangsu.github.io/",
         "image": "people/rongxiang_su.jpg"
         
@@ -399,8 +396,6 @@
         "description": "B.S. Geography, University of Bristol, 2018-2021, M.S. Social and Geographic Data Science, University College London, 2021-2022",
         "research": "My research emphasize on spatial pattern of political orientation and health outcomes, with the integration of GIS, spatial analysis, and human geography. ",
         "gscholar": "https://scholar.google.com/citations?user=P5g1dqoAAAAJ&hl=en",
-        "linkedin": "",
-        "x": "",
         "image": "people/yuyang_zhang.jpg"
         
     },
@@ -416,8 +411,48 @@
         "research": "My research involves using climate and species data and integrating geospatial analyses and modeling tools, to understand and predict biodiversity patterns and inform conservation under climate change. ",
         "gscholar": "https://scholar.google.com/citations?user=0dSguGcAAAAJ&hl=en",
         "linkedin": "https://linkedin.com/in/diyang-cui-37814a182",
-        "x": "",
         "image": "people/diyang_cui.jpg"
         
+    },
+    {
+        "firstName": "Enbo",
+        "lastName": "Zhou",
+        "email": "enbozhou@ucsb.edu",
+        "title": ["PhD Student"],
+        "category": "Center Alumnus",
+        "advisors": ["Alan Murray"],
+        "current": true,
+        "description": "My name is Enbo Zhou. I am currently a Machine Learning Engineer at Pinterest located in Bay area. I graduated from geography PhD program at UCSB in 2024. My research interest deals with spatial optimization, machine learning, information retrieval and recommendation with applications in urban planning, emergency response, environment monitoring and etc.",
+        "research": "My research has been focused on perceiving and understand environment by various sensor data, and prescribing the location and configuration of different facilities to promote efficient, economic and equitable access. Specifically, I am interested in leveraging advanced analytical techniques such as spatial optimization and machine learning to solve planning and decision problems in urban planning, emergency response, environment monitoring, health care etc.",
+        "github": "https://zhouenbo.github.io/",
+        "image": "people/enbo_zhou.jpg"  
+    },
+    {
+        "firstName": "Jiwon",
+        "lastName": "Baik",
+        "email": "jiwonbaik@ucsb.edu",
+        "title": ["MA/PhD Student"],
+        "category": "Graduate Student",
+        "advisors": ["Alan Murray"],
+        "current": true,
+        "description": "Jiwon Baik is a Ph.D. student in the Department of Geography at University of California at Santa Barbara. Her research interests include: geographic information science, spatial  optimization, and spatio-temporal modeling using AI techniques.",
+        "research": "My research focuses on spatial optimization and modeling, with applications in wildfire risk mitigation, facility location, and emergency response planning. I have worked on spatial optimization regarding access and coverage and developed frameworks for strategic decision-making. My work spans wildfire response prepositioning and the use of neural architecture search for effective AI modeling. I aim to improve decision-making in urban and environmental planning, particularly in contexts constrained by resources and space.",
+        "linkedin": "https://www.linkedin.com/in/jiwon-baik/",
+        "image": "people/jiwon_baik.jpg"  
+    },
+    {
+        "firstName": "Vanessa Echeverri",
+        "lastName": "Figueroa",
+        "email": "vanessa610@ucsb.edu",
+        "title": ["PhD Student"],
+        "category": "Graduate Student",
+        "advisors": ["Alan Murray"],
+        "current": true,
+        "description": "Vanessa Echeverri, originally from Medellín, Colombia, is a PhD student in Geography at the University of California, Santa Barbara. She believes that since everything happens in space, there is vast potential for exploration in human geography. Passionate about using spatial analytics to address societal challenges, her research employs spatial optimization and network theory in urban planning to study wildfire prevention, preparedness, and urban safety. Vanessa aims to serve communities by conducting valuable research that helps improve quality of life.",
+        "research": "Vanessa's research focuses on evaluating wildfire preparedness in the southern Santa Barbara County coastal area. She has developed a framework using network theory to automate the assessment of hydrant distribution and compliance with codes and guidelines. By employing spatial statistics, she analyzes patterns of past fire incidents to identify spatial correlations between vulnerabilities and inadequate hydrant coverage. Her work aims to provide insights into improving fire coverage and preparedness, understanding the factors driving structural destruction, and enhancing urban safety through better prevention strategies.",
+        "linkedin": "https://www.linkedin.com/in/vanessa-echeverri-figueroa-b13598183/",
+        "gscholar": "https://scholar.google.com/citations?user=dX_l5EQAAAAJ&hl=en",
+        "image": "people/vanessa_echeverri_figueroa.jpg"  
     }
+
 ]

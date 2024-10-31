@@ -3,7 +3,7 @@ import {Grid, Container, Paper, Box, Typography}  from '@mui/material';
 import LandingCarouselSlide from '../components/LandingCarouselSlide';
 import GiveCard from '../components/GiveCard';
 
-const imageRoute = process.env.NODE_ENV === "production" ? "https://spatialtest.grit.ucsb.edu/images/" : "http://localhost:3001/images/"
+const imageRoute = process.env.NODE_ENV === "production" ? "https://spatial.ucsb.edu/images/" : "http://localhost:3001/images/"
 
 const giveBanner = {
     description: "",

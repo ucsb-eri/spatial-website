@@ -5,10 +5,10 @@ import LandingCarousel from '../components/LandingCarousel';
 import EventsTable from '../components/EventsTable'
 import InstagramEmbed from '../components/InstagramEmbed';
 
-const imageRoute = process.env.NODE_ENV === "production" ? "https://spatialtest.grit.ucsb.edu/images/" : "http://localhost:3001/images/"
+const imageRoute = process.env.NODE_ENV === "production" ? "https://spatial.ucsb.edu/images/" : "http://localhost:3001/images/"
 const featuredPosts = [
   {
-    title: 'Learn through our Esri Curriculum about spatial methods, techniques, and data',
+    title: 'Learn through our Guide to the Geographic Approach curriculum about spatial methods, techniques, and data',
     description: '',
     image: `${imageRoute + 'Home1.jpg'}`,
     imageText: 'Image Text',

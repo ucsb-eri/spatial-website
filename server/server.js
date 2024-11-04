@@ -23,7 +23,7 @@ app.use(cors({
 }))
 app.use(
   '/graphql',
-  cors({origin: ["http://localhost:3001", "http://localhost:3000", "https://studio.apollographql.com", "https://spatialtest.ucsb.edu"]})
+  cors({origin: ["http://localhost:3001", "http://localhost:3000", "https://studio.apollographql.com", "https://spatialtest.ucsb.edu", "https://spatial.ucsb.edu"]})
 )
 
 const server = new ApolloServer({

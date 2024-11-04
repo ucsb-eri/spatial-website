@@ -19,11 +19,11 @@ if (process.env.NODE_ENV !== 'production') {
 seedWebsite()
 
 app.use(cors({
-  origin: ["http://localhost:3000", "https://spatialtest.grit.ucsb.edu", "https://spatial.ucsb.edu"]
+  origin: ["http://localhost:3000", "https://spatialtest.grit.ucsb.edu", "https://spatial.ucsb.edu", "https://www.spatial.ucsb.edu" ]
 }))
 app.use(
   '/graphql',
-  cors({origin: ["http://localhost:3001", "http://localhost:3000", "https://studio.apollographql.com", "https://spatialtest.ucsb.edu", "https://spatial.ucsb.edu"]})
+  cors({origin: ["http://localhost:3001", "http://localhost:3000", "https://studio.apollographql.com", "https://spatialtest.ucsb.edu", "https://spatial.ucsb.edu", "https://www.spatial.ucsb.edu"]})
 )
 
 const server = new ApolloServer({

@@ -60,7 +60,7 @@ function Projects() {
                                             
                                             <Grid item xs={11} my={4}>
                                                 <Typography variant='h6' align='left'>
-                                                    UC Santa Barbara Spatial faculty, researchers, and students work together on diverse projects, applying spatial data science techniques to solve a variety of challenges. These projects range from analyzing patterns of transportation safety and accessibility to studying environmental changes and their impact on communities. By using GIS, remote sensing, spatial analysis, and machine learning, our team is able to tackle real-world issues with innovative approaches. This collaborative work environment enables us to address complex problems and advance the field of spatial data science.
+                                                Center faculty, researchers, and students work together on diverse projects, applying spatial data science techniques to solve a variety of challenges.
                                                 </Typography>
                                             </Grid>
                                             <Grid item xs={12} lg={11}>

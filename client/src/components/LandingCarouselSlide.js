@@ -8,7 +8,6 @@ function LandingCarouselSlide(props) {
   const { post } = props;
 
   return (
-    <div>
       <Grid container direction="row">
         <Grid item xs={12}>
           <Box
@@ -27,10 +26,10 @@ function LandingCarouselSlide(props) {
             }}
           >
             
-            <Typography variant="h1" color="inherit" mb={3} align='left'>
+            <Typography variant="h1" color="inherit" mb={2} align='left'>
               {post.title}
             </Typography>
-            <Typography variant="h4" color="inherit" paragraph align='left' marginTop='20px' sx={{ textShadow: '.5px .5px 1px rgba(0, 0, 0, 0.7)'}}>
+            <Typography variant="h4" color="inherit" paragraph align='left' marginTop='20px' sx={{ textShadow: '1px 1px 2px rgba(0, 0, 0, 0.7)'}}>
               {post.description}
             </Typography>
             {/* <Link variant="subtitle1" href="#">
@@ -39,7 +38,6 @@ function LandingCarouselSlide(props) {
           </Box>
         </Grid>
       </Grid>
-    </div>
   );
 }
 

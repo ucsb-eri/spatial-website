@@ -8,24 +8,24 @@ import InstagramEmbed from '../components/InstagramEmbed';
 const imageRoute = process.env.NODE_ENV === "production" ? "https://spatial.ucsb.edu/images/" : "http://localhost:3001/images/"
 const featuredPosts = [
   {
-    title: 'Learn through our Guide to the Geographic Approach curriculum about spatial methods, techniques, and data',
-    description: '',
+    title: 'Evolving GIS curriculum',
+    description: 'More details coming soon',
     image: `${imageRoute + 'Home1.jpg'}`,
     imageText: 'Image Text',
     color: 'white'
   },
   {
-    title: 'Listen to our Earth + Humans podcast to hear from spatial experts on the global problems they’re working on',
+    title: 'Earth + Humans',
     labgroup: '',
-    description: '',
+    description: 'A podcast about spatial science solutions',
     image: `${imageRoute + 'Home2.jpg'}`,
     imageText: 'Image Text',
     color:'white'
   },
   {
-    title: 'Attend Spatial Center Events by keeping up with our event calendar',
+    title: 'Spatial Events',
     labgroup: '',
-    description: '',
+    description: 'Keep up to date with our events calendar',
     image: `${imageRoute + 'Home3.jpg'}`,
     imageText: 'Image Text',
     color: 'white'
@@ -45,8 +45,14 @@ export default function Home() {
               <LandingCarousel slides={featuredPosts} />
             </Grid>
             <Grid item xs={11} md={9} sx={{my: '30px'}}>
-                  <Typography align="center" variant="h4" paragraph>
-                  At the Center for Spatial Studies and Data Science at University of California Santa Barbara we collaboratively design, implement and disseminate spatial science for a better world!
+                  <Typography align="left" variant="h5" paragraph mb={2}>
+                  At the Center for Spatial Studies and Data Science at University of California Santa Barbara we collaboratively
+                  </Typography>
+                  <Typography align="center" variant="h3" paragraph>
+                  <b>Design, Implement, and Disseminate</b>
+                  </Typography>
+                  <Typography align="center" variant="h5">
+                    spatial science for a better world!
                   </Typography>
                   
               </Grid>

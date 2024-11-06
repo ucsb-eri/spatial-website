@@ -1,11 +1,10 @@
 import {React, useState, useEffect} from 'react';
 import { useTheme } from '@mui/material/styles';
-import MobileStepper from '@mui/material/MobileStepper';
-import Paper from '@mui/material/Paper';
-import Button from '@mui/material/Button';
+import { Paper, Box, Button, MobileStepper } from '@mui/material';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import SwipeableViews from "react-swipeable-views-react-18-fix"
+
 import LandingCarouselSlide from './LandingCarouselSlide';
 
 
@@ -62,29 +61,35 @@ function LandingCarousel(props) {
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
         backgroundImage: `url(${slides[activeStep]['image']})`,
+    
       }}
     >
+        <Box
+        sx={{
+            backgroundColor: 'rgba(0, 0, 0, 0.1)',
+            height: '100%'
+            }}
+        >
+
         <SwipeableViews
             axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
             index={activeStep}
             onChangeIndex={handleStepChange}
-            enableMouseEvents
-            
-            
+            enableMouseEvents 
         >
             {slides.map((step, index) => (
-                // <div>hi</div>
             <LandingCarouselSlide post={step} key={index} />
             ))}
         </SwipeableViews>
+        
         <MobileStepper
             steps={maxSteps}
             position="static"
             activeStep={activeStep}
             style={{ position: 'absolute', bottom: 0, left: 0, right: 0}}
             sx={{
-                backgroundColor: 'transparent',
-                color: 'black'
+                color: 'black',
+                backgroundColor: 'transparent'
             }}
             nextButton={
             <Button
@@ -106,10 +111,10 @@ function LandingCarousel(props) {
                 ) : (
                 <KeyboardArrowLeft />
                 )}
-                
             </Button>
             }
         />
+        </Box>
     </Paper>
 
   );

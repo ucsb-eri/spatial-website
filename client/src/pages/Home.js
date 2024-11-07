@@ -18,6 +18,7 @@ const featuredPosts = [
     title: 'Earth + Humans',
     labgroup: '',
     description: 'A podcast about spatial science solutions',
+    linkText: 'https://www.sparlab.org/podcast',
     image: `${imageRoute + 'Home2.jpg'}`,
     imageText: 'Image Text',
     color:'white'
@@ -45,15 +46,15 @@ export default function Home() {
               <LandingCarousel slides={featuredPosts} />
             </Grid>
             <Grid item xs={11} md={9} sx={{my: '30px'}}>
-                  <Typography align="left" variant="h5" paragraph mb={2}>
-                  At the Center for Spatial Studies and Data Science at University of California Santa Barbara we collaboratively
+                  
+                  <Typography align="center" variant="h3" paragraph mb={3}>
+                    <b>Design, Implement, and Disseminate</b>
                   </Typography>
-                  <Typography align="center" variant="h3" paragraph>
-                  <b>Design, Implement, and Disseminate</b>
+                  <Typography align="center" variant="h5" paragraph mb={3}>
+                  Here at the Center for Spatial Studies and Data Science at University of California Santa Barbara we collaboratively design, implement, and disseminate spatial science for a better world!
                   </Typography>
-                  <Typography align="center" variant="h5">
-                    spatial science for a better world!
-                  </Typography>
+                  
+              
                   
               </Grid>
             <Grid item xs={12} sm={11}>

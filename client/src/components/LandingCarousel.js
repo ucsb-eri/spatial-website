@@ -89,30 +89,33 @@ function LandingCarousel(props) {
             style={{ position: 'absolute', bottom: 0, left: 0, right: 0}}
             sx={{
                 color: 'black',
-                backgroundColor: 'transparent'
+                backgroundColor: 'transparent',
+                '.MuiMobileStepper-dotActive': {
+                    backgroundColor: 'white',  // Active dot color
+                },  
+                  
             }}
             nextButton={
-            <Button
-                size="large"
-                onClick={handleNext}
-            >
-                
-                {theme.direction === 'rtl' ? (
-                <KeyboardArrowLeft />
-                ) : (
-                <KeyboardArrowRight />
-                )}
-            </Button>
-            }
+                <Button
+                    size="large"
+                    onClick={handleNext}
+                >
+                    {theme.direction === 'rtl' ? (
+                    <KeyboardArrowLeft sx={{color: 'white'}} />
+                    ) : (
+                    <KeyboardArrowRight sx={{color: 'white'}} />
+                    )}
+                </Button>
+                }
             backButton={
-            <Button size="large" onClick={handleBack}>
-                {theme.direction === 'rtl' ? (
-                <KeyboardArrowRight />
-                ) : (
-                <KeyboardArrowLeft />
-                )}
-            </Button>
-            }
+                <Button size="large" onClick={handleBack}>
+                    {theme.direction === 'rtl' ? (
+                    <KeyboardArrowRight sx={{color: 'white'}} />
+                    ) : (
+                    <KeyboardArrowLeft sx={{color: 'white'}} />
+                    )}
+                </Button>
+                }
         />
         </Box>
     </Paper>

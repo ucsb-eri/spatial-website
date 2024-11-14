@@ -16,8 +16,6 @@ const mainOppsOverview = {
   description:
     "Collaborative Design, Implementation, and Dissemination of Spatial Science for a Better World",
   image: "https://www.geog.ucsb.edu/sites/default/files/styles/big_banner_desktop/public/2021-01/storke-sunrise-02.jpg?h=0197d72c&itok=IAbqYhXS",
-  imageText: 'main image description',
-  linkText: 'Continue reading…',
   color: 'white'
 };
 

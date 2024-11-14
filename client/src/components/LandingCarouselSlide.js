@@ -23,10 +23,18 @@ function LandingCarouselSlide(props) {
               color: post.color === 'white' ? '#fff' : '#333333' 
             }}
           >
+            {/* <Box
+              sx={{
+                width: 'auto',
+                backgroundColor: 'blue',
+                padding: '10px'
+              }}
+            > */}
+              <Typography variant="h1" color="inherit" mb={2} align='left'>
+                {post.title}
+              </Typography>
+            {/* </Box> */}
             
-            <Typography variant="h1" color="inherit" mb={2} align='left'>
-              {post.title}
-            </Typography>
             <Typography variant="h4" color="inherit" paragraph align='left' mb={5} marginTop='20px' sx={{ textShadow: '1px 1px 2px rgba(0, 0, 0, 0.7)'}}>
               {post.description}
             </Typography>
@@ -42,6 +50,7 @@ function LandingCarouselSlide(props) {
                 target='_blank'
                 sx={{
                   width: '130px',
+                  my: '10px',
                   borderColor: 'white',
                   textTransform: 'none',
                   color: 'white',        

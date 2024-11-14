@@ -1,14 +1,18 @@
 import { React } from 'react';
-import {Grid, Typography, Toolbar}  from '@mui/material';
+import {Grid, Typography, Toolbar, Box}  from '@mui/material';
 
 import LandingCarousel from '../components/LandingCarousel';
 import EventsTable from '../components/EventsTable'
 import InstagramEmbed from '../components/InstagramEmbed';
 
+import mountains from '../MountainRangeBlue.png'
+// import mountains from '../MountainRangeBlue2.png'
+// import mountains from '../MountainRangeBlue3.png'
+// import mountains from '../mountain2part.png'
 const imageRoute = process.env.NODE_ENV === "production" ? "https://spatial.ucsb.edu/images/" : "http://localhost:3001/images/"
 const featuredPosts = [
   {
-    title: 'Evolving GIS curriculum',
+    title: 'Evolving GIS Curriculum',
     description: 'More details coming soon',
     image: `${imageRoute + 'Home1.jpg'}`,
     imageText: 'Image Text',
@@ -35,8 +39,10 @@ const featuredPosts = [
 ];
 
 
+
+
 export default function Home() {
-  
+  console.log(mountains)
   return (
       <Grid item>
           
@@ -45,17 +51,36 @@ export default function Home() {
             <Grid item xs={12}>
               <LandingCarousel slides={featuredPosts} />
             </Grid>
-            <Grid item xs={11} md={9} sx={{my: '30px'}}>
+            <Grid item xs={11} sx={{mt: '60px'}}>
+                  <Box
+                    sx={{
+                      backgroundImage: `url(${mountains})`, // Set the background image
+                                                             
+                      // MountainRange2.png
+                      backgroundSize: 'contain', // Make sure the background covers the entire box
+                      backgroundPosition: 'bottom', // Center the background image
+                      backgroundRepeat: 'no-repeat',
+                      paddingBottom: '20vw',
+
+                    }}
+                    >
                   
-                  <Typography align="center" variant="h3" paragraph mb={3}>
-                    <b>Design, Implement, and Disseminate</b>
-                  </Typography>
-                  <Typography align="center" variant="h5" paragraph mb={3}>
-                  Here at the Center for Spatial Studies and Data Science at University of California Santa Barbara we collaboratively design, implement, and disseminate spatial science for a better world!
-                  </Typography>
+                      
+                  <Grid container direction="row" justifyContent='center'>
+                    <Grid item xs={12} md={10}>
+                      <Typography align="center" variant="h3" paragraph mb={3}>
+                        <b>Design, Implement, and Disseminate</b>
+                      </Typography>
+                      <Typography align="center" variant="h5" paragraph mb={3}>
+                      Here at the Center for Spatial Studies and Data Science at University of California Santa Barbara we collaboratively design, implement, and disseminate spatial science for a better world!
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                
+                </Box>
+                 
                   
-              
-                  
+                                
               </Grid>
             <Grid item xs={12} sm={11}>
               <Toolbar sx={{ marginTop: '5px', marginBottom: '5px' }} align='center'>

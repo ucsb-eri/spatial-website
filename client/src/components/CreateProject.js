@@ -99,6 +99,7 @@ export default function CreateProject(props) {
         handleProject = async () => {
             const id = props.id
             const description = stateToHTML(editorState.getCurrentContent())
+            
             try {
                 if (image != null) {
                     const imageSuccess = await handleImageUpload(image)
@@ -123,6 +124,7 @@ export default function CreateProject(props) {
     } else {
         handleProject = async () => {
             const description = stateToHTML(editorState.getCurrentContent())
+            console.log(description)
             try {
                 
                 if (image != null) {

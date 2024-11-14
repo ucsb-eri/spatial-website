@@ -66,7 +66,7 @@ function LandingCarousel(props) {
     >
         <Box
         sx={{
-            backgroundColor: 'rgba(0, 0, 0, 0.1)',
+            backgroundColor: 'rgba(0, 0, 0, 0.2)',
             height: '100%'
             }}
         >

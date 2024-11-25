@@ -34,7 +34,7 @@ export default function GiveCard(props) {
                 </Typography>
                 <Typography variant="h6" align='left' component="h4">
                     {link ? (
-                        <Link align='left' href={link}>Donate Here!</Link>
+                        <Link align='left' href={link} target="_blank">Donate Here!</Link>
                     ): (
                         <p>Donatation link coming soon!</p>
                     )}

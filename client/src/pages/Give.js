@@ -19,7 +19,7 @@ const giveCards = [
         description: "The Center for Spatial Studies and Data Science at UC Santa Barbara is an interdisciplinary research hub dedicated to pushing the boundaries of spatial thinking, geoinformatics, and geographic information science. It champions scientific discovery and educational excellence through workshops, speaker series, and annual Specialist Meetings that assemble leading global experts in spatial data science. Your gift supports the Center's research, students, and outreach efforts.",
         image: `${imageRoute + 'LagoonCampusPoint7.jpg'}`,
         imageDescription: '',
-        link: ''
+        link: 'https://giving.ucsb.edu/Funds/Give?id=496'
     },
     {
         title: 'Goodchild Fund',

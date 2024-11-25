@@ -11,8 +11,17 @@ function EventsTable() {
         
         try {
             const eventsFetch = await fetch(eventsRoute)
-            const events = await eventsFetch.json()
-            setEvents(events)
+            let calEvents = await eventsFetch.json()
+
+            calEvents = calEvents.map(event => ({
+                ...event,
+                startTime: new Date(event.start.dateTime || event.start.date), // Ensure proper date parsing
+            }));
+    
+            calEvents.sort((a, b) => b.startTime - a.startTime);
+    
+            const latestEvents = calEvents.slice(0, 5);
+            setEvents(latestEvents)
   
         } catch (error) {
             console.error("Error loading events table", error)
@@ -79,21 +88,21 @@ function EventsTable() {
 
                     <Grid item xs={8} px={1}>
                         
-                            <Typography align="center" variant="h5" component="h2" sx={{my: '5px'}}>
-                            {formatDescription(event.summary)}
-                            </Typography>
-                            {/* return a link if it's a virtual meeting */}
-                            <Typography align="center" variant="body2">
-                                {checkLocationUrl(event.location) ? (
-                                    <Link href={event.location} underline='hover' sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', color: '#027C91' }}>
-                                        Location
-                                        <LaunchIcon sx={{width: '20px', mx: '5px'}} />
-                                    </Link>
-                                ) : (
-                                    event.location
-                                )}
-                            
-                            </Typography>
+                        <Typography align="center" variant="h5" component="h2" sx={{my: '5px'}}>
+                        {formatDescription(event.summary)}
+                        </Typography>
+                        {/* return a link if it's a virtual meeting */}
+                        <Typography align="center" variant="body2">
+                            {checkLocationUrl(event.location) ? (
+                                <Link href={event.location} underline='hover' sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', color: '#027C91' }}>
+                                    Location
+                                    <LaunchIcon sx={{width: '20px', mx: '5px'}} />
+                                </Link>
+                            ) : (
+                                event.location
+                            )}
+                        
+                        </Typography>
                         
                         
                         {/* <Typography paragraph align="center">

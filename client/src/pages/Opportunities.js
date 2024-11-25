@@ -4,10 +4,10 @@ import { useProjectContext} from "../context/ProjectContext"
 import CreateInfoPanel from '../components/CreateInfoPanel';
 import TabsContainer from '../components/TabsContainer';
 
-import {Grid, Container, Typography, Paper, Tabs, Tab, Box, useMediaQuery, Toolbar, Button} from '@mui/material'
+import {Grid, Paper, Button} from '@mui/material'
 import LandingCarouselSlide from '../components/LandingCarouselSlide';
 
-import { useQuery, useMutation } from '@apollo/client';
+import { useMutation } from '@apollo/client';
 import { DELETE_INFOPANEL } from '../utils/mutations';
 
 

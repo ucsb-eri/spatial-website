@@ -35,7 +35,7 @@ async function seedWebsite() {
       if (projectsExists.length == 0) {
         console.log("seeding projects")
         const projects = await Projects.insertMany(projectSeeds)
-        console.log("Remodel! New projects coming in")
+        console.log("Remodel! New projects coming in", projects)
       } else {
         console.log("We got plenty of projects to do")
       }

@@ -5,10 +5,8 @@ import LandingCarousel from '../components/LandingCarousel';
 import EventsTable from '../components/EventsTable'
 import InstagramEmbed from '../components/InstagramEmbed';
 
-import mountains from '../MountainRangeBlue.png'
-// import mountains from '../MountainRangeBlue2.png'
-// import mountains from '../MountainRangeBlue3.png'
-// import mountains from '../mountain2part.png'
+import mountains from '../content/images/MountainRangeBlue.png'
+
 const imageRoute = process.env.NODE_ENV === "production" ? "https://spatial.ucsb.edu/images/" : "http://localhost:3001/images/"
 const featuredPosts = [
   {
@@ -42,7 +40,7 @@ const featuredPosts = [
 
 
 export default function Home() {
-  console.log(mountains)
+
   return (
       <Grid item>
           

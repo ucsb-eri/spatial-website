@@ -3,10 +3,9 @@ const router = express.Router();
 
 const calendarId = process.env.REACT_APP_SPATIAL_CALENDAR_ID
 const apiKey = process.env.REACT_APP_CALENDAR_API_KEY
-const now = new Date().toISOString()
 
-const eventsNum = 5
-const url = `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events?key=${apiKey}&timeMin=${now}&maxResults=${eventsNum}&singleEvents=true&orderBy=startTime&eventTypes=default`;
+
+const url = `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events?key=${apiKey}&singleEvents=true&orderBy=startTime&eventTypes=default`;
        
 const getEvents = async () => {
     try {

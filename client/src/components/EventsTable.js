@@ -20,7 +20,7 @@ function EventsTable() {
     
             calEvents.sort((a, b) => b.startTime - a.startTime);
     
-            const latestEvents = calEvents.slice(0, 5);
+            const latestEvents = calEvents.slice(0, 5).sort((a, b) => a.startTime - b.startTime);
             setEvents(latestEvents)
   
         } catch (error) {

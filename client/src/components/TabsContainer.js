@@ -93,19 +93,12 @@ export default function TabsContainer(props) {
                                 <Card elevation={0} sx={{borderRadius: '0'}}>
                                 { panel.content.map((content) => (
                                     <ContentCard content={content} />
-                                ))}
+                                ))}                                
 
-                                
-                                
-
-                                { panel.accordion && (
-                                    
-                                    <AccordionContent accordions={panel.accordion} />
-                                
+                                { panel.accordion && (                                  
+                                    <AccordionContent accordions={panel.accordion} />                             
                                 )}
-
-                                    
-                                        
+                    
                                 </Card>
                             </Grid>
                             { isLoggedIn && (

@@ -38,7 +38,6 @@ export default function ContentCard(props) {
                 <Typography sx={{textTransform: 'none'}} align="left"><div className='fontTheme' dangerouslySetInnerHTML={{__html: content.description}}/></Typography>
             </CardContent>
         )
-
     )
 
 }

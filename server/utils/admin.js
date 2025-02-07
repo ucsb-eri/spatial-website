@@ -7,8 +7,9 @@ const adminPassword = process.env.ADMIN_PASSWORD
 
 async function createAdminAccount() {
     try {
-        const adminExists = await AdminProfile.findOne({ email: adminEmail})
+        const adminExists = await AdminProfile.findOne({ email: 'test@ucsb.edu'})
         if (!adminExists) {
+            console.log(adminEmail, adminPassword)
             const admin = await AdminProfile.create({
                 email: adminEmail,
                 password: adminPassword

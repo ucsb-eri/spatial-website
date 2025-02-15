@@ -1,4 +1,5 @@
 import {React, useState} from 'react'
+import { Link } from 'react-router-dom';
 import { Toolbar, Tab, Tabs, MenuItem, Popover, Box, Typography, Drawer, Divider, List, ListItem, ListItemButton, ListItemText } from '@mui/material'
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
@@ -33,26 +34,26 @@ export default function NavTabs(props) {
       setRipple(false)
     }
     
-    const handleAboutMenu = (location) => {
+    const handleAboutMenu = (panel, location) => {
       setAboutLocation(location)
       handlePopoverClose()
       setValue("two")
-      handlePageChange("About")
+      handlePageChange(`/about/${panel.tabname.toLowerCase().replaceAll(' ', '-')}`)
     }
 
-    const handleEventsMenu = (location) => {
-      setEventLocation(location)
-      handlePopoverClose()
-      setValue("five")
-      handlePageChange("Events")
-    }
+    // const handleEventsMenu = (location) => {
+    //   setEventLocation(location)
+    //   handlePopoverClose()
+    //   setValue("five")
+    //   handlePageChange("Events")
+    // }
 
-    const handleOppsMenu = (location) => {
-      setOppsLocation(location)
-      handlePopoverClose()
-      setValue("six")
-      handlePageChange("Opportunities")
-    }
+    // const handleOppsMenu = (location) => {
+    //   setOppsLocation(location)
+    //   handlePopoverClose()
+    //   setValue("six")
+    //   handlePageChange("Opportunities")
+    // }
 
     const drawerWidth = 240;
     const navItems = ['Home', 'About', 'People', 'Research', 'Events', 'Opportunities', 'Give'] //, 'Request GIS Services']
@@ -76,6 +77,7 @@ export default function NavTabs(props) {
 
     const fontSize = '0.8rem'  
 
+
     return (
         <div>
             <Toolbar
@@ -94,74 +96,87 @@ export default function NavTabs(props) {
                 aria-label="secondary tabs example"
                 variant="fullWidth">
 
-                <Tab
-                  onClick={() => handlePageChange('Home')}
-                  value={'one'}
-                  label={'Home'}
-                  key={'Home'}
-                  sx={{ fontSize: fontSize }}
-                />
-                <Tab
-                  onClick={() => {
-                    setAboutLocation(0)
-                    handlePageChange('About')
-                  }}
-                  disableRipple={ripple}
-                  value={'two'}
-                  label={'About'}
-                  key={'About'}
-                  icon= {<ArrowDropDownIcon onClick={handlePopoverOpen} />}
-                  iconPosition='end'
-                  sx={{ fontSize: fontSize }}
-                >
-                </Tab>
-                <Tab
-                  onClick={() => handlePageChange('People')}
-                  value={'three'}
-                  label={'People'}
-                  key={'People'}
-                  sx={{ fontSize: fontSize }}
-                />
-                <Tab
-                  onClick={() => handlePageChange('Research')}
-                  value={'four'}
-                  label={'Research'}
-                  key={'Projects'}
-                  sx={{ fontSize: fontSize }}
-                />
-                <Tab
-                  onClick={() => {
-                    setEventLocation(0)
-                    handlePageChange('Events')
-                  }}
-                  disableRipple={ripple}
-                  value={'five'}
-                  label={'Events'}
-                  key={'Events'}
-                  icon= {<ArrowDropDownIcon onClick={handlePopoverOpen} />}
-                  iconPosition='end'
-                  sx={{ fontSize: fontSize }}
-                />
-                <Tab
-                  onClick={() => {
-                    setOppsLocation(0)
-                    handlePageChange('Opportunities')
-                  }}
-                  disableRipple={ripple}
-                  icon= {<ArrowDropDownIcon onClick={handlePopoverOpen} />}
-                  iconPosition='end'
-                  value={'six'}
-                  label={'Opportunities'}
-                  key={'Opportunities'}
-                  sx={{ fontSize: fontSize }}
-                />
-                <Tab
-                  onClick={() => handlePageChange('Give')}
-                  value={'seven'}
-                  label={'Give'}
-                  key={'Give'}
-                  sx={{ fontSize: fontSize }}
-                />
+            
+                  <Tab
+                    onClick={() => handlePageChange('/home')}
+                    value={'one'}
+                    label={'Home'}
+                    key={'Home'}
+                    sx={{ fontSize: fontSize }}
+                  />
+              
+              
+                  <Tab
+                    onClick={() => {
+                      // setAboutLocation(0)
+                      handlePageChange('/about/overview')
+                    }}
+                    disableRipple={ripple}
+                    value={'two'}
+                    label={'About'}
+                    key={'About'}
+                    icon= {<ArrowDropDownIcon onClick={handlePopoverOpen} />}
+                    iconPosition='end'
+                    sx={{ fontSize: fontSize }}
+                  >
+                  </Tab>
+     
+                  <Tab
+                    onClick={() => handlePageChange('/people')}
+                    value={'three'}
+                    label={'People'}
+                    key={'People'}
+                    sx={{ fontSize: fontSize }}
+                  />
+  
+                {/* <Link>
+                  <Tab
+                    onClick={() => handlePageChange('Research')}
+                    value={'four'}
+                    label={'Research'}
+                    key={'Projects'}
+                    sx={{ fontSize: fontSize }}
+                  />
+                </Link>
+                <Link>
+                  <Tab
+                    onClick={() => {
+                      setEventLocation(0)
+                      handlePageChange('Events')
+                    }}
+                    disableRipple={ripple}
+                    value={'five'}
+                    label={'Events'}
+                    key={'Events'}
+                    icon= {<ArrowDropDownIcon onClick={handlePopoverOpen} />}
+                    iconPosition='end'
+                    sx={{ fontSize: fontSize }}
+                  />
+                </Link>
+                <Link>
+                  <Tab
+                    onClick={() => {
+                      setOppsLocation(0)
+                      handlePageChange('Opportunities')
+                    }}
+                    disableRipple={ripple}
+                    icon= {<ArrowDropDownIcon onClick={handlePopoverOpen} />}
+                    iconPosition='end'
+                    value={'six'}
+                    label={'Opportunities'}
+                    key={'Opportunities'}
+                    sx={{ fontSize: fontSize }}
+                  />
+                </Link>
+                <Link>
+                  <Tab
+                    onClick={() => handlePageChange('Give')}
+                    value={'seven'}
+                    label={'Give'}
+                    key={'Give'}
+                    sx={{ fontSize: fontSize }}
+                  />
+                </Link> */}
                 
                 {/* <Button
                   variant='contained'
@@ -194,15 +209,19 @@ export default function NavTabs(props) {
                   horizontal: "center"
                 }}
               >
+                
                 {aboutPanelData && aboutPanelData.map((panel, id) => (
-                  <MenuItem key={panel.tabname} onClick={() => handleAboutMenu(id)}>
-                  {panel.tabname}
-                </MenuItem>
+                  <MenuItem 
+                    key={panel.tabname} 
+                    onClick = {() => handleAboutMenu(panel, id)}>
+                    {panel.tabname}
+                  </MenuItem>
+                  
                 ))}
                 
               </Popover> 
               {/* Events popover menu */}
-              <Popover
+              {/* <Popover
                 open={openEventsMenu}
                 anchorEl={anchorEl}
                 onClose={handlePopoverClose}
@@ -221,9 +240,9 @@ export default function NavTabs(props) {
                 </MenuItem>
                 ))}
                 
-              </Popover>
+              </Popover> */}
               {/* Opportunities popover menu */}
-              <Popover
+              {/* <Popover
                 open={openOppsMenu}
                 anchorEl={anchorEl}
                 onClose={handlePopoverClose}
@@ -242,7 +261,7 @@ export default function NavTabs(props) {
                 </MenuItem>
                 ))}
                 
-              </Popover>
+              </Popover> */}
 
             </Box>
             </Toolbar>

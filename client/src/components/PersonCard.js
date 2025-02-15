@@ -46,7 +46,7 @@ function PersonCard(props) {
                 }}
                 >
                     {title && title.map((title) => (
-                    <Typography variant="body2" color="text.secondary" sx={{'lineHeight': '25px'}}>
+                    <Typography key={title} variant="body2" color="text.secondary" sx={{'lineHeight': '25px'}}>
                         {title}
                     </Typography> 
                     ))}

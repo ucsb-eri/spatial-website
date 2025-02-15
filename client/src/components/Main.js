@@ -16,61 +16,69 @@ import Give from '../pages/Give';
 import Products from '../pages/Products';
 import Events from '../pages/Events';
 import Opportunities from '../pages/Opportunities';
-
+import { Outlet } from 'react-router-dom';
+import { useNavigate, useLocation } from "react-router-dom";
 
 function Main(props) {
+
+  const navigate = useNavigate()
+  const location = useLocation()
+
   const [currentPage, setCurrentPage] = useState('Home');
   const [value, setValue] = useState('one');
   const [aboutLocation, setAboutLocation] = useState(0)
   const [eventLocation, setEventLocation] = useState(0)
   const [oppsLocation, setOppsLocation] = useState(0)
 
+  const { eventPanelData, oppsPanelData, aboutPanelData } = props
+
   const handleChange = (event, newValue) => {
     setValue(newValue)
     };
     // depending on what value currentPage has, render a different page
-  const renderPage = () => {
-    if (currentPage === 'Home') {
-      return <Home />;
-    }
+  // const renderPage = () => {
+  //   if (currentPage === 'Home') {
+  //     return <Home />;
+  //   }
 
-    if (currentPage === 'About') {
-      return (
-        <About value={aboutLocation} setValue={setAboutLocation} />
-      )
-    }
+  //   if (currentPage === 'About') {
+  //     return (
+  //       <About value={aboutLocation} setValue={setAboutLocation} />
+  //     )
+  //   }
 
-    if (currentPage === 'Research') {
-      return <Projects />;
-    }
+  //   if (currentPage === 'Research') {
+  //     return <Projects />;
+  //   }
 
-    if (currentPage === 'People') {
-      return <People />;
-    }
+  //   if (currentPage === 'People') {
+  //     return <People />;
+  //   }
 
-    if (currentPage === 'Give') {
-      return <Give />
-    }
+  //   if (currentPage === 'Give') {
+  //     return <Give />
+  //   }
 
-    if (currentPage === 'Products'){
-      return <Products />
-    }
+  //   if (currentPage === 'Products'){
+  //     return <Products />
+  //   }
 
-    if (currentPage === 'Events') {
-      return <Events value={eventLocation} setValue={setEventLocation} />
-    }
+  //   if (currentPage === 'Events') {
+  //     return <Events value={eventLocation} setValue={setEventLocation} />
+  //   }
 
-    if (currentPage === 'Opportunities') {
-      return <Opportunities value={oppsLocation} setValue={setOppsLocation} />
-    }
+  //   if (currentPage === 'Opportunities') {
+  //     return <Opportunities value={oppsLocation} setValue={setOppsLocation} />
+  //   }
 
-    if (currentPage === 'Request GIS Services') {
-      return <Events />
-    }
-  };
+  //   if (currentPage === 'Request GIS Services') {
+  //     return <Events />
+  //   }
+  // };
   
-  const handlePageChange = (page) => {
-    setCurrentPage(page)
+  const handlePageChange = (path) => {
+    // setCurrentPage(page)
+    navigate(path)
   }
 
   // drawer settings when display gets too small
@@ -81,34 +89,34 @@ function Main(props) {
       console.log(mobileOpen)
   };
   
-  // get database queries
+  // // get database queries
 
-  const {loading, data, error} = useQuery(GET_INFOPANELS)
-  const { setInfoPanelData, infoPanelData } = useProjectContext()
+  // const {loading, data, error} = useQuery(GET_INFOPANELS)
+  // const { setInfoPanelData, infoPanelData } = useProjectContext()
   
-  let aboutPanelData
-  if (infoPanelData) {
-      aboutPanelData = infoPanelData.filter(panel => panel.location === "about")
-  }
+  // let aboutPanelData
+  // if (infoPanelData) {
+  //     aboutPanelData = infoPanelData.filter(panel => panel.location === "about")
+  // }
 
-  let eventPanelData
-  if (infoPanelData) {
-      eventPanelData = infoPanelData.filter(panel => panel.location === "events")
-  }
+  // let eventPanelData
+  // if (infoPanelData) {
+  //     eventPanelData = infoPanelData.filter(panel => panel.location === "events")
+  // }
 
-  let oppsPanelData
-  if (infoPanelData) {
-      oppsPanelData = infoPanelData.filter(panel => panel.location === "opportunities")
-  }
+  // let oppsPanelData
+  // if (infoPanelData) {
+  //     oppsPanelData = infoPanelData.filter(panel => panel.location === "opportunities")
+  // }
 
-  useEffect(() => {
-    if (!error && !loading && data) {
-      const panels = data.infoPanels;
-      const mutablePanels = [...panels]; // Create a shallow copy
-      mutablePanels.sort((a, b) => parseInt(a.taborder) - parseInt(b.taborder));
-      setInfoPanelData(mutablePanels);
-    }
-  }, [data, error, loading, setInfoPanelData]);
+  // useEffect(() => {
+  //   if (!error && !loading && data) {
+  //     const panels = data.infoPanels;
+  //     const mutablePanels = [...panels]; // Create a shallow copy
+  //     mutablePanels.sort((a, b) => parseInt(a.taborder) - parseInt(b.taborder));
+  //     setInfoPanelData(mutablePanels);
+  //   }
+  // }, [data, error, loading, setInfoPanelData]);
 
   
   return (
@@ -133,7 +141,8 @@ function Main(props) {
             />
         </Grid>
         <Grid item mb={3}>
-          {renderPage()}
+          {/* {renderPage()} */}
+          <Outlet />
           <Footer />
         </Grid>
       </Grid>

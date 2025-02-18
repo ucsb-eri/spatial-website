@@ -13,7 +13,10 @@ export default function PanelTabs(props) {
     const smallScreen = useMediaQuery("(max-width: 768px)");
 
     const pathSegments = location.pathname.split("/").filter(Boolean); // Remove empty segments
-    const lastParam = pathSegments[pathSegments.length - 1]; // Get the last part
+    let lastParam = pathSegments[pathSegments.length - 1]; // Get the last part
+    if (pathSegments.length === 1) {
+        lastParam = panelData[0].tabname.replace(/[^a-zA-Z0-9\s]/g, '').toLowerCase().replaceAll(' ', '-')
+    }
 
     return (
         <Box sx={{maxWidth: { xs: 400, sm: 600 }}}>
@@ -22,7 +25,7 @@ export default function PanelTabs(props) {
                 variant="scrollable"
                 scrollButtons
                 allowScrollButtonsMobile
-                centered
+
                 value={lastParam}
                 onChange={handleChange}
                 aria-label="Vertical tabs"

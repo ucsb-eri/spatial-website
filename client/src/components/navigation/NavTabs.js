@@ -1,10 +1,13 @@
 import {React, useState} from 'react'
+import { useLocation, useNavigate } from "react-router-dom";
 import { Toolbar, Tab, Tabs, MenuItem, Popover, Box, Typography, Drawer, Divider, List, ListItem, ListItemButton, ListItemText } from '@mui/material'
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 export default function NavTabs(props) {
 
-    const { value, setValue, handleChange, handlePageChange, setAboutLocation, aboutPanelData, setEventLocation, eventPanelData, setOppsLocation, oppsPanelData, handleDrawerToggle, mobileOpen } = props
+  const [ value, setValue ] = useState('one')
+
+    const {setAboutLocation, aboutPanelData, setEventLocation, eventPanelData, setOppsLocation, oppsPanelData, handleDrawerToggle, mobileOpen } = props
     const [ripple, setRipple] = useState(true)
     const [anchorEl, setAnchorEl] = useState(null)
     const [openAboutMenu, setOpenAboutMenu] = useState(false)
@@ -31,33 +34,41 @@ export default function NavTabs(props) {
       setOpenOppsMenu(false)
       setRipple(false)
       }
-    const handlePopoverMenu = (panel, location, type, value, setLocation) => {
-      setLocation(location)
+
+    const location = useLocation()
+    const navigate = useNavigate()
+
+    const handlePageChange = (newRoute) => {
+      navigate(`/${newRoute}`)
+    }
+    const handleChange = (event, newRoute) => {
+      
+      handlePageChange(newRoute)
+    }
+
+    const pathSegments = location.pathname.split("/").filter(Boolean); // Remove empty segments
+    let currentRoute = pathSegments[0]; // Get the last part
+    if ( !currentRoute){
+      currentRoute = 'home'
+    } 
+  
+    const handlePopoverMenu = (panel, type) => {
       handlePopoverClose()
-      setValue(value)
-      const routeStr = `/${type}/${panel.tabname.replace(/[^a-zA-Z0-9\s]/g, '').toLowerCase().replaceAll(' ', '-')}`
+      const routeStr = `${type}/${panel.tabname.replace(/[^a-zA-Z0-9\s]/g, '').toLowerCase().replaceAll(' ', '-')}`
+      console.log(routeStr)
       handlePageChange(routeStr)
       }
     const drawerWidth = 240;
     
-    const homeRoute = '/home'
-    const aboutRoute = `/about`
-    const peopleRoute = '/people'
-    const researchRoute = '/research'
-    const eventsRoute = `/events`
-    const opportunitiesRoute = `/opportunities`
-    const giveRoute = '/give'
-
-    const navItems = {
-      "Home": homeRoute, 
-      "About": aboutRoute, 
-      "People": peopleRoute, 
-      "Research": researchRoute, 
-      "Events": eventsRoute,
-      "Opportunities": opportunitiesRoute,
-      "Give": giveRoute
-    }
-    const navTitles = Object.keys(navItems)
+    const navItems = [
+      "Home", 
+      "About", 
+      "People", 
+      "Research", 
+      "Events", 
+      "Opportunities", 
+      "Give"
+    ]
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
           <Typography variant="h6" sx={{ my: 2 }}>
@@ -65,9 +76,9 @@ export default function NavTabs(props) {
           </Typography>
           <Divider />
           <List>
-            {navTitles.map((item) => (
+            {navItems.map((item) => (
               <ListItem key={item}>
-                <ListItemButton sx={{ textAlign: 'center' }} onClick = {() => handlePageChange(navItems[item])} >
+                <ListItemButton sx={{ textAlign: 'center' }} onClick = {() => handlePageChange(item.toLowerCase())} >
                   <ListItemText primary={item} />
                 </ListItemButton>
               </ListItem>
@@ -89,7 +100,7 @@ export default function NavTabs(props) {
 
             <Box sx={{ width: '100%' }}>
               <Tabs
-                value={value}
+                value={currentRoute}
                 onChange={handleChange}
                 textColor="secondary"
                 indicatorColor="secondary"
@@ -97,19 +108,15 @@ export default function NavTabs(props) {
                 variant="fullWidth">
             
                   <Tab
-                    onClick={() => handlePageChange(homeRoute)}
-                    value={'one'}
+                    value={"home"}
                     label={'Home'}
                     key={'Home'}
                     sx={{ fontSize: fontSize }}
                   />
               
                   <Tab
-                    onClick={() => {
-                      handlePageChange(aboutRoute)
-                    }}
                     disableRipple={ripple}
-                    value={'two'}
+                    value={"about"}
                     label={'About'}
                     key={'About'}
                     icon= {<ArrowDropDownIcon onClick={handlePopoverOpen} />}
@@ -119,26 +126,21 @@ export default function NavTabs(props) {
                   </Tab>
      
                   <Tab
-                    onClick={() => handlePageChange(peopleRoute)}
-                    value={'three'}
+                    value={"people"}
                     label={'People'}
                     key={'People'}
                     sx={{ fontSize: fontSize }}
                   />
                   <Tab
-                      onClick={() => handlePageChange(researchRoute)}
-                      value={'four'}
+                      value={"research"}
                       label={'Research'}
                       key={'Projects'}
                       sx={{ fontSize: fontSize }}
                     />
 
                   <Tab
-                    onClick={() => {
-                      handlePageChange(eventsRoute)
-                    }}
                     disableRipple={ripple}
-                    value={'five'}
+                    value={"events"}
                     label={'Events'}
                     key={'Events'}
                     icon= {<ArrowDropDownIcon onClick={handlePopoverOpen} />}
@@ -147,21 +149,17 @@ export default function NavTabs(props) {
                     />
 
                   <Tab
-                    onClick={() => {
-                      handlePageChange(opportunitiesRoute)
-                    }}
                     disableRipple={ripple}
                     icon= {<ArrowDropDownIcon onClick={handlePopoverOpen} />}
                     iconPosition='end'
-                    value={'six'}
+                    value={"opportunities"}
                     label={'Opportunities'}
                     key={'Opportunities'}
                     sx={{ fontSize: fontSize }}
                   />
                   
                   <Tab
-                    onClick={() => handlePageChange(giveRoute)}
-                    value={'seven'}
+                    value={"give"}
                     label={'Give'}
                     key={'Give'}
                     sx={{ fontSize: fontSize }}
@@ -186,7 +184,7 @@ export default function NavTabs(props) {
                 {aboutPanelData && aboutPanelData.map((panel, id) => (
                   <MenuItem 
                     key={panel.tabname} 
-                    onClick = {() => handlePopoverMenu(panel, id, "about", "two", setAboutLocation)}>
+                    onClick = {() => handlePopoverMenu(panel, "about")}>
                     {panel.tabname}
                   </MenuItem>
                   
@@ -210,7 +208,7 @@ export default function NavTabs(props) {
                 {eventPanelData && eventPanelData.map((panel, id) => (
                   <MenuItem 
                     key={panel.tabname} 
-                    onClick={() => handlePopoverMenu(panel, id, "events", "five", setEventLocation)}>
+                    onClick={() => handlePopoverMenu(panel, "events")}>
                   {panel.tabname}
                 </MenuItem>
                 ))}
@@ -233,7 +231,7 @@ export default function NavTabs(props) {
                 {oppsPanelData && oppsPanelData.map((panel, id) => (
                   <MenuItem 
                     key={panel.tabname} 
-                    onClick={() => handlePopoverMenu(panel, id, "opportunities", "six", setOppsLocation)}>
+                    onClick={() => handlePopoverMenu(panel, "opportunities")}>
                     {panel.tabname}
                   </MenuItem>
                 ))}

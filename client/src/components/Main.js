@@ -10,25 +10,8 @@ import { useNavigate} from "react-router-dom";
 
 function Main(props) {
 
-  const navigate = useNavigate()
-
-  const [value, setValue] = useState('one');
-  const [aboutLocation, setAboutLocation] = useState(0)
-  const [eventLocation, setEventLocation] = useState(0)
-  const [oppsLocation, setOppsLocation] = useState(0)
-
   const { eventPanelData, oppsPanelData, aboutPanelData } = props
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue)
-    };
-    // depending on what value currentPage has, render a different page
-  
-  
-  const handlePageChange = (path) => {
-    // setCurrentPage(page)
-    navigate(path)
-  }
 
   // drawer settings when display gets too small
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -44,15 +27,9 @@ function Main(props) {
         <Grid item>
           <Header title={"Center for Spatial Studies and Data Science"} handleDrawerToggle={handleDrawerToggle} />
           <NavTabs 
-            handlePageChange={handlePageChange} 
-            handleChange={handleChange} 
-            value={value} 
-            setValue={setValue} 
-            setAboutLocation={setAboutLocation} 
+
             aboutPanelData={aboutPanelData}
-            setEventLocation={setEventLocation} 
             eventPanelData={eventPanelData}
-            setOppsLocation={setOppsLocation}
             oppsPanelData={oppsPanelData}
             handleDrawerToggle={handleDrawerToggle}
             mobileOpen={mobileOpen} 

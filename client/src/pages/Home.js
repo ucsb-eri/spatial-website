@@ -1,9 +1,9 @@
 import { React } from 'react';
-import {Grid, Typography, Toolbar, Box}  from '@mui/material';
+import {Container, Grid, Typography, Toolbar, Box}  from '@mui/material';
 
 import LandingCarousel from '../components/LandingCarousel';
-import EventsTable from '../components/EventsTable'
-import InstagramEmbed from '../components/InstagramEmbed';
+import EventsTable from '../components/home/EventsTable'
+import InstagramEmbed from '../components/home/InstagramEmbed';
 
 import mountains from '../content/images/MountainRangeBlue.png'
 
@@ -42,7 +42,7 @@ const featuredPosts = [
 export default function Home() {
 
   return (
-      <Grid item>
+      <Container maxWidth='xl' disableGutters={true}>
           
           {/* center description + goals or whatever + events calender */}
           <Grid container direction='row' spacing={4} justifyContent='center'>
@@ -107,7 +107,7 @@ export default function Home() {
             
 
           </Grid>
-      </Grid>
+      </Container>
         
 
   

@@ -1,10 +1,12 @@
 import {React, useState, useContext} from 'react';
+import { Outlet } from 'react-router-dom';
 import { AdminLoginContext } from "../context/AdminProvider"
 import { useProjectContext} from "../context/ProjectContext"
-import CreateInfoPanel from '../components/CreateInfoPanel';
-import TabsContainer from '../components/TabsContainer';
+import CreateInfoPanel from '../components/content-display/CreateInfoPanel';
+import TabsContainer from '../components/navigation/TabsContainer';
+import PanelTabs from '../components/navigation/PanelTabs';
 
-import {Grid, Paper, Button} from '@mui/material'
+import {Container, Grid, Paper, Button, Box, useMediaQuery} from '@mui/material'
 import LandingCarouselSlide from '../components/LandingCarouselSlide';
 
 import { useMutation } from '@apollo/client';
@@ -35,14 +37,15 @@ export default function Opportunities(props) {
     const {value, setValue} = props
     const [deleteInfoPanel] = useMutation(DELETE_INFOPANEL)
     
+    const smallScreen = useMediaQuery("(max-width: 768px)");
 
     return(
-        <>
+        <Container maxWidth='xl' disableGutters={true}>
             {newPanel ? (
                     // <CreateAboutPanel onSubmit={backToPanels}/>
                     <CreateInfoPanel location="opps" onSubmit={backToPanels} />
                 ) : (
-                    <Grid item>
+                    <div>
                         <Paper
                             sx={{
                                 position: 'relative',
@@ -61,7 +64,23 @@ export default function Opportunities(props) {
                     
                     
                             { oppsPanelData && (
-                                <TabsContainer 
+                                
+                                <Box 
+                                sx={{ 
+                                    flexGrow: 1, 
+                                    bgcolor: 'background.paper', 
+                                    display: "flex", 
+                                    flexDirection: smallScreen ? 'column' : 'row', 
+                                    height: "100%", 
+                                    alignItems: smallScreen ? 'center' : 'flex-start'
+
+                                }}
+                                >
+                                    <PanelTabs panelData={oppsPanelData} panelRoute={"opportunities"} />
+                                    <Outlet />
+                                </Box>
+                                )}  
+                                {/* <TabsContainer 
                                     editPanelId = {editInfoPanelId} 
                                     setEditPanelId = {setEditInfoPanelId} 
                                     panelData = {oppsPanelData} 
@@ -69,17 +88,17 @@ export default function Opportunities(props) {
                                     value = {value} 
                                     setValue = {setValue}
                                     location = "about"
-                                     />
-                            )}  
+                                     /> */}
+                            
                                                 
                         { isLoggedIn && (
                             <Button variant='contained' style={{maxWidth: 200}} onClick={() => {setNewPanel(true)}}>Add new panel</Button>
                         )}
                     
-                    </Grid>
+                    </div>
             )}        
         
-        </>
+        </Container>
         
     )
 }

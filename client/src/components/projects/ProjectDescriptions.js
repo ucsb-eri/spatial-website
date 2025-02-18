@@ -1,9 +1,9 @@
 import { React, useContext, useEffect } from 'react';
-import { AdminLoginContext } from "../context/AdminProvider"
+import { AdminLoginContext } from "../../context/AdminProvider"
 
 import {Container, Grid, Typography, Button, Card, CardMedia, CardContent} from '@mui/material';
 import CreateProject from './CreateProject';
-import { useProjectContext } from '../context/ProjectContext';
+import { useProjectContext } from '../../context/ProjectContext';
 
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 

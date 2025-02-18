@@ -2,9 +2,9 @@ import { React, useContext, useState } from 'react';
 import { AdminLoginContext } from "../context/AdminProvider"
 import {Grid, Toolbar, Typography, Button, Container} from '@mui/material';
 
-import ProjectCard from '../components/ProjectCard';
-import ProjectDescriptions from '../components/ProjectDescriptions';
-import CreateProject from '../components/CreateProject';
+import ProjectCard from '../components/projects/ProjectCard';
+import ProjectDescriptions from '../components/projects/ProjectDescriptions';
+import CreateProject from '../components/projects/CreateProject';
 import { useQuery } from '@apollo/client';
 import { GET_PROJECTS } from '../utils/queries';
 

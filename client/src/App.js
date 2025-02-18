@@ -1,7 +1,7 @@
 import { React, useEffect } from "react";
 import * as ReactDOM from "react-dom/client"
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
 import { useQuery } from '@apollo/client';
 import { GET_INFOPANELS } from './utils/queries';
@@ -9,8 +9,7 @@ import { useProjectContext } from './context/ProjectContext'
 
 
 import './App.css';
-import AdminProvider from "./context/AdminProvider";
-import { ProjectProvider } from "./context/ProjectContext";
+
 import Main from './components/Main'
 import Login from "./pages/Login";
 import About from "./pages/About";
@@ -20,55 +19,9 @@ import Give from './pages/Give';
 import Products from './pages/Products';
 import Events from './pages/Events';
 import Opportunities from './pages/Opportunities';
-import TabPanel from "./components/TabPanel";
+import TabPanel from "./components/navigation/TabPanel";
 
-
-import { ThemeProvider } from '@mui/material/styles';
-import { theme } from "./theme";
-import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
-import { setContext } from "@apollo/client/link/context";
 import Home from "./pages/Home";
-
-// let apolloUri
-// if (process.env.NODE_ENV === 'production'){
-//   apolloUri =  'https://spatial.ucsb.edu/graphql'
-// } else {
-//   apolloUri = 'http://localhost:3001/graphql'
-// }
-
-// const httpLink = createHttpLink({
-//   uri: apolloUri,
-// });
-
-// const authLink = setContext((_, { headers }) => {
-//   const token = sessionStorage.getItem("id_token");
-//   return {
-//     headers: {
-//       ...headers,
-//       authorization: token ? `Bearer ${token}` : "",
-//     },
-//   };
-// });
-
-
-// const client = new ApolloClient({
-//   link: authLink.concat(httpLink),
-//   cache: new InMemoryCache(),
-// });
-
-
-// const router = createBrowserRouter([
-//   {
-//     path: '/',
-//     element: <Main />
-//   },
-//   {
-//     path: 'login/',
-//     element: <Login />
-//   }
-// ])
-
-
 
 function App() {
   // get database queries
@@ -108,24 +61,46 @@ function App() {
         <Routes>
           <Route path= "/" element={<Main aboutPanelData={aboutPanelData} oppsPanelData={oppsPanelData} eventPanelData={eventPanelData} />}>
             <Route index element={<Home />} />
-            <Route index path="/home" element={<Home />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/about" element={<About />}>
-              {aboutPanelData && aboutPanelData.map((panel) => (
+            {aboutPanelData?.length > 0 && (
+                  <Route index element={<Navigate to={`/about/${aboutPanelData[0].tabname.replace(/[^a-zA-Z0-9\s]/g, '').toLowerCase().replaceAll(' ', '-')}`} replace />} />
+                )}   
+              {aboutPanelData?.map((panel) => ( 
+                      
                 <Route 
                   key={panel.tabname} 
-                  path={`/about/${panel.tabname.toLowerCase().replaceAll(' ', '-')}`} 
-                  element={<TabPanel panel={panel} />} />
+                  path={`/about/${panel.tabname.replace(/[^a-zA-Z0-9\s]/g, '').toLowerCase().replaceAll(' ', '-')}`} 
+                  element={<TabPanel panel={panel} />} 
+                />
               ))} 
-              
             </Route>
             <Route path="/people" element={<People />} />
-            {/* 
             <Route path="/research" element={<Projects />} />
-            <Route path="/events" element={<Events />} />
-            <Route path="/events/:tab" element={<TabPanel panelData={eventPanelData} />} />
-            <Route path="/opportunities" element={<Opportunities />} />
-            <Route path="/opportunities/:tab" element={<TabPanel panelData={oppsPanelData} />} />
-            <Route path="give" element={<Give />} /> */}
+            <Route path="/events" element={<Events />}>
+              {eventPanelData?.length > 0 && (
+                  <Route index element={<Navigate to={`/events/${eventPanelData[0].tabname.replace(/[^a-zA-Z0-9\s]/g, '').toLowerCase().replaceAll(' ', '-')}`} replace />} />
+                )} 
+              {eventPanelData?.map((panel) => (
+                  <Route 
+                    key={panel.tabname} 
+                    path={`/events/${panel.tabname.replace(/[^a-zA-Z0-9\s]/g, '').toLowerCase().replaceAll(' ', '-')}`} 
+                    element={<TabPanel panel={panel} />} />
+                ))}
+            </Route>           
+            <Route path="/opportunities" element={<Opportunities />}>
+              
+              {oppsPanelData?.length > 0 && (
+                  <Route index element={<Navigate to={`/opportunities/${oppsPanelData[0].tabname.replace(/[^a-zA-Z0-9\s]/g, '').toLowerCase().replaceAll(' ', '-')}`} replace />} />
+                )} 
+              {oppsPanelData?.map((panel) => (
+                  <Route 
+                    key={panel.tabname} 
+                    path={`/opportunities/${panel.tabname.replace(/[^a-zA-Z0-9\s]/g, '').toLowerCase().replaceAll(' ', '-')}`} 
+                    element={<TabPanel panel={panel} />} />
+                ))}
+              </Route>
+            <Route path="give" element={<Give />} />
           </Route>
         </Routes>
       </Router>

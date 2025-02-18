@@ -2,9 +2,9 @@ import {React, useState, useContext} from 'react';
 import { Outlet } from 'react-router-dom';
 import { AdminLoginContext } from "../context/AdminProvider"
 import { useProjectContext} from "../context/ProjectContext"
-import CreateInfoPanel from '../components/CreateInfoPanel';
-import TabsContainer from '../components/TabsContainer';
-import PanelTabs from '../components/PanelTabs';
+import CreateInfoPanel from '../components/content-display/CreateInfoPanel';
+import TabsContainer from '../components/navigation/TabsContainer';
+import PanelTabs from '../components/navigation/PanelTabs';
 
 import {Grid, Container, Typography, Paper, Tabs, Tab, Box, useMediaQuery, Toolbar, Button} from '@mui/material'
 import LandingCarouselSlide from '../components/LandingCarouselSlide';
@@ -41,7 +41,7 @@ export default function About(props) {
     
 
     return(
-        <>
+        <Container maxWidth='xl' disableGutters={true}>
 
             {newPanel ? (
                     // <CreateAboutPanel onSubmit={backToPanels}/>
@@ -65,7 +65,17 @@ export default function About(props) {
                         </Paper>
                                         
                             { aboutPanelData && (
-                                <Box sx={{ flexGrow: 1, bgcolor: 'background.paper', display: smallScreen ? "block" : "flex", height: "100%" }}>
+                               <Box 
+                                sx={{ 
+                                    flexGrow: 1, 
+                                    bgcolor: 'background.paper', 
+                                    display: "flex", 
+                                    flexDirection: smallScreen ? 'column' : 'row', 
+                                    height: "100%", 
+                                    alignItems: smallScreen ? 'center' : 'flex-start'
+
+                                }}
+                                >
                                     <PanelTabs panelData={aboutPanelData} panelRoute={"about"} />
                                     <Outlet />
                                 </Box>
@@ -118,7 +128,7 @@ export default function About(props) {
                     </Grid>
             )}         */}
         
-        </>
+        </Container>
         
     )
 }

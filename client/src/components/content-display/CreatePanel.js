@@ -1,17 +1,17 @@
 import * as React from 'react';
 import { useState, useEffect, useContext } from 'react';
-import RichTextEditor from './RichTextEditor';
+import RichTextEditor from '../RichTextEditor';
 import {EditorState, ContentState} from 'draft-js'
 import {stateToHTML} from 'draft-js-export-html'
 import { convertFromHTML } from 'draft-js';
 import Container from '@mui/material/Container';
 import 'draft-js/dist/Draft.css'
 import '../css/RichText.css'
-import Auth from '../utils/auth'
+import Auth from '../../utils/auth'
 
 import { FormGroup, FormControl, TextField, InputLabel, Button, Input } from '@mui/material';
 import { useMutation } from '@apollo/client';
-import { AdminLoginContext } from '../context/AdminProvider'
+import { AdminLoginContext } from '../../context/AdminProvider'
 
 
 export default function CreatePanel(props) {

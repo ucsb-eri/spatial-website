@@ -1,11 +1,11 @@
 import {React, useContext} from 'react';
-import { AdminLoginContext } from '../context/AdminProvider';
+import { AdminLoginContext } from '../../context/AdminProvider';
 
 import { Toolbar, Button, Box, Grid, Typography, IconButton} from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
 
-import ucsbLogo from '../ucsb.png'
-// import spatialLogo from '../spatiallogo.png';
+import ucsbLogo from '../../ucsb.png'
+// import spatialLogo from '../../spatiallogo.png';
 
 
 function Header(props) {

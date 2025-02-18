@@ -8,7 +8,6 @@ function PersonCard(props) {
     const {details, renderPerson} = props
     const title = details.title
        
-
     return (
         <Grid item xs={10} sm={6} md={4}>
             <CardActionArea onClick={() => {renderPerson(details)}}>
@@ -45,8 +44,8 @@ function PersonCard(props) {
                     justifyContent: 'start'
                 }}
                 >
-                    {title && title.map((title) => (
-                    <Typography key={title} variant="body2" color="text.secondary" sx={{'lineHeight': '25px'}}>
+                    {title && title.map((title, index) => (
+                    <Typography key={index} variant="body2" color="text.secondary" sx={{'lineHeight': '25px'}}>
                         {title}
                     </Typography> 
                     ))}

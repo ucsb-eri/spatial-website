@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Grid, Container, Paper, Box, Typography}  from '@mui/material';
 import LandingCarouselSlide from '../components/LandingCarouselSlide';
-import GiveCard from '../components/GiveCard';
+import GiveCard from '../components/give/GiveCard';
 
 const imageRoute = process.env.NODE_ENV === "production" ? "https://spatial.ucsb.edu/images/" : "http://localhost:3001/images/"
 

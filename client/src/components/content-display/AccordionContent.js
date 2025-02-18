@@ -9,7 +9,7 @@ export default function AccordionContent(props) {
     return (
         <div>
             { accordions.map( (accordion, index) => (
-                <Accordion>
+                <Accordion key={index}>
                     <AccordionSummary
                         expandIcon={<ExpandMoreIcon />}
                         aria-controls="panel-content"
@@ -17,8 +17,8 @@ export default function AccordionContent(props) {
                     >
                         <Typography variant="h5">{accordion.title}</Typography>
                     </AccordionSummary>
-                    { accordion.content.map( (content ) => (
-                        <AccordionDetails >
+                    { accordion.content.map( (content, index) => (
+                        <AccordionDetails key={index} >
                             <ContentCard content={content} />
                             <Divider sx={{marginY: '20px'}} />
                         </AccordionDetails>

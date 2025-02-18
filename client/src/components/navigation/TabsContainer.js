@@ -1,13 +1,13 @@
 import {React, useContext} from 'react';
-import { AdminLoginContext } from "../context/AdminProvider"
-import CreateInfoPanel from './CreateInfoPanel';
+import { AdminLoginContext } from "../../context/AdminProvider"
+import CreateInfoPanel from '../content-display/CreateInfoPanel';
 
 
 import PropTypes from 'prop-types'
 import {Grid, Typography, Card, Tabs, Tab, Box, useMediaQuery, Toolbar, Button} from '@mui/material'
-import ContentCard from './ContentCard';
+import ContentCard from '../content-display/ContentCard';
 
-import AccordionContent from './AccordionContent';
+import AccordionContent from '../content-display/AccordionContent';
 
 
 function TabPanel(props) {

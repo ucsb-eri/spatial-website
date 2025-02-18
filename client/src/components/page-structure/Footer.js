@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Box, Container, Grid, Typography, Link, Divider } from '@mui/material' 
-import spatialLogoNavy from '../content/logos/spatialnavy.png'
-import instagramIcon from '../content/logos/instaicon.png'
-import emailIcon from '../content/logos/emailicon.png'
-import youtubeIcon from '../content/logos/youtubeicon.png'
+import spatialLogoNavy from '../../content/logos/spatialnavy.png'
+import instagramIcon from '../../content/logos/instaicon.png'
+import emailIcon from '../../content/logos/emailicon.png'
+import youtubeIcon from '../../content/logos/youtubeicon.png'
 
 function Copyright() {
   return (

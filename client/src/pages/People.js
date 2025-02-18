@@ -1,11 +1,11 @@
 import React, {useState, useContext} from 'react';
 import { AdminLoginContext } from "../context/AdminProvider"
-import PersonCard from '../components/PersonCard'
-import PersonBio from '../components/PersonBio';
+import PersonCard from '../components/people/PersonCard'
+import PersonBio from '../components/people/PersonBio';
 import { Typography, Toolbar, Button, Grid, Box, Container } from '@mui/material';
 import { useQuery } from '@apollo/client';
 import { QUERY_PEOPLE } from '../utils/queries';
-import CreatePerson from '../components/CreatePerson';
+import CreatePerson from '../components/people/CreatePerson';
 
 
 function People() {
@@ -50,7 +50,7 @@ function People() {
     }
 
     return (
-        <div>
+        <Container maxWidth='xl' disableGutters={true}>
             {/* show loading if mongodb is being slow */}
 
             { newPerson ? (
@@ -141,7 +141,7 @@ function People() {
                 </div> 
             )}
             
-        </div>  
+        </Container>  
            
     )
 

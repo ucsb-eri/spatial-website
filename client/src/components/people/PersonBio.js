@@ -1,8 +1,8 @@
 import { React, useContext, useEffect, useState } from 'react';
-import { AdminLoginContext } from "../context/AdminProvider"
-import { useProjectContext } from '../context/ProjectContext';
-import emailIcon from '../content/logos/emailicon.png'
-import scholarIcon from '../content/logos/googlescholaricon.png'
+import { AdminLoginContext } from "../../context/AdminProvider"
+import { useProjectContext } from '../../context/ProjectContext';
+import emailIcon from '../../content/logos/emailicon.png'
+import scholarIcon from '../../content/logos/googlescholaricon.png'
 import CreatePerson from './CreatePerson';
 
 import { Container, Box, Link, Typography, Card, CardMedia, Button, Grid, Alert, Popover, styled, useMediaQuery } from '@mui/material';

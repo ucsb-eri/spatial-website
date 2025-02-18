@@ -1,9 +1,9 @@
 import { React } from 'react';
-import {Grid, Typography, Toolbar, Box}  from '@mui/material';
+import {Container, Grid, Typography, Toolbar, Box}  from '@mui/material';
 
 import LandingCarousel from '../components/LandingCarousel';
-import EventsTable from '../components/EventsTable'
-import InstagramEmbed from '../components/InstagramEmbed';
+import EventsTable from '../components/home/EventsTable'
+import InstagramEmbed from '../components/home/InstagramEmbed';
 
 import mountains from '../content/images/MountainRangeBlue.png'
 
@@ -42,7 +42,7 @@ const featuredPosts = [
 export default function Home() {
 
   return (
-      <Grid item>
+      <Container maxWidth='xl' disableGutters={true}>
           
           {/* center description + goals or whatever + events calender */}
           <Grid container direction='row' spacing={4} justifyContent='center'>
@@ -50,7 +50,7 @@ export default function Home() {
               <LandingCarousel slides={featuredPosts} />
             </Grid>
             <Grid item xs={11} sx={{mt: '60px'}}>
-                  <Box
+                  {/* <Box
                     sx={{
                       backgroundImage: `url(${mountains})`, // Set the background image
                                                              
@@ -62,21 +62,19 @@ export default function Home() {
 
                     }}
                     >
-                  
-                      
-                  <Grid container direction="row" justifyContent='center'>
+  
+                </Box> */}
+                 
+                 <Grid container direction="row" justifyContent='center'>
                     <Grid item xs={12} md={10}>
                       <Typography align="center" variant="h3" paragraph mb={3}>
-                        <b>Design, Implement, and Disseminate</b>
+                        <b>Spatial science for a better world.</b>
                       </Typography>
                       <Typography align="center" variant="h5" paragraph mb={3}>
                       Here at the Center for Spatial Studies and Data Science at University of California Santa Barbara we collaboratively design, implement, and disseminate spatial science for a better world!
                       </Typography>
                     </Grid>
                   </Grid>
-                
-                </Box>
-                 
                   
                                 
               </Grid>
@@ -107,7 +105,7 @@ export default function Home() {
             
 
           </Grid>
-      </Grid>
+      </Container>
         
 
   

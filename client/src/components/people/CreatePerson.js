@@ -1,21 +1,21 @@
 import * as React from 'react';
 import { useState, useEffect, useContext } from 'react';
-import RichTextEditor from './RichTextEditor';
+import RichTextEditor from '../RichTextEditor';
 import {EditorState, ContentState} from 'draft-js'
 import {stateToHTML} from 'draft-js-export-html'
 import { convertFromHTML } from 'draft-js';
 import Container from '@mui/material/Container';
 import 'draft-js/dist/Draft.css'
-import '../css/RichText.css'
+import '../../css/RichText.css'
 import axios from 'axios'
-import Auth from '../utils/auth'
+import Auth from '../../utils/auth'
 
 import { FormGroup, FormControl, TextField, InputLabel, Button, Input, MenuItem, Typography, FormControlLabel, Checkbox } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useMutation } from '@apollo/client';
-import { ADD_PERSON, EDIT_PROJECT } from '../utils/mutations';
-import { useProjectContext } from '../context/ProjectContext';
-import { AdminLoginContext } from '../context/AdminProvider'
+import { ADD_PERSON, EDIT_PROJECT } from '../../utils/mutations';
+import { useProjectContext } from '../../context/ProjectContext';
+import { AdminLoginContext } from '../../context/AdminProvider'
 
 
 export default function CreatePerson(props) {

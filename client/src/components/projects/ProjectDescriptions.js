@@ -1,7 +1,8 @@
 import { React, useContext, useEffect } from 'react';
 import { AdminLoginContext } from "../../context/AdminProvider"
 
-import {Container, Grid, Typography, Button, Card, CardMedia, CardContent} from '@mui/material';
+import { IconButton, Container, Grid, Typography, Button, Link, Card, CardMedia, CardContent} from '@mui/material';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import CreateProject from './CreateProject';
 import { useProjectContext } from '../../context/ProjectContext';
 
@@ -67,6 +68,11 @@ export default function ProjectDescriptions(props) {
                                 {project.pis && (
                                     <Typography variant='h5' paragraph component='h2' align='left'>
                                     <strong>PIs:</strong> {project.pis}
+                                    </Typography>
+                                )}
+                                {project.website && (
+                                    <Typography variant='h5' paragraph component='h2' align='left'>
+                                    <strong>Website:</strong> <IconButton href={project.website} target='_blank' rel="noopener noreferrer"><OpenInNewIcon /></IconButton>
                                     </Typography>
                                 )}
                                 {project.funder && (

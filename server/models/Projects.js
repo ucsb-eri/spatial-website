@@ -38,6 +38,11 @@ const projectSchema = new Schema({
     required: false,
     unique: false,
   },
+  website: {
+    type: String,
+    required: false,
+    unique: false
+  },
   funder: {
     type: String,
     required: false,

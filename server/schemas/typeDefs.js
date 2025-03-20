@@ -48,6 +48,7 @@ const typeDefs = gql`
     summary: String
     description: String
     image: String
+    website: String
     funder: String
     funderLogo: String
   }

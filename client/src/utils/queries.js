@@ -34,6 +34,7 @@ export const GET_PROJECTS = gql`
         pis
         summary
         description
+        website
         image
         id
         funder

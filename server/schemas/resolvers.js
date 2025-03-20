@@ -33,9 +33,9 @@ const resolvers = {
       // }
     },
 
-    addProject: async (parent, {name, pis, summary, description, image}, context) => {
+    addProject: async (parent, {name, pis, summary, description, website, image}, context) => {
       if (context.user) {
-        const project = await Projects.create({name, pis, summary, description, image})
+        const project = await Projects.create({name, pis, summary, description, website, image})
         return project
       }
     },

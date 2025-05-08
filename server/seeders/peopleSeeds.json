@@ -453,6 +453,124 @@
         "linkedin": "https://www.linkedin.com/in/vanessa-echeverri-figueroa-b13598183/",
         "gscholar": "https://scholar.google.com/citations?user=dX_l5EQAAAAJ&hl=en",
         "image": "people/vanessa_echeverri_figueroa.jpg"  
+    },
+    {
+        "firstName": "Kathy",
+        "lastName": "Baylis",
+        "title": ["Faculty Affiliate"],
+        "category": "Faculty Affiliate",
+        "current": true,
+        "description": "https://www.geog.ucsb.edu/people/faculty/kathy-baylis",
+        "research": "UCSB Department of Geography",
+        "websiteUrl": "https://edge.geog.ucsb.edu/",
+        "websiteName": "EDGE Lab"
+    },
+    {
+        "firstName": "Jean",
+        "lastName": "Carlson",
+        "title": ["Faculty Affiliate"],
+        "category": "Faculty Affiliate",
+        "current": true,
+        "description": "https://www.physics.ucsb.edu/people/jean-carlson",
+        "research": "UCSB Department of Physics",
+        "websiteUrl": "https://web.physics.ucsb.edu/~complex/",
+        "websiteName": "Complex Systems Group"
+    },
+    {
+        "firstName": "Annie",
+        "lastName": "Lamar",
+        "title": ["Faculty Affiliate"],
+        "category": "Faculty Affiliate",
+        "current": true,
+        "description": "https://www.classics.ucsb.edu/faculty/annie-lamar/",
+        "research": "UCSB Department of Classics",
+        "websiteUrl": "https://www.classics.ucsb.edu/lorel-lab/",
+        "websiteName": "LOREL Lab"
+    },
+    {
+        "firstName": "Ruth",
+        "lastName": "Oliver",
+        "title": ["Faculty Affiliate"],
+        "category": "Faculty Affiliate",
+        "current": true,
+        "description": "https://bren.ucsb.edu/people/ruth-oliver",
+        "research": "UCSB Bren School of Environmental Science & Management",
+        "websiteUrl": "https://ryoliver-lab.github.io/",
+        "websiteName": "Oliver Lab"
+    },
+    {
+        "firstName": "Sanjukta",
+        "lastName": "Krishnagopal",
+        "title": ["Faculty Affiliate"],
+        "category": "Faculty Affiliate",
+        "current": true,
+        "description": "https://cs.ucsb.edu/people/faculty/sanjukta-krishnagopal",
+        "research": "UCSB Computer Science",
+        "websiteUrl": "https://networks.cs.ucsb.edu/",
+        "websiteName": "Networks Lab"
+    },
+    {
+        "firstName": "Nusrat",
+        "lastName": "Zahan Jarin",
+        "title": ["Student Affiliate"],
+        "category": "Student Affiliate",
+        "current": true,
+        "description": "https://www.geog.ucsb.edu/people/students/nusrat-zahan-jarin",
+        "research": "UCSB Department of Geography"
+    },
+    {
+        "firstName": "Jiayin",
+        "lastName": "Zhang",
+        "title": ["Student Affiliate"],
+        "category": "Student Affiliate",
+        "current": true,
+        "description": "https://www.geog.ucsb.edu/people/students/jiayin-zhang",
+        "research": "UCSB Department of Geography"
+    },
+    {
+        "firstName": "Esaú",
+        "lastName": "Casimiro Vieyra",
+        "title": ["Student Affiliate"],
+        "category": "Student Affiliate",
+        "current": true,
+        "description": "https://www.geog.ucsb.edu/people/students/esau-casimiro-vieyra",
+        "research": "UCSB Department of Geography"
+    },
+    {
+        "firstName": "Hsin-Ju",
+        "lastName": "Li",
+        "title": ["Student Affiliate"],
+        "category": "Student Affiliate",
+        "current": true,
+        "description": "https://www.geog.ucsb.edu/people/students/hsinju-li",
+        "research": "UCSB Department of Geography"
+    },
+    {
+        "firstName": "Alessandra",
+        "lastName": "Vidal Meza",
+        "title": ["Student Affiliate"],
+        "category": "Student Affiliate",
+        "current": true,
+        "description": "https://bren.ucsb.edu/people/alessandra-vidal-meza-0",
+        "research": "UCSB Bren School of Environmental Science & Management"
+    },
+    {
+        "firstName": "Darren",
+        "lastName": "Dai",
+        "title": ["Student Affiliate"],
+        "category": "Student Affiliate",
+        "current": true,
+        "description": "",
+        "research": "UCSB Department of Statistics and Applied Probability"
+    },
+    {
+        "firstName": "Abby",
+        "lastName": "Bertics",
+        "title": ["Student Affiliate"],
+        "category": "Student Affiliate",
+        "current": true,
+        "description": "https://www.dyns.ucsb.edu/people/students/abby-bertics",
+        "research": "UCSB Interdepartmental Graduate Program in Dynamical Neuroscience"
     }
 
 ]

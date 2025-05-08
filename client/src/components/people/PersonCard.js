@@ -11,7 +11,7 @@ function PersonCard(props) {
     return (
         <Grid item xs={10} sm={6} md={4}>
             <CardActionArea onClick={() => {renderPerson(details)}}>
-                <Card sx={{ width: "100%" }}>
+                <Card >
                 <Box
                 sx={{
                     position: 'relative',

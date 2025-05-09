@@ -147,6 +147,7 @@ function People() {
                             ))}
                             </Grid>
 
+
                             {/* CENTER ALUMNI */}
                             <Toolbar sx={{ marginTop: '40px', marginBottom: '5px' }} align='center'>
                                 <Typography variant='h4' align='left' marginTop="30px" marginBottom="30px" paddingBottom="5px" borderBottom={1} borderColor="divider">

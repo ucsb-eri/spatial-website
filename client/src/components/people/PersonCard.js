@@ -5,11 +5,11 @@ const imageRoute = process.env.NODE_ENV === "production" ? "https://spatial.ucsb
 
 function PersonCard(props) {
     
-    const {details, renderPerson} = props
+    const {details, renderPerson, key} = props
     const title = details.title
        
     return (
-        <Grid item xs={10} sm={6} md={4}>
+        <Grid item xs={10} sm={6} md={4} key={key}>
             <CardActionArea onClick={() => {renderPerson(details)}}>
                 <Card >
                     <Box
@@ -45,7 +45,7 @@ function PersonCard(props) {
                         }}
                         >
                             {title && title.map((title, index) => (
-                            <Typography key={index} variant="body2" color="text.secondary" sx={{'lineHeight': '25px'}}>
+                            <Typography key={index} variant="body1" color="text.secondary" sx={{'lineHeight': '25px'}}>
                                 {title}
                             </Typography> 
                             ))}

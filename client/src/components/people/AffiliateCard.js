@@ -12,11 +12,11 @@ const HoverLink = styled(Link)(({ theme }) => ({
 
 function AffiliateCard(props) {
     
-    const {details} = props
+    const {details, key} = props
     const showWebsite = details.websiteUrl !== null && details.websiteUrl!== ""
        
     return (
-        <Grid item xs={8} sm={5} lg={4}>
+        <Grid item xs={8} sm={5} lg={4} key={key}>
             <CardActionArea href={details.description} target='_blank' rel="noopener noreferrer" sx={{height: '200px'}}>
                 <Card sx={{ width: "100%", height: '100%' }}>
                 <CardContent sx={{display: 'flex', heigth: '100%', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
@@ -24,12 +24,15 @@ function AffiliateCard(props) {
                     <Typography variant="h5" mb={1} mt={2}>
                         {details.firstName} {details.lastName}
                     </Typography>
+                    <Typography variant="body1" color="text.secondary"  mb={1}>
+                        {details.title}
+                    </Typography>
                   
                     {showWebsite && (
                         <Box mb={1} sx={{display:"flex", flexDirection: "row", flexWrap: "nowrap", alignItems: "center", justifyContent:"center"}}>
                             <HoverLink href={details.websiteUrl} rel="noopener noreferrer" target="_blank" color='#027C91' underline='hover'>
                                 {details.websiteName !== null ? (
-                                    <Typography variant="body1" >
+                                    <Typography variant="body2" >
                                     {details.websiteName}
                                     </Typography>
                                 ) : (
@@ -46,7 +49,7 @@ function AffiliateCard(props) {
                         
                     </Box>)}
 
-                    <Typography variant="bod2">
+                    <Typography variant="body2" color="text.secondary">
                         {details.research}
                     </Typography>
                    

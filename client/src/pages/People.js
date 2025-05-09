@@ -131,7 +131,7 @@ function People() {
                             </Toolbar>
                             <Grid container direction="row" justifyContent='center' columnSpacing={4} rowSpacing={4}> 
                             {facAffMembers && facAffMembers.map((person) => (
-                                <AffiliateCard details={person} />
+                                <AffiliateCard details={person} key={person.id} />
                             ))}
                             </Grid>
 
@@ -143,7 +143,7 @@ function People() {
                             </Toolbar>
                             <Grid container direction="row" justifyContent='center' columnSpacing={4} rowSpacing={4}> 
                             {studAffMembers && studAffMembers.map((person) => (
-                                <AffiliateCard details={person} />
+                                <AffiliateCard details={person} key={person.id} />
                             ))}
                             </Grid>
 

@@ -457,7 +457,7 @@
     {
         "firstName": "Kathy",
         "lastName": "Baylis",
-        "title": ["Faculty Affiliate"],
+        "title": ["Professor"],
         "category": "Faculty Affiliate",
         "current": true,
         "description": "https://www.geog.ucsb.edu/people/faculty/kathy-baylis",
@@ -468,7 +468,7 @@
     {
         "firstName": "Jean",
         "lastName": "Carlson",
-        "title": ["Faculty Affiliate"],
+        "title": ["Professor"],
         "category": "Faculty Affiliate",
         "current": true,
         "description": "https://www.physics.ucsb.edu/people/jean-carlson",
@@ -490,7 +490,7 @@
     {
         "firstName": "Ruth",
         "lastName": "Oliver",
-        "title": ["Faculty Affiliate"],
+        "title": ["Assistant Professor"],
         "category": "Faculty Affiliate",
         "current": true,
         "description": "https://bren.ucsb.edu/people/ruth-oliver",
@@ -501,7 +501,7 @@
     {
         "firstName": "Sanjukta",
         "lastName": "Krishnagopal",
-        "title": ["Faculty Affiliate"],
+        "title": ["Assistant Professor"],
         "category": "Faculty Affiliate",
         "current": true,
         "description": "https://cs.ucsb.edu/people/faculty/sanjukta-krishnagopal",
@@ -512,7 +512,7 @@
     {
         "firstName": "Nusrat",
         "lastName": "Zahan Jarin",
-        "title": ["Student Affiliate"],
+        "title": ["PhD Student"],
         "category": "Student Affiliate",
         "current": true,
         "description": "https://www.geog.ucsb.edu/people/students/nusrat-zahan-jarin",
@@ -521,7 +521,7 @@
     {
         "firstName": "Jiayin",
         "lastName": "Zhang",
-        "title": ["Student Affiliate"],
+        "title": ["PhD Student"],
         "category": "Student Affiliate",
         "current": true,
         "description": "https://www.geog.ucsb.edu/people/students/jiayin-zhang",
@@ -530,7 +530,7 @@
     {
         "firstName": "Esaú",
         "lastName": "Casimiro Vieyra",
-        "title": ["Student Affiliate"],
+        "title": ["PhD Student"],
         "category": "Student Affiliate",
         "current": true,
         "description": "https://www.geog.ucsb.edu/people/students/esau-casimiro-vieyra",
@@ -539,7 +539,7 @@
     {
         "firstName": "Hsin-Ju",
         "lastName": "Li",
-        "title": ["Student Affiliate"],
+        "title": ["PhD Student"],
         "category": "Student Affiliate",
         "current": true,
         "description": "https://www.geog.ucsb.edu/people/students/hsinju-li",
@@ -548,7 +548,7 @@
     {
         "firstName": "Alessandra",
         "lastName": "Vidal Meza",
-        "title": ["Student Affiliate"],
+        "title": ["PhD Student"],
         "category": "Student Affiliate",
         "current": true,
         "description": "https://bren.ucsb.edu/people/alessandra-vidal-meza-0",
@@ -557,7 +557,7 @@
     {
         "firstName": "Darren",
         "lastName": "Dai",
-        "title": ["Student Affiliate"],
+        "title": ["Undergraduate Student"],
         "category": "Student Affiliate",
         "current": true,
         "description": "",
@@ -566,11 +566,22 @@
     {
         "firstName": "Abby",
         "lastName": "Bertics",
-        "title": ["Student Affiliate"],
+        "title": ["PhD Student"],
         "category": "Student Affiliate",
         "current": true,
         "description": "https://www.dyns.ucsb.edu/people/students/abby-bertics",
         "research": "UCSB Interdepartmental Graduate Program in Dynamical Neuroscience"
+    },
+    {
+        "firstName": "Pratyush",
+        "lastName": "Tripathy",
+        "title": ["PhD Student"],
+        "category": "Student Affiliate",
+        "current": true,
+        "description": "https://www.geog.ucsb.edu/people/students/pratyush-tripathy",
+        "research": "UCSB Department of Geography"
     }
+
+    
 
 ]

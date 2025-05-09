@@ -135,7 +135,7 @@ function PersonBio(props) {
                                     
                                 {showGscholar && (
                                     <Grid item xs={2}>
-                                        <HoverLink href={details.gscholar} target="_blank" >
+                                        <HoverLink href={details.gscholar} target="_blank" rel="noopener noreferrer" >
                                         <Box 
                                             
                                             component="img"
@@ -152,7 +152,7 @@ function PersonBio(props) {
 
                                 {showLinkedIn && (
                                     <Grid item xs={2}>
-                                        <HoverLink href={details.linkedin} target="_blank" >
+                                        <HoverLink href={details.linkedin} target="_blank" rel="noopener noreferrer" >
                                         <LinkedInIcon 
                                             className='logos'
                                             sx={{fontSize: '45px', color: '#027C91'}}
@@ -165,7 +165,7 @@ function PersonBio(props) {
 
                                 {showX && (
                                     <Grid item xs={2}>
-                                    <HoverLink href={details.x} target="_blank" >
+                                    <HoverLink href={details.x} target="_blank" rel="noopener noreferrer">
                                     <XIcon 
                                         flex= {1}
                                         flexShrink={1}
@@ -178,7 +178,7 @@ function PersonBio(props) {
                                 )}
                                 {showGithub && (
                                     <Grid item xs={2}>
-                                    <HoverLink href={details.github} target="_blank" >
+                                    <HoverLink href={details.github} target="_blank" rel="noopener noreferrer">
                                     <GitHubIcon 
                                         flex= {1}
                                         flexShrink={1}
@@ -192,7 +192,7 @@ function PersonBio(props) {
                                 
                                 {showWebsite && (
                                     <Box sx={{display:"flex", flexDirection: "row", flexWrap: "nowrap", alignItems: "center"}}>
-                                    <HoverLink href={details.websiteUrl} target="_blank" p={1} color='#027C91'>
+                                    <HoverLink href={details.websiteUrl} target="_blank" rel="noopener noreferrer" p={1} color='#027C91'>
                                     {details.websiteName !== null ? (
                                         <Typography variant="h4" >
                                         {details.websiteName}

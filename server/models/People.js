@@ -26,14 +26,12 @@ const peopleSchema = new Schema({
   },
   description: {
     type: String,
-    required: true,
-    minlength: [50, 'Description must be at least 50 characters'],
+    required: false,
     maxlength: [5000, 'Description cannot exceed 500 characters'],
   },
   research: {
     type: String,
     required: false,
-    minlength: [50, 'Description must be at least 50 characters'],
   },
   projects: {
     type: [String],
@@ -42,7 +40,7 @@ const peopleSchema = new Schema({
   category: {
     type: String,
     required: true,
-    enum: ['Leadership', 'Affliated Faculty', 'Staff', 'Graduate Student', 'Undergrad Student', 'Center Alumnus', 'Postdoc']
+    enum: ['Leadership', 'Faculty Affiliate', 'Staff', 'Graduate Student', 'Undergrad Student', 'Center Alumnus', 'Student Affiliate', 'Postdoc']
   },
   current: {
     type: Boolean,

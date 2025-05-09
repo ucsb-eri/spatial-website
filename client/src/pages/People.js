@@ -2,6 +2,7 @@ import React, {useState, useContext} from 'react';
 import { AdminLoginContext } from "../context/AdminProvider"
 import PersonCard from '../components/people/PersonCard'
 import PersonBio from '../components/people/PersonBio';
+import AffiliateCard from '../components/people/AffiliateCard'
 import { Typography, Toolbar, Button, Grid, Box, Container } from '@mui/material';
 import { useQuery } from '@apollo/client';
 import { QUERY_PEOPLE } from '../utils/queries';
@@ -30,6 +31,8 @@ function People() {
     const staffMembers = peopleList.filter(person => person.category === "Staff").sort((a, b) => a.lastName.localeCompare(b.lastName));
     const postdocMembers = peopleList.filter(person => person.category === "Postdoc").sort((a, b) => a.lastName.localeCompare(b.lastName))
     const gradMembers = peopleList.filter(person => person.category === "Graduate Student").sort((a, b) => a.lastName.localeCompare(b.lastName));
+    const facAffMembers = peopleList.filter(person => person.category === "Faculty Affiliate").sort((a, b) => a.lastName.localeCompare(b.lastName));
+    const studAffMembers = peopleList.filter(person => person.category === "Student Affiliate").sort((a, b) => a.lastName.localeCompare(b.lastName));
     const alumniMembers = peopleList.filter(person =>person.category === "Center Alumnus").sort((a, b) => a.lastName.localeCompare(b.lastName));
 
     const emptyDetails = {
@@ -119,6 +122,31 @@ function People() {
                                 <PersonCard details = {person} renderPerson={renderPerson} key={person.id} />    
                             ))}
                             </Grid>
+
+                            {/* FACULTY AFFILIATES */}
+                            <Toolbar sx={{ marginTop: '40px', marginBottom: '5px' }} align='center'>
+                                <Typography variant='h4' align='left' marginTop="30px" marginBottom="30px" paddingBottom="5px" borderBottom={1} borderColor="divider">
+                                Faculty Affiliates
+                                </Typography>
+                            </Toolbar>
+                            <Grid container direction="row" justifyContent='center' columnSpacing={4} rowSpacing={4}> 
+                            {facAffMembers && facAffMembers.map((person) => (
+                                <AffiliateCard details={person} />
+                            ))}
+                            </Grid>
+
+                            {/* FACULTY AFFILIATES */}
+                            <Toolbar sx={{ marginTop: '40px', marginBottom: '5px' }} align='center'>
+                                <Typography variant='h4' align='left' marginTop="30px" marginBottom="30px" paddingBottom="5px" borderBottom={1} borderColor="divider">
+                                Student Affiliates
+                                </Typography>
+                            </Toolbar>
+                            <Grid container direction="row" justifyContent='center' columnSpacing={4} rowSpacing={4}> 
+                            {studAffMembers && studAffMembers.map((person) => (
+                                <AffiliateCard details={person} />
+                            ))}
+                            </Grid>
+
 
                             {/* CENTER ALUMNI */}
                             <Toolbar sx={{ marginTop: '40px', marginBottom: '5px' }} align='center'>

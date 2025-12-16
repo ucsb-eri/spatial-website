@@ -46,9 +46,8 @@ function Header(props) {
               <Typography
                 component="h3"
                 variant="h3"
-                color="inherit"
                 align="left"
-                sx={{ flex: 1, marginTop: 1}} >
+                sx={{ flex: 1, marginTop: 1, fontWeight: 'bold', color: '#003660 !important' }} >
                 {title}
               </Typography>
           </Grid>

@@ -1,0 +1,208 @@
+========================================
+IMAGE UPLOAD & AZURE BLOB STORAGE SETUP
+========================================
+
+✅ WHAT'S BEEN ADDED:
+
+1. Azure Blob Storage Service (Already configured!)
+   - Location: server/utils/storageService.js
+   - Supports both Azure and local storage
+   - Auto-switches based on environment variables
+
+2. Image Upload Component (NEW!)
+   - Location: client/src/components/ImageUpload.js
+   - Reusable component for all image uploads
+   - Features:
+     * Multiple image support
+     * Upload progress indicator
+     * Image preview with thumbnails
+     * Delete functionality
+     * Works with Azure or local storage
+
+3. Enhanced Panel Form with Images (UPDATED!)
+   - Location: client/src/components/content-display/CreateInfoPanelEnhanced.js
+   - Each content section can now have images
+   - Accordion content sections can have images
+   - Up to 5 images per section
+
+4. Azure Setup Scripts (NEW!)
+   - Location: azure/azureBlobSetup.js - Automated Azure setup
+   - Location: azure/azureBlobClient.js - API wrapper
+   - Location: azure/README.txt - Full documentation
+
+
+========================================
+QUICK START - LOCAL STORAGE (DEFAULT)
+========================================
+
+Your app already works with local storage! No setup needed.
+
+Images are stored in: server/public/images/
+
+
+========================================
+UPGRADE TO AZURE BLOB STORAGE
+========================================
+
+Option 1: Automated Setup (Recommended)
+----------------------------------------
+1. Install Azure CLI:
+   https://aka.ms/installazurecli
+
+2. Run setup script:
+   node azure/azureBlobSetup.js
+
+3. Follow prompts (creates storage account, container, updates .env)
+
+4. Restart server
+
+
+Option 2: Manual Setup
+----------------------
+1. Create Azure Storage Account at portal.azure.com
+2. Create container: "spatial-images" (public blob access)
+3. Get connection string from Access Keys
+4. Add to server/.env:
+
+   USE_AZURE_STORAGE=true
+   AZURE_STORAGE_CONNECTION_STRING="<your-connection-string>"
+   AZURE_CONTAINER_NAME=spatial-images
+
+5. Restart server
+
+
+========================================
+HOW TO USE IMAGE UPLOAD
+========================================
+
+In the Enhanced Panel Form:
+
+1. Create or Edit a panel
+2. In any content section, you'll see "Images (Optional)"
+3. Click "Upload Images" button
+4. Select up to 5 images
+5. Watch upload progress
+6. Images display as thumbnails
+7. Click delete icon to remove
+8. Save the panel - image URLs are stored in MongoDB
+
+
+========================================
+IMAGE STORAGE IN DATABASE
+========================================
+
+Location: server/models/InfoPanels.js
+
+InfoContent schema has:
+  image: [String]  // Array of URLs or filenames
+
+- Azure: Full URLs like "https://account.blob.core.windows.net/..."
+- Local: Filenames like "image_1234567890.jpg"
+
+
+========================================
+DISPLAYING IMAGES
+========================================
+
+The ContentCard component should display images from the content.image array.
+
+Example code to add to ContentCard.js:
+
+{content.image && content.image.map((img, idx) => (
+  <img 
+    key={idx} 
+    src={img.startsWith('http') ? img : `/images/${img}`}
+    alt={`Content ${idx}`}
+    style={{maxWidth: '100%', margin: '10px 0'}}
+  />
+))}
+
+
+========================================
+PACKAGE REQUIREMENTS
+========================================
+
+Server (already installed):
+- @azure/storage-blob: ^12.17.0 ✓
+- multer: (for file uploads) ✓
+- uuid: (for unique filenames) ✓
+
+Client (already installed):
+- axios: (for API calls) ✓
+- @mui/material: (for UI) ✓
+
+
+========================================
+ENVIRONMENT VARIABLES
+========================================
+
+Add to server/.env:
+
+# For Local Storage (Default - No setup needed)
+USE_AZURE_STORAGE=false
+
+# For Azure Blob Storage (After setup)
+USE_AZURE_STORAGE=true
+AZURE_STORAGE_CONNECTION_STRING="DefaultEndpointsProtocol=https;AccountName=..."
+AZURE_CONTAINER_NAME=spatial-images
+
+
+========================================
+TESTING
+========================================
+
+1. Start server: npm run develop
+2. Login as admin
+3. Go to About page
+4. Click "+ Add Panel"
+5. Fill in panel info
+6. In Content Section 1, click "Upload Images"
+7. Select an image
+8. Watch it upload (progress bar)
+9. See thumbnail preview
+10. Save panel
+11. View panel - images should display
+
+
+========================================
+TROUBLESHOOTING
+========================================
+
+Issue: Images not uploading
+→ Check JWT token is valid (logged in)
+→ Check network tab for errors
+
+Issue: Azure upload fails
+→ Verify connection string in .env
+→ Check container exists and has blob access
+→ Make sure USE_AZURE_STORAGE=true
+
+Issue: Images not displaying
+→ For local: check server/public/images/ folder exists
+→ For Azure: verify container has public blob access
+→ Check browser console for 404 errors
+
+
+========================================
+COST ESTIMATE (Azure)
+========================================
+
+Typical research website with 1GB images:
+- Storage: $0.02/month
+- Operations: $0.05/month
+- Bandwidth: $0.50/month (100GB transfer)
+Total: ~$1-2/month
+
+
+========================================
+NEXT STEPS
+========================================
+
+1. Test image upload with local storage (works now!)
+2. When ready for production, run: node azure/azureBlobSetup.js
+3. Update ContentCard.js to display images
+4. Deploy to Azure with environment variables set
+
+Done! 🎉
+
+

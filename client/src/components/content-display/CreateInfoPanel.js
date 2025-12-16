@@ -9,9 +9,10 @@ import 'draft-js/dist/Draft.css'
 import '../../css/RichText.css'
 import Auth from '../../utils/auth'
 
-import { FormGroup, FormControl, TextField, InputLabel, Button, Input } from '@mui/material';
+import { FormGroup, FormControl, TextField, InputLabel, Button } from '@mui/material';
 import { useMutation } from '@apollo/client';
 import { ADD_INFOPANEL, EDIT_INFOPANEL } from '../../utils/mutations';
+import { GET_INFOPANELS } from '../../utils/queries';
 import { useProjectContext } from '../../context/ProjectContext';
 import { AdminLoginContext } from '../../context/AdminProvider'
 
@@ -36,7 +37,7 @@ export default function CreateInfoPanel(props) {
             console.log("edited panel")
         }
     }
-    const {editInfoPanelId, setEditInfoPanelId} = useProjectContext()
+    const {setEditInfoPanelId} = useProjectContext()
 
     const createEditorState = () => {
         if (props.id) {
@@ -80,8 +81,12 @@ export default function CreateInfoPanel(props) {
     const [tabname, setTabname] = useState(createTabnameState)
     const [taborder, setTaborder] = useState(createTaborderState)
 
-    const [addPanel] = useMutation(ADD_INFOPANEL)
-    const [editPanel] = useMutation(EDIT_INFOPANEL)
+    const [addPanel] = useMutation(ADD_INFOPANEL, {
+        refetchQueries: [{ query: GET_INFOPANELS }]
+    })
+    const [editPanel] = useMutation(EDIT_INFOPANEL, {
+        refetchQueries: [{ query: GET_INFOPANELS }]
+    })
 
     let handlePanel
     if (props.id) {
@@ -105,8 +110,25 @@ export default function CreateInfoPanel(props) {
             const description = stateToHTML(editorState.getCurrentContent())
             try {
                 console.log(description, name)
+                
+                // Create the input object as expected by the server
+                const input = {
+                    location,
+                    name: name || "Untitled",
+                    tabname: tabname || "untitled",
+                    taborder: parseInt(taborder) || 0,
+                    content: [
+                        {
+                            description,
+                            subtitle: null,
+                            image: []
+                        }
+                    ],
+                    accordion: [] // Optional accordion items
+                }
+                
                 const result = await addPanel({
-                    variables: {name, location, description, tabname, taborder}
+                    variables: { input }
                 }) 
                 
             } catch (error) {

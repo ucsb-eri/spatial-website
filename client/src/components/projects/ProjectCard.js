@@ -1,11 +1,11 @@
 import { React} from 'react';
 
 import {Typography, Card, CardActionArea, CardContent, Box} from '@mui/material';
+import { getImageUrl } from '../../utils/config';
 
 export default function ProjectCard(props) {
 
-    const { project, index, renderProject } = props
-    const imageRoute = process.env.NODE_ENV === "production" ? "https://spatial.ucsb.edu/images/" : "http://localhost:3001/images/"
+    const { project, renderProject } = props
 
     return(
         <Card  
@@ -14,7 +14,7 @@ export default function ProjectCard(props) {
             elevation={0}
             sx={{ 
                 position: 'relative', 
-                backgroundImage: `url(${imageRoute + project.image})`, 
+                backgroundImage: `url(${getImageUrl(project.image)})`, 
                 backgroundSize: 'cover', 
                 backgroundPosition: 'center', 
                 color: 'white', // Light text color

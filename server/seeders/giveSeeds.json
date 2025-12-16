@@ -1,0 +1,20 @@
+[
+    {
+        "title": "Spatial General Fund",
+        "description": "The Center for Spatial Science at UC Santa Barbara is an interdisciplinary research hub dedicated to pushing the boundaries of spatial thinking, geoinformatics, and geographic information science. It champions scientific discovery and educational excellence through workshops, speaker series, and annual Specialist Meetings that assemble leading global experts in spatial data science. Your gift supports the Center's research, students, and outreach efforts.",
+        "image": "https://spatialwebsitestorage.blob.core.windows.net/spatial-images/LagoonCampusPoint7.jpg",
+        "imageDescription": "UCSB Campus Lagoon",
+        "link": "https://giving.ucsb.edu/Funds/Give?id=496",
+        "order": 0
+    },
+    {
+        "title": "Goodchild Fund",
+        "description": "The Goodchild Fellowship was established to support outstanding geography doctoral students, including incoming students, pursuing research in Geographic Information Science. Gifts to this Fund support annual fellowship awards.",
+        "image": "https://spatialwebsitestorage.blob.core.windows.net/spatial-images/LagoonCampusPoint66.jpg",
+        "imageDescription": "UCSB Campus",
+        "link": "https://giving.ucsb.edu/Funds/Give?id=487",
+        "order": 1
+    }
+]
+
+

@@ -3,7 +3,7 @@ import { AdminLoginContext } from "../context/AdminProvider"
 import PersonCard from '../components/people/PersonCard'
 import PersonBio from '../components/people/PersonBio';
 import AffiliateCard from '../components/people/AffiliateCard'
-import { Typography, Toolbar, Button, Grid, Box, Container } from '@mui/material';
+import { Typography, Toolbar, Button, Grid, Container, Box } from '@mui/material';
 import { useQuery } from '@apollo/client';
 import { QUERY_PEOPLE } from '../utils/queries';
 import CreatePerson from '../components/people/CreatePerson';
@@ -70,6 +70,19 @@ function People() {
                         </Container>
                     ): (
                         <Container maxWidth={false}>
+                            
+                            {/* Admin Controls - Positioned at top for easy access */}
+                            { isLoggedIn && (
+                                <Box sx={{ display: 'flex', gap: 2, mb: 3, mt: 3, justifyContent: 'flex-end' }}>
+                                    <Button 
+                                        variant='contained' 
+                                        onClick={() => {setNewPerson(true)}}
+                                        aria-label="Add new member"
+                                    >
+                                        Add New Member
+                                    </Button>
+                                </Box>
+                            )}
         
                             {/* FACULTY */}
                             <Toolbar sx={{ marginTop: '5px', marginBottom: '5px' }} align='center'>
@@ -163,10 +176,7 @@ function People() {
                         </Container>
                     )
                     )}
-                    { isLoggedIn && (
-                    <Button variant='contained' style={{maxWidth: 200}} onClick={() => {setNewPerson(true)}}>Add new member</Button>
-                    )} 
-                </div> 
+                </div>
             )}
             
         </Container>  

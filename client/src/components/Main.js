@@ -25,7 +25,7 @@ function Main(props) {
     <Container maxWidth='xl' disableGutters sx={{display: 'flex', flexDirection:'column', minHeight: '100vh', justifyContent: 'space-between'}}>
       <Grid container direction="column">
         <Grid item>
-          <Header title={"Center for Spatial Studies and Data Science"} handleDrawerToggle={handleDrawerToggle} />
+          <Header title={"Center for Spatial Science"} handleDrawerToggle={handleDrawerToggle} />
           <NavTabs 
 
             aboutPanelData={aboutPanelData}

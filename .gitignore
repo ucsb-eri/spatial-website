@@ -3,4 +3,16 @@ node_modules
 build
 package-lock.json
 server/seeders/adminSeed.json
+# Add to .gitignore
+server/public/images/
+!server/public/images/.gitkeep
 
+# Environment variables
+.env
+*.env
+.env.local
+.env.production
+
+# Don't commit:
+server/.env
+client/.env

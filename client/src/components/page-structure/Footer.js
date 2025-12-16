@@ -10,7 +10,7 @@ function Copyright() {
     <Typography variant="body2" color="text.secondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://spatial.ucsb.edu">
-        UC Santa Barbara Center for Spatial Studies and Data Science
+        UC Santa Barbara Center for Spatial Science
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -18,8 +18,7 @@ function Copyright() {
   );
 }
 
-function Footer(props) {
-  const { description, title } = props;
+function Footer() {
 
   return (
     <Box component="footer" sx={{ bgcolor: 'background.paper', pb: 6, pt: 3}}>
@@ -70,7 +69,7 @@ function Footer(props) {
         </Grid>
         <Grid container direction="row" justifyContent="center" py={2}>
           <Typography variant='body2'>
-            Center for Spatial Studies and Data Science | Phelps 3512 | UC Santa Barbara, CA 93106-4060
+            Center for Spatial Science | Phelps 3512 | UC Santa Barbara, CA 93106-4060
           </Typography>
         </Grid>
         <Copyright />

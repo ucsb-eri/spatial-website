@@ -1,14 +1,14 @@
-import { React, useEffect, useState } from 'react';
+import { React, useEffect, useState, useCallback } from 'react';
 import { Grid, Divider, Link } from '@mui/material'
 import LaunchIcon from '@mui/icons-material/Launch';
 import Typography from '@mui/material/Typography';
 import DOMPurify from 'dompurify'
 
 function EventsTable() {
-    const eventsRoute = process.env.NODE_ENV === "production" ? "https://spatial.ucsb.edu/api/spatialevents" : "http://localhost:3001/api/spatialevents/"
+    const eventsRoute = process.env.NODE_ENV === "production" ? "/api/spatialevents" : "http://localhost:3001/api/spatialevents/"
     const [events, setEvents] = useState([])
-    const getEvents = async () => {
-        
+    
+    const getEvents = useCallback(async () => {
         try {
             const eventsFetch = await fetch(eventsRoute)
             let calEvents = await eventsFetch.json()
@@ -26,7 +26,7 @@ function EventsTable() {
         } catch (error) {
             console.error("Error loading events table", error)
         }
-    }
+    }, [eventsRoute]);
 
     const checkLocationUrl = (location) => {
         const pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
@@ -41,7 +41,7 @@ function EventsTable() {
 
     useEffect(() => {
         getEvents()
-    }, [])
+    }, [getEvents])
 
     const formatDate = (dateStr) => {
         

@@ -4,8 +4,11 @@ import { useProjectContext } from '../../context/ProjectContext';
 import emailIcon from '../../content/logos/emailicon.png'
 import scholarIcon from '../../content/logos/googlescholaricon.png'
 import CreatePerson from './CreatePerson';
+import { useMutation } from '@apollo/client';
+import { DELETE_PERSON } from '../../utils/mutations';
+import { QUERY_PEOPLE } from '../../utils/queries';
 
-import { Container, Box, Link, Typography, Card, CardMedia, Button, Grid, Alert, Popover, styled, useMediaQuery } from '@mui/material';
+import { Container, Box, Link, Typography, Card, CardMedia, Button, Grid, Alert, Popover, styled, useMediaQuery, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
 
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -15,7 +18,7 @@ import WebIcon from '@mui/icons-material/Web';
 import GitHubIcon from '@mui/icons-material/GitHub';
 
 
-const imageRoute = process.env.NODE_ENV === "production" ? "https://spatial.ucsb.edu/images/" : "http://localhost:3001/images/"
+import { getImageUrl } from '../../utils/config';
 
 // Styled line in the card
 const HorizontalLine = styled('div')(({ theme }) => ({
@@ -47,8 +50,35 @@ function PersonBio(props) {
     const {editPersonId, setEditPersonId} = useProjectContext()
     const {details, backToCards} = props
     const isXsScreen = useMediaQuery('(max-width: 599px')
-    const isSmScreen = useMediaQuery('(max-width: 800px')
-    const showProjects = details.projects.length !== 0 
+    
+    // Parse projects - handle both HTML format and array format
+    const parseProjects = () => {
+        if (!details.projects || details.projects.length === 0) return [];
+        
+        const result = [];
+        details.projects.forEach(item => {
+            if (typeof item === 'string') {
+                if (item.includes('<li>')) {
+                    // HTML format - extract list items
+                    const tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = item;
+                    const listItems = tempDiv.querySelectorAll('li');
+                    listItems.forEach(li => {
+                        const text = li.textContent.trim();
+                        if (text) result.push(text);
+                    });
+                } else {
+                    // Plain string
+                    const cleaned = item.trim();
+                    if (cleaned) result.push(cleaned);
+                }
+            }
+        });
+        return result;
+    };
+    
+    const projectsList = parseProjects();
+    const showProjects = projectsList.length > 0;
     const showAdvisors = details.advisors.length !== 0
     const showGscholar = details.gscholar !== null && details.gscholar !== ""
     const showX = details.x !== null && details.x !== ""
@@ -58,8 +88,28 @@ function PersonBio(props) {
     
     
     const [ anchorEl, setAnchorEl ] = useState(null)  
-
     const [ showEmailAlert, setShowEmailAlert ] = useState(false)
+    const [ deleteDialogOpen, setDeleteDialogOpen ] = useState(false)
+
+    const [deletePerson] = useMutation(DELETE_PERSON, {
+        refetchQueries: [{ query: QUERY_PEOPLE }],
+        onCompleted: () => {
+            backToCards();
+        },
+        onError: (error) => {
+            console.error('Error deleting person:', error);
+            alert('Failed to delete person. Please try again.');
+        }
+    });
+
+    const handleDelete = async () => {
+        try {
+            await deletePerson({ variables: { id: details._id } });
+            setDeleteDialogOpen(false);
+        } catch (error) {
+            console.error('Error deleting person:', error);
+        }
+    };
 
     const copyEmail = (email) => {
         navigator.clipboard.writeText(email)
@@ -94,7 +144,7 @@ function PersonBio(props) {
                                     component="img"
                                     alt={`${details.firstName} ${details.lastName} headshot`}
                                     maxHeight="400"
-                                    src= {imageRoute + details.image}
+                                    src={getImageUrl(details.image)}
                                     align="center"/>
                             </Card>
                         </Grid>
@@ -226,12 +276,12 @@ function PersonBio(props) {
                         
                         <Grid item xs={12}>
                             <Typography variant='h5' paragraph align="left"><b>About</b></Typography>
-                            <Typography align="left" paragraph variant='h6'><div dangerouslySetInnerHTML={{__html: details.description}} /></Typography>
+                            <Typography component="div" align="left" paragraph variant='h6'><div dangerouslySetInnerHTML={{__html: details.description}} /></Typography>
                         </Grid>
                         { details.research && (
                             <Grid item xs={12} sm={7} mt={4}>
                             <Typography variant='h5' paragraph align="left"><b>Research</b></Typography>
-                            <Typography align="left" paragraph variant='h6'><div dangerouslySetInnerHTML={{__html: details.research}} /></Typography>
+                            <Typography component="div" align="left" paragraph variant='h6'><div dangerouslySetInnerHTML={{__html: details.research}} /></Typography>
                         </Grid>
                         )}
                         
@@ -239,7 +289,19 @@ function PersonBio(props) {
                         {showProjects && (
                             <Grid item xs={12} sm={5} mt={4}>
                                 <Typography variant='h5' paragraph align="left"><b>Current Projects</b></Typography>
-                                <Typography align="left" paragraph variant='h6'><div dangerouslySetInnerHTML={{__html: details.projects}} /></Typography>
+                                <Box component="ul" sx={{ pl: 2, mt: 1 }}>
+                                    {projectsList.map((project, index) => (
+                                        <Typography 
+                                            component="li" 
+                                            key={index} 
+                                            variant='body1' 
+                                            align="left" 
+                                            sx={{ mb: 0.5 }}
+                                        >
+                                            {project}
+                                        </Typography>
+                                    ))}
+                                </Box>
                             </Grid>
                         )}
 
@@ -275,14 +337,32 @@ function PersonBio(props) {
                 </Grid>
                
             
-            { isLoggedIn && 
-                (
-                <Button variant='contained' style={{maxWidth: 50}} onClick={() => {setEditPersonId(details.id)}}>Edit</Button>
-                )}
+            { isLoggedIn && (
+                <Box sx={{ display: 'flex', gap: 2, mt: 2 }}>
+                    <Button 
+                        variant='contained' 
+                        onClick={() => {setEditPersonId(details.id)}}
+                    >
+                        Edit
+                    </Button>
+                    <Button 
+                        variant='outlined' 
+                        color='error'
+                        onClick={() => setDeleteDialogOpen(true)}
+                    >
+                        Delete
+                    </Button>
+                </Box>
+            )}
             </div>
 
         ) : (
-            <CreatePerson id={details.id} details={details} />
+            <CreatePerson 
+                key={details._id} 
+                id={details._id} 
+                details={details} 
+                onSubmit={() => setEditPersonId(null)} 
+            />
         )}
 
             <Popover
@@ -302,6 +382,28 @@ function PersonBio(props) {
                     Email Copied!
                 </Alert>
             </Popover>
+
+            {/* Delete Confirmation Dialog */}
+            <Dialog
+                open={deleteDialogOpen}
+                onClose={() => setDeleteDialogOpen(false)}
+            >
+                <DialogTitle>Delete Person?</DialogTitle>
+                <DialogContent>
+                    <DialogContentText>
+                        Are you sure you want to delete <strong>{details.firstName} {details.lastName}</strong>? 
+                        This action cannot be undone.
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={() => setDeleteDialogOpen(false)}>
+                        Cancel
+                    </Button>
+                    <Button onClick={handleDelete} color="error" variant="contained" autoFocus>
+                        Delete
+                    </Button>
+                </DialogActions>
+            </Dialog>
         </Container>
             
     )

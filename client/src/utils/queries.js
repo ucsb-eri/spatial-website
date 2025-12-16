@@ -51,15 +51,24 @@ export const GET_INFOPANELS = gql`
             id
             subtitle
             description
-            image
+            image {
+                url
+                label
+            }
         }
         accordion {
+            id
             title
+            taborder
+            accordionOrder
             content {
                 id
                 subtitle
                 description
-                image
+                image {
+                    url
+                    label
+                }
             }
         }
         name
@@ -67,3 +76,31 @@ export const GET_INFOPANELS = gql`
         taborder
         }
   }`
+
+export const GET_CAROUSEL_SLIDES = gql`
+    query GetCarouselSlides {
+        carouselSlides {
+            id
+            title
+            description
+            image
+            linkText
+            color
+            order
+            active
+        }
+    }
+`
+
+export const GET_GIVE_OPPORTUNITIES = gql`
+    query GetGiveOpportunities {
+        giveOpportunities {
+            id
+            title
+            description
+            image
+            imageDescription
+            link
+            order
+        }
+    }`

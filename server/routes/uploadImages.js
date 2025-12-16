@@ -1,35 +1,65 @@
-// server/routes/upload.js
+// server/routes/uploadImages.js
 const express = require('express');
 const router = express.Router();
-const multer = require('multer');
-const path = require('path')
+const { upload, uploadFile, deleteFile, isUsingAzure } = require('../utils/storageService');
+const { authMiddleware } = require('../utils/auth');
 
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, 'public/images')
-  },
-  filename: function (req, file, cb) {
-    cb(null, file.fieldname + "_" + Date.now() + path.extname(file.originalname))
+// Middleware to verify authentication
+const verifyAuth = (req, res, next) => {
+  const authReq = authMiddleware({ req });
+  if (!authReq.user) {
+    return res.status(401).json({ message: 'Unauthorized: You must be logged in to upload files' });
   }
-})
-const upload = multer({ storage: storage });
+  req.user = authReq.user;
+  next();
+};
 
-// Define the upload route
-router.post('/images', upload.single('image'), (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000", "https://spatialtest.ucsb.edu")
-  res.setHeader("Access-Control-Allow-Credentials", "true");
-  res.setHeader("Access-Control-Max-Age", "1800");
-  res.setHeader("Access-Control-Allow-Headers", "content-type");
-  res.setHeader( "Access-Control-Allow-Methods", "POST" );
+// Upload image route
+router.post('/images', verifyAuth, upload.single('image'), async (req, res) => {
   try {
-    console.log(req.file)
-    const imageName = req.file.filename;
-    console.log("image name: ", imageName)
-    res.status(201).json({ imageName });
+    if (!req.file) {
+      return res.status(400).json({ message: 'No file uploaded' });
+    }
+
+    console.log(`Uploading file: ${req.file.originalname}`);
+    console.log(`Storage type: ${isUsingAzure ? 'Azure Blob Storage' : 'Local Storage'}`);
+
+    // Upload the file (to Azure or local)
+    const fileIdentifier = await uploadFile(req.file);
+    
+    console.log(`Upload successful: ${fileIdentifier}`);
+    
+    res.status(201).json({ 
+      imageName: fileIdentifier,
+      isAzure: isUsingAzure,
+      message: 'File uploaded successfully'
+    });
   } catch (error) {
-    console.error(error);
     console.error('Error processing upload:', error);
-    res.status(500).json({ message: 'Internal server error' });
+    res.status(500).json({ 
+      message: 'Failed to upload file',
+      error: process.env.NODE_ENV === 'development' ? error.message : undefined
+    });
+  }
+});
+
+// Delete image route (optional - for cleanup)
+router.delete('/images/:identifier', verifyAuth, async (req, res) => {
+  try {
+    const { identifier } = req.params;
+    const success = await deleteFile(identifier);
+    
+    if (success) {
+      res.status(200).json({ message: 'File deleted successfully' });
+    } else {
+      res.status(404).json({ message: 'File not found or already deleted' });
+    }
+  } catch (error) {
+    console.error('Error deleting file:', error);
+    res.status(500).json({ 
+      message: 'Failed to delete file',
+      error: process.env.NODE_ENV === 'development' ? error.message : undefined
+    });
   }
 });
 

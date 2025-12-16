@@ -7,9 +7,9 @@
         "current": true,
         "description": "Trisalyn Nelson is the Jack and Laura Dangermond Endowed Chair and a Professor in the Department of Geography at the University of California Santa Barbara. Prior Trisalyn was a Professor and Director of the School of Geographical Sciences and Urban Planning at Arizona State University. She began her faculty career as a Geography Professor at the University of Victoria in Canada where she was Director of the Spatial Pattern Analysis and Research Lab.",
         "research": "Dr. Nelson’s current research focuses on mobility with an emphasis on active transportation and the use of big data and analytics to better plan cities. Nelson led the creation of BikeMaps.org, a web-map and App to gather volunteered geographic information on bicycling collisions and near misses. Dr. Nelson is also interested in ethical use of spatial data and creating data science practices that are inclusive and create a more empathic world.",
-        "projects": "<ul><li>Active Transportation Dashboard</li><li>Electric Bicycles</li><li>Crowdsource Data Bias Correction</li></ul>",
+        "projects": ["Active Transportation Dashboard", "Electric Bicycles", "Crowdsource Data Bias Correction"],
         "email": "trisalyn@ucsb.edu",
-        "image": "people/trisalyn_nelson.jpg",
+        "image": "https://spatialwebsitestorage.blob.core.windows.net/spatial-images/people/trisalyn_nelson.jpg",
         "gscholar": "https://scholar.google.com/citations?user=Dz42kJIAAAAJ&hl=en",
         "websiteUrl": "https://www.sparlab.org/",
         "websiteName": "SPAR Lab"
@@ -21,11 +21,11 @@
         "title": ["Associate Director"],
         "category": "Leadership",
         "current": true,
-        "description": "Somayeh is an associate professor of spatial data science at UC Santa Barbara, where she leads the MOVE Lab and serves as an associate director at the Center for Spatial Studies and Data Science. She holds a Ph.D. in Geography from the University of Zurich, and degrees in GIS Engineering and Geomatics Engineering from KNT University of Technology. She has published in several high-ranked international journals and received the 2021 NSF CAREER award and the 2022 Emerging Scholar Award from the Spatial Analysis and Modeling Specialty Group of the American Associations of Geographers. Prior to joining UCSB, she was an Assistant Professor at the University of Minnesota, Twin Cities, and the University of Colorado, Colorado Springs.",
+        "description": "Somayeh is an associate professor of spatial data science at UC Santa Barbara, where she leads the MOVE Lab and serves as an associate director at the Center for Spatial Science. She holds a Ph.D. in Geography from the University of Zurich, and degrees in GIS Engineering and Geomatics Engineering from KNT University of Technology. She has published in several high-ranked international journals and received the 2021 NSF CAREER award and the 2022 Emerging Scholar Award from the Spatial Analysis and Modeling Specialty Group of the American Associations of Geographers. Prior to joining UCSB, she was an Assistant Professor at the University of Minnesota, Twin Cities, and the University of Colorado, Colorado Springs.",
         "research": "Somayeh’s research focuses on developing data analytics, knowledge discovery, modeling, simulation, and visualization techniques to study movement and spatiotemporal processes. By examining how movement relates to the environment, her work enhances our understanding of social and ecological systems. She applies spatial data science and quantitative methods to model problems such as human-wildlife conflicts, environmental change, natural hazards, the spread of diseases, human mobility, and spatial interaction. Through interdisciplinary research, Dr. Dodge aims to develop a broadly applicable analytical framework to unravel how movement patterns of individuals are driven by their behavior, their environment, and their interactions across multiple spatial and temporal scales.",
-        "projects": "<ul><li>Visualizing Motion: A Framework for the Cartography of Movement (<a href='https://www.nsf.gov/awardsearch/showAward?AWD_ID=1853681&amp;HistoricalAwards=false'><u>link</u></a>)</li><li>CAREER: Modeling Movement and Behavior Responses to Environmental Disruptions (<a href='https://www.nsf.gov/awardsearch/showAward?AWD_ID=2043202&amp;HistoricalAwards=false'><u>link</u></a>)</li><li>Advancing methods to trace and contextualize space-time interaction patterns in movement data (<a href='https://www.nsf.gov/awardsearch/showAward?AWD_ID=2217460&amp;HistoricalAwards=false'><u>link</u></a>)</li></ul>",
+        "projects": ["Visualizing Motion: A Framework for the Cartography of Movement", "CAREER: Modeling Movement and Behavior Responses to Environmental Disruptions", "Advancing methods to trace and contextualize space-time interaction patterns in movement data"],
         "email": "sdodge@ucsb.edu",
-        "image": "people/somayeh_dodge.jpg",
+        "image": "https://spatialwebsitestorage.blob.core.windows.net/spatial-images/people/somayeh_dodge.jpg",
         "gscholar": "https://scholar.google.com/citations?user=vDaqmVQAAAAJ&hl=en",
         "websiteUrl": "https://move.geog.ucsb.edu/",
         "websiteName": "MOVE Lab"
@@ -37,13 +37,13 @@
         "title": ["Associate Director"],
         "category": "Leadership",
         "current": true,
-        "description": "Peter Kedron is a human geographer and GIScientist with expertise in economic geography, spatial analysis, and the design and evaluation of research. Dr. Kedron joined UCSB as an Associate Professor and member of the Center for Spatial Studies and Data Science after previously holding faculty positions at Arizona State University (2018-2023), Oklahoma State University (2016-2018), and Ryerson University (2012-2016). He earned his Ph.D. in Geography from the State University of New York at Buffalo, an MA in Economics from the University of Michigan, and BAs in Economics and Psychology from the State University of New York at Buffalo. To date, he has authored over 70 peer-reviewed articles, given over 100 conference presentations and public talks, and supervised over 20 graduate students and postdoctoral scholars. His research has been consistently funded by the National Science Foundation (NSF) and appears in publications in top journals in Geography, GIScience, and Regional Science.",        
+        "description": "Peter Kedron is a human geographer and GIScientist with expertise in economic geography, spatial analysis, and the design and evaluation of research. Dr. Kedron joined UCSB as an Associate Professor and member of the Center for Spatial Science after previously holding faculty positions at Arizona State University (2018-2023), Oklahoma State University (2016-2018), and Ryerson University (2012-2016). He earned his Ph.D. in Geography from the State University of New York at Buffalo, an MA in Economics from the University of Michigan, and BAs in Economics and Psychology from the State University of New York at Buffalo. To date, he has authored over 70 peer-reviewed articles, given over 100 conference presentations and public talks, and supervised over 20 graduate students and postdoctoral scholars. His research has been consistently funded by the National Science Foundation (NSF) and appears in publications in top journals in Geography, GIScience, and Regional Science.",        
         "research": "Dr. Kedron's research focuses on understanding how and when inferences made from spatial data are internally valid and externally generalizable. Working at the intersection of geography, statistics, and social science, he develops research approaches, analytical methods, and pedagogical models to build a reproducible and reliable spatial data science. His recent research focuses on bringing a geographic approach to understanding not only what policies work, but what policies work where.",
-        "projects":"<ul><li>Transforming Theory-building and STEM Education using Reproductions and Replications</li><li>When Can We Generalize Across Locations? A Spatial Framework for Interpreting Findings from Impact Evaluations</li><li>Modernizing GIS Education</li></ul>",
+        "projects": ["Transforming Theory-building and STEM Education using Reproductions and Replications", "When Can We Generalize Across Locations? A Spatial Framework for Interpreting Findings from Impact Evaluations", "Modernizing GIS Education"],
         "email": "peterkedron@ucsb.edu",
         "location": "5718 Ellison Hall",
         "phone": "+1-805-893-3663",
-        "image": "people/peter_kedron.jpg",
+        "image": "https://spatialwebsitestorage.blob.core.windows.net/spatial-images/people/peter_kedron.jpg",
         "gscholar": "https://scholar.google.com/citations?authuser=1&hl=en&user=e_WSMGkAAAAJ"
     },
     {
@@ -55,10 +55,10 @@
         "description": "Alan Murray is a Professor in the Department of Geography. He earned a BS in Mathematics, a Master’s in Statistics and Applied Probability and a PhD in Geography, all from UC Santa Barbara. After his PhD, he was Professor in the Department of Geography at Ohio State University (as well as Director of the Center for Urban and Regional Analysis), Professor in the School of Geographical Sciences and Urban Planning at Arizona State University and Professor in the College of Computing and Informatics as well as the School of Public Health at Drexel University prior to his return to UC Santa Barbara at the end of 2015.",
         "research": "Professor Murray’s research and teaching interests include: geographic information science; spatial optimization; emergency response, health informatics; urban growth and development; land use planning; urban, regional, and natural resource planning and development; and, infrastructure and transportation systems.",
         "email": "amurray@ucsb.edu",
-        "projects": "<ul><li>Wildfire Resilience Initiative (WRI)</li></ul>",
+        "projects": ["Wildfire Resilience Initiative (WRI)"],
         "location": "5718 Ellison Hall",
         "phone": "+1-805-893-3663",
-        "image": "people/alan_murray.jpg",
+        "image": "https://spatialwebsitestorage.blob.core.windows.net/spatial-images/people/alan_murray.jpg",
         "gscholar": "https://scholar.google.com/citations?user=Raj7sewAAAAJ&hl=en&oi=ao",
         "websiteUrl": "https://wri.ucsb.edu/",
         "websiteName": "WRI"
@@ -71,11 +71,11 @@
         "current": true,
         "description": "Amy Frazier is a professor and the Jack and Laura Dangermond Endowed Chair of Conservation Science. She joined the Geography department in 2023, and previously held faculty appointments at Arizona State University (2018-2023) and Oklahoma State University (2013-2018). Dr. Frazier holds an A.B. in Environmental Earth Science from Dartmouth College, an M.A. in Geography from West Chester University, and a Ph.D. in Geography from the University at Buffalo.",
         "research": "Professor Frazier’s research is motivated by the grand environmental challenges facing humankind, including the global loss of biodiversity and ecosystem services, the impending mass extinction of species, and the critical need to protect our planet in the face of climate change. She and her team use a variety of field- and lab-based methods, including drones, remote sensing, GIS, machine learning, and statistics, to harness massive amounts of biological and environmental data, produce valuable tools and knowledge from those data that can inform conservation decisions, and integrate that knowledge into policy-making pipelines. Her research program has been supported by over $48 million in grants from funding agencies such as the National Science Foundation, National Aeronautics and Space Administration (NASA), and the United States Department of Agriculture (USDA).",
-        "projects": "<ul><li>Dynamics of Integrated Social-Ecological Systems</li><li>Forecasting Biodiversity into the Future</li><li>Ecosystem Restoration</li><li>Computational Landscape Ecology</li><li>Drones</li></ul>",
+        "projects": ["Dynamics of Integrated Social-Ecological Systems", "Forecasting Biodiversity into the Future", "Ecosystem Restoration", "Computational Landscape Ecology", "Drones"],
         "email": "afrazier@ucsb.edu",
         "location": "5718 Ellison Hall",
         "phone": "+1-805-893-3663",
-        "image": "people/amy_frazier.jpg",
+        "image": "https://spatialwebsitestorage.blob.core.windows.net/spatial-images/people/amy_frazier.jpg",
         "gscholar": "https://scholar.google.com/citations?user=kWFPqesAAAAJ&hl=en&oi=sra",
         "websiteUrl": "https://www.frazierlab.org/",
         "websiteName": "SCALE Lab"
@@ -86,10 +86,10 @@
         "title": ["Center Administrative Coordinator"],
         "category": "Staff",
         "current": true,
-        "description": "Shaine Lutsky is the Administrative Coordinator for the Center for Spatial Studies and Data Science. In her role, she serves as the primary administrative and operations contact for the center, with responsibilities that range from event planning, space coordination, scheduling, design, and special projects. Shaine closely collaborates with all researchers and staff, ensuring the center operates seamlessly and efficiently.",
+        "description": "Shaine Lutsky is the Administrative Coordinator for the Center for Spatial Science. In her role, she serves as the primary administrative and operations contact for the center, with responsibilities that range from event planning, space coordination, scheduling, design, and special projects. Shaine closely collaborates with all researchers and staff, ensuring the center operates seamlessly and efficiently.",
         "email": "shainelutsky@ucsb.edu",
         "linkedin": "https://www.linkedin.com/in/shainelutsky/",
-        "image": "people/shaine_lutsky.jpg"
+        "image": "https://spatialwebsitestorage.blob.core.windows.net/spatial-images/people/shaine_lutsky.jpg"
     },
     {
         "firstName": "Lizzy",
@@ -100,7 +100,7 @@
         "description": "As SPAR Lab Communication Manager, Lizzy specializes in overseeing grants and leading communication efforts for BikeMaps.org. Additionally, she leads a bike and pedestrian count program for Santa Barbara County, providing valuable data for sustainable transportation planning and improvements.",
         "email": "schattle@ucsb.edu",
         "location": "3512 Phelps Hall",
-        "image": "people/lizzy_schattle.jpg"
+        "image": "https://spatialwebsitestorage.blob.core.windows.net/spatial-images/people/lizzy_schattle.jpg"
     },
     {
         "firstName": "Dan",
@@ -108,10 +108,10 @@
         "title": ["GIS Developer"],
         "category": "Staff",
         "current": true,
-        "description": "Dan Willett is a GIS Developer here in the Center for Spatial Studies and Data Science. His work includes geospatial application development, database curation and management, and data analysis and visualization. Dan is currently working with @Spatial faculty Trislayn Nelson and Amy Frazier on projects related to active transportation and land use modeling.",
+        "description": "Dan Willett is a GIS Developer here in the Center for Spatial Science. His work includes geospatial application development, database curation and management, and data analysis and visualization. Dan is currently working with @Spatial faculty Trislayn Nelson and Amy Frazier on projects related to active transportation and land use modeling.",
         "email": "danwillett@ucsb.edu",
         "github": "https://github.com/danwillett",
-        "image": "people/dan_willett.jpeg"
+        "image": "https://spatialwebsitestorage.blob.core.windows.net/spatial-images/people/dan_willett.jpeg"
     },
     {
         "firstName": "Caitlyn Jeri",
@@ -123,7 +123,7 @@
         "research": "Caitlyn Linehan is a PhD candidate in Geography at the University of California, Santa Barbara, where she specializes in using GISc to improve urban walkability. Her research explores integrating volunteered geographic information with traditional data sources to enhance urban well-being. Caitlyn is also dedicated to developing innovative educational methods for college geography students.",
         "linkedin": "https://www.linkedin.com/in/caitlyn-linehan/",
         "email": "caitlynlinehan@ucsb.edu",
-        "image": "people/caitlyn_linehan.jpg",
+        "image": "https://spatialwebsitestorage.blob.core.windows.net/spatial-images/people/caitlyn_linehan.jpg",
         "websiteUrl": "https://www.linkedin.com/in/caitlyn-linehan/",
         "advisors": ["Trisalyn Nelson"]
     },
@@ -138,7 +138,7 @@
         "email": "zijian.wan@geog.ucsb.edu",
         "x": "https://x.com/zijian_wan",
         "gscholar": "https://scholar.google.com/citations?user=vLywcvcAAAAJ&hl=en",
-        "image": "people/zijian_wan.png",
+        "image": "https://spatialwebsitestorage.blob.core.windows.net/spatial-images/people/zijian_wan.png",
         "advisors": ["Somayeh Dodge"]
     },
     {
@@ -151,7 +151,7 @@
         "research": "My research interests focus on understanding the dynamics of wildlife interactions using GPS tracking data, particularly among carnivores like tigers, leopards, and pumas. I aim to explore how environmental factors impact both interspecific and intraspecific interactions. By developing and applying advanced computational models, my work aims to reveal the ecological processes that drive these interactions, ultimately informing more effective conservation strategies and wildlife management practices.",
         "email": "yifei_liu@ucsb.edu",
         "gscholar": "https://scholar.google.com/citations?user=IXn2D8YAAAAJ&hl=en",
-        "image": "people/yifei_liu.jpg",
+        "image": "https://spatialwebsitestorage.blob.core.windows.net/spatial-images/people/yifei_liu.jpg",
         "advisors": ["Somayeh Dodge"]
     },
     {
@@ -166,7 +166,7 @@
         "websiteUrl": "https://wxyang007.github.io",
         "gscholar": "https://scholar.google.com/citations?hl=en&user=uwEpq2kAAAAJ",
         "linkedin": "https://www.linkedin.com/in/wenxin-yang-9a7729183/",
-        "image": "people/wenxin_yang.jpg",
+        "image": "https://spatialwebsitestorage.blob.core.windows.net/spatial-images/people/wenxin_yang.jpg",
         "advisors": ["Amy Frazier", "Peter Kedron"]
     },
     {
@@ -178,7 +178,7 @@
         "description": "I received an M.S. in Ecology from the University of the Chinese Academy of Sciences and a B.S. in Physical Geography and Resource & Environment from Changsha University of Science & Technology. My research interests include ecological modeling, the impacts of disturbances on terrestrial ecosystems, and biodiversity conservation.",
         "research": "I‘m interested in using landscape ecology approaches to promote invasive species control and biodiversity conservation. My current research focuses on integrating field investigation, remote sensing, geospatial analysis, and modeling tools to study the mechanisms of plant invasion.",
         "email": "xyan253@ucsb.edu",
-        "image": "people/xue_yan.jpg",
+        "image": "https://spatialwebsitestorage.blob.core.windows.net/spatial-images/people/xue_yan.jpg",
         "advisors": ["Amy Frazier"]
     },
     {
@@ -191,7 +191,7 @@
         "research": "Yuyan enjoys investigating social practical issues through spatial data. Currently, she is working on spatial patterns of bike commuting, and emerging e-bike spatial analysis. She is specifically interested in exploring multiple spatial approaches in GIScience.",
         "email": "yuyanche@ucsb.edu",
         "x": "https://twitter.com/YuyanChe",
-        "image": "people/yuyan_che.jpg",
+        "image": "https://spatialwebsitestorage.blob.core.windows.net/spatial-images/people/yuyan_che.jpg",
         "advisors": ["Trisalyn Nelson"]
     },
     {
@@ -205,7 +205,7 @@
         "email": "marysalami@ucsb.edu",
         "gscholar": "https://scholar.google.com/citations?user=A5wFQmIAAAAJ&hl=en&oi=ao",
         "linkedin": "https://www.linkedin.com/in/marysalami/",
-        "image": "people/mary_salami.jpg",
+        "image": "https://spatialwebsitestorage.blob.core.windows.net/spatial-images/people/mary_salami.jpg",
         "advisors": ["Somayeh Dodge"]
     },
     {
@@ -220,7 +220,7 @@
         "gscholar": "https://scholar.google.com/citations?user=KnwH5o0AAAAJ&hl=en&oi=ao",
         "linkedin": "https://www.linkedin.com/in/danial-alizadeh-481893149/",
         "x": "https://x.com/danial_alz?s=21&t=VUfK1JDgl-4EtSeBRbIccg",
-        "image": "people/danial_alizadeh.jpg",
+        "image": "https://spatialwebsitestorage.blob.core.windows.net/spatial-images/people/danial_alizadeh.jpg",
         "advisors": ["Somayeh Dodge"]
     },
     {
@@ -236,7 +236,7 @@
         "gscholar": "https://scholar.google.com/citations?view_op=list_works&hl=en&user=jPTIzIMAAAAJ&gmla=AC6lMd_Rp0-",
         "linkedin": "",
         "x": "",
-        "image": "people/izzy_lopez.jpeg"
+        "image": "https://spatialwebsitestorage.blob.core.windows.net/spatial-images/people/izzy_lopez.jpeg"
         
     },
     {
@@ -252,7 +252,7 @@
         "gscholar": "https://scholar.google.com/citations?user=24Wp1PYAAAAJ&hl=en&oi=ao",
         "linkedin": "https://www.linkedin.com/in/lily-heidger/",
         "x": "",
-        "image": "people/lily_heidger.jpeg"
+        "image": "https://spatialwebsitestorage.blob.core.windows.net/spatial-images/people/lily_heidger.jpeg"
         
     },
     {
@@ -268,7 +268,7 @@
         "gscholar": "https://scholar.google.com/citations?user=ujXict4AAAAJ&hl=en",
         "linkedin": "",
         "x": "",
-        "image": "people/zhongqi_zheng.jpg"
+        "image": "https://spatialwebsitestorage.blob.core.windows.net/spatial-images/people/zhongqi_zheng.jpg"
         
         
     },
@@ -285,7 +285,7 @@
         "gscholar": "",
         "linkedin": "",
         "x": "",
-        "image": "people/jin_huang.jpeg"
+        "image": "https://spatialwebsitestorage.blob.core.windows.net/spatial-images/people/jin_huang.jpeg"
         
     },
     {
@@ -301,7 +301,7 @@
         "gscholar": "",
         "linkedin": "",
         "x": "",
-        "image": "people/yeshuo_shu.jpg"
+        "image": "https://spatialwebsitestorage.blob.core.windows.net/spatial-images/people/yeshuo_shu.jpg"
         
     },
     {
@@ -317,7 +317,7 @@
         "gscholar": "https://scholar.google.com/citations?user=PKwwzgoAAAAJ&hl=en&oi=ao ",
         "linkedin": "",
         "x": "https://twitter.com/nnewsh_?lang=en",
-        "image": "people/niall_newsham.png"
+        "image": "https://spatialwebsitestorage.blob.core.windows.net/spatial-images/people/niall_newsham.png"
         
     },
     {
@@ -333,7 +333,7 @@
         "gscholar": "",
         "linkedin": "",
         "x": "",
-        "image": "people/zijun_li.jpg"
+        "image": "https://spatialwebsitestorage.blob.core.windows.net/spatial-images/people/zijun_li.jpg"
         
     },
     {
@@ -349,7 +349,7 @@
         "gscholar": "",
         "linkedin": "https://www.linkedin.com/in/jiahua-chen/",
         "x": "",
-        "image": "people/jiahua_chen.jpg"
+        "image": "https://spatialwebsitestorage.blob.core.windows.net/spatial-images/people/jiahua_chen.jpg"
         
     },
     {
@@ -367,7 +367,7 @@
         "github": "https://github.com/LLeiSong",
         "linkedin": "",
         "x": "",
-        "image": "people/lei_song.png"
+        "image": "https://spatialwebsitestorage.blob.core.windows.net/spatial-images/people/lei_song.png"
         
     },
     {
@@ -381,7 +381,7 @@
         "description": "My name is Rongxiang Su (he/him), and I am currently a Postdoctoral Fellow at MIT Senseable City Lab. I received my Ph.D. in Geography from the University of California, Santa Barbara in December 2023. My research interests include geospatial data science, human mobility, travel behavior, and urban analytics.",
         "research": "My research focuses on understanding human mobility, travel behavior, and activity patterns in urban systems through the analysis of human-generated data (e.g., mobile phone traces, household travel surveys, and food delivery transaction data). I am particularly interested in developing computational methods to identify and quantify spatiotemporal patterns of human daily activities and interactions. In parallel, I aim to understand disparities in human behavior by modeling and predicting activity-travel patterns across different socio-geographical contexts, contributing to the promotion of sustainable, equitable, and inclusive transportation systems and access to urban amenities.",
         "websiteUrl": "https://rongxiangsu.github.io/",
-        "image": "people/rongxiang_su.jpg"
+        "image": "https://spatialwebsitestorage.blob.core.windows.net/spatial-images/people/rongxiang_su.jpg"
         
         
     },
@@ -396,7 +396,7 @@
         "description": "B.S. Geography, University of Bristol, 2018-2021, M.S. Social and Geographic Data Science, University College London, 2021-2022",
         "research": "My research emphasize on spatial pattern of political orientation and health outcomes, with the integration of GIS, spatial analysis, and human geography. ",
         "gscholar": "https://scholar.google.com/citations?user=P5g1dqoAAAAJ&hl=en",
-        "image": "people/yuyang_zhang.jpg"
+        "image": "https://spatialwebsitestorage.blob.core.windows.net/spatial-images/people/yuyang_zhang.jpg"
         
     },
     {
@@ -411,7 +411,7 @@
         "research": "My research involves using climate and species data and integrating geospatial analyses and modeling tools, to understand and predict biodiversity patterns and inform conservation under climate change. ",
         "gscholar": "https://scholar.google.com/citations?user=0dSguGcAAAAJ&hl=en",
         "linkedin": "https://linkedin.com/in/diyang-cui-37814a182",
-        "image": "people/diyang_cui.jpg"
+        "image": "https://spatialwebsitestorage.blob.core.windows.net/spatial-images/people/diyang_cui.jpg"
         
     },
     {
@@ -425,7 +425,7 @@
         "description": "My name is Enbo Zhou. I am currently a Machine Learning Engineer at Pinterest located in Bay area. I graduated from geography PhD program at UCSB in 2024. My research interest deals with spatial optimization, machine learning, information retrieval and recommendation with applications in urban planning, emergency response, environment monitoring and etc.",
         "research": "My research has been focused on perceiving and understand environment by various sensor data, and prescribing the location and configuration of different facilities to promote efficient, economic and equitable access. Specifically, I am interested in leveraging advanced analytical techniques such as spatial optimization and machine learning to solve planning and decision problems in urban planning, emergency response, environment monitoring, health care etc.",
         "github": "https://zhouenbo.github.io/",
-        "image": "people/enbo_zhou.jpg"  
+        "image": "https://spatialwebsitestorage.blob.core.windows.net/spatial-images/people/enbo_zhou.jpg"  
     },
     {
         "firstName": "Jiwon",
@@ -438,7 +438,7 @@
         "description": "Jiwon Baik is a Ph.D. student in the Department of Geography at University of California at Santa Barbara. Her research interests include: geographic information science, spatial  optimization, and spatio-temporal modeling using AI techniques.",
         "research": "My research focuses on spatial optimization and modeling, with applications in wildfire risk mitigation, facility location, and emergency response planning. I have worked on spatial optimization regarding access and coverage and developed frameworks for strategic decision-making. My work spans wildfire response prepositioning and the use of neural architecture search for effective AI modeling. I aim to improve decision-making in urban and environmental planning, particularly in contexts constrained by resources and space.",
         "linkedin": "https://www.linkedin.com/in/jiwon-baik/",
-        "image": "people/jiwon_baik.jpg"  
+        "image": "https://spatialwebsitestorage.blob.core.windows.net/spatial-images/people/jiwon_baik.jpg"  
     },
     {
         "firstName": "Vanessa Echeverri",
@@ -452,7 +452,7 @@
         "research": "Vanessa's research focuses on evaluating wildfire preparedness in the southern Santa Barbara County coastal area. She has developed a framework using network theory to automate the assessment of hydrant distribution and compliance with codes and guidelines. By employing spatial statistics, she analyzes patterns of past fire incidents to identify spatial correlations between vulnerabilities and inadequate hydrant coverage. Her work aims to provide insights into improving fire coverage and preparedness, understanding the factors driving structural destruction, and enhancing urban safety through better prevention strategies.",
         "linkedin": "https://www.linkedin.com/in/vanessa-echeverri-figueroa-b13598183/",
         "gscholar": "https://scholar.google.com/citations?user=dX_l5EQAAAAJ&hl=en",
-        "image": "people/vanessa_echeverri_figueroa.jpg"  
+        "image": "https://spatialwebsitestorage.blob.core.windows.net/spatial-images/people/vanessa_echeverri_figueroa.jpg"  
     },
     {
         "firstName": "Kathy",

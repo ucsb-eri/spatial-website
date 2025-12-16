@@ -1,9 +1,15 @@
-import * as React from 'react';
-import {Grid, Container, Paper, Box, Typography}  from '@mui/material';
+import {React, useState, useContext} from 'react';
+import {Grid, Container, Paper, Typography, Button, Box, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions}  from '@mui/material';
 import LandingCarouselSlide from '../components/LandingCarouselSlide';
 import GiveCard from '../components/give/GiveCard';
+import CreateGiveOpportunity from '../components/give/CreateGiveOpportunity';
+import { AdminLoginContext } from "../context/AdminProvider"
+import { useQuery, useMutation } from '@apollo/client';
+import { GET_GIVE_OPPORTUNITIES } from '../utils/queries';
+import { DELETE_GIVE_OPPORTUNITY } from '../utils/mutations';
+import ReorderIcon from '@mui/icons-material/Reorder';
 
-const imageRoute = process.env.NODE_ENV === "production" ? "https://spatial.ucsb.edu/images/" : "http://localhost:3001/images/"
+const imageRoute = process.env.NODE_ENV === "production" ? "/images/" : "http://localhost:3001/images/"
 
 const giveBanner = {
     description: "",
@@ -13,71 +19,143 @@ const giveBanner = {
     color: 'white'
 }
 
-const giveCards = [
-    {
-        title: 'Spatial General Fund',
-        description: "The Center for Spatial Studies and Data Science at UC Santa Barbara is an interdisciplinary research hub dedicated to pushing the boundaries of spatial thinking, geoinformatics, and geographic information science. It champions scientific discovery and educational excellence through workshops, speaker series, and annual Specialist Meetings that assemble leading global experts in spatial data science. Your gift supports the Center's research, students, and outreach efforts.",
-        image: `${imageRoute + 'LagoonCampusPoint7.jpg'}`,
-        imageDescription: '',
-        link: 'https://giving.ucsb.edu/Funds/Give?id=496'
-    },
-    {
-        title: 'Goodchild Fund',
-        description: 'The Goodchild Fellowship was established to support outstanding geography doctoral students, including incoming students, pursuing research in Geographic Information Science. Gifts to this Fund support annual fellowship awards.',
-        image: `${imageRoute + 'LagoonCampusPoint66.jpg'}`,
-        imageDescription: '',
-        link: 'https://giving.ucsb.edu/Funds/Give?id=487'
-    },
-
-]
-
 export default function Give() {
+    const { isLoggedIn } = useContext(AdminLoginContext)
+    const { loading, data } = useQuery(GET_GIVE_OPPORTUNITIES);
+    const giveCards = data?.giveOpportunities || [];
 
-    
+    const [newOpportunity, setNewOpportunity] = useState(false)
+    const [editingOpportunity, setEditingOpportunity] = useState(null)
+    const [deleteDialogOpen, setDeleteDialogOpen] = useState(false)
+    const [opportunityToDelete, setOpportunityToDelete] = useState(null)
+
+    const backToList = () => {
+        setNewOpportunity(false)
+        setEditingOpportunity(null)
+    }
+
+    const [deleteOpportunity] = useMutation(DELETE_GIVE_OPPORTUNITY, {
+        refetchQueries: [{ query: GET_GIVE_OPPORTUNITIES }],
+        onError: (error) => {
+            console.error('Error deleting opportunity:', error);
+            alert('Failed to delete opportunity. Please try again.');
+        }
+    });
+
+    const handleDeleteConfirm = async () => {
+        if (opportunityToDelete) {
+            try {
+                await deleteOpportunity({ variables: { id: opportunityToDelete.id } })
+                setDeleteDialogOpen(false)
+                setOpportunityToDelete(null)
+            } catch (error) {
+                console.error('Error deleting opportunity:', error)
+            }
+        }
+    }
 
     return(
             <Grid container maxWidth='xl' direction="row" justifyContent='center' >
-                <Grid item xs={12}>
-                    
-                    <Paper
-                        sx={{
-                            position: 'relative',
-                            backgroundColor: 'grey.800',
-                            color: '#fff',
-                            mb: 4,
-                            height: '50vh',
-                            maxHeight: '500px',
-                            backgroundSize: 'cover',
-                            backgroundRepeat: 'no-repeat',
-                            backgroundPosition: 'center',
-                            backgroundImage: `url(${giveBanner.image})`,
-                        }}>
-                            <LandingCarouselSlide post={giveBanner} />
-                    </Paper>
-                    
-                    
-                </Grid>
-                <Grid item xs={11} sm={10} md={9} my={5}>
-                    <Typography variant='h3' paragraph>Why Give?</Typography>
-                    <Typography paragraph variant='h6' align='center'>
-                        Giving to the Center for Spatial Studies and Data Science supports promote groundbreaking research by providing funding support for grad students, computational resources, conference expenses, and catered lunch at Spatial Hour!
-                        We hope to see you donate to either the General Spatial Fund or the Goodchild Fund!
-                        </Typography>
-                    
-                </Grid>
+                {newOpportunity || editingOpportunity ? (
+                    <Grid item xs={12}>
+                        <CreateGiveOpportunity 
+                            onSubmit={backToList}
+                            id={editingOpportunity?.id}
+                            title={editingOpportunity?.title}
+                            description={editingOpportunity?.description}
+                            image={editingOpportunity?.image}
+                            imageDescription={editingOpportunity?.imageDescription}
+                            link={editingOpportunity?.link}
+                            order={editingOpportunity?.order}
+                        />
+                    </Grid>
+                ) : (
+                    <>
+                        <Grid item xs={12}>
+                            <Paper
+                                sx={{
+                                    position: 'relative',
+                                    backgroundColor: 'grey.800',
+                                    color: '#fff',
+                                    mb: 4,
+                                    height: '50vh',
+                                    maxHeight: '500px',
+                                    backgroundSize: 'cover',
+                                    backgroundRepeat: 'no-repeat',
+                                    backgroundPosition: 'center',
+                                    backgroundImage: `url(${giveBanner.image})`,
+                                }}>
+                                    <LandingCarouselSlide post={giveBanner} />
+                            </Paper>
+                        </Grid>
 
-                <Grid item xs={11}>
-                    <Grid container direction="row" justifyContent="center" columnSpacing={3} rowSpacing={5}>
-                        
-                        {giveCards.map((card) => (
-                            <Grid item xs={11} md={6}>
-                            <GiveCard {...card} key={card.title} />
+                        {/* Admin Controls */}
+                        { isLoggedIn && (
+                            <Grid item xs={11}>
+                                <Box sx={{ display: 'flex', gap: 2, mb: 3, justifyContent: 'flex-end' }}>
+                                    <Button 
+                                        variant='contained' 
+                                        onClick={() => setNewOpportunity(true)}
+                                        aria-label="Add new giving opportunity"
+                                    >
+                                        Add New Opportunity
+                                    </Button>
+                                </Box>
                             </Grid>
-                        )
                         )}
-                    </Grid>    
-                </Grid>
+                        
+                        <Grid item xs={11} sm={10} md={9} my={5}>
+                            <Typography variant='h3' paragraph>Why Give?</Typography>
+                            <Typography paragraph variant='h6' align='center'>
+                                Giving to the Center for Spatial Science supports groundbreaking research by providing funding support for grad students, computational resources, conference expenses, and catered lunch at Spatial Hour!
+                                We hope to see you donate to either the General Spatial Fund or the Goodchild Fund!
+                            </Typography>
+                        </Grid>
+
+                        <Grid item xs={11}>
+                            {loading ? (
+                                <Typography align="center">Loading...</Typography>
+                            ) : (
+                                <Grid container direction="row" justifyContent="center" columnSpacing={3} rowSpacing={5}>
+                                    {giveCards.map((card) => (
+                                        <Grid item xs={11} md={6} key={card.id}>
+                                            <GiveCard 
+                                                {...card} 
+                                                onEdit={isLoggedIn ? () => setEditingOpportunity(card) : null}
+                                                onDelete={isLoggedIn ? () => {
+                                                    setOpportunityToDelete(card);
+                                                    setDeleteDialogOpen(true);
+                                                } : null}
+                                            />
+                                        </Grid>
+                                    ))}
+                                </Grid>
+                            )}    
+                        </Grid>
+                    </>
+                )}
                 
+                {/* Delete Confirmation Dialog */}
+                <Dialog
+                    open={deleteDialogOpen}
+                    onClose={() => setDeleteDialogOpen(false)}
+                >
+                    <DialogTitle>Delete Giving Opportunity?</DialogTitle>
+                    <DialogContent>
+                        <DialogContentText>
+                            Are you sure you want to delete <strong>{opportunityToDelete?.title}</strong>? 
+                            This action cannot be undone.
+                        </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={() => setDeleteDialogOpen(false)}>
+                            Cancel
+                        </Button>
+                        <Button onClick={handleDeleteConfirm} color="error" variant="contained" autoFocus>
+                            Delete
+                        </Button>
+                    </DialogActions>
+                </Dialog>
 
             </Grid>
         

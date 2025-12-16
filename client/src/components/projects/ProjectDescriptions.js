@@ -1,10 +1,13 @@
-import { React, useContext, useEffect } from 'react';
+import { React, useContext, useEffect, useState } from 'react';
 import { AdminLoginContext } from "../../context/AdminProvider"
 
-import { IconButton, Container, Grid, Typography, Button, Link, Card, CardMedia, CardContent} from '@mui/material';
+import { IconButton, Container, Grid, Typography, Button, Card, CardMedia, CardContent, Box, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import CreateProject from './CreateProject';
 import { useProjectContext } from '../../context/ProjectContext';
+import { useMutation } from '@apollo/client';
+import { DELETE_PROJECT } from '../../utils/mutations';
+import { GET_PROJECTS } from '../../utils/queries';
 
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
@@ -12,7 +15,13 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 // import { GET_PROJECTS } from '../utils/queries';
 
 export default function ProjectDescriptions(props) {
-    const imageRoute = process.env.NODE_ENV === "production" ? "https://spatial.ucsb.edu/images/" : "http://localhost:3001/images/"
+    // Helper to get image URL - handles both full URLs and local filenames
+    const getImageUrlLocal = (image) => {
+        if (!image) return "https://images.freeimages.com/images/large-previews/ac7/sky-1401862.jpg?fmt=webp&w=500";
+        if (image.startsWith('http')) return image;
+        const imageRoute = process.env.NODE_ENV === "production" ? "/images/" : "http://localhost:3001/images/";
+        return imageRoute + image;
+    };
 
     useEffect(() => {
         window.scrollTo(0,0)
@@ -20,9 +29,28 @@ export default function ProjectDescriptions(props) {
 
     const { project, backToCards } = props
     const { isLoggedIn } = useContext(AdminLoginContext)
-    // const {loading, data, error} = useQuery(GET_PROJECTS)
-
     const {editProjectId, setEditProjectId} = useProjectContext()
+    const [deleteDialogOpen, setDeleteDialogOpen] = useState(false)
+
+    const [deleteProject] = useMutation(DELETE_PROJECT, {
+        refetchQueries: [{ query: GET_PROJECTS }],
+        onCompleted: () => {
+            backToCards();
+        },
+        onError: (error) => {
+            console.error('Error deleting project:', error);
+            alert('Failed to delete project. Please try again.');
+        }
+    });
+
+    const handleDelete = async () => {
+        try {
+            await deleteProject({ variables: { id: project.id } });
+            setDeleteDialogOpen(false);
+        } catch (error) {
+            console.error('Error deleting project:', error);
+        }
+    };
 
 
     // if (loading) return <div>loading...</div>
@@ -35,17 +63,20 @@ export default function ProjectDescriptions(props) {
 
     return (
         <Container maxWidth={false} >
-            <Grid item align="left">
+            {/* Only show Back button when NOT in edit mode - edit form has its own back button */}
+            {project.id !== editProjectId && (
+                <Grid item align="left">
                     <Button 
                         variant="text" 
                         onClick={() => backToCards()} 
                         startIcon={<ArrowBackIcon />}
                         sx={{maxWidth: "100px", marginTop: "20px"}}
                         align="left"
-                        >
-                            Back
+                    >
+                        Back
                     </Button>
-            </Grid>
+                </Grid>
+            )}
 
             <Grid container key={project.id} direction="column" my={4} style={{padding: 10}}>
             {project.id !== editProjectId ? (
@@ -61,7 +92,7 @@ export default function ProjectDescriptions(props) {
                                 component="img"
                                 alt="project image"
                                 height="400"
-                                src= {project.image ? `${imageRoute}${project.image}` : "https://images.freeimages.com/images/large-previews/ac7/sky-1401862.jpg?fmt=webp&w=500"}
+                                src={getImageUrlLocal(project.image)}
                                 align="center"
                             />
                             <CardContent>
@@ -84,7 +115,7 @@ export default function ProjectDescriptions(props) {
                                     <CardMedia
                                     component="img"
                                     alt="funding logo"
-                                    src= {project.funderLogo ? `${imageRoute}${project.funderLogo}` : "https://images.freeimages.com/images/large-previews/ac7/sky-1401862.jpg?fmt=webp&w=500"}
+                                    src={getImageUrlLocal(project.funderLogo)}
                                     align="left"
                                     sx={{width: '150px'}}
                                 />
@@ -98,15 +129,62 @@ export default function ProjectDescriptions(props) {
                         <Typography align="left" mb={2} variant='h4' component='h2'>{project.name}</Typography>
                         <Typography align="left"><div dangerouslySetInnerHTML={{__html: project.description}} /></Typography>
                         { isLoggedIn && (
-                            <Button variant='contained' style={{maxWidth: 50}} onClick={() => {setEditProjectId(project.id)}}>Edit</Button>
+                            <Box sx={{ display: 'flex', gap: 2, mt: 2 }}>
+                                <Button 
+                                    variant='contained' 
+                                    onClick={() => {setEditProjectId(project.id)}}
+                                >
+                                    Edit
+                                </Button>
+                                <Button 
+                                    variant='outlined' 
+                                    color='error'
+                                    onClick={() => setDeleteDialogOpen(true)}
+                                >
+                                    Delete
+                                </Button>
+                            </Box>
                         )}
                                                
                     </Grid>                
                 </Grid>               
                 ):(
-                    <CreateProject id={project.id} description={project.description} name={project.name} />
+                    <CreateProject 
+                        key={project.id}
+                        id={project.id} 
+                        description={project.description} 
+                        name={project.name}
+                        summary={project.summary}
+                        pis={project.pis}
+                        image={project.image}
+                        funder={project.funder}
+                        funderLogo={project.funderLogo}
+                        onSubmit={() => setEditProjectId(null)}
+                    />
                 )}                    
             </Grid>
+
+            {/* Delete Confirmation Dialog */}
+            <Dialog
+                open={deleteDialogOpen}
+                onClose={() => setDeleteDialogOpen(false)}
+            >
+                <DialogTitle>Delete Project?</DialogTitle>
+                <DialogContent>
+                    <DialogContentText>
+                        Are you sure you want to delete <strong>{project.name}</strong>? 
+                        This action cannot be undone.
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={() => setDeleteDialogOpen(false)}>
+                        Cancel
+                    </Button>
+                    <Button onClick={handleDelete} color="error" variant="contained" autoFocus>
+                        Delete
+                    </Button>
+                </DialogActions>
+            </Dialog>
         </Container>
     )
 

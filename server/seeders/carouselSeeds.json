@@ -1,0 +1,28 @@
+[
+  {
+    "title": "Evolving GIS Curriculum",
+    "description": "More details coming soon",
+    "image": "Home1.jpg",
+    "color": "white",
+    "order": 0,
+    "active": true
+  },
+  {
+    "title": "Earth + Humans",
+    "description": "A podcast about spatial science solutions",
+    "linkText": "https://www.sparlab.org/podcast",
+    "image": "Home2.jpg",
+    "color": "white",
+    "order": 1,
+    "active": true
+  },
+  {
+    "title": "Spatial Events",
+    "description": "Keep up to date with our events calendar",
+    "image": "Home3.jpg",
+    "color": "white",
+    "order": 2,
+    "active": true
+  }
+]
+

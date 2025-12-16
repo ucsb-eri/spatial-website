@@ -11,16 +11,10 @@ import AdminProvider from "./context/AdminProvider";
 import { ProjectProvider } from "./context/ProjectContext";
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from "./theme";
-
-let apolloUri
-if (process.env.NODE_ENV === 'production'){
-  apolloUri =  'https://spatial.ucsb.edu/graphql'
-} else {
-  apolloUri = 'http://localhost:3001/graphql'
-}
+import { API_CONFIG } from "./utils/config";
 
 const httpLink = createHttpLink({
-  uri: apolloUri,
+  uri: API_CONFIG.graphqlUri,
 });
 
 const authLink = setContext((_, { headers }) => {

@@ -1,0 +1,45 @@
+version: '3.8'
+
+# Development-specific docker-compose configuration
+# Use: docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
+
+services:
+  mongodb:
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: devpassword
+
+  server:
+    build:
+      target: server-build  # Use development stage
+    environment:
+      NODE_ENV: development
+    volumes:
+      # Mount source code for hot reloading
+      - ./server:/app/server
+      - /app/server/node_modules
+      - ./client/build:/app/client/build
+    command: npm run watch
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile.dev
+    container_name: spatial-client-dev
+    restart: unless-stopped
+    environment:
+      REACT_APP_API_URL: http://localhost:3001
+      REACT_APP_GRAPHQL_URL: http://localhost:3001/graphql
+      REACT_APP_UPLOAD_API_URL: http://localhost:3001/api
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    networks:
+      - spatial-network
+    command: npm start
+
+

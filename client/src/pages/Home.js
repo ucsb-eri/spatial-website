@@ -1,14 +1,16 @@
 import { React } from 'react';
-import {Container, Grid, Typography, Toolbar, Box}  from '@mui/material';
+import {Container, Grid, Typography, Toolbar}  from '@mui/material';
+import { useQuery } from '@apollo/client';
+import { GET_CAROUSEL_SLIDES } from '../utils/queries';
 
 import LandingCarousel from '../components/LandingCarousel';
 import EventsTable from '../components/home/EventsTable'
 import InstagramEmbed from '../components/home/InstagramEmbed';
 
-import mountains from '../content/images/MountainRangeBlue.png'
+const imageRoute = process.env.NODE_ENV === "production" ? "/images/" : "http://localhost:3001/images/"
 
-const imageRoute = process.env.NODE_ENV === "production" ? "https://spatial.ucsb.edu/images/" : "http://localhost:3001/images/"
-const featuredPosts = [
+// Fallback slides if database is empty or loading
+const defaultSlides = [
   {
     title: 'Evolving GIS Curriculum',
     description: 'More details coming soon',
@@ -33,13 +35,23 @@ const featuredPosts = [
     imageText: 'Image Text',
     color: 'white'
   },
-  
 ];
 
-
-
-
 export default function Home() {
+  const { loading, error, data } = useQuery(GET_CAROUSEL_SLIDES);
+
+  // Use database slides if available, otherwise use defaults
+  const carouselSlides = data?.carouselSlides && data.carouselSlides.length > 0 
+    ? data.carouselSlides.map(slide => ({
+        title: slide.title,
+        description: slide.description,
+        image: slide.image?.startsWith('http') 
+          ? slide.image 
+          : `${process.env.REACT_APP_API_URL || 'http://localhost:3001'}/images/${slide.image}`,
+        linkText: slide.linkText,
+        color: slide.color
+      }))
+    : defaultSlides;
 
   return (
       <Container maxWidth='xl' disableGutters={true}>
@@ -47,7 +59,7 @@ export default function Home() {
           {/* center description + goals or whatever + events calender */}
           <Grid container direction='row' spacing={4} justifyContent='center'>
             <Grid item xs={12}>
-              <LandingCarousel slides={featuredPosts} />
+              <LandingCarousel slides={carouselSlides} />
             </Grid>
             <Grid item xs={11} sx={{mt: '60px'}}>
                   {/* <Box
@@ -71,7 +83,7 @@ export default function Home() {
                         <b>Spatial science for a better world.</b>
                       </Typography>
                       <Typography align="center" variant="h5" paragraph mb={3}>
-                      Here at the Center for Spatial Studies and Data Science at University of California Santa Barbara we collaboratively design, implement, and disseminate spatial science for a better world!
+                      Here at the Center for Spatial Science at University of California Santa Barbara we collaboratively design, implement, and disseminate spatial science for a better world!
                       </Typography>
                     </Grid>
                   </Grid>

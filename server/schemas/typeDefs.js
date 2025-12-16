@@ -53,11 +53,16 @@ const typeDefs = gql`
     funderLogo: String
   }
 
+  type ImageData {
+    url: String!
+    label: String
+  }
+
   type InfoContent {
     id: ID
     subtitle: String
     description: String!
-    image: [String]
+    image: [ImageData]
 
   }
   
@@ -65,6 +70,8 @@ const typeDefs = gql`
     id: ID
     title: String!
     content: [InfoContent]
+    taborder: Int
+    accordionOrder: Int
   }
 
   type InfoPanels {
@@ -73,26 +80,56 @@ const typeDefs = gql`
     name: String
     pis: String
     tabname: String
-    taborder: String
+    taborder: Int
     content: [InfoContent]!
     accordion: [AccordionItem]
+  }
+
+  type GiveOpportunity {
+    id: ID
+    title: String!
+    description: String!
+    image: String
+    imageDescription: String
+    link: String!
+    order: Int!
+  }
+
+  type CarouselSlide {
+    id: ID
+    title: String!
+    description: String!
+    image: String!
+    linkText: String
+    color: String
+    order: Int!
+    active: Boolean!
   }
 
   type Query {
     people: [People]!
     projects: [Projects]!
     infoPanels: [InfoPanels]!
+    giveOpportunities: [GiveOpportunity]!
+    carouselSlides: [CarouselSlide]!
+  }
+
+  input ImageDataInput {
+    url: String!
+    label: String
   }
 
   input InfoContentInput {
     subtitle: String
     description: String!
-    image: [String]
+    image: [ImageDataInput]
   }
 
   input AccordionItemInput {
     title: String!
     content: [InfoContentInput]
+    taborder: Int
+    accordionOrder: Int
   }
 
   input InfoPanelInput {
@@ -106,7 +143,9 @@ const typeDefs = gql`
 
   type Mutation {
 
-    addPerson(firstName: String!, lastName: String!, title: [String]!, image: String, description: String!, research: String, projects: [String], category: String!, current: Boolean!, email: String, location: String, github: String, phone: String, gscholar: String, linkedin: String, websiteUrl: String, websiteName: String, advisors: [String]): People!
+    addPerson(firstName: String!, lastName: String!, title: [String]!, image: String, description: String!, research: String, projects: [String], category: String!, current: Boolean!, email: String, location: String, github: String, phone: String, gscholar: String, linkedin: String, x: String, websiteUrl: String, websiteName: String, advisors: [String]): People!
+    editPerson(id: ID!, firstName: String, lastName: String, title: [String], image: String, description: String, research: String, projects: [String], category: String, current: Boolean, email: String, location: String, github: String, phone: String, gscholar: String, linkedin: String, x: String, websiteUrl: String, websiteName: String, advisors: [String]): People!
+    deletePerson(id: ID!): [People]!
 
     addProject(name: String!, pis: String!, summary: String!, description: String!, image: String, funder: String, funderLogo: String): Projects!
     editProject(id: ID!, name: String, pis: String, summary: String, description: String, image: String, funder: String, funderLogo: String): Projects!
@@ -115,8 +154,16 @@ const typeDefs = gql`
     adminSignOn(email: String!, password: String!): Auth!
 
     addInfoPanel(input: InfoPanelInput!): InfoPanels!
-    editInfoPanel(id: ID!, name: String, tabname: String, taborder: String, description: String, image: String): InfoPanels!
-    deleteInfoPanel(id: ID!): InfoPanels!
+    editInfoPanel(id: ID!, input: InfoPanelInput!): InfoPanels!
+    deleteInfoPanel(id: ID!): [InfoPanels]!
+
+    addGiveOpportunity(title: String!, description: String!, image: String, imageDescription: String, link: String!, order: Int): GiveOpportunity!
+    editGiveOpportunity(id: ID!, title: String, description: String, image: String, imageDescription: String, link: String, order: Int): GiveOpportunity!
+    deleteGiveOpportunity(id: ID!): [GiveOpportunity]!
+
+    addCarouselSlide(title: String!, description: String!, image: String!, linkText: String, color: String, order: Int, active: Boolean): CarouselSlide!
+    editCarouselSlide(id: ID!, title: String, description: String, image: String, linkText: String, color: String, order: Int, active: Boolean): CarouselSlide!
+    deleteCarouselSlide(id: ID!): [CarouselSlide]!
   }
 `;
 

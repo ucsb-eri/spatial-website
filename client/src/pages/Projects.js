@@ -1,6 +1,6 @@
 import { React, useContext, useState } from 'react';
 import { AdminLoginContext } from "../context/AdminProvider"
-import {Grid, Toolbar, Typography, Button, Container} from '@mui/material';
+import {Grid, Toolbar, Typography, Button, Container, Box} from '@mui/material';
 
 import ProjectCard from '../components/projects/ProjectCard';
 import ProjectDescriptions from '../components/projects/ProjectDescriptions';
@@ -24,7 +24,7 @@ function Projects() {
         setCurrentProject(id)
     };
 
-    const {loading, data, error} = useQuery(GET_PROJECTS)
+    const {loading, data} = useQuery(GET_PROJECTS)
 
     const projects = data?.projects || [];
     if (projects.length === 0) {
@@ -46,6 +46,20 @@ function Projects() {
                                     <ProjectDescriptions project={currentProjectDetails} backToCards={backToCards} />
                                 ) : (
                                     <Container maxWidth={false}>
+                                        
+                                        {/* Admin Controls - Positioned at top for easy access */}
+                                        { isLoggedIn && (
+                                            <Box sx={{ display: 'flex', gap: 2, mb: 3, mt: 3, justifyContent: 'flex-end' }}>
+                                                <Button 
+                                                    variant='contained' 
+                                                    onClick={() => {setNewProject(true)}}
+                                                    aria-label="Add new project"
+                                                >
+                                                    Add New Project
+                                                </Button>
+                                            </Box>
+                                        )}
+                                        
                                         <Grid container direciton='row' justifyContent='center'>
                                             <Grid item xs={12} >
                                             <Toolbar  align='center'>
@@ -80,9 +94,6 @@ function Projects() {
                                                             
 
                             )}
-                        { isLoggedIn && (
-                            <Button variant='contained' style={{maxWidth: 200}} onClick={() => {setNewProject(true)}}>Add new project</Button>
-                        )}
                     </div>
                 )}
                             

@@ -1,0 +1,53 @@
+# Dependencies
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Development files
+.git/
+.gitignore
+.env
+.env.local
+.env.*.local
+*.log
+npm-debug.log*
+
+# Testing
+coverage/
+.nyc_output/
+__tests__/
+*.test.js
+*.spec.js
+
+# Build artifacts
+client/build/
+dist/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Documentation
+README.md
+docs/
+*.md
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+
+# Local development
+docker-compose.yml
+docker-compose.*.yml
+
+# MongoDB data
+data/
+
+

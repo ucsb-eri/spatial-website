@@ -1,9 +1,15 @@
 const { Schema, model } = require('mongoose');
 
+// Image data schema with optional label
+const imageDataSchema = new Schema({
+  url: { type: String, required: true },
+  label: { type: String, required: false, default: '' }
+}, { _id: false }); // _id: false because we don't need separate IDs for embedded images
+
 const infoContentSchema = new Schema({
   subtitle: { type: String, required: false},
   description: { type: String, required: true},
-  image: [{ type: String, required: false}]
+  image: [imageDataSchema] // Array of image objects with url and label
 })
 
 const InfoContent = model('InfoContent', infoContentSchema);
@@ -13,7 +19,19 @@ const accordionItemSchema = new Schema({
   content: [{
       type: Schema.Types.ObjectId,
       ref: 'InfoContent',
-    }]
+    }],
+    taborder: {
+      type: Number,
+      required: true,
+      unique: false,
+      trim: true
+    },
+    accordionOrder: {
+      type: Number,
+      required: true,
+      unique: false,
+      trim: true
+    },
 });
 
 const AccordionItem = model('AccordionItem', accordionItemSchema);

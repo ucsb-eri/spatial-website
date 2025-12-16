@@ -1,8 +1,10 @@
-import {React, useState, useEffect} from 'react';
+import {React, useState, useEffect, useCallback} from 'react';
 import { useTheme } from '@mui/material/styles';
 import { Paper, Box, Button, MobileStepper } from '@mui/material';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
+// Note: react-swipeable-views-react-18-fix uses deprecated lifecycle methods (UNSAFE_componentWillReceiveProps)
+// This is a known issue with the library but doesn't affect functionality in production
 import SwipeableViews from "react-swipeable-views-react-18-fix"
 
 import LandingCarouselSlide from './LandingCarouselSlide';
@@ -14,7 +16,7 @@ function LandingCarousel(props) {
     const [activeStep, setActiveStep] = useState(0);
     const maxSteps = slides.length;
 
-    const handleNext = () => {
+    const handleNext = useCallback(() => {
         setActiveStep((prevActiveStep) => {
             // If we're at the last slide, loop back to the first slide
             if (prevActiveStep === maxSteps - 1) {
@@ -23,7 +25,7 @@ function LandingCarousel(props) {
                 return prevActiveStep + 1;
             }
         });
-    };
+    }, [maxSteps]);
 
     const handleBack = () => {
         setActiveStep((prevActiveStep) => {
@@ -44,7 +46,7 @@ function LandingCarousel(props) {
             handleNext();
         }, 6000);
         return () => clearInterval(interval);
-    }, [activeStep]);
+    }, [handleNext]);
 
   return (
 

@@ -1,6 +1,6 @@
 import {React, useContext} from 'react';
 import { AdminLoginContext } from "../../context/AdminProvider"
-import CreateInfoPanel from '../content-display/CreateInfoPanel';
+import CreateInfoPanel from '../content-display/CreateInfoPanelEnhanced';
 
 
 import PropTypes from 'prop-types'
@@ -56,7 +56,7 @@ export default function TabsContainer(props) {
 
     const deletePanel = async (id) => {
         try {
-            const panel = await deletePanelMutation({ variables: {id: id}})
+            await deletePanelMutation({ variables: {id: id}})
         } catch (err) {
             console.error("Could not delete delete about panel", err)
         }
@@ -111,7 +111,16 @@ export default function TabsContainer(props) {
                             )}
                         </Grid> 
                     ): (
-                        <CreateInfoPanel location={location} id={panel.id} description={panel.description} name={panel.name} tabname={panel.tabname} taborder={panel.taborder} />
+                        <CreateInfoPanel 
+                            location={location} 
+                            id={panel.id} 
+                            description={panel.description} 
+                            name={panel.name} 
+                            tabname={panel.tabname} 
+                            taborder={panel.taborder}
+                            content={panel.content}
+                            accordion={panel.accordion}
+                        />
                     )}
                 </TabPanel> 
             ))}             

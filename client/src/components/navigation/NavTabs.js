@@ -5,9 +5,7 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 export default function NavTabs(props) {
 
-  const [ value, setValue ] = useState('one')
-
-    const {setAboutLocation, aboutPanelData, setEventLocation, eventPanelData, setOppsLocation, oppsPanelData, handleDrawerToggle, mobileOpen } = props
+    const {aboutPanelData, eventPanelData, oppsPanelData, handleDrawerToggle, mobileOpen } = props
     const [ripple, setRipple] = useState(true)
     const [anchorEl, setAnchorEl] = useState(null)
     const [openAboutMenu, setOpenAboutMenu] = useState(false)

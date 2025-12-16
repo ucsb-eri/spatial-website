@@ -1,21 +1,16 @@
-const { People, Projects, InfoPanels, InfoContent, AccordionItem } = require('../models');
+const { People, Projects, InfoPanels, InfoContent, AccordionItem, GiveOpportunity, CarouselSlide } = require('../models');
 const peopleSeeds = require('./peopleSeeds.json');
 const infoSeeds = require('./infoSeeds.json');
 const projectSeeds = require('./projectSeeds.json');
+const giveSeeds = require('./giveSeeds.json');
+const carouselSeeds = require('./carouselSeeds.json');
 
 async function seedWebsite() {
-
-  // if in test-production, delete all entries first and reseed every time
-  if (process.env.NODE_ENV === 'production'){
-    try {
-      const deletePeople = await People.collection.drop()
-      const deleteProjects = await Projects.collection.drop()
-      const deletePanels = await InfoPanels.collection.drop()
-      console.log("deleted all people and infopanel seeds")
-    } catch (err) {
-      console.error(err)
-    }
-  }
+  // This function only seeds data if collections are EMPTY
+  // It will NOT overwrite existing data
+  // 
+  // To force a reseed, use: npm run reseed
+  // Or manually clear collections in MongoDB first
 
   try {
     const peopleExists = await People.find() 
@@ -48,13 +43,14 @@ async function seedWebsite() {
       if (panelsExist.length == 0) {
         console.log("seeding info panels")
         console.log("seeding infoContent")
-        infoSeeds.forEach(async (seed) => {
+        
+        // Use Promise.all with map instead of forEach to properly await all operations
+        await Promise.all(infoSeeds.map(async (seed) => {
           try {
             const infoContent = await InfoContent.create(seed.content)
             
-            if (seed.accordion) {
+            if (seed.accordion && seed.accordion.length > 0) {
               const accordionItems = await Promise.all(seed.accordion.map(async (accordion) => {
-
                 const accordionContent = await Promise.all(accordion.content.map(infoContent => InfoContent.create(infoContent)))
                 const newAccordionItem = await AccordionItem.create({
                   title: accordion.title,
@@ -62,32 +58,56 @@ async function seedWebsite() {
                 })
                 return newAccordionItem
               }))
-              const panels = InfoPanels.create({
+              
+              await InfoPanels.create({
                 ...seed,
                 accordion: accordionItems.map(item => item._id),
                 content: infoContent.map(item => item._id)
               })
             } else {
-              const panels = InfoPanels.create({
+              await InfoPanels.create({
                 ...seed,
                 content: infoContent.map(item => item._id)
               })
             }
-
-            
-
+            console.log(`✓ Seeded panel: ${seed.name}`)
           } catch (err) {
-            console.error("error seeding info panels", err)
+            console.error(`✗ Error seeding panel "${seed.name}":`, err.message)
           }
-          
-        })
-        // const panels = await InfoPanels.insertMany(infoSeeds)
-        // console.log("new panels on the walls", panels)
+        }))
+        
+        console.log("✓ All panels seeded successfully")
       } else {
         console.log("panels already installed")
       }
   } catch (err) {
     console.error("Error seeding panels: ", err)
+  }
+
+  try {
+    const opportunitiesExist = await GiveOpportunity.find()
+      if (opportunitiesExist.length == 0) {
+        console.log("seeding give opportunities")
+        const opportunities = await GiveOpportunity.insertMany(giveSeeds)
+        console.log("✓ Give opportunities seeded:", opportunities.length)
+      } else {
+        console.log("give opportunities already exist")
+      }
+  } catch (err) {
+    console.error("Error seeding give opportunities:", err)
+  }
+
+  try {
+    const carouselExists = await CarouselSlide.find()
+    if (carouselExists.length == 0) {
+      console.log("seeding carousel slides")
+      const slides = await CarouselSlide.insertMany(carouselSeeds)
+      console.log("Carousel slides seeded:", slides.length)
+    } else {
+      console.log("Carousel slides already exist")
+    }
+  } catch (err) {
+    console.error("Error seeding carousel slides:", err)
   }
 
 }

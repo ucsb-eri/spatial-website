@@ -70,13 +70,6 @@ const RichTextEditor = (props) => {
   const [showURLInput, setShowURLInput] = useState(false);
   const [urlValue, setUrlValue] = useState('');
 
-  const decorator = new CompositeDecorator([
-    {
-      strategy: findLinkEntities,
-      component: Link,
-    },
-  ]);
-
   const promptForLink = (event) => {
     event.preventDefault();
     const selection = editorState.getSelection();

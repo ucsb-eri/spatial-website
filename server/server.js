@@ -5,25 +5,38 @@ const path = require('path');
 const { authMiddleware } = require('./utils/auth');
 const uploadImageRoute = require('./routes/uploadImages')
 const calendarEventsRoute = require('./routes/calendarEvents')
+const healthRoute = require('./routes/health')
 
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 const createAdminAccount = require("./utils/admin");
-const seedWebsite = require('./seeders/seed');
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-if (process.env.NODE_ENV !== 'production') {
-  createAdminAccount()
-}
-seedWebsite()
+// Create admin account on startup (checks if exists first)
+createAdminAccount();
+
+// NOTE: Database seeding should be done manually via:
+//   npm run seed (development)
+//   MONGODB_URI="..." ./azure/seed-production.sh (production)
+// Do NOT auto-seed on server startup in production!
+
+// CORS configuration - include all deployment domains
+const allowedOrigins = [
+  "http://localhost:3000",
+  "http://localhost:3001",
+  "https://spatialtest.grit.ucsb.edu",
+  "https://spatial.ucsb.edu",
+  "https://www.spatial.ucsb.edu",
+  "https://spatial-website.azurewebsites.net"
+];
 
 app.use(cors({
-  origin: ["http://localhost:3000", "https://spatialtest.grit.ucsb.edu", "https://spatial.ucsb.edu", "https://www.spatial.ucsb.edu" ]
+  origin: allowedOrigins
 }))
 app.use(
   '/graphql',
-  cors({origin: ["http://localhost:3001", "http://localhost:3000", "https://studio.apollographql.com", "https://spatialtest.ucsb.edu", "https://spatial.ucsb.edu", "https://www.spatial.ucsb.edu"]})
+  cors({origin: [...allowedOrigins, "https://studio.apollographql.com"]})
 )
 
 const server = new ApolloServer({
@@ -36,6 +49,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use('/api', uploadImageRoute)
 app.use('/api', calendarEventsRoute)
+app.use('/api', healthRoute)
 
 
 if (process.env.NODE_ENV === 'production') {

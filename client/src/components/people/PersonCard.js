@@ -1,15 +1,14 @@
 import { React } from 'react';
 import { Card, Box, CardActionArea, CardContent, CardMedia, Typography, Grid } from '@mui/material';
-
-const imageRoute = process.env.NODE_ENV === "production" ? "https://spatial.ucsb.edu/images/" : "http://localhost:3001/images/"
+import { getImageUrl } from '../../utils/config';
 
 function PersonCard(props) {
     
-    const {details, renderPerson, key} = props
+    const {details, renderPerson} = props
     const title = details.title
        
     return (
-        <Grid item xs={10} sm={6} md={4} key={key}>
+        <Grid item xs={10} sm={6} md={4}>
             <CardActionArea onClick={() => {renderPerson(details)}}>
                 <Card >
                     <Box
@@ -21,7 +20,7 @@ function PersonCard(props) {
                         <CardMedia
                             component="img"
                             alt={`${details.firstName} ${details.lastName} headshot`}
-                            src={imageRoute + details.image}
+                            src={getImageUrl(details.image)}
                             sx={{
                                 position: 'absolute',
                                 top: 0,
@@ -44,9 +43,9 @@ function PersonCard(props) {
                             justifyContent: 'start'
                         }}
                         >
-                            {title && title.map((title, index) => (
+                            {title && title.map((titleText, index) => (
                             <Typography key={index} variant="body1" color="text.secondary" sx={{'lineHeight': '25px'}}>
-                                {title}
+                                {titleText}
                             </Typography> 
                             ))}
                         </Box>

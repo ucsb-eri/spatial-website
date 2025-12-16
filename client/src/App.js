@@ -1,6 +1,4 @@
 import { React, useEffect } from "react";
-import * as ReactDOM from "react-dom/client"
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
 import { useQuery } from '@apollo/client';
@@ -16,10 +14,10 @@ import About from "./pages/About";
 import People from './pages/People';
 import Projects from './pages/Projects';
 import Give from './pages/Give';
-import Products from './pages/Products';
 import Events from './pages/Events';
 import Opportunities from './pages/Opportunities';
 import TabPanel from "./components/navigation/TabPanel";
+import ManageCarousel from './components/carousel/ManageCarousel';
 
 import Home from "./pages/Home";
 
@@ -101,6 +99,7 @@ function App() {
                 ))}
               </Route>
             <Route path="give" element={<Give />} />
+            <Route path="admin/carousel" element={<ManageCarousel />} />
             
           </Route>
           <Route path="login" element={<Login />} />

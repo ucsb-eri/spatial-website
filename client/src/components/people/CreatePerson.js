@@ -501,6 +501,7 @@ export default function CreatePerson(props) {
                             <MenuItem key="undergraduate-student" value="Undergrad Student">Undergraduate Student</MenuItem>
                             <MenuItem key="faculty-affiliate" value="Faculty Affiliate">Faculty Affiliate</MenuItem>
                             <MenuItem key="student-affiliate" value="Student Affiliate">Student Affiliate</MenuItem>
+                            <MenuItem key="center-alumnus" value="Center Alumnus">Center Alumnus</MenuItem>
                         </TextField>
                     </FormControl>
                     

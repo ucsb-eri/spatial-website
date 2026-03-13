@@ -139,7 +139,7 @@ function People() {
                             {/* FACULTY AFFILIATES */}
                             <Toolbar sx={{ marginTop: '40px', marginBottom: '5px' }} align='center'>
                                 <Typography variant='h4' align='left' marginTop="30px" marginBottom="30px" paddingBottom="5px" borderBottom={1} borderColor="divider">
-                                Faculty Affiliates
+                                Faculty and Partner Affiliates
                                 </Typography>
                             </Toolbar>
                             <Grid container direction="row" justifyContent='center' columnSpacing={4} rowSpacing={4}> 

@@ -495,11 +495,13 @@ export default function CreatePerson(props) {
                     <FormControl sx= {{m:1, width: '40ch'}}>
                         <TextField select id="category" label="Category" value={category} helperText="Please select member role" onChange={(e) => { setCategory(e.target.value); markDirty(); }} >
                             <MenuItem key="leadership" value="Leadership">Leadership</MenuItem>
-                            <MenuItem key="faculty-affiliate" value="Faculty Affiliate">Faculty Affiliate</MenuItem>
-                            <MenuItem key="student-affiliate" value="Student Affiliate">Student Affiliate</MenuItem>
-                            <MenuItem key="Staff" value="Staff">Staff</MenuItem>
+                            <MenuItem key="staff" value="Staff">Staff</MenuItem>
+                            <MenuItem key="postdoc" value="Postdoc">Postdoc</MenuItem>
                             <MenuItem key="graduate-student" value="Graduate Student">Graduate Student</MenuItem>
                             <MenuItem key="undergraduate-student" value="Undergrad Student">Undergraduate Student</MenuItem>
+                            <MenuItem key="faculty-affiliate" value="Faculty Affiliate">Faculty Affiliate</MenuItem>
+                            <MenuItem key="student-affiliate" value="Student Affiliate">Student Affiliate</MenuItem>
+                            <MenuItem key="center-alumnus" value="Center Alumnus">Center Alumnus</MenuItem>
                         </TextField>
                     </FormControl>
                     

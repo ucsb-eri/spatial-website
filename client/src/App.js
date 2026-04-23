@@ -20,6 +20,7 @@ import TabPanel from "./components/navigation/TabPanel";
 import ManageCarousel from './components/carousel/ManageCarousel';
 
 import Home from "./pages/Home";
+import DigitalTwinRedirect from "./pages/DigitalTwinRedirect";
 
 function App() {
   // get database queries
@@ -102,6 +103,7 @@ function App() {
             <Route path="admin/carousel" element={<ManageCarousel />} />
             
           </Route>
+          <Route path="/digital-twin" element={<DigitalTwinRedirect />} />
           <Route path="login" element={<Login />} />
         </Routes>
       </Router>

@@ -1,23 +1,38 @@
 import { React } from 'react';
-import { Grid, Card, CardContent, CardActionArea, Typography, Box, styled, Link } from '@mui/material';
+import { Grid, Card, CardContent, CardActionArea, Typography, Box, IconButton } from '@mui/material';
 import WebIcon from '@mui/icons-material/Web';
-
-const HoverLink = styled(Link)(({ theme }) => ({
-    transition: 'background-color 0.3s ease',
-    '&:hover': {
-      backgroundColor: theme.palette.action.hover,
-      cursor: 'pointer'
-    }
-  }));
+import EditIcon from '@mui/icons-material/Edit';
 
 function AffiliateCard(props) {
     
-    const {details} = props
+    const { details, isLoggedIn, onAdminEdit } = props
     const showWebsite = details.websiteUrl !== null && details.websiteUrl!== ""
        
     return (
         <Grid item xs={8} sm={5} lg={4}>
-            <Card sx={{ width: "100%", height: '200px' }}>
+            <Card sx={{ width: "100%", height: '200px', position: 'relative' }}>
+                {isLoggedIn && onAdminEdit && (
+                    <IconButton
+                        size="small"
+                        aria-label={`Edit ${details.firstName} ${details.lastName}`}
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            e.preventDefault();
+                            onAdminEdit(details);
+                        }}
+                        sx={{
+                            position: 'absolute',
+                            top: 8,
+                            right: 8,
+                            zIndex: 2,
+                            bgcolor: 'background.paper',
+                            boxShadow: 1,
+                            '&:hover': { bgcolor: 'background.paper' },
+                        }}
+                    >
+                        <EditIcon fontSize="small" />
+                    </IconButton>
+                )}
                 <CardActionArea 
                     onClick={() => window.open(details.description, '_blank', 'noopener,noreferrer')} 
                     sx={{height: '100%'}}

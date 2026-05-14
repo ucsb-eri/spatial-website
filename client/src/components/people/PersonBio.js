@@ -119,7 +119,7 @@ function PersonBio(props) {
 
     return (
         <Container maxWidth={100}>
-        {details.id !== editPersonId ? (
+        {details._id !== editPersonId ? (
             <div>
                 <Grid item align="left">
                     <Button 
@@ -341,7 +341,7 @@ function PersonBio(props) {
                 <Box sx={{ display: 'flex', gap: 2, mt: 2 }}>
                     <Button 
                         variant='contained' 
-                        onClick={() => {setEditPersonId(details.id)}}
+                        onClick={() => {setEditPersonId(details._id)}}
                     >
                         Edit
                     </Button>

@@ -7,10 +7,12 @@ import { Typography, Toolbar, Button, Grid, Container, Box } from '@mui/material
 import { useQuery } from '@apollo/client';
 import { QUERY_PEOPLE } from '../utils/queries';
 import CreatePerson from '../components/people/CreatePerson';
+import { useProjectContext } from '../context/ProjectContext';
 
 
 function People() {
     const { isLoggedIn } = useContext(AdminLoginContext)
+    const { setEditPersonId } = useProjectContext()
     const { loading, data } = useQuery(QUERY_PEOPLE);
     const peopleList = data?.people || [];
     const [currentPerson, setCurrentPerson] = useState(null);
@@ -19,10 +21,17 @@ function People() {
     const backToPeople = () => setNewPerson(false)
   
     const renderPerson = (details) => {
+        setEditPersonId(null)
         setCurrentPerson(details._id)
     };
 
+    const handleAdminEditFromCard = (details) => {
+        setCurrentPerson(details._id)
+        setEditPersonId(details._id)
+    };
+
     const backToCards = () => {
+        setEditPersonId(null)
         setCurrentPerson(null)
     }
 
@@ -93,7 +102,7 @@ function People() {
                     
                             <Grid container direction="row" justifyContent='center' columnSpacing={4} rowSpacing={4}> 
                             {leadershipMembers.map((person) => (    
-                                <PersonCard details = {person} renderPerson={renderPerson} key={person.id} />    
+                                <PersonCard details={person} renderPerson={renderPerson} key={person._id} isLoggedIn={isLoggedIn} onAdminEdit={handleAdminEditFromCard} />    
                             ))}
                             </Grid>
                             
@@ -106,7 +115,7 @@ function People() {
                             
                             <Grid container direction="row" justifyContent='center' columnSpacing={4} rowSpacing={4}> 
                             {staffMembers && staffMembers.map((person) => (    
-                                <PersonCard details = {person} renderPerson={renderPerson} key={person.id} />    
+                                <PersonCard details={person} renderPerson={renderPerson} key={person._id} isLoggedIn={isLoggedIn} onAdminEdit={handleAdminEditFromCard} />    
                             ))}
                             </Grid>
 
@@ -119,7 +128,7 @@ function People() {
         
                             <Grid container direction="row" justifyContent='center' columnSpacing={4} rowSpacing={4}> 
                             {postdocMembers && postdocMembers.map((person) => (    
-                                <PersonCard details = {person} renderPerson={renderPerson} key={person.id} />    
+                                <PersonCard details={person} renderPerson={renderPerson} key={person._id} isLoggedIn={isLoggedIn} onAdminEdit={handleAdminEditFromCard} />    
                             ))}
                             </Grid>
                             
@@ -132,7 +141,7 @@ function People() {
         
                             <Grid container direction="row" justifyContent='center' columnSpacing={4} rowSpacing={4}> 
                             {gradMembers && gradMembers.map((person) => (    
-                                <PersonCard details = {person} renderPerson={renderPerson} key={person.id} />    
+                                <PersonCard details={person} renderPerson={renderPerson} key={person._id} isLoggedIn={isLoggedIn} onAdminEdit={handleAdminEditFromCard} />    
                             ))}
                             </Grid>
 
@@ -144,7 +153,7 @@ function People() {
                             </Toolbar>
                             <Grid container direction="row" justifyContent='center' columnSpacing={4} rowSpacing={4}> 
                             {facAffMembers && facAffMembers.map((person) => (
-                                <AffiliateCard details={person} key={person.id} />
+                                <AffiliateCard details={person} key={person._id} isLoggedIn={isLoggedIn} onAdminEdit={handleAdminEditFromCard} />
                             ))}
                             </Grid>
 
@@ -156,7 +165,7 @@ function People() {
                             </Toolbar>
                             <Grid container direction="row" justifyContent='center' columnSpacing={4} rowSpacing={4}> 
                             {studAffMembers && studAffMembers.map((person) => (
-                                <AffiliateCard details={person} key={person.id} />
+                                <AffiliateCard details={person} key={person._id} isLoggedIn={isLoggedIn} onAdminEdit={handleAdminEditFromCard} />
                             ))}
                             </Grid>
 
@@ -170,7 +179,7 @@ function People() {
         
                             <Grid container direction="row" justifyContent='center' columnSpacing={4} rowSpacing={4}> 
                             {alumniMembers && alumniMembers.map((person) => (    
-                                <PersonCard details = {person} renderPerson={renderPerson} key={person.id} />    
+                                <PersonCard details={person} renderPerson={renderPerson} key={person._id} isLoggedIn={isLoggedIn} onAdminEdit={handleAdminEditFromCard} />    
                             ))}
                             </Grid>
                         </Container>

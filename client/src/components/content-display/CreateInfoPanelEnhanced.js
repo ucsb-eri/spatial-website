@@ -477,6 +477,7 @@ export default function CreateInfoPanelEnhanced(props) {
                                         Images (Optional)
                                     </Typography>
                                     <ImageUpload
+                                        inputId={`content-section-${section.id}`}
                                         images={section.images}
                                         onChange={(newImages) => updateContentSection(section.id, 'images', newImages)}
                                         multiple={true}
@@ -607,6 +608,7 @@ export default function CreateInfoPanelEnhanced(props) {
                                                     Images (Optional)
                                                 </Typography>
                                                 <ImageUpload
+                                                    inputId={`accordion-${accordion.id}-content-${content.id}`}
                                                     images={content.images}
                                                     onChange={(newImages) => updateAccordionContent(
                                                         accordion.id, content.id, 'images', newImages

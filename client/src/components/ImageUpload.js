@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Box, Button, Typography, IconButton, Card, CardMedia, CardActions, CircularProgress, TextField, CardContent } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
@@ -16,10 +16,26 @@ import { getUploadUrl } from '../utils/config';
  * Props:
  * - images: Array of image objects [{url: string, label: string}] or strings (for backward compatibility)
  * - onChange: Callback function called when images change
+ * - inputId: Optional unique id for the file input (auto-generated if omitted)
  * - multiple: Boolean - allow multiple images (default: false)
  * - maxImages: Number - maximum number of images (default: 5)
  */
-export default function ImageUpload({ images = [], onChange, multiple = false, maxImages = 5 }) {
+let nextUploadInputId = 0;
+
+function useUploadInputId(providedId) {
+    const generatedIdRef = useRef(null);
+    if (providedId) {
+        return providedId;
+    }
+    if (generatedIdRef.current === null) {
+        nextUploadInputId += 1;
+        generatedIdRef.current = `image-upload-input-${nextUploadInputId}`;
+    }
+    return generatedIdRef.current;
+}
+
+export default function ImageUpload({ images = [], onChange, multiple = false, maxImages = 5, inputId }) {
+    const uploadInputId = useUploadInputId(inputId);
     const [uploading, setUploading] = useState(false);
     const [uploadProgress, setUploadProgress] = useState({});
 
@@ -128,14 +144,14 @@ export default function ImageUpload({ images = [], onChange, multiple = false, m
                 <input
                     accept="image/*"
                     style={{ display: 'none' }}
-                    id="image-upload-input"
+                    id={uploadInputId}
                     type="file"
                     multiple={multiple}
                     onChange={handleFileSelect}
                     disabled={uploading || (normalizedImages.length >= maxImages)}
                     aria-label={multiple ? 'Upload multiple images' : 'Upload single image'}
                 />
-                <label htmlFor="image-upload-input">
+                <label htmlFor={uploadInputId}>
                     <Button
                         variant="outlined"
                         component="span"

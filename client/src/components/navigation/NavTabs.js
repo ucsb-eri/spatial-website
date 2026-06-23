@@ -19,7 +19,7 @@ export default function NavTabs(props) {
         console.log(button)
         if (button === "about") {
           setOpenAboutMenu(true)
-        } else if (button === "events") {
+        } else if (button.includes("news & events") || button === "events") {
           setOpenEventsMenu(true)
         } else if (button === "opportunities") {
           setOpenOppsMenu(true)
@@ -59,13 +59,13 @@ export default function NavTabs(props) {
     const drawerWidth = 240;
     
     const navItems = [
-      "Home", 
-      "About", 
-      "People", 
-      "Research", 
-      "Events", 
-      "Opportunities", 
-      "Give"
+      { label: "Home", route: "home" },
+      { label: "About", route: "about" },
+      { label: "People", route: "people" },
+      { label: "Research", route: "research" },
+      { label: "News & Events", route: "events" },
+      { label: "Opportunities", route: "opportunities" },
+      { label: "Give", route: "give" },
     ]
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
@@ -75,9 +75,9 @@ export default function NavTabs(props) {
           <Divider />
           <List>
             {navItems.map((item) => (
-              <ListItem key={item}>
-                <ListItemButton sx={{ textAlign: 'center' }} onClick = {() => handlePageChange(item.toLowerCase())} >
-                  <ListItemText primary={item} />
+              <ListItem key={item.route}>
+                <ListItemButton sx={{ textAlign: 'center' }} onClick={() => handlePageChange(item.route)}>
+                  <ListItemText primary={item.label} />
                 </ListItemButton>
               </ListItem>
             ))}
@@ -139,8 +139,8 @@ export default function NavTabs(props) {
                   <Tab
                     disableRipple={ripple}
                     value={"events"}
-                    label={'Events'}
-                    key={'Events'}
+                    label={'News & Events'}
+                    key={'News & Events'}
                     icon= {<ArrowDropDownIcon onClick={handlePopoverOpen} />}
                     iconPosition='end'
                     sx={{ fontSize: fontSize }}

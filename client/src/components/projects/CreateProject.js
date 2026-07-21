@@ -62,7 +62,8 @@ export default function CreateProject(props) {
     const [summary, setSummary] = useState(props.summary || '')
     const [pis, setPis] = useState(props.pis || '')
     const [funder, setFunder] = useState(props.funder || '')
-    const [funderLogo, setFunderLogo] = useState(props.funderLogo || '')
+    const [existingFunderLogo, setExistingFunderLogo] = useState(props.funderLogo || '')
+    const [funderLogoFile, setFunderLogoFile] = useState(null)
     const [image, setImage] = useState(null)
     const [existingImage, setExistingImage] = useState(props.image || null)
     const [errorMessage, setErrorMessage] = useState('')
@@ -116,11 +117,12 @@ export default function CreateProject(props) {
             setSummary(props.summary || '')
             setPis(props.pis || '')
             setFunder(props.funder || '')
-            setFunderLogo(props.funderLogo || '')
+            setExistingFunderLogo(props.funderLogo || '')
+            setFunderLogoFile(null)
             setExistingImage(props.image || null)
             setImage(null) // Clear any pending new image
         }
-    }, [props.id, props.name, props.summary, props.description, props.image])
+    }, [props.id, props.name, props.summary, props.description, props.image, props.pis, props.funder, props.funderLogo])
 
     const handleImageUpload = async (image) => {
        const formData = new FormData()
@@ -191,6 +193,14 @@ export default function CreateProject(props) {
                 }
                 // If both image and existingImage are null, finalImage will be null (image is optional)
                 
+                let finalFunderLogo = existingFunderLogo;
+                if (funderLogoFile != null) {
+                    const logoSuccess = await handleImageUpload(funderLogoFile)
+                    if (logoSuccess) {
+                        finalFunderLogo = logoSuccess.data.imageName
+                    }
+                }
+                
                 await editProject({
                     variables: {
                         id, 
@@ -199,8 +209,8 @@ export default function CreateProject(props) {
                         summary, 
                         description, 
                         image: finalImage,
-                        funder,
-                        funderLogo
+                        funder: funder || null,
+                        funderLogo: finalFunderLogo || null
                     }
                 })
                 
@@ -258,6 +268,14 @@ export default function CreateProject(props) {
                         console.log("Uploaded new image:", finalImage)
                     }
                 }
+
+                let finalFunderLogo = null;
+                if (funderLogoFile != null) {
+                    const logoSuccess = await handleImageUpload(funderLogoFile)
+                    if (logoSuccess) {
+                        finalFunderLogo = logoSuccess.data.imageName
+                    }
+                }
                 
                 const result = await addProject({
                     variables: {
@@ -266,8 +284,8 @@ export default function CreateProject(props) {
                         summary, 
                         description, 
                         image: finalImage,
-                        funder,
-                        funderLogo
+                        funder: funder || null,
+                        funderLogo: finalFunderLogo
                     }
                 })
                 
@@ -490,6 +508,85 @@ export default function CreateProject(props) {
                             aria-label="Upload project image"
                         >
                             {existingImage || image ? 'Replace Image' : 'Upload Image'}
+                        </Button>
+                    </label>
+                </FormControl>
+
+                <FormControl sx={{ width: "100%", mb: 3 }}>
+                    <TextField 
+                        id="project-funder" 
+                        label="Funder (Optional)" 
+                        value={funder} 
+                        variant="outlined"
+                        helperText="e.g., 'National Science Foundation'"
+                        onChange={(e) => {
+                            setFunder(e.target.value);
+                            markDirty();
+                        }}
+                        fullWidth
+                    />
+                </FormControl>
+
+                <FormControl sx={{ width: "100%", mb: 3 }}>
+                    <Typography variant="subtitle1" gutterBottom sx={{ mb: 2 }}>
+                        Funder Logo (Optional)
+                    </Typography>
+                    
+                    {(existingFunderLogo || funderLogoFile) && (
+                        <Card sx={{ maxWidth: 300, mb: 2, position: 'relative' }}>
+                            <CardMedia
+                                component="img"
+                                height="120"
+                                image={
+                                    funderLogoFile
+                                        ? URL.createObjectURL(funderLogoFile)
+                                        : existingFunderLogo?.startsWith('http')
+                                            ? existingFunderLogo
+                                            : `${process.env.REACT_APP_API_URL || 'http://localhost:3001'}/images/${existingFunderLogo}`
+                                }
+                                alt="Funder logo preview"
+                                sx={{ objectFit: 'contain', bgcolor: 'grey.100', p: 1 }}
+                            />
+                            <Box sx={{ p: 1, display: 'flex', justifyContent: 'center', gap: 1 }}>
+                                <Button
+                                    size="small"
+                                    color="error"
+                                    startIcon={<DeleteIcon />}
+                                    onClick={() => {
+                                        setFunderLogoFile(null);
+                                        setExistingFunderLogo(null);
+                                        markDirty();
+                                    }}
+                                    aria-label="Remove funder logo"
+                                >
+                                    Remove
+                                </Button>
+                            </Box>
+                        </Card>
+                    )}
+                    
+                    <input
+                        accept="image/*"
+                        id="project-funder-logo-upload"
+                        type="file"
+                        style={{ display: 'none' }}
+                        onChange={(e) => {
+                            const file = e.target.files[0];
+                            if (file) {
+                                setFunderLogoFile(file);
+                                setExistingFunderLogo(null);
+                                markDirty();
+                            }
+                        }}
+                    />
+                    <label htmlFor="project-funder-logo-upload">
+                        <Button
+                            variant="outlined"
+                            component="span"
+                            startIcon={<CloudUploadIcon />}
+                            aria-label="Upload funder logo"
+                        >
+                            {existingFunderLogo || funderLogoFile ? 'Replace Funder Logo' : 'Upload Funder Logo'}
                         </Button>
                     </label>
                 </FormControl>

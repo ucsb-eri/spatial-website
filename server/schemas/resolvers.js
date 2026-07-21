@@ -61,17 +61,17 @@ const resolvers = {
       throw new AuthenticationError('You must be logged in to delete a person');
     },
 
-    addProject: async (parent, {name, pis, summary, description, website, image}, context) => {
+    addProject: async (parent, {name, pis, summary, description, website, image, funder, funderLogo}, context) => {
       if (context.user) {
-        const project = await Projects.create({name, pis, summary, description, website, image})
+        const project = await Projects.create({name, pis, summary, description, website, image, funder, funderLogo})
         return project
       }
     },
-    editProject: async (parent, {id, name, pis, summary, description, image}, context) => {
+    editProject: async (parent, {id, name, pis, summary, description, image, funder, funderLogo}, context) => {
       if (context.user) {
         const updateProject = await Projects.findByIdAndUpdate(
           {_id: id},
-          {name, pis, summary, description, image},
+          {name, pis, summary, description, image, funder, funderLogo},
           {new: true}
           )
         return updateProject
